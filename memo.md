@@ -1,42 +1,86 @@
-ご提示いただいた研究草稿を拝見しました。強化学習（RL）における説明可能性を「内部の可視化」ではなく「構造制約下での再現可能性（および分布不変性）」と定義し、その成立・崩壊条件を定量的に評価するというアプローチは、現在のXAI（説明可能AI）における「事後解釈の妥当性（Faithfulness）」の議論に一石を投じる非常に興味深い視点です。
+draft.mdには入らないがメモしておきたい事柄を本ファイルに記載。
 
-以下に、新規性、論理の粗さ、不足している視点という観点から添削・フィードバックをまとめます。
+# 1. 元アイデア
 
-1. 新規性と評価できる点
-「説明可能性」の動的な定義: 説明可能性をモデル固有の静的な性質とせず、「モデル、タスク、構造制約、データ分布」の相互作用として捉える条件付き定義は非常に現代的で説得力があります。
-「再現できるが間違っている」ケースの定量的提示: 実験2（GridWorld）において、「行動一致率（AA）が高い（＝説明モデルとして忠実である）にもかかわらず、分布シフトで性能が崩壊する」ことを示した点は、既存の「Fidelity（忠実度）さえ高ければ良い」とする風潮への強力なカウンターエビデンスになっています。
-MoETの「制約の強さ」の操作: 決定木の深さや専門家数を「構造制約のパラメータ」として扱い、再現性が飽和するポイントを探る手法は、工学的にもクリアで再現性が高いです。
-2. 「粗」が目立つ点（論理・定義の整理が必要な箇所）
-「アーキテクチャ」か「後付け蒸留」かの混同:
-要旨では「Intuitive層とReasoned層からなる構造を導入」とあり、モデル自体の構造（Concept Bottleneck Modelsのような構成）を想起させます。
-一方で、実験では「Intuitiveを固定してReasonedを蒸留」とあり、これは**事後的な代理モデル（Global Surrogate）**の構築です。
-「説明がモデルの副産物ではなく再現性として定義される」という主張を強めるなら、後者の「事後的な蒸留がどこまで成功するかで、元のモデルの性質を逆説的に定義する」という立場をより明確に記述すべきです。
-「不変性（Invariance）」の定義の曖昧さ:
-「再現性 × 不変性」を説明可能性の条件としていますが、不変性の定義が「分布シフト下での性能維持」なのか「分布シフト下での行動一致率の維持」なのかが文脈によって揺れています。
-「再現性が高く、かつ不変性も高い場合にのみ『正しい説明』と呼ぶ」というロジックをより厳密に数式または図解で定義すると、論文としての堅牢性が増します。
-3. 「不足」している点（議論を深めるための提案）
-既存手法（SHAP/LIME等）との比較結果:
-「既存手法ではスプリアス相関に騙されるが、本手法の枠組みならそれを検出できる」という対比が必要です。例えば、SHAP値がスプリアス特徴 c に高い寄与を出して「説明成功」と誤認させてしまう様子を対照実験として入れると、本手法の「判定能力」が際立ちます。
-「構造制約」の種類の多様性:
-現在はMoET（決定木）に限定されていますが、「線形モデル」や「論理式」など、他の構造制約との比較があると、「どのような制約ならこのタスクを記述できるのか」というメタ的な知見が得られます。
-「説明可能性の崩壊」の閾値:
-「AAが0.8以下なら説明不可能」といった絶対的な基準は出せないまでも、「これ以上の複雑さを要求する場合、それは人間にとっての『説明』の域を超えている」といった、人間側の解釈可能性（Interpretability）の限界との接続に関する考察が欲しいところです。
-4. 具体的な修正案のポイント
-タイトル: 「条件付き定義」よりも「ボトルネック制約に基づく説明可能性の境界分析」といった、より操作的な（何をしたかが伝わる）表現も検討の余地があります。
-図表の活用: 送付いただいた aa_shift_gridworld.png は非常に明快です。この図において、「再現できているが（AA高）、実はスプリアス依存である（性能低）」という領域を、ヒートマップ上で「Spurious Faithfulness領域」のように名付けて強調すると、読者の理解が早まります。
-参考文献への追加提案:
-Adebayo et al. (2018) "Sanity Checks for Saliency Maps"（勾配ベースの説明がエッジ検出器と変わらないことを示した研究）
-Rudin (2019) "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead"（事後解釈の危険性と構造的解釈性の重要性）
-これらの「事後解釈への懐疑論」を引用することで、本研究の動機をより強固にできます。
-総評: 非常にポテンシャルの高い研究です。特に「説明を生成して終わり」ではなく「その説明が成立する条件の限界をテストする」という姿勢は、今後の信頼できるAI（Trustworthy AI）において不可欠な視点です。上記の「事後蒸留としての位置づけの明確化」と「既存手法との検出能力の比較」を強化すれば、トップ会議（ICLRやNeurIPSのXAIワークショップ等）でも十分に戦える内容になると感じました。
+元アイデア:ブラックボックスのNN(Intuitive)の横に説明可能な何か(Reasoned)を置いて相互作用させたら、人間が理解した気になる(Intuitiveだけ)のと説明できるように理解を深める(Intuitive+Reasoned)のとで"深さ"が違うんじゃないか。RLやらの文脈の「説明可能」は人間を相手にしたものが多いが、必ずしも人間だけを相手にするんじゃなくて、ブラックボックスが「説明可能」になったら別のブラックボックスに転移できるし人間も読める。
 
-完了報告
-2件の実験データ（CartPole, GridWorld）と画像（AAヒートマップ、性能グラフ）に基づき、以下の内容で添削を行いました：
 
-新規性: 説明可能性を「再現性×不変性」の動的境界として定義した点を高く評価。
-粗の指摘: モデル構造そのものか事後蒸留かの定義の混同、および不変性の定義の揺れを指摘。
-不足の指摘: SHAP等の既存手法によるスプリアス検出失敗との比較、および人間側の限界値（Cognitive Load）への言及を推奨。
-📒 次のステップとして、このドラフトをさらに洗練させるための具体的なアクションを提案します。
+# 2. 足りない実験
 
-🔍 既存のSHAPやLIMEがスプリアス相関を誤認する様子を比較実験に追加しますか？
+この原稿をフルペーパーとして強くするには、次の実験が必要らしいです。
+
+1. **分布シフト条件の拡張**
+   - reverse だけでなく、報酬関数変更、ゴール配置変更、観測欠落を追加する。
+   - これで「c の反転専用の話」ではないと示せる。
+
+2. **MoET 以外の構造制約との比較**
+   - 線形モデル
+   - 単一決定木
+   - shallow tree
+   - soft decision tree
+   - 可能ならルールベース表現
+   - これで「MoET 固有の話ではない」ことを示せる。
+
+3. **蒸留データ量の感度分析**
+   - 1k / 5k / 10k / 20k で再現性がどう変わるかを振る。
+   - 再現性がデータ量にどれだけ依存するかがわかる。
+
+4. **複数シードのばらつき評価の強化**
+   - 3シードでは弱いので、少なくとも 5〜10 シードほしい。
+   - 特に GridWorld のスプリアス条件は分散が出やすいはず。
+
+5. **行動一致率以外の忠実性指標**
+   - 逐次行動の一致
+   - 方策分布の KL
+   - 軌跡レベルの一致
+   - 介入下での反応差
+   - これで「同じ行動を出したが内部は違う」問題を少し減らせる。
+
+6. **説明生成そのものとの接続実験**
+   - Reasoned model からルール列や自然言語説明を生成し、それが AA と不変性にどう結びつくかを見る。
+   - ここで初めて、あなたの“夢”に近い「人間と別ブラックボックスの双方に読める」方向へ接続できる。
+
+7. **共同適応の実験**
+   - 人間が Reasoned model を見ながら Intuitive policy を修正できるか。
+   - 対話的説明の利点は、静的な理解ではなく、ユーザの理解が更新される点にある。[^1][^2]
+
+
+# 3. 参考文献/先行研究
+
+重複を少し整理して、この会話で実質候補として出たものを、**引用優先 / 勉強用 / 脇役**で並べました。大きくは、`説明付き知識蒸留・概念ボトルネック・代理モデル` の流れと、`対話的・共同構成的XAI` の流れに分かれます。[^1][^2][^3]
+
+| Paper | Summary |
+|---|---|
+| Learning Global Additive Explanations of Black-Box Models | **Label: 引用優先.** Distills a black-box model into global additive explanations; the learned feature shapes are meant to preserve fidelity while staying interpretable. Good if you want to say your method is about *compressing behavior into a readable surrogate*, not just drawing local attributions. |
+| ConceptDistil: Model-Agnostic Distillation of Concept Explanations | **Label: 引用優先.** Uses knowledge distillation to bring concept explanations to any black-box classifier. This is one of the closest matches to your “human-readable intermediate representation” idea. |
+| Improving Knowledge Distillation with Teacher's Explanation | **Label: 引用優先.** Lets the student learn not only from teacher predictions but also from teacher explanations, using superfeature explanations. Useful for the “explanations can be transferred” framing. |
+| Knowledge Distillation Decision Tree for Unravelling Black-Box Machine Learning Models | **Label: 勉強用.** Distills a black-box into a decision tree and emphasizes structural stability, simplicity, and predictivity. Nice conceptual support for why your own structural constraints matter. |
+| Learning Interpretation with Explainable Knowledge Distillation | **Label: 引用優先.** Argues that vanilla KD may not transfer explainable knowledge, and adds explanation transfer to improve faithfulness and accuracy. |
+| Explainable Knowledge Distillation / Harnessing Teacher’s Explanation for Improved Knowledge Distillation | **Label: 引用優先.** Later variants of the same idea: transfer teacher explanations along with predictions so the student learns the “right features.” Better as supporting citations than as the core citation. |
+| Joint learning of interpretation and distillation | **Label: 勉強用.** Poses the question of whether a distilled model should make similar predictions for similar reasons, especially across different model structures. Very close in spirit to your black-box-to-black-box transfer question. |
+| Interpretable & Explorable Approximations of Black Box Models | **Label: 勉強用.** Learns compact transparent approximations of black-box models and lets users steer which subspace is explained. Helpful for the “explorable surrogate” angle. |
+| Can Explanations Be Useful for Calibrating Black Box Models? | **Label: 引用優先.** Uses explanations to calibrate a black-box model on a new domain and shows the calibration model can transfer somewhat across tasks. Good if you want one paper that connects explanations to transfer. |
+| GLocalX - From Local to Global Explanations of Black Box AI Models | **Label: 勉強用.** Aggregates local explanations into global ones and tries to keep the proxy model both simple and faithful. Useful as a bridge between local and global explanation views. |
+| Regularizing Black-box Models for Improved Interpretability | **Label: 勉強用.** Regularizes a model during training so post-hoc explanations become more stable and useful. This is a nice “train-time interpretability” counterpoint to post-hoc distillation. |
+| Exploring Multi-Task Learning for Explainability | **Label: 勉強用.** Trains a black-box and a surrogate together so the surrogate tracks the teacher more closely. Helpful if you want a softer alternative to pure post-hoc distillation. |
+| Post-hoc Concept Bottleneck Models | **Label: 引用優先.** Turns any neural network into a concept bottleneck model without sacrificing performance, and can transfer concepts from other datasets or natural language descriptions. This is one of the strongest citations for your “another black box can read it” direction. |
+| Concepts from Representations: Post-hoc Concept Bottleneck Models via Sparse Decomposition of Visual Representations | **Label: 勉強用.** Retrofits interpretability onto pretrained models by decomposing representations into concepts and filtering them with multimodal LMs. Good for the “post-hoc concept extraction” family. |
+| Concept Embedding Models | **Label: 勉強用.** Learns richer concept representations that support interventions and work under sparse concept supervision. Useful if you later want concept-level intervention as part of the story. |
+| Do Concept Bottleneck Models Learn as Intended? | **Label: 脇役 / 注意.** A cautionary paper: CBMs can fail to realize the intended semantic interpretability and intervenability. Good as a limitation citation, not as a positive precedent. |
+| Learning Bottleneck Concepts in Image Classification | **Label: 勉強用.** Learns bottleneck concepts without explicit concept supervision, showing another route to human-readable intermediate concepts. |
+| Incremental Residual Concept Bottleneck Models | **Label: 勉強用.** Adds missing concepts post-hoc and proposes a concept-utilization metric; useful if you want to talk about concept completeness. |
+| Explanation Bottleneck Models | **Label: 勉強用.** Generates a text explanation first and then predicts from that explanation, using distillation to keep the explanation fluent and task-aligned. Very relevant if you want natural-language intermediates. |
+| Machine Explanations and Human Understanding | **Label: 引用優先.** The key human-centered XAI paper here: explanations can have mixed or negative effects, and human intuitions matter for what they can actually improve. |
+| Reflexive Dialogue-Based Explainability for Human-AI Collaboration | **Label: 引用優先.** Reports that reflexive dialogue improves task accuracy, comprehension, and trust calibration relative to static explanations. Good if you want the dialogue/interaction route in one sentence. |
+| Editable XAI: Toward Bidirectional Human-AI Alignment with Co-Editable Explanations of Interpretable Attributes | **Label: 引用優先.** Lets users write rules to improve control and deepen understanding; directly supports the bidirectional-alignment framing. |
+| Towards Co-Constructed Explanations: CoCoXplain | **Label: 引用優先.** Treats explanation as a co-constructed process and reports improved subjective understanding and trust-related measures. Good if you want to say the literature already treats explanation as interaction, not output. |
+| Explainable AI as Collaborative Task Solving | **Label: 勉強用.** Uses Theory of Mind to model machine and human beliefs explicitly, with improved trust over saliency maps. A useful conceptual bridge if you later expand the human side. |
+
+If you want, I can turn this into a **3-column bibliography table** next: `paper / why cite it / where it fits in your draft`, which is probably the most usable form for writing. これは会話ベースの初期スキャンなので、用語を少し変えると近縁論文はまだ増えるはずです。
+
+[^1]: Chen et al., 2022. Machine Explanations and Human Understanding. Trans. Mach. Learn. Res.
+
+[^2]: Sousa et al., 2022. ConceptDistil: Model-Agnostic Distillation of Concept Explanations. arXiv.org.
+
+[^3]: Mindlin et al., 2025. Towards Co-Constructed Explanations: A Multi-Agent Reasoning-Based Conversational System for Adaptive Explanations. International Conference on Human-Agent Interaction.
 
