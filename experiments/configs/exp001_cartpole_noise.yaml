@@ -1,0 +1,24 @@
+name: exp001_cartpole_noise
+description: "CartPole-v1 にガウスノイズ特徴を追加し、MoET の再現性ボトルネックを評価する基準実験"
+
+env:
+  base: CartPole-v1
+  noise_dims: [0, 4, 8, 16]
+
+intuitive:
+  algorithm: DQN
+  n_steps: 100000
+
+moet:
+  gating: soft
+  expert_counts: [2, 3, 4]
+  tree_depths: [1, 2, 3, 4, 5]
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000   # 蒸留データとは別シードで収集する評価用状態セット
+
+evaluation:
+  n_eval_episodes: 50
+  seeds: [42, 123, 456]
+
+output_dir: experiments/results/exp001_cartpole_noise

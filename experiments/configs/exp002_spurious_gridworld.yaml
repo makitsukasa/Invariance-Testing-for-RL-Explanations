@@ -1,0 +1,28 @@
+name: exp002_spurious_gridworld
+description: "Spurious GridWorld — スプリアス相関に依存した policy の構造制約下での再現性と分布シフトへの崩壊を検証"
+
+env:
+  type: gridworld
+  grid_size: 5
+  max_steps: 100
+  spurious_p_values: [0.0, 0.2, 0.5]   # 0.0=完全相関, 0.2=強スプリアス, 0.5=無関係
+
+intuitive:
+  algorithm: DQN
+  n_steps: 200000   # GridWorld は CartPole より難しいので多め
+
+moet:
+  gating: soft
+  expert_counts: [2, 3, 4]
+  tree_depths: [1, 2, 3, 4, 5]
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+
+evaluation:
+  n_eval_episodes: 50
+  seeds: [42, 123, 456]
+  # 分布シフト条件（GridWorld固有）
+  eval_conditions: [train, random_c, reversed_c]
+
+output_dir: experiments/results/exp002_spurious_gridworld

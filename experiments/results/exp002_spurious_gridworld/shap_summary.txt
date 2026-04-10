@@ -1,0 +1,17 @@
+=== SHAP 特徴重要度サマリー（GridWorld） ===
+
+
+--- spurious_p=0.0 ---
+  train       : agent_x: 0.0083  agent_y: 0.0093  c (spurious): 0.0181
+  random_c    : agent_x: 0.0095  agent_y: 0.0100  c (spurious): 0.0197
+  reversed_c  : agent_x: 0.0079  agent_y: 0.0089  c (spurious): 0.0181
+
+--- spurious_p=0.2 ---
+  train       : agent_x: 0.0077  agent_y: 0.0089  c (spurious): 0.0245
+  random_c    : agent_x: 0.0125  agent_y: 0.0124  c (spurious): 0.0358
+  reversed_c  : agent_x: 0.0058  agent_y: 0.0068  c (spurious): 0.0245
+
+--- spurious_p=0.5 ---
+  train       : agent_x: 0.0088  agent_y: 0.0077  c (spurious): 0.0124
+  random_c    : agent_x: 0.0079  agent_y: 0.0069  c (spurious): 0.0137
+  reversed_c  : agent_x: 0.0081  agent_y: 0.0061  c (spurious): 0.0124

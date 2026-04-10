@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(npm i:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx omc:*)",
+      "Bash(ls:*)",
+      "Bash(python -m venv .venv)",
+      "Bash(.venv/Scripts/pip install:*)",
+      "Bash(.venv/Scripts/python:*)",
+      "Bash(du -sh experiments/results/exp001_cartpole_noise/* experiments/results/exp002_spurious_gridworld/* experiments/results/img.zip)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
