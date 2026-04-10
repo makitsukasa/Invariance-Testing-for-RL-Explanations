@@ -1,6 +1,6 @@
-# ブラックボックスな意思決定モデルにおける説明可能性の条件付き定義とその検証
+# 構造制約ボトルネックに基づく強化学習方策の説明可能性境界の分析
 
-強化学習（RL）の説明可能性を「内部の可視化」ではなく **「構造制約下での意思決定の再現可能性」** として定義し、その成立条件・崩壊条件を実験的に検証するプロジェクト。
+強化学習（RL）の説明可能性を「内部の可視化」ではなく **「構造制約下での意思決定の再現可能性」** として定義し、その成立条件・崩壊条件を実験的に診断するプロジェクト。
 
 ---
 
@@ -10,10 +10,18 @@
 
 本研究は以下を提案する：
 
-- **Intuitive 層**：ブラックボックスな RL policy（DQN）
-- **Reasoned 層（Z）**：構造制約付き表現（本実装では MoET）
-- **説明可能性の定義**：Z を通過しても意思決定が保存されるか否か
-- **主張**：説明可能性を保証するのではなく、「成立する条件 / 崩壊する条件」を定量的に判定する枠組みを提供する
+- **Intuitive policy**：ブラックボックスな RL policy（DQN）
+- **Reasoned model**：構造制約付き蒸留モデル（本実装では MoET）
+- **説明可能性の定義**：再現性（Reasoned が Intuitive の行動を再現できるか）と不変性（分布シフト下でも再現が維持されるか）の二軸で診断する
+
+### 診断枠組み
+
+| | 不変性：高 | 不変性：低 |
+|---|---|---|
+| **再現性：高** | 現在の情報では最も強い説明候補 | spurious な依存を忠実に写している疑いが強い |
+| **再現性：低** | 粗すぎる surrogate、または capacity 不足 | 説明として弱い |
+
+この分類は確定的な判定基準ではなく、観測された分布の範囲での整合性を診断するものである。不変性が高いことは因果的な正当性を保証しない。
 
 ---
 
@@ -34,11 +42,12 @@
 ```
 .
 ├── draft.md                          # 研究論文草稿
-├── memo.md                           # アイデアメモ・フィードバック記録
+├── memo.md                           # アイデアメモ・査読フィードバック・先行研究リスト
 │
 └── experiments/
     ├── run_cartpole.py               # 実験1 エントリポイント
     ├── run_gridworld.py              # 実験2 エントリポイント
+    ├── shap_analysis.py              # SHAP分析（GridWorld対象）
     ├── visualize.py                  # 可視化スクリプト（再実験不要）
     │
     ├── configs/
@@ -55,7 +64,7 @@
     │
     └── results/
         ├── exp001_cartpole_noise/    # 実験1 結果
-        └── exp002_spurious_gridworld/ # 実験2 結果
+        └── exp002_spurious_gridworld/ # 実験2 結果（SHAP結果含む）
 ```
 
 ---
@@ -68,7 +77,7 @@ python -m venv .venv
 .venv/Scripts/activate        # Windows
 # source .venv/bin/activate   # Mac/Linux
 
-pip install gymnasium stable-baselines3 scikit-learn numpy pandas matplotlib torch pyyaml
+pip install gymnasium stable-baselines3 scikit-learn numpy pandas matplotlib torch pyyaml shap
 ```
 
 ---
@@ -81,6 +90,9 @@ python experiments/run_cartpole.py --config experiments/configs/exp001_cartpole_
 
 # 実験2：Spurious GridWorld
 python experiments/run_gridworld.py --config experiments/configs/exp002_spurious_gridworld.yaml
+
+# SHAP分析（実験2の結果が必要）
+python experiments/shap_analysis.py
 
 # 可視化（既存結果から図を生成、再実験不要）
 python experiments/visualize.py --exp all   # 両方
@@ -98,6 +110,7 @@ python experiments/visualize.py --exp exp002
 
 ノイズ次元数 N を増やすと、MoET の深さを深めても行動一致率（AA）の上限が低下する。
 N=0 では depth=5 で AA≈0.91 に達するが、N=16 では 0.80 付近で頭打ちになる。
+これは診断枠組みでいう「再現性低」状態への移行であり、説明可能性が入力の複雑さにも依存することを示す。
 
 ### 実験2：GridWorld（相関スプリアスと分布シフト）
 
@@ -108,7 +121,11 @@ p=0.0（完全相関）・reversed\_c 条件において：
 | train | 0.985 | 0.971 | 0.969 |
 | reversed\_c | **0.954** | **−1.000** | **−1.000** |
 
-**AA=0.95 かつ J=−1.000** — MoET は Intuitive のスプリアス依存を忠実に再現し、両者とも等しく完全に失敗した。これが本研究の核心的観察である「再現できるが間違っている」ケースの数値的証拠。
+**AA=0.95 かつ J=−1.000** — 診断枠組みでいう「再現性高 × 不変性低」に相当する。MoET は Intuitive のスプリアス依存を忠実に再現し、両者とも等しく完全に失敗した。これが本研究の核心的観察である「再現できるが間違っている」ケースの数値的証拠。
+
+### SHAP との比較
+
+同じ Intuitive policy に SHAP（KernelExplainer）を適用すると、スプリアス特徴 c の重要度は train / reversed\_c 条件で完全に同値（Mean |SHAP| = 0.0181）となる。SHAP は「方策が c を使っている」という事実は示すが、分布シフト後に依存が無効化されるという事実は検出できない。本研究の枠組みはこの隙間を補完する。
 
 ---
 
@@ -116,7 +133,7 @@ p=0.0（完全相関）・reversed\_c 条件において：
 
 | 手法 | 目的 | 本研究との違い |
 |------|------|--------------|
-| MoET（Vasic et al., 2019） | policy を精度よく近似する | MoET は Z の実装候補。本研究の主張は「いつ崩壊するか」の判定 |
+| MoET（Vasic et al., 2019） | policy を精度よく近似する | MoET は Reasoned model の実装候補。本研究の問いは「いつ崩壊するか」の診断 |
 | CBM | 事前定義した概念を経由させる | 概念ラベル不要。構造制約のみ |
-| Information Bottleneck | 情報を最小限に圧縮する | 圧縮≠説明可能。決定の保存を評価 |
-| LIME / SHAP | 個別インスタンスをローカルに説明する | 事後的・局所的。本研究は構造的・大域的 |
+| Information Bottleneck | 情報を最小限に圧縮する | 圧縮≠説明可能。決定の保存を診断 |
+| LIME / SHAP | 個別インスタンスをローカルに説明する | 分布シフト下での依存の有効性を検出できない。本研究はその補完 |
