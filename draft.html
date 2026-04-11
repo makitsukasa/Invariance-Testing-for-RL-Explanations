@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--template.htmlへの追記 1.(数式に対応させる)-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax:{inlineMath: [['$', '$']]},
+      messageStyle: "none"
+    });
+</script>
+<!--追記 1.ここまで-->
+<title>draft.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+  <!--template.htmlへの追記 2.(--- で改ページ)-->
+  <style>
+    hr {
+      opacity: 0;
+      break-after: page;
+    }
+  </style>
+  <!--追記 2.ここまで-->
+<h1 id="%E6%A7%8B%E9%80%A0%E5%88%B6%E7%B4%84%E3%83%9C%E3%83%88%E3%83%AB%E3%83%8D%E3%83%83%E3%82%AF%E3%81%AB%E5%9F%BA%E3%81%A5%E3%81%8F%E5%BC%B7%E5%8C%96%E5%AD%A6%E7%BF%92%E6%96%B9%E7%AD%96%E3%81%AE%E8%AA%AC%E6%98%8E%E5%8F%AF%E8%83%BD%E6%80%A7%E5%A2%83%E7%95%8C%E3%81%AE%E5%88%86%E6%9E%90">構造制約ボトルネックに基づく強化学習方策の説明可能性境界の分析</h1>
+<h2 id="%E8%A6%81%E6%97%A8">要旨</h2>
+<p>本研究は、強化学習におけるブラックボックス方策の説明可能性を、内部表現の可視化ではなく、外部から与えた構造制約のもとで元の意思決定をどの程度忠実に再現できるかという観点から定義する。元の方策を <strong>Intuitive policy</strong>、構造制約付きの蒸留モデルを <strong>Reasoned model</strong> と呼ぶ。Reasoned model は、人間にとって直接わかりやすい説明文を生成することを目的としない。むしろ、元の方策の振る舞いをどこまで圧縮しつつ保存できるかを測るための、制約付き再現装置として用いる。</p>
+<p>この立場は、説明を一方向の出力ではなく、共同構成・対話・編集可能性として捉える近年の XAI の流れと整合的である。また、説明をユーザが編集できるようにする研究や、教師の説明を学生へ蒸留する研究は、説明表現を静的な付加物ではなく、再利用可能な中間表現として扱う方向を示している。</p>
+<p>本研究の主張は二つである。第一に、構造制約下で高い再現性が得られても、それだけでは説明の正当性は保証されない。第二に、分布シフト下での不変性を併せて評価して初めて、「再現できるが誤っている」方策を識別できる。CartPole の拡張環境と、スプリアス相関を埋め込んだ GridWorld を用いた実験により、構造制約の強さ、入力分布、方策の依存構造が説明可能性の境界を規定することを示す。</p>
+<h2 id="1-%E5%BA%8F%E8%AB%96">1. 序論</h2>
+<p>説明可能AI、特に強化学習における説明可能化は、長く「説明をどう作るか」に焦点を当ててきた。しかし、局所近似や特徴寄与の可視化だけでは、それが元の意思決定をどれだけ忠実に捉えているのかは自明ではない。事後的説明は、もっともらしい説明を与えながら、実際の依存構造からずれてしまうことがある。さらに、人間向けの説明研究では、理解・信頼・満足が改善する場合もあれば、そうでない場合もあり、説明の価値を単純に一方向へ還元することは難しい。[^1]</p>
+<p>本研究は、この問題を「説明文の生成」ではなく、「構造制約のもとで方策がどこまで再現可能か」を問う判定問題として捉え直す。ここでいう構造制約とは、線形性、浅い決定木、あるいは Mixture of Expert Trees（MoET）のような、表現力に明示的な上限を持つモデルクラスを指す。元の方策がその制約の中で十分に再現できるなら、その方策は少なくともその粒度では説明可能だと言える。逆に、再現できないなら、その構造では説明が足りていない。</p>
+<p>ただし、再現できることは、正しいことを意味しない。とくに方策がスプリアス特徴に依存している場合、構造制約付きモデルはその依存関係ごと忠実に模倣してしまう。すると、訓練分布上では高い再現性を示しても、分布シフト下では両者とも失敗する。したがって、再現性だけでは不十分であり、不変性の評価が必要になる。</p>
+<p>本研究の貢献は次の三点にある。</p>
+<ol>
+<li>強化学習方策の説明可能性を、構造制約下での再現可能性として定義する枠組みを提示する。</li>
+<li>再現性と不変性を分けて測ることで、「再現できるが誤っている」ケースを明示的に検出する。</li>
+<li>単純な制御環境とスプリアス環境を用いて、構造制約の強さとデータ分布が説明可能性の境界をどう変えるかを示す。</li>
+</ol>
+<h2 id="2-%E5%95%8F%E9%A1%8C%E8%A8%AD%E5%AE%9A">2. 問題設定</h2>
+<h3 id="21-%E6%96%B9%E7%AD%96">2.1 方策</h3>
+<p>状態空間を $S$、行動空間を $A$ とし、確率的方策を $\pi_I(a\mid s)$ と表す。ここで $\pi_I$ を <strong>Intuitive policy</strong> と呼ぶ。これは、強化学習によって学習されたブラックボックス方策であり、内部表現の意味付けは与えない。</p>
+<h3 id="22-%E6%A7%8B%E9%80%A0%E5%88%B6%E7%B4%84%E4%BB%98%E3%81%8D%E3%83%A2%E3%83%87%E3%83%AB">2.2 構造制約付きモデル</h3>
+<p>Reasoned model は、Intuitive policy を模倣するために学習される構造制約付きのモデルである。Intuitive policy の状態 $s$ を、制約された中間表現 $z \in Z$ に写像する関数を $R$、そこから行動分布を出力する関数を $D$ とすると、</p>
+<p>$$
+z = R(s), \qquad \pi_R(a\mid s) = D(R(s))
+$$</p>
+<p>と書ける。ここで $Z$ は、低次元性、単純性、あるいは解釈可能性を持つ表現空間である。</p>
+<p>本研究では、Reasoned model を「人間が理解するためのモデル」として直接定義しない。代わりに、元の方策の行動をどこまで保存できるかを測るための制約付き代理モデルとして扱う。</p>
+<h3 id="23-%E8%AA%AC%E6%98%8E%E5%8F%AF%E8%83%BD%E6%80%A7%E3%81%AE%E8%A8%BA%E6%96%AD%E6%9E%A0%E7%B5%84%E3%81%BF">2.3 説明可能性の診断枠組み</h3>
+<p>本研究では、説明可能性を単一のスカラーとして評価するのではなく、次の二軸の組として捉える。</p>
+<ul>
+<li><strong>再現性</strong>: Reasoned model が Intuitive policy の行動をどれだけ一致して再現できるか。</li>
+<li><strong>不変性</strong>: 入力分布を変えたときに、再現された行動パターンが維持されるか。</li>
+</ul>
+<p>この二軸を組み合わせると、以下の四つの診断状態が得られる。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>不変性：高</th>
+<th>不変性：低</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>再現性：高</strong></td>
+<td>現在の情報では最も強い説明候補</td>
+<td>spurious な依存を忠実に写している疑いが強い</td>
+</tr>
+<tr>
+<td><strong>再現性：低</strong></td>
+<td>粗すぎる surrogate、または capacity 不足</td>
+<td>説明として弱い</td>
+</tr>
+</tbody>
+</table>
+<p>本研究はこの分類を確定的な判定基準として提示するものではない。不変性が高いことは因果的な正当性を保証しない。ただし、高い再現性と高い不変性の組み合わせは、その方策の振る舞いが構造制約で記述できており、かつ観測した分布の範囲では整合的であることを示す。逆に、再現性が高くとも不変性が低い場合は、Reasoned model が Intuitive policy のスプリアスな依存を忠実に写した疑いが強い。</p>
+<h2 id="3-%E6%8F%90%E6%A1%88%E6%9E%A0%E7%B5%84%E3%81%BF">3. 提案枠組み</h2>
+<h3 id="31-2%E6%AE%B5%E9%9A%8E%E5%AD%A6%E7%BF%92">3.1 2段階学習</h3>
+<p>複数目的を同時最適化すると学習が不安定になるため、本研究では段階的学習を採用する。</p>
+<ol>
+<li>Intuitive policy を強化学習で学習する。</li>
+<li>Intuitive policy を固定し、その行動を教師信号として Reasoned model を蒸留する。</li>
+<li>必要に応じて、軽微な微調整を行う。</li>
+</ol>
+<p>この分離により、Reasoned model の性能は、元の方策の再現能力として解釈しやすくなる。</p>
+<h3 id="32-reasoned-model-%E3%81%AE%E5%80%99%E8%A3%9C">3.2 Reasoned model の候補</h3>
+<p>本研究では、構造制約の強さを比較できるよう、以下のモデルを候補とする。</p>
+<ul>
+<li>線形モデル</li>
+<li>深さ制限付き決定木</li>
+<li>Mixture of Expert Trees（MoET）</li>
+</ul>
+<p>MoET を主な実装候補とする理由は、構造制約の強さを、専門家数と木の深さによって連続的に調整できるからである。したがって、「どの程度の制約まで再現が成立するか」を境界として観察しやすい。</p>
+<h3 id="33-%E8%A9%95%E4%BE%A1%E6%8C%87%E6%A8%99">3.3 評価指標</h3>
+<p>本研究では次の指標を用いる。</p>
+<ul>
+<li><strong>Action Agreement (AA)</strong>
+$$
+\mathrm{AA}(D) = \mathbb{E}_{s \sim D}[\mathbf{1}[\pi_I(s)=\pi_R(s)]]
+$$</li>
+<li><strong>KL divergence</strong>: Intuitive policy と Reasoned model の行動分布の差</li>
+<li><strong>Relative Performance Drop (RPD)</strong>
+$$
+\mathrm{RPD} = \frac{J_I - J_R}{J_I}
+$$
+ここで $J_I$ は Intuitive policy の累積報酬、$J_R$ は Reasoned model の累積報酬である。</li>
+</ul>
+<p>本研究では、AA を再現性の主指標、RPD を性能低下の補助指標とする。KL divergence は、AA が同じでも分布が異なる場合を補う。</p>
+<h2 id="4-%E5%AE%9F%E9%A8%93%E8%A8%AD%E8%A8%88">4. 実験設計</h2>
+<h3 id="41-%E5%AE%9F%E9%A8%93%E3%81%AE%E7%9B%AE%E7%9A%84">4.1 実験の目的</h3>
+<p>実験の目的は二つである。</p>
+<ol>
+<li>構造制約の強さに応じて、Intuitive policy をどこまで再現できるか。</li>
+<li>スプリアス相関を含む環境で、再現された依存が分布シフト下で破綻するか。</li>
+</ol>
+<h3 id="42-%E5%AE%9F%E9%A8%931-cartpole-%E3%83%8E%E3%82%A4%E3%82%BA%E6%8B%A1%E5%BC%B5">4.2 実験1: CartPole ノイズ拡張</h3>
+<p>標準的な CartPole-v1 の状態に、独立なガウスノイズを $N \in {0,4,8,16}$ 次元だけ追加し、DQN で Intuitive policy を学習する。Reasoned model として MoET を用い、専門家数 $K \in {2,3,4}$、深さ $d \in {1,2,3,4,5}$ を変化させる。</p>
+<p>この実験は、スプリアス依存そのものを扱うのではなく、構造制約が強くなると再現性がどこで頭打ちになるかを見るための基準実験である。</p>
+<h3 id="43-%E5%AE%9F%E9%A8%932-spurious-gridworld">4.3 実験2: Spurious GridWorld</h3>
+<p>エージェントの位置 $ (x,y) $ とスプリアス変数 $c$ のみを状態として与え、ゴール位置そのものは観測させない。$c$ はゴールを示すが、その対応は確率 $p$ によって崩れる。</p>
+<p>この設定では、Intuitive policy は $c$ に依存して意思決定せざるを得ない。したがって、Reasoned model が高い AA を示しても、それは「正しい依存」を再現しているとは限らない。分布シフトとして、$c$ をランダム化する条件と反転する条件を用い、再現性と性能がどう乖離するかを調べる。</p>
+<h3 id="44-%E8%A9%95%E4%BE%A1%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB">4.4 評価プロトコル</h3>
+<p>評価は、蒸留に使うデータと独立な評価用データで行う。これは、単なる記憶ではなく再現の汎化を測るためである。同一の環境条件では、各モデルは同一の eval set で比較する。</p>
+<h2 id="5-%E5%AE%9F%E9%A8%93%E7%B5%90%E6%9E%9C">5. 実験結果</h2>
+<h3 id="51-%E5%AE%9F%E9%A8%931">5.1 実験1</h3>
+<p>CartPole にノイズ次元を追加すると、MoET の再現性は深さに応じて改善するが、ノイズが増えるほど上限が下がる。たとえば、$N=0$ では深さ $d=5$ で AA が 0.908 に達する一方、$N=16$ では同じ深さでも AA は 0.804 にとどまる。</p>
+<p>この結果は、表現力に制約をかけたとき、再現性には明確なボトルネックがあることを示す。ノイズが増えるほど、構造制約を緩めても完全再現には近づけない。つまり、説明可能性はモデル側の構造だけでなく、入力の複雑さにも依存する。</p>
+<p>RPD は CartPole では天井効果のため不安定であり、主要な結論は AA と KL に置くのが妥当である。したがって、本実験の意義は「再現性の構造的上限」を示した点にある。</p>
+<p><img src="experiments/results/exp001_cartpole_noise/fig1_aa_heatmap.png" alt="Figure 1: AA ヒートマップ（K=4）。行が N、列が深さ d。N=0 では d=5 で AA=0.91 に達するが、N=16 では 0.80 止まりになる。"></p>
+<h3 id="52-%E5%AE%9F%E9%A8%932">5.2 実験2</h3>
+<p>GridWorld では、スプリアス特徴 $c$ を通じて「再現できるが間違っている」状況を作る。訓練条件では AA が高く、Intuitive policy と Reasoned model の報酬はほぼ一致する。ところが、$c$ を反転した reversed_c 条件でも AA は高いままでありながら、両者の報酬はともに大きく低下する。</p>
+<p>この結果は、Reasoned model が Intuitive policy の依存構造を忠実に再現している一方で、その依存自体が分布シフトに対して無効であることを示す。つまり、AA が高いからといって、その説明が正当だとは限らない。</p>
+<p><img src="experiments/results/exp002_spurious_gridworld/fig2_j_shift_p0.png" alt="Figure 2: GridWorld (p=0.0, K=4, d=5) の AA（左）と累積報酬（右）。train 条件では両モデルとも高性能だが、reversed_c では AA が高いまま J が−1.000 まで崩壊する。"></p>
+<h3 id="53-%E5%AE%9F%E9%A8%933-cartpole-n0--%E9%87%8D%E5%8A%9B%E3%82%B7%E3%83%95%E3%83%88%E5%86%8D%E7%8F%BE%E6%80%A7%E9%AB%98-%C3%97-%E4%B8%8D%E5%A4%89%E6%80%A7%E9%AB%98">5.3 実験3: CartPole N=0 + 重力シフト（再現性高 × 不変性高）</h3>
+<p>実験2が「再現できるが間違っている」ケースを示したのに対し、実験3はその対照として「再現できて、かつ間違っていない」ケースを示す。スプリアス特徴を含まない CartPole（$N=0$）を対象とし、学習後に物理パラメータを変えることで分布シフトを与える。重力（$g \in {9.8, 5.0, 20.0}$）とポール長（$\ell \in {0.5, 0.25, 1.0}$）の二種類を独立に変化させ、高不変性が特定のシフト種別に依存しないかを確認した。Intuitive policy は実験1の $N=0$ 学習済みモデルを再利用し、Reasoned model には MoET（$K=4$, $d=5$）を用いた。</p>
+<p>結果を次に示す（3シード平均±標準偏差）。</p>
+<table>
+<thead>
+<tr>
+<th>評価条件</th>
+<th>AA</th>
+<th>J_intuitive</th>
+<th>J_reasoned</th>
+<th>RPD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train ($g=9.8$, $\ell=0.5$)</td>
+<td>0.907±0.021</td>
+<td>179.6</td>
+<td>188.3</td>
+<td>−0.048±0.152</td>
+</tr>
+<tr>
+<td>gravity_lo ($g=5.0$, $\ell=0.5$)</td>
+<td>0.822±0.026</td>
+<td>208.2</td>
+<td>272.4</td>
+<td>−0.305±0.367</td>
+</tr>
+<tr>
+<td>gravity_hi ($g=20.0$, $\ell=0.5$)</td>
+<td>0.804±0.029</td>
+<td>158.1</td>
+<td>124.2</td>
+<td>+0.207±0.159</td>
+</tr>
+<tr>
+<td>pole_short ($g=9.8$, $\ell=0.25$)</td>
+<td>0.757±0.153</td>
+<td>190.3</td>
+<td>133.5</td>
+<td>+0.301±0.359</td>
+</tr>
+<tr>
+<td>pole_long ($g=9.8$, $\ell=1.0$)</td>
+<td>0.594±0.085</td>
+<td>35.3</td>
+<td>228.8</td>
+<td>−7.955±6.786</td>
+</tr>
+</tbody>
+</table>
+<p>重力シフト（gravity_lo, gravity_hi）とポール短縮（pole_short）の三条件において、AA は 0.76〜0.82 を維持し、$J_{\mathrm{intuitive}}$ と $J_{\mathrm{reasoned}}$ はともに正常範囲に留まる。実験2の reversed_c 条件（AA=0.954、$J=-1.000$）と比べると、J の振る舞いは対照的であり、スプリアス依存による壊滅的な崩壊は見られない。これが「再現性高 × 不変性高」の状態の実験的証拠である。</p>
+<p>ポール延長（pole_long, $\ell=1.0$）は異なる様相を示す。AA が 0.59 まで低下し、$J_{\mathrm{intuitive}}=35.3$（大幅低下）に対して $J_{\mathrm{reasoned}}=228.8$ という乖離が生じる。これは逆方向のシフトが Intuitive policy 自体の機能を損なっているためであり、スプリアス依存の崩壊とは性質が異なる。Intuitive policy が動作しなくなった分布では AA の解釈が難しくなるという、フレームワーク自体の限界を示すケースとして位置づけられる。</p>
+<p>実験2と実験3の対比から、診断枠組みの「再現性高 × 不変性低」（スプリアス依存）と「再現性高 × 不変性高」（依存が有効）の二状態を複数種類の分布シフトで実験的に区別できる。</p>
+<p><img src="experiments/results/exp003_cartpole_gravity/fig3_diagnostic_comparison.png" alt="Figure 3: 診断枠組みの対比。左列（スプリアス環境 $p=0.0$）では AA が高いまま J が −1.0 まで崩壊する。右列（スプリアスなし $N=0$）では重力・ポール長を変えた5条件のうち、gravity_hi・pole_short を含む主要条件で J が正常範囲に留まる。"></p>
+<h3 id="54-shap-%E3%81%A8%E3%81%AE%E4%BD%8D%E7%BD%AE%E3%81%A5%E3%81%91">5.4 SHAP との位置づけ</h3>
+<p>同じ Intuitive policy に SHAP を適用すると、スプリアス特徴 $c$ は重要特徴として抽出される。これは、SHAP が現在の方策がどの特徴に依存しているかを捉えるという意味では妥当である。ただし、reversed_c 条件でも SHAP の値自体は変わらず、分布シフト後にその依存が無効化される事実は示せない。</p>
+<p>この比較が示すのは、特徴寄与の説明と、分布シフト下での正当性評価は別問題だということだ。本研究の枠組みは、SHAP のような局所説明を置き換えるものではなく、それだけでは見えない「依存の有効性」を追加で測るためのものとして位置づけられる。</p>
+<p><img src="experiments/results/exp002_spurious_gridworld/fig4_shap_p0.png" alt="Figure 4: p=0.0 の SHAP 特徴重要度。train と reversed_c でスプリアス特徴 c の重要度がほぼ同値（0.0181）であり、分布シフト後の依存崩壊を検出できていない。"></p>
+<h2 id="6-%E8%AD%B0%E8%AB%96">6. 議論</h2>
+<p>本研究の位置づけは、説明可能性を「説明文の生成」ではなく「構造制約下での再現可能性と不変性の組」として診断する枠組みを提示した点にある。従来の人間中心 XAI が説明の生成方法に焦点を当てるのに対し、本研究は「どのような条件のもとで説明が成立し、どのような条件で崩壊するか」を問う。この問いは、説明を共同構成・対話・編集可能性として見る研究や、教師の説明を学生へ渡す知識蒸留研究と整合的であり、説明表現を静的な付加物ではなく再利用可能な中間表現として扱う方向と一致する。[^1][^2][^3][^4][^5]</p>
+<p>実験結果からは少なくとも次のことが言える。再現性は説明可能性の必要条件だが十分条件ではなく、スプリアス相関が存在する場合には Reasoned model がその依存ごと忠実に写しとってしまう。分布シフト下での不変性を合わせて評価することで、「再現できるが誤っている」ケースを他の状態と区別できる。さらに、スプリアス特徴を含まない環境（実験3）では、重力シフトとポール長短縮という異なる種類の分布シフトに対して AA と J がともに正常範囲に保たれ、「再現できて、かつ間違っていない」状態を複数条件で示すことができた。ただし、ポール長を2倍にした extreme なシフト（pole_long）では Intuitive policy 自体が機能不全に陥り、AA が低下するとともに $J_{\mathrm{intuitive}}$ と $J_{\mathrm{reasoned}}$ が大きく乖離した。この結果は、本枠組みが Intuitive policy の動作が前提となっており、Intuitive が OOD で破綻した条件では AA の解釈が困難になるという限界を示している。ただし、この枠組みは方策の依存構造の因果的正当性を保証するものではなく、あくまで観測された分布の範囲での整合性を診断するものである。</p>
+<h2 id="7-%E7%B5%90%E8%AB%96">7. 結論</h2>
+<p>本研究は、強化学習方策の説明可能性を、構造制約下での再現可能性として捉え直した。結果として、再現性が高いだけでは十分でなく、分布シフト下での不変性を併せて見なければ、「再現できるが誤っている」方策を見逃すことが示された。</p>
+<p>したがって、説明可能性は単なる可視化の問題ではなく、構造制約、データ分布、評価条件の相互作用として扱うべきである。本研究は、その境界を測るための実装的枠組みを与える。</p>
+
+</body>
+</html>
