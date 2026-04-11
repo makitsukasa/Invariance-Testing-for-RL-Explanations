@@ -33,7 +33,11 @@ def main():
 
     env_base = cfg.get("env", {}).get("base", "")
 
-    if "CartPole" in env_base:
+    # comparison 実験（model_types キーで判定）
+    if cfg.get("comparison", {}).get("model_types"):
+        from experiments.run_comparison import run_experiment
+        run_experiment(cfg)
+    elif "CartPole" in env_base:
         if cfg.get("env", {}).get("shift_conditions") or cfg.get("env", {}).get("gravity_conditions"):
             from experiments.run_gravity import run_experiment
         else:

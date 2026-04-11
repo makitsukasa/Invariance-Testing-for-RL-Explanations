@@ -1,0 +1,31 @@
+name: exp005_gridworld_comparison
+description: "Model comparison: MoET vs Linear vs SingleTree on Spurious GridWorld"
+
+env:
+  type: gridworld
+  grid_size: 5
+  max_steps: 100
+  spurious_p_values: [0.0, 0.2, 0.5]
+
+intuitive:
+  algorithm: DQN
+  n_steps: 200000
+  reuse_from: experiments/results/exp002_spurious_gridworld   # 既存モデルを再利用
+
+comparison:
+  model_types: [moet, linear, tree]
+  moet:
+    n_experts: 4
+    max_depth: 5
+  tree:
+    max_depth: 5
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+
+evaluation:
+  seeds: [42, 123, 456]
+  n_eval_episodes: 50
+  eval_conditions: [train, random_c, reversed_c]
+
+output_dir: experiments/results/exp005_gridworld_comparison

@@ -1,0 +1,27 @@
+name: exp004_cartpole_comparison
+description: "Model comparison: MoET vs Linear vs SingleTree on CartPole (N=0,4,8,16)"
+
+env:
+  base: CartPole-v1
+  noise_dims: [0, 4, 8, 16]
+
+intuitive:
+  n_steps: 100000
+  reuse_from: experiments/results/exp001_cartpole_noise   # 既存 N=* モデルを再利用
+
+comparison:
+  model_types: [moet, linear, tree]
+  moet:
+    n_experts: 4
+    max_depth: 5
+  tree:
+    max_depth: 5
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+
+evaluation:
+  seeds: [42, 123, 456]
+  n_eval_episodes: 50
+
+output_dir: experiments/results/exp004_cartpole_comparison
