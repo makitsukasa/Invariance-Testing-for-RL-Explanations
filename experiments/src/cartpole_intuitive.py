@@ -4,7 +4,7 @@ import numpy as np
 from stable_baselines3 import DQN
 from stable_baselines3.common.evaluation import evaluate_policy
 
-from .env import NoisyCartPoleEnv
+from .cartpole_env import NoisyCartPoleEnv
 
 
 def train_intuitive(noise_dim: int, n_steps: int, seed: int, save_path: Path) -> DQN:
