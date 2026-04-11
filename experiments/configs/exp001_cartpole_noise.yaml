@@ -19,6 +19,6 @@ moet:
 
 evaluation:
   n_eval_episodes: 50
-  seeds: [42, 123, 456]
+  seeds: [42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526]
 
 output_dir: experiments/results/exp001_cartpole_noise

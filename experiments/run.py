@@ -31,19 +31,21 @@ def main():
     with open(config_path, encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
 
-    env_base = cfg.get("env", {}).get("base", "")
+    env_cfg = cfg.get("env", {})
+    env_base = env_cfg.get("base", "")
+    env_type = env_cfg.get("type", "")
 
     # comparison 実験（model_types キーで判定）
     if cfg.get("comparison", {}).get("model_types"):
         from experiments.run_comparison import run_experiment
         run_experiment(cfg)
     elif "CartPole" in env_base:
-        if cfg.get("env", {}).get("shift_conditions") or cfg.get("env", {}).get("gravity_conditions"):
+        if env_cfg.get("shift_conditions") or env_cfg.get("gravity_conditions"):
             from experiments.run_gravity import run_experiment
         else:
             from experiments.run_cartpole import run_experiment
         run_experiment(cfg)
-    elif "GridWorld" in env_base or "grid" in env_base.lower():
+    elif "GridWorld" in env_base or "grid" in env_base.lower() or "grid" in env_type.lower():
         from experiments.run_gridworld import run_experiment
         run_experiment(cfg)
     else:

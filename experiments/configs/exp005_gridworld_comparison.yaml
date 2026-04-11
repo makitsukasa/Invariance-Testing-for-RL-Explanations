@@ -24,7 +24,7 @@ comparison:
   eval_n_samples: 5000
 
 evaluation:
-  seeds: [42, 123, 456]
+  seeds: [42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526]
   n_eval_episodes: 50
   eval_conditions: [train, random_c, reversed_c]
 

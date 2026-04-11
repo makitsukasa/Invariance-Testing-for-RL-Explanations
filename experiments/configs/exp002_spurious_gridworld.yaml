@@ -21,7 +21,7 @@ moet:
 
 evaluation:
   n_eval_episodes: 50
-  seeds: [42, 123, 456]
+  seeds: [42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526]
   # 分布シフト条件（GridWorld固有）
   eval_conditions: [train, random_c, reversed_c]
 
