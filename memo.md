@@ -4,53 +4,9 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
 
 元アイデア:ブラックボックスのNN(Intuitive)の横に説明可能な何か(Reasoned)を置いて相互作用させたら、人間が理解した気になる(Intuitiveだけ)のと説明できるように理解を深める(Intuitive+Reasoned)のとで"深さ"が違うんじゃないか。RLやらの文脈の「説明可能」は人間を相手にしたものが多いが、必ずしも人間だけを相手にするんじゃなくて、ブラックボックスが「説明可能」になったら別のブラックボックスに転移できるし人間も読める。
 
-# review
-
-致命的な問題（desk reject 相当）
-
-- 図表ゼロ — 実験データはあるのに可視化が論文に含まれていない
-- Related Work セクションが存在しない — 方策蒸留・解釈可能RLの先行研究との差分が不明
-- 引用5本 — NeurIPSは通常30-50本
-
-大きな問題
-
-- 統計的厳密性の不足 — 信頼区間なし、有意性検定なし、シード数n=3は少ない
-- 「境界の判定」という主張に対し、閾値・判定基準の定義がない — 実際には変化傾向を観察しているだけ
-- MoET のハイパーパラメータ（学習率・損失関数・バッチサイズ等）が未記載
-- 線形モデル・決定木との比較がない — MoET 一択の正当化が不十分
-
-軽微な問題
-
-- セクション5のタイトルが「結果の書き方」になっている
-- 議論セクションの3点が箇条書きのまま（散文に直すべき）
-- p=0.5 の「除外」を結果として考察に組み込むべき
-
-
-# 実験結果サマリー（2×2診断枠組みとの対応）
-
-| | 不変性：高 | 不変性：低 |
-|---|---|---|
-| **再現性：高** | **exp003** CartPole N=0 gravity_hi: AA=0.80, J=124–158 ✅ | **exp002** GridWorld reversed_c: AA=0.95, J=−1.000 ✅ |
-| **再現性：低** | （未実験） | （未実験） |
-
-exp003（2026-04-11 完了）: CartPole N=0, K=4/d=5 MoET, 重力×ポール長の5条件
-- exp001 の N=0 学習済みモデルを再利用（再学習なし）
-- gravity_lo: AA=0.822, J_I=208, J_R=272 / gravity_hi: AA=0.804, J_I=158, J_R=124
-- pole_short: AA=0.757, J_I=190, J_R=134
-- pole_long: AA=0.594, J_I=35, J_R=229 ← Intuitive 自体が OOD 失敗、別ケース
-- 対比: exp002 reversed_c AA=0.954, J=-1.000
-- `experiments/results/exp003_cartpole_gravity/`
-- `experiments/src/shifted_cartpole_env.py` で gravity + pole_length を制御
-
 # 足りない実験
 
 この原稿をフルペーパーとして強くするには、次の実験が必要らしいです。
-
-0. **✅ 再現性高 × 不変性高 セルを埋める実験** → exp003 完了（CartPole N=0 + 重力シフト）
-
-1. **分布シフト条件の拡張**
-   - reverse だけでなく、報酬関数変更、ゴール配置変更、観測欠落を追加する。
-   - これで「c の反転専用の話」ではないと示せる。
 
 2. **MoET 以外の構造制約との比較**
    - 線形モデル
@@ -122,11 +78,3 @@ If you want, I can turn this into a **3-column bibliography table** next: `paper
 [^2]: Sousa et al., 2022. ConceptDistil: Model-Agnostic Distillation of Concept Explanations. arXiv.org.
 
 [^3]: Mindlin et al., 2025. Towards Co-Constructed Explanations: A Multi-Agent Reasoning-Based Conversational System for Adaptive Explanations. International Conference on Human-Agent Interaction.
-
-
-Post-hoc Concept Bottleneck Models
-Mert Yuksekgonul, M. Wang, and 1 more
-International Conference on Learning Representations, 2022
-
-1
-A key benefit of PCBM is that it enables users to quickly debug and update the model to reduce spurious correlations and improve generalization to new distributions.
