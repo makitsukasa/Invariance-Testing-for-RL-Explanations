@@ -1,0 +1,14 @@
+=== モデル比較サマリー ===
+
+  model_type=linear  noise_dim=0  |  AA=0.817±0.076  J_I=185.07  J_R=258.13  RPD=-0.415±0.359
+  model_type=linear  noise_dim=4  |  AA=0.822±0.055  J_I=129.31  J_R=144.67  RPD=-0.116±0.138
+  model_type=linear  noise_dim=8  |  AA=0.822±0.031  J_I=129.97  J_R=127.27  RPD=0.005±0.063
+  model_type=linear  noise_dim=16  |  AA=0.819±0.002  J_I=76.25  J_R=82.77  RPD=-0.096±0.068
+  model_type=moet  noise_dim=0  |  AA=0.907±0.021  J_I=185.07  J_R=188.79  RPD=-0.025±0.151
+  model_type=moet  noise_dim=4  |  AA=0.839±0.056  J_I=129.31  J_R=140.88  RPD=-0.087±0.055
+  model_type=moet  noise_dim=8  |  AA=0.831±0.027  J_I=129.97  J_R=116.51  RPD=0.072±0.064
+  model_type=moet  noise_dim=16  |  AA=0.802±0.008  J_I=76.25  J_R=79.15  RPD=-0.046±0.077
+  model_type=tree  noise_dim=0  |  AA=0.896±0.026  J_I=185.07  J_R=186.69  RPD=-0.018±0.242
+  model_type=tree  noise_dim=4  |  AA=0.807±0.070  J_I=129.31  J_R=137.04  RPD=-0.063±0.253
+  model_type=tree  noise_dim=8  |  AA=0.810±0.025  J_I=129.97  J_R=109.24  RPD=0.049±0.228
+  model_type=tree  noise_dim=16  |  AA=0.788±0.005  J_I=76.25  J_R=81.29  RPD=-0.086±0.210
