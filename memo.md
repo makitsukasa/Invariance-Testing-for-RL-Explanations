@@ -2,43 +2,9 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
 
 # TODO - 実験以外
 
-## 本研究の意義
+## PEER_REVIEW 指摘（残タスク）
 
-従来の XAI のジレンマ： 説明可能性 vs 性能のトレードオフ（解釈可能なモデルは弱い）（e.g., Ribeiro et al. LIMEの弱点）
-この研究のポジション： トレードオフを回避できる。Intuitive には手を加えないため性能維持。Reasoned を横に置くだけ。
-
-だから「説明可能性の定義が何であれ」フレームワークとして使えて、Reasoned の中身は何でも差し替えられる。
-決定木でも MoETでもKANでも、「どれだけ Intuitive を再現できるか・シフトに強いか」が共通の評価軸になりうる。
-「良し悪しを論じる方法自体を提供している」というのは、論文の射程がかなり広い。
-
-- MoET
-- Kolmogorov-Arnold Networks
-- Symbolic Regression
-- Differentiable Programming
-- Program Synthesis
-
-OOD (e.g., WILDS) vs 本作: 性能維持 + モジュール非依存
-既存の OOD 評価と違うのは、Intuitive の性能を一切落とさずに評価できること、そして Reasonedの中身を問わない汎用性。
-
-Conventional XAI methods face a fundamental trade-off: interpretable models (e.g., decision trees) sacrifice performance, while high-performance models (e.g., deep nets) lack explainability [Ribeiro et al., 2016; Rudin, 2019]. This work circumvents this dilemma by decoupling Intuitive execution (preserved at full performance) from Reasoned modules (modular, pluggable). Our framework evaluates reproducibility and shift-robustness via a unified metric—Intuitive fidelity—**independent of Reasoned internals** (e.g., MoET, DTs, or KANs). Unlike prior OOD evaluations that degrade base performance, ours maintains Intuitive strength while providing a general benchmarking axis for reasoned models. This meta-evaluation enables broad comparisons across XAI paradigms.
-
-[所管] 追記しておきたい。ちなみにKANの実験はまあ要らんでしょと思っています
-
-## PEER_REVIEW 指摘（受理条件クラス）
-
-5.3 GridWorld 環境仕様の明記
-    状態空間の次元（(x, y, c) の3次元か）、行動空間（4方向）、報酬関数（ゴール到達: +1？ステップペナルティ？）、
-    エピソード長の上限をSection 5.3に追記。J = -1.000 の意味（報酬構造の下限値か正規化か）も合わせて明確化。
-
-    [所管] これはまあ書きゃいいんでしょ
-
-6.4/6.5 Table 2/3 のモデル間比較に統計検定を追加
-    既存データ（10シード）でt-testを実施し、Table 2/3 の主要な差（N=0でのMoET vs Linear 等）に
-    有意差マーク（*: p<0.05, **: p<0.01）を追加。実験6以外の検定がない点が批判されている。
-
-    [所管] だって検定してもつまんない結果しかなかったんですもん、一応追加はできますけど
-
-6節: KL divergence の扱いを整理
+6節: KL divergence の扱いを整理（放置中）
     現状は定義したが Table に数値未掲載。選択肢：
     (a) 実験2・5のKL値をTableに追加する
     (b) 「AAで十分な理由」を明示し、定義セクションからKLを削除または補足扱いに格下げ
@@ -47,37 +13,17 @@ Conventional XAI methods face a fundamental trade-off: interpretable models (e.g
         AAが有意差なしだけどKLが有意差ありみたいなのがあれば意味あるかも、そうじゃなきゃ確かに意味ないかも。
         他の実験で使うかもなので一旦放置、最終版直前で不要かを再度判断したい。
 
-## PEER_REVIEW 指摘（Majorクラス）
-
-7節: スプリアス依存検出後のアクションフロー
-    「検出した後に何をするか」が書かれていない。
-    e.g., Reasoned model の構造を見直す、Intuitive policy を再学習するなど、1段落追加。
-
-    [所管]
-        環境の再設計や、観測から除去、IRMなどにより、Intuitiveを再学習することが望まれる、みたいなこと？
-        論文に書けるほど論理が通ってない感じがする
-
-参考文献リストの整備
-    本文中で言及しているが脚注に未収録のもの多数：
-    Bastani et al. (2018), Kolter & Ng (2009), Koh et al. (2020), Greydanus et al. (2018),
-    Huang et al. (2018), Ribeiro et al. (2016), Alvarez-Melis & Jaakkola (2018), Samek et al. (2017),
-    Mnih et al. (2015) など。
-    2.1 方策蒸留と代理モデル で、最近の蒸留進展（e.g., 2023年以降）を追加引用提案（e.g., Zhang et al. (2023)の蒸留効率向上）
-    2.4 RLにおける説明可能性 で、 2022年以降のRL-XAIレビューを追加提案 e.g., Madumal et al. (2022)
-
-    [所管] これはまあ書きゃいいんでしょ、でも読んで理解するのが追いついてない、できれば下のも読みたいし
-
-RPD の位置づけ整理
+RPD の位置づけ整理（放置中）
     定義して CartPole では使わず、GridWorld でも Table に未掲載。
     「補助指標」の位置づけをさらに明示するか、定義を簡略化。
 
     [所管] 他の実験で使うかもなので一旦放置、最終版直前で不要かを再度判断したい。
 
-AA > 0.9 閾値の感度分析
-    既存データで閾値を 0.85 / 0.90 / 0.95 と変えたとき四象限分類の結論が変わるかを確認。
-    変わらなければ閾値の恣意性への反論になる。
-
-    [所管] まだ実験増やすんか？まあやればできるでしょうけど。あんまりなんにも言えなかったら書かなきゃいいだけですし
+参考文献（未追加分）
+    以下は未追加。読んでから判断：
+    - 2.1: Zhang et al. (2023) 蒸留効率向上（最近の蒸留進展として提案された）
+    - 2.4: Madumal et al. (2022) RL-XAIレビュー（2022年以降として提案された）
+    - [^13] Huang et al. (2018) 「重要な状態の特定」→ 引用が正確かどうか要確認（draft.md に注記あり）
 
 ## 以前からのTODO
 
