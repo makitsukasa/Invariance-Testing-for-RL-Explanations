@@ -2,19 +2,11 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
 
 # TODO - 実験以外
 
-## PEER_REVIEW 指摘（残タスク）
-
-参考文献（未追加分）
-    以下は未追加。読んでから判断：
-    - 2.1: Zhang et al. (2023) 蒸留効率向上（最近の蒸留進展として提案された）
-    - 2.4: Madumal et al. (2022) RL-XAIレビュー（2022年以降として提案された）
-    - [^13] Huang et al. (2018) 「重要な状態の特定」→ 引用が正確かどうか要確認（draft.md に注記あり）
+(なし)
 
 # TODO - 実験
 
-この原稿をフルペーパーとして強くするには、次の実験が必要らしいです。
-
-1. ~~MuJoCoなどの連続制御環境でablation再現~~ → **完了**（Section 4.4、LunarLander + Hopper）
+この原稿をフルペーパーとして強くするには、次の実験がいいらしいです。
 
 2. シフト選択の自動化（e.g., 因果介入ベース）
 
@@ -84,10 +76,17 @@ If you want, I can turn this into a **3-column bibliography table** next: `paper
 
 [^3]: Mindlin et al., 2025. Towards Co-Constructed Explanations: A Multi-Agent Reasoning-Based Conversational System for Adaptive Explanations. International Conference on Human-Agent Interaction.
 
+(ちょっと古いかも、draftからは削除)
+Huang, X., Kwiatkowska, M., Wang, S., & Wu, M. (2018). Safety verification of deep neural networks. *Computer Aided Verification (CAV)*. ※ 本文中「重要な状態の特定」として引用; 実装文脈に応じて適切な文献に差し替えること。
 
-勉強用、Reasoned候補? Weight Agnostic Neural Networks (Adam Gaier, David Ha)
-勉強用、Reasoned候補? Neural Module Networks（Andreas et al. 2016）「is_red?」「is_cube?」みたいなモジュールを組み合わせて VQA を解くやつです。
-勉強用、Reasoned候補? KAN（Kolmogorov-Arnold Networks） 「各接続が univariateな学習可能関数」という意味での局所的説明可能性を狙っている。
+(出所不明)
+- 2.1: Zhang et al. (2023) 蒸留効率向上（最近の蒸留進展として提案された）
+- 2.4: Madumal et al. (2022) RL-XAIレビュー（2022年以降として提案された）
+
+(勉強用、Reasoned候補?)
+Weight Agnostic Neural Networks (Adam Gaier, David Ha)
+Neural Module Networks（Andreas et al. 2016）「is_red?」「is_cube?」みたいなモジュールを組み合わせて VQA を解くやつです。
+KAN（Kolmogorov-Arnold Networks） 「各接続が univariateな学習可能関数」という意味での局所的説明可能性を狙っている。
 
 # 削除した要素
 

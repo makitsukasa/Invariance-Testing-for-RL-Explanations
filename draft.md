@@ -34,11 +34,11 @@ LIME（Ribeiro et al., 2016[^8]）と SHAP（Lundberg & Lee, 2017[^4]）は個�
 
 ### 2.3 不変性と分布シフトの解釈可能性
 
-IRM（Arjovsky et al., 2019）は複数環境で一貫して有効な特徴表現を学習することでスプリアス相関への依存を回避しようとする学習戦略である。概念ボトルネックモデル（Koh et al., 2020[^11]）は人間が定義した概念を中間表現として用い、説明の因果的な意味を高める。これらが学習戦略として機能するのに対し、本研究は学習済み方策について依存がスプリアスかどうかを事後的に測定する枠組みを提供する点で異なる。
+IRM（Arjovsky et al., 2019）は複数環境で一貫して有効な特徴表現を学習することでスプリアス相関への依存を回避しようとする学習戦略である。概念ボトルネックモデル（Koh et al., 2020[^11]）は人間が定義した概念を中間表現として用い、説明の因果的な意味を高める。事後的概念ボトルネックモデル（Yuksekgonul et al., 2023[^13]）はこれを再学習なしに任意の学習済みモデルへ適用可能にし、事後評価という立場を共有する点で本研究と方向性が近い。これらが解釈可能な表現を付与することを目的とするのに対し、本研究は学習済み方策について依存がスプリアスかどうかを事後的に測定する枠組みを提供する点で異なる。
 
 ### 2.4 RL における説明可能性
 
-強化学習の文脈では、注意機構の可視化（Greydanus et al., 2018[^12]）や重要な状態の特定（Huang et al., 2018[^13]）などの手法が提案されてきた。Puiutta & Veith（2020）は RL の説明可能性研究を包括的にサーベイし、説明の対象と形式の多様性を整理している。本研究はこれらの手法と直接競合するものではなく、「生成した説明が方策の行動を本当に捉えているか」という横断的な問いに答える評価軸として位置づけられる。
+強化学習の文脈では、注意機構の可視化（Greydanus et al., 2018[^12]）などの手法が提案されてきた。Puiutta & Veith（2020）は RL の説明可能性研究を包括的にサーベイし、説明の対象と形式の多様性を整理している。本研究はこれらの手法と直接競合するものではなく、「生成した説明が方策の行動を本当に捉えているか」という横断的な問いに答える評価軸として位置づけられる。
 
 ## 3. 背景と定義
 
@@ -293,6 +293,6 @@ AA > 0.9 という閾値の恣意性に対しては、閾値を 0.85・0.90・0.
 
 [^12]: Greydanus, S., Koul, A., Dodge, J., & Fern, A. (2018). Visualizing and understanding Atari agents. *International Conference on Machine Learning (ICML)*.
 
-[^13]: Huang, X., Kwiatkowska, M., Wang, S., & Wu, M. (2018). Safety verification of deep neural networks. *Computer Aided Verification (CAV)*. ※ 本文中「重要な状態の特定」として引用; 実装文脈に応じて適切な文献に差し替えること。
+[^13]: Yuksekgonul, M., Wang, M., Slack, D., Singh, S., Guestrin, C., & Lakkaraju, H. (2023). Post-hoc concept bottleneck models. *International Conference on Learning Representations (ICLR)*.
 
 [^14]: Mnih, V., et al. (2015). Human-level control through deep reinforcement learning. *Nature*, 518, 529–533.
