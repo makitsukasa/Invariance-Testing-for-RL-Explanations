@@ -4,21 +4,6 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
 
 ## PEER_REVIEW 指摘（残タスク）
 
-6節: KL divergence の扱いを整理（放置中）
-    現状は定義したが Table に数値未掲載。選択肢：
-    (a) 実験2・5のKL値をTableに追加する
-    (b) 「AAで十分な理由」を明示し、定義セクションからKLを削除または補足扱いに格下げ
-
-    [所管]
-        AAが有意差なしだけどKLが有意差ありみたいなのがあれば意味あるかも、そうじゃなきゃ確かに意味ないかも。
-        他の実験で使うかもなので一旦放置、最終版直前で不要かを再度判断したい。
-
-RPD の位置づけ整理（放置中）
-    定義して CartPole では使わず、GridWorld でも Table に未掲載。
-    「補助指標」の位置づけをさらに明示するか、定義を簡略化。
-
-    [所管] 他の実験で使うかもなので一旦放置、最終版直前で不要かを再度判断したい。
-
 参考文献（未追加分）
     以下は未追加。読んでから判断：
     - 2.1: Zhang et al. (2023) 蒸留効率向上（最近の蒸留進展として提案された）
@@ -124,6 +109,16 @@ If you want, I can turn this into a **3-column bibliography table** next: `paper
 勉強用、Reasoned候補? Weight Agnostic Neural Networks (Adam Gaier, David Ha)
 勉強用、Reasoned候補? Neural Module Networks（Andreas et al. 2016）「is_red?」「is_cube?」みたいなモジュールを組み合わせて VQA を解くやつです。
 勉強用、Reasoned候補? KAN（Kolmogorov-Arnold Networks） 「各接続が univariateな学習可能関数」という意味での局所的説明可能性を狙っている。
+
+# 削除した要素
+
+KL divergence
+    行動分布間の乖離の補助指標。
+    使おうとしたが、AAで十分だったため削除。AAでは説明できない場合は計算してみたら有意差ありなしを確認できるかも
+
+Relative Performance Drop
+    $\mathrm{RPD} = (J_I - J_R)/J_I$（$J$: 累積報酬）。不変性の補助指標。
+    使おうとしたが、 $J_I$ と $J_R$ の比較で十分だったため削除。
 
 # 元アイデア
 
