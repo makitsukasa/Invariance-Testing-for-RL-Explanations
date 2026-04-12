@@ -10,32 +10,11 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
     - 2.4: Madumal et al. (2022) RL-XAIレビュー（2022年以降として提案された）
     - [^13] Huang et al. (2018) 「重要な状態の特定」→ 引用が正確かどうか要確認（draft.md に注記あり）
 
-## 以前からのTODO
-
-4.2 Reasoned Modelの候補
-    候補の選択理由をMoETの連続調整性に絞り、追加の正当化（e.g., 計算コスト）を提案
-
 # TODO - 実験
 
 この原稿をフルペーパーとして強くするには、次の実験が必要らしいです。
 
-1. MuJoCoなどの連続制御環境でablation再現
-
-    (a) 連続行動を離散 bin に分割してAAを計算する（実装コスト低、ただし近似的）
-    (b) MoET/Tree/Linear を回帰器に書き換え、AAの代わりに MSE や行動分布の KL を使う（実装コスト高）
-    (c) 離散行動な連続制御環境（LunarLander-v3等）で代用する（実装コスト低、MuJoCo不使用）
-
-    (a)/(c)採用で「連続制御への適用可能性を示す追加実験」として正直に説明・限界記載で完全に許容されます。
-    (b)なしでも「連続制御の実験」と呼べます（preliminary/ablationとして）。NeurIPS査読でも「離散焦点で連続拡張示唆」で通る（e.g., DT系の論文多数）。
-
-    論文挿入例
-    4.5 Ablation: Continuous Control Extension (Preliminary)
-    We demonstrate framework applicability to continuous-like settings via:
-    - Discrete proxy: LunarLander-v3 (discretized continuous dynamics).
-    - Action binning: MuJoCo Hopper (10 bins, AA via argmax).
-    Results: MoET maintains superior reproducibility (Fig.X), suggesting structural constraints generalize beyond discrete actions. Limitations: Bin approximation may lose fine-grained control; full regression (MSE/KL) remains future work.
-
-    結果によっては、主張「再現性/不変性の構造的優位」が揺るがず、汎用性ボーナス。
+1. ~~MuJoCoなどの連続制御環境でablation再現~~ → **完了**（Section 4.4、LunarLander + Hopper）
 
 2. シフト選択の自動化（e.g., 因果介入ベース）
 
@@ -49,7 +28,7 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
 
 4. 実験6拡張でn>20kや低データMoET最適化
 
-    [所管] やってもいいんだろうけど優先順位は低いかなぁ
+    [所管] やってもいいんだろうけど優先順位は低いかなぁ → いいや、一旦完成ってことで
 
 5. **行動一致率以外の忠実性指標**
     - 逐次行動の一致
@@ -58,7 +37,7 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
     - 介入下での反応差
     - これで「同じ行動を出したが内部は違う」問題を少し減らせる。
 
-    [所管] やってもいいんだろうけど優先順位は低いかなぁ
+    [所管] やってもいいんだろうけど優先順位は低いかなぁ → いいや、一旦完成ってことで
 
 6. **説明生成そのものとの接続実験**
     - Reasoned model からルール列や自然言語説明を生成し、それが AA と不変性にどう結びつくかを見る。
