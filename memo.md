@@ -2,7 +2,7 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
 
 # TODO - 実験以外
 
-## PEER_REVIEW 残指摘（LLMレビュー第1回）
+## PEER_REVIEW 残指摘
 
 ### Critical
 
