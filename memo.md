@@ -1,10 +1,28 @@
 draft.mdには入らないがメモしておきたい事柄を本ファイルに記載。
 
-# 元アイデア
-
-元アイデア:ブラックボックスのNN(Intuitive)の横に説明可能な何か(Reasoned)を置いて相互作用させたら、人間が理解した気になる(Intuitiveだけ)のと説明できるように理解を深める(Intuitive+Reasoned)のとで"深さ"が違うんじゃないか。RLやらの文脈の「説明可能」は人間を相手にしたものが多いが、必ずしも人間だけを相手にするんじゃなくて、ブラックボックスが「説明可能」になったら別のブラックボックスに転移できるし人間も読める。
-
 # TODO - 実験以外
+
+## 本研究の意義
+
+従来の XAI のジレンマ： 説明可能性 vs 性能のトレードオフ（解釈可能なモデルは弱い）（e.g., Ribeiro et al. LIMEの弱点）
+この研究のポジション： トレードオフを回避できる。Intuitive には手を加えないため性能維持。Reasoned を横に置くだけ。
+
+だから「説明可能性の定義が何であれ」フレームワークとして使えて、Reasoned の中身は何でも差し替えられる。
+決定木でも MoETでもKANでも、「どれだけ Intuitive を再現できるか・シフトに強いか」が共通の評価軸になりうる。
+「良し悪しを論じる方法自体を提供している」というのは、論文の射程がかなり広い。
+
+- MoET
+- Kolmogorov-Arnold Networks
+- Symbolic Regression
+- Differentiable Programming
+- Program Synthesis
+
+OOD (e.g., WILDS) vs 本作: 性能維持 + モジュール非依存
+既存の OOD 評価と違うのは、Intuitive の性能を一切落とさずに評価できること、そして Reasonedの中身を問わない汎用性。
+
+Conventional XAI methods face a fundamental trade-off: interpretable models (e.g., decision trees) sacrifice performance, while high-performance models (e.g., deep nets) lack explainability [Ribeiro et al., 2016; Rudin, 2019]. This work circumvents this dilemma by decoupling Intuitive execution (preserved at full performance) from Reasoned modules (modular, pluggable). Our framework evaluates reproducibility and shift-robustness via a unified metric—Intuitive fidelity—**independent of Reasoned internals** (e.g., MoET, DTs, or KANs). Unlike prior OOD evaluations that degrade base performance, ours maintains Intuitive strength while providing a general benchmarking axis for reasoned models. This meta-evaluation enables broad comparisons across XAI paradigms.
+
+[所管] 追記しておきたい。ちなみにKANの実験はまあ要らんでしょと思っています
 
 ## PEER_REVIEW 指摘（受理条件クラス）
 
@@ -13,13 +31,6 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
     エピソード長の上限をSection 5.3に追記。J = -1.000 の意味（報酬構造の下限値か正規化か）も合わせて明確化。
 
     [所管] これはまあ書きゃいいんでしょ
-
-1/7節: 「OOD評価の蒸留モデルへの単純適用」との差別化
-    「本枠組みはOOD評価を蒸留モデルに適用しただけ」という批判への応答。
-    Intuitive policy と Reasoned model のペアとして評価することが、単独OOD評価にない何の情報を与えるかを
-    Section 1 または 7 に1段落追加する。
-
-    [所管] わかんない、なんかあるんか？
 
 6.4/6.5 Table 2/3 のモデル間比較に統計検定を追加
     既存データ（10シード）でt-testを実施し、Table 2/3 の主要な差（N=0でのMoET vs Linear 等）に
@@ -162,3 +173,12 @@ If you want, I can turn this into a **3-column bibliography table** next: `paper
 [^2]: Sousa et al., 2022. ConceptDistil: Model-Agnostic Distillation of Concept Explanations. arXiv.org.
 
 [^3]: Mindlin et al., 2025. Towards Co-Constructed Explanations: A Multi-Agent Reasoning-Based Conversational System for Adaptive Explanations. International Conference on Human-Agent Interaction.
+
+
+勉強用、Reasoned候補? Weight Agnostic Neural Networks (Adam Gaier, David Ha)
+勉強用、Reasoned候補? Neural Module Networks（Andreas et al. 2016）「is_red?」「is_cube?」みたいなモジュールを組み合わせて VQA を解くやつです。
+勉強用、Reasoned候補? KAN（Kolmogorov-Arnold Networks） 「各接続が univariateな学習可能関数」という意味での局所的説明可能性を狙っている。
+
+# 元アイデア
+
+元アイデア:ブラックボックスのNN(Intuitive)の横に説明可能な何か(Reasoned)を置いて相互作用させたら、人間が理解した気になる(Intuitiveだけ)のと説明できるように理解を深める(Intuitive+Reasoned)のとで"深さ"が違うんじゃないか。RLやらの文脈の「説明可能」は人間を相手にしたものが多いが、必ずしも人間だけを相手にするんじゃなくて、ブラックボックスが「説明可能」になったら別のブラックボックスに転移できるし人間も読める。
