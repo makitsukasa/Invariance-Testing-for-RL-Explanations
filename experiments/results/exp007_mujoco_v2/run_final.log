@@ -1,0 +1,74 @@
+=== LunarLander ŽÀŒ± ===
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+  [LunarLander seed=42] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [LunarLander, MoET  , seed=42]  AA=0.607  J(train)=-258.9
+  [LunarLander, Linear, seed=42]  AA=0.550  J(train)=-30.5
+  [LunarLander, Tree  , seed=42]  AA=0.680  J(train)=-605.9
+  [LunarLander seed=123] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [LunarLander, MoET  , seed=123]  AA=0.658  J(train)=-145.1
+  [LunarLander, Linear, seed=123]  AA=0.575  J(train)=45.5
+  [LunarLander, Tree  , seed=123]  AA=0.618  J(train)=-347.7
+  [LunarLander seed=456] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [LunarLander, MoET  , seed=456]  AA=0.573  J(train)=-434.6
+  [LunarLander, Linear, seed=456]  AA=0.654  J(train)=-47.1
+  [LunarLander, Tree  , seed=456]  AA=0.574  J(train)=-652.6
+  [LunarLander seed=789] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [LunarLander, MoET  , seed=789]  AA=0.665  J(train)=-420.7
+  [LunarLander, Linear, seed=789]  AA=0.636  J(train)=-74.2
+  [LunarLander, Tree  , seed=789]  AA=0.647  J(train)=-357.9
+  [LunarLander seed=1011] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [LunarLander, MoET  , seed=1011]  AA=0.661  J(train)=-586.1
+  [LunarLander, Linear, seed=1011]  AA=0.532  J(train)=-134.3
+  [LunarLander, Tree  , seed=1011]  AA=0.652  J(train)=-641.1
+
+=== Hopper ŽÀŒ± ===
+  [Hopper seed=42] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [Hopper,      MoET  , seed=42]  AA=0.713  J(train)=175.8
+  [Hopper,      Linear, seed=42]  AA=0.558  J(train)=191.0
+  [Hopper,      Tree  , seed=42]  AA=0.614  J(train)=231.1
+  [Hopper seed=123] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [Hopper,      MoET  , seed=123]  AA=0.606  J(train)=69.3
+  [Hopper,      Linear, seed=123]  AA=0.467  J(train)=74.2
+  [Hopper,      Tree  , seed=123]  AA=0.460  J(train)=144.8
+  [Hopper seed=456] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [Hopper,      MoET  , seed=456]  AA=0.892  J(train)=45.6
+  [Hopper,      Linear, seed=456]  AA=0.764  J(train)=11.9
+  [Hopper,      Tree  , seed=456]  AA=0.791  J(train)=19.7
+  [Hopper seed=789] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [Hopper,      MoET  , seed=789]  AA=0.657  J(train)=6.0
+  [Hopper,      Linear, seed=789]  AA=0.502  J(train)=219.0
+  [Hopper,      Tree  , seed=789]  AA=0.500  J(train)=221.9
+  [Hopper seed=1011] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p
+  [Hopper,      MoET  , seed=1011]  AA=0.662  J(train)=109.3
+  [Hopper,      Linear, seed=1011]  AA=0.532  J(train)=142.2
+  [Hopper,      Tree  , seed=1011]  AA=0.532  J(train)=217.4
+
+metrics.csv ‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp007_mujoco_v2\metrics.csv
+}‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp007_mujoco_v2\aa_bar_lunarlander.png
+}‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp007_mujoco_v2\aa_bar_hopper.png
+
+=== —\”õŽÀŒ±i˜A‘±§ŒäjƒTƒ}ƒŠ[ ===
+
+ylunarlanderz
+  Linear  gravity_hi    AA=0.589}0.053
+  Linear  gravity_lo    AA=0.589}0.053
+  Linear  train         AA=0.589}0.053
+  MoET    gravity_hi    AA=0.633}0.041
+  MoET    gravity_lo    AA=0.633}0.041
+  MoET    train         AA=0.633}0.041
+  Tree    gravity_hi    AA=0.634}0.040
+  Tree    gravity_lo    AA=0.634}0.040
+  Tree    train         AA=0.634}0.040
+
+yhopperz
+  Linear  gravity_hi    AA=0.565}0.116
+  Linear  gravity_lo    AA=0.565}0.116
+  Linear  train         AA=0.565}0.116
+  MoET    gravity_hi    AA=0.706}0.111
+  MoET    gravity_lo    AA=0.706}0.111
+  MoET    train         AA=0.706}0.111
+  Tree    gravity_hi    AA=0.579}0.131
+  Tree    gravity_lo    AA=0.579}0.131
+  Tree    train         AA=0.579}0.131
+

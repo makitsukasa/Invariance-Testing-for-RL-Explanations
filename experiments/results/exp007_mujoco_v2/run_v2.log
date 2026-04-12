@@ -1,0 +1,29 @@
+=== LunarLander ???Å} ===
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+  [LunarLander seed=42] ??ÅeÅ˜???f?????????p
+  [LunarLander, MoET  , seed=42]  AA=0.607  J(train)=-258.9
+  [LunarLander, Linear, seed=42]  AA=0.550  J(train)=-30.5
+  [LunarLander, Tree  , seed=42]  AA=0.680  J(train)=-605.9
+  [LunarLander seed=123] ??ÅeÅ˜???f?????????p
+  [LunarLander, MoET  , seed=123]  AA=0.658  J(train)=-145.1
+  [LunarLander, Linear, seed=123]  AA=0.575  J(train)=45.5
+  [LunarLander, Tree  , seed=123]  AA=0.618  J(train)=-347.7
+  [LunarLander seed=456] ??ÅeÅ˜???f?????????p
+  [LunarLander, MoET  , seed=456]  AA=0.573  J(train)=-434.6
+  [LunarLander, Linear, seed=456]  AA=0.654  J(train)=-47.1
+  [LunarLander, Tree  , seed=456]  AA=0.574  J(train)=-652.6
+  [LunarLander seed=789] ??ÅeÅ˜???f?????????p
+  [LunarLander, MoET  , seed=789]  AA=0.665  J(train)=-420.7
+  [LunarLander, Linear, seed=789]  AA=0.636  J(train)=-74.2
+  [LunarLander, Tree  , seed=789]  AA=0.647  J(train)=-357.9
+  [LunarLander seed=1011] ?w?K???? (1000000 steps)
+  [LunarLander, MoET  , seed=1011]  AA=0.661  J(train)=-470.4
+  [LunarLander, Linear, seed=1011]  AA=0.532  J(train)=-134.3
+  [LunarLander, Tree  , seed=1011]  AA=0.652  J(train)=-641.1
+
+=== Hopper ???Å} ===
+  [Hopper seed=42] SAC ?w?K???? (500000 steps)
+  [Hopper,      MoET  , seed=42]  AA=0.706  J(train)=4.9
+  [Hopper,      Linear, seed=42]  AA=0.558  J(train)=191.0
+  [Hopper,      Tree  , seed=42]  AA=0.614  J(train)=231.1
