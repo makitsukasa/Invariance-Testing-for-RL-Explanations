@@ -1,0 +1,30 @@
+name: exp008_hopper
+description: >
+  実験8: MuJoCo Hopper-v5 連続行動環境への枠組み拡張
+  連続行動（Box(3,) in [-1,1]^3）を 3^3=27 クラスにビニングして AA 計算
+  SAC 500k steps で学習、重力シフトで分布シフト評価
+
+hopper:
+  n_steps: 500000
+  bins_per_dim: 3   # 3^3 = 27 離散行動
+  gravity_conditions:
+    - {name: train,      gravity: -9.81}
+    - {name: gravity_lo, gravity: -5.0}
+    - {name: gravity_hi, gravity: -20.0}
+
+comparison:
+  model_types: [moet, linear, tree]
+  moet:
+    n_experts: 4
+    max_depth: 5
+  tree:
+    max_depth: 5
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 1011]
+  n_eval_episodes: 20
+
+output_dir: experiments/results/exp008_hopper

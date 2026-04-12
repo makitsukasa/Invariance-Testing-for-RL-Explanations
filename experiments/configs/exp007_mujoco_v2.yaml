@@ -1,0 +1,39 @@
+name: exp007_mujoco_v2
+description: >
+  予備実験v2: 連続制御環境への枠組み拡張（ステップ数増量版）
+  (c) LunarLander-v3: 離散行動・連続力学（重力シフト）
+      DQN 1M steps（v1の200k→収束不足を修正）
+  (a) MuJoCo Hopper-v5: 連続行動を 3^3=27 クラスにビニング
+      SAC 500k steps
+
+lunar:
+  n_steps: 1000000
+  gravity_conditions:
+    - {name: train,      gravity: -10.0}
+    - {name: gravity_lo, gravity: -3.0}   # 月面相当
+    - {name: gravity_hi, gravity: -11.5}  # 強重力（LunarLander は -12〜0 の制約）
+
+hopper:
+  n_steps: 500000
+  bins_per_dim: 3   # 3^3 = 27 離散行動
+  gravity_conditions:
+    - {name: train,      gravity: -9.81}
+    - {name: gravity_lo, gravity: -5.0}
+    - {name: gravity_hi, gravity: -20.0}
+
+comparison:
+  model_types: [moet, linear, tree]
+  moet:
+    n_experts: 4
+    max_depth: 5
+  tree:
+    max_depth: 5
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 1011]
+  n_eval_episodes: 20
+
+output_dir: experiments/results/exp007_mujoco_v2

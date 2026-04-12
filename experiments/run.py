@@ -35,8 +35,12 @@ def main():
     env_base = env_cfg.get("base", "")
     env_type = env_cfg.get("type", "")
 
+    # MuJoCo/LunarLander 予備実験（lunar または hopper キーで判定）
+    if cfg.get("lunar") or cfg.get("hopper"):
+        from experiments.run_mujoco import run_experiment
+        run_experiment(cfg)
     # 蒸留感度分析（distill_n_samples_list キーで判定）
-    if cfg.get("distill_n_samples_list"):
+    elif cfg.get("distill_n_samples_list"):
         from experiments.run_distill_sensitivity import run_experiment
         run_experiment(cfg)
     # comparison 実験（model_types キーで判定）
