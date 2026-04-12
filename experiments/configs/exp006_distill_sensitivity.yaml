@@ -1,0 +1,32 @@
+name: exp006_distill_sensitivity
+description: >
+  蒸留データ量の感度分析: distill_n_samples ∈ [1k, 5k, 10k, 20k] ×
+  MoET / Tree / Linear × CartPole (N=0) / GridWorld (p=0.0, 0.5)
+
+cartpole:
+  env_base: CartPole-v1
+  noise_dim: 0
+  reuse_from: experiments/results/exp001_cartpole_noise
+
+gridworld:
+  spurious_p_values: [0.0, 0.5]
+  eval_conditions: [train, random_c, reversed_c]
+  reuse_from: experiments/results/exp002_spurious_gridworld
+
+distill_n_samples_list: [1000, 5000, 10000, 20000]
+
+comparison:
+  model_types: [moet, linear, tree]
+  moet:
+    n_experts: 4
+    max_depth: 5
+  tree:
+    max_depth: 5
+  distill_epochs: 100
+  eval_n_samples: 5000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526]
+  n_eval_episodes: 50
+
+output_dir: experiments/results/exp006_distill_sensitivity

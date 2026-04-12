@@ -35,11 +35,15 @@ def main():
     env_base = env_cfg.get("base", "")
     env_type = env_cfg.get("type", "")
 
+    # 蒸留感度分析（distill_n_samples_list キーで判定）
+    if cfg.get("distill_n_samples_list"):
+        from experiments.run_distill_sensitivity import run_experiment
+        run_experiment(cfg)
     # comparison 実験（model_types キーで判定）
-    if cfg.get("comparison", {}).get("model_types"):
+    elif cfg.get("comparison", {}).get("model_types"):
         from experiments.run_comparison import run_experiment
         run_experiment(cfg)
-    elif "CartPole" in env_base:
+    elif "CartPole" in env_base or env_cfg.get("noise_dim") is not None:
         if env_cfg.get("shift_conditions") or env_cfg.get("gravity_conditions"):
             from experiments.run_gravity import run_experiment
         else:

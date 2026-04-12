@@ -1,0 +1,91 @@
+=== 蒸留データ量感度分析サマリー ===
+
+【CartPole N=0】
+  Linear  n= 1000  AA=0.748±0.063
+  Linear  n= 5000  AA=0.782±0.065
+  Linear  n=10000  AA=0.794±0.065
+  Linear  n=20000  AA=0.802±0.064
+  MoET    n= 1000  AA=0.887±0.019
+  MoET    n= 5000  AA=0.908±0.019
+  MoET    n=10000  AA=0.909±0.018
+  MoET    n=20000  AA=0.913±0.017
+  Tree    n= 1000  AA=0.869±0.027
+  Tree    n= 5000  AA=0.894±0.016
+  Tree    n=10000  AA=0.896±0.016
+  Tree    n=20000  AA=0.898±0.018
+
+【GridWorld p=0.0】
+  Linear  n= 1000  random_c      AA=0.818±0.076
+  Linear  n= 1000  reversed_c    AA=0.745±0.137
+  Linear  n= 1000  train         AA=0.893±0.041
+  Linear  n= 5000  random_c      AA=0.828±0.082
+  Linear  n= 5000  reversed_c    AA=0.755±0.136
+  Linear  n= 5000  train         AA=0.902±0.053
+  Linear  n=10000  random_c      AA=0.836±0.079
+  Linear  n=10000  reversed_c    AA=0.771±0.133
+  Linear  n=10000  train         AA=0.903±0.052
+  Linear  n=20000  random_c      AA=0.834±0.076
+  Linear  n=20000  reversed_c    AA=0.765±0.128
+  Linear  n=20000  train         AA=0.903±0.052
+  MoET    n= 1000  random_c      AA=0.953±0.030
+  MoET    n= 1000  reversed_c    AA=0.924±0.055
+  MoET    n= 1000  train         AA=0.982±0.014
+  MoET    n= 5000  random_c      AA=0.954±0.043
+  MoET    n= 5000  reversed_c    AA=0.922±0.082
+  MoET    n= 5000  train         AA=0.985±0.011
+  MoET    n=10000  random_c      AA=0.943±0.050
+  MoET    n=10000  reversed_c    AA=0.902±0.094
+  MoET    n=10000  train         AA=0.983±0.011
+  MoET    n=20000  random_c      AA=0.954±0.044
+  MoET    n=20000  reversed_c    AA=0.923±0.078
+  MoET    n=20000  train         AA=0.984±0.016
+  Tree    n= 1000  random_c      AA=0.934±0.042
+  Tree    n= 1000  reversed_c    AA=0.896±0.080
+  Tree    n= 1000  train         AA=0.970±0.012
+  Tree    n= 5000  random_c      AA=0.936±0.043
+  Tree    n= 5000  reversed_c    AA=0.897±0.081
+  Tree    n= 5000  train         AA=0.971±0.011
+  Tree    n=10000  random_c      AA=0.930±0.044
+  Tree    n=10000  reversed_c    AA=0.887±0.084
+  Tree    n=10000  train         AA=0.971±0.012
+  Tree    n=20000  random_c      AA=0.930±0.045
+  Tree    n=20000  reversed_c    AA=0.888±0.084
+  Tree    n=20000  train         AA=0.971±0.011
+
+【GridWorld p=0.5】
+  Linear  n= 1000  random_c      AA=0.762±0.134
+  Linear  n= 1000  reversed_c    AA=0.677±0.197
+  Linear  n= 1000  train         AA=0.846±0.104
+  Linear  n= 5000  random_c      AA=0.782±0.131
+  Linear  n= 5000  reversed_c    AA=0.698±0.189
+  Linear  n= 5000  train         AA=0.866±0.093
+  Linear  n=10000  random_c      AA=0.811±0.146
+  Linear  n=10000  reversed_c    AA=0.742±0.220
+  Linear  n=10000  train         AA=0.878±0.100
+  Linear  n=20000  random_c      AA=0.799±0.161
+  Linear  n=20000  reversed_c    AA=0.724±0.243
+  Linear  n=20000  train         AA=0.873±0.106
+  MoET    n= 1000  random_c      AA=0.949±0.080
+  MoET    n= 1000  reversed_c    AA=0.939±0.150
+  MoET    n= 1000  train         AA=0.959±0.038
+  MoET    n= 5000  random_c      AA=0.968±0.064
+  MoET    n= 5000  reversed_c    AA=0.939±0.132
+  MoET    n= 5000  train         AA=0.997±0.002
+  MoET    n=10000  random_c      AA=0.969±0.064
+  MoET    n=10000  reversed_c    AA=0.938±0.132
+  MoET    n=10000  train         AA=0.998±0.001
+  MoET    n=20000  random_c      AA=0.972±0.065
+  MoET    n=20000  reversed_c    AA=0.944±0.133
+  MoET    n=20000  train         AA=0.998±0.002
+  Tree    n= 1000  random_c      AA=0.948±0.080
+  Tree    n= 1000  reversed_c    AA=0.939±0.150
+  Tree    n= 1000  train         AA=0.959±0.039
+  Tree    n= 5000  random_c      AA=0.964±0.073
+  Tree    n= 5000  reversed_c    AA=0.931±0.151
+  Tree    n= 5000  train         AA=0.996±0.002
+  Tree    n=10000  random_c      AA=0.971±0.065
+  Tree    n=10000  reversed_c    AA=0.942±0.133
+  Tree    n=10000  train         AA=0.998±0.001
+  Tree    n=20000  random_c      AA=0.970±0.065
+  Tree    n=20000  reversed_c    AA=0.942±0.133
+  Tree    n=20000  train         AA=0.997±0.002
