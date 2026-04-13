@@ -20,7 +20,8 @@ import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from stable_baselines3 import DQN, SAC
+from stable_baselines3 import DQN, PPO, SAC
+from stable_baselines3.common.env_util import make_vec_env
 
 from experiments.src.evaluate import action_agreement, relative_perf_drop
 from experiments.run_comparison import make_model, fit_model
@@ -63,50 +64,75 @@ def run_lunarlander(cfg: dict, output_dir: Path) -> pd.DataFrame:
 
     records = []
 
+    algorithm = cfg["lunar"].get("algorithm", "dqn").lower()
+    n_envs = cfg["lunar"].get("n_envs", 1)
+
     for seed in seeds:
         # Intuitive policy の学習 or 再利用
         model_path = output_dir / f"intuitive_lunar_seed{seed}"
         zip_path = output_dir / f"intuitive_lunar_seed{seed}.zip"
         if model_path.exists() or zip_path.exists():
+            load_path = str(model_path if model_path.exists() else zip_path)
             env = make_lunar(gravity=train_gravity)
-            model = DQN.load(str(model_path if model_path.exists() else zip_path), env=env)
+            if algorithm == "ppo":
+                model = PPO.load(load_path, env=env)
+            else:
+                model = DQN.load(load_path, env=env)
             env.close()
             print(f"  [LunarLander seed={seed}] 既存モデルを再利用", flush=True)
+        elif algorithm == "ppo":
+            vec_env = make_vec_env(lambda: make_lunar(gravity=train_gravity), n_envs=n_envs)
+            model = PPO(
+                "MlpPolicy", vec_env,
+                n_steps=1024, batch_size=64,
+                gae_lambda=0.98, gamma=0.999,
+                n_epochs=4, ent_coef=0.01,
+                seed=seed, verbose=0,
+            )
+            model.learn(total_timesteps=n_steps)
+            model.save(str(model_path))
+            vec_env.close()
+            print(f"  [LunarLander seed={seed}] PPO 学習完了 ({n_steps} steps)", flush=True)
         else:
             env = make_lunar(gravity=train_gravity)
             model = DQN(
                 "MlpPolicy", env,
-                learning_rate=1e-3, batch_size=64,
-                buffer_size=50000, learning_starts=1000,
-                train_freq=4, target_update_interval=250,
+                learning_rate=6.3e-4, batch_size=128,
+                buffer_size=50000, learning_starts=0,
+                train_freq=4, gradient_steps=-1,
+                target_update_interval=250,
+                exploration_fraction=0.12,
+                exploration_final_eps=0.1,
+                policy_kwargs=dict(net_arch=[256, 256]),
                 seed=seed, verbose=0,
             )
             model.learn(total_timesteps=n_steps)
             model.save(str(model_path))
             env.close()
-            print(f"  [LunarLander seed={seed}] 学習完了 ({n_steps} steps)", flush=True)
+            print(f"  [LunarLander seed={seed}] DQN 学習完了 ({n_steps} steps)", flush=True)
 
         eval_seed = seed + 10000
 
-        # 蒸留データと評価データを訓練重力で収集
+        # 蒸留データを訓練重力で収集（AA は各条件ごとに計算するため train eval は不要）
         obs_all, act_all = collect_lunar(model, train_gravity, distill_n, seed)
-        obs_eval, act_eval = collect_lunar(model, train_gravity, eval_n, eval_seed)
 
         for model_type in comp_cfg["model_types"]:
             rm = make_model(model_type, n_obs, n_actions, comp_cfg)
             rm = fit_model(rm, obs_all, act_all, comp_cfg)
 
-            rm_actions_eval = rm.predict(obs_eval)
-            aa_train = float(np.mean(act_eval == rm_actions_eval))
-            kl_train = _kl_empirical(act_eval, rm_actions_eval, n_actions)
-
             for gc in gravity_conds:
                 cname = gc["name"]
                 gravity = gc["gravity"]
 
+                # 各重力条件の状態で AA を計算（M2 対応: per-condition AA）
+                obs_eval_cond, act_eval_cond = collect_lunar(model, gravity, eval_n, eval_seed)
+                rm_actions_cond = rm.predict(obs_eval_cond)
+                aa_cond = float(np.mean(act_eval_cond == rm_actions_cond))
+                kl_cond = _kl_empirical(act_eval_cond, rm_actions_cond, n_actions)
+
                 j_intuitive = eval_lunar_intuitive(model, gravity, n_eval, eval_seed)
 
-                # Reasoned model のロールアウト評価
+                # Surrogate model のロールアウト評価
                 eval_env = make_lunar(gravity=gravity)
                 j_reasoned = 0.0
                 for ep in range(n_eval):
@@ -130,14 +156,16 @@ def run_lunarlander(cfg: dict, output_dir: Path) -> pd.DataFrame:
                     "seed": seed,
                     "j_intuitive": j_intuitive,
                     "j_reasoned": j_reasoned,
-                    "action_agreement": aa_train,
-                    "kl_divergence": kl_train,
+                    "action_agreement": aa_cond,
+                    "kl_divergence": kl_cond,
                     "relative_perf_drop": rpd,
                 })
 
+            # train 条件の AA をサマリー表示
+            train_aa = records[-len(gravity_conds)]["action_agreement"]
             print(
                 f"  [LunarLander, {MODEL_LABEL[model_type]:6s}, seed={seed}]"
-                f"  AA={aa_train:.3f}  J(train)={records[-len(gravity_conds)]['j_reasoned']:.1f}",
+                f"  AA(train)={train_aa:.3f}  J(train)={records[-len(gravity_conds)]['j_reasoned']:.1f}",
                 flush=True,
             )
 

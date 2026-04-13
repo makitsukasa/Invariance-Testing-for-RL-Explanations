@@ -1,0 +1,38 @@
+description: CartPole-v1 にガウスノイズ特徴を追加し、MoET の再現性ボトルネックを評価する基準実験
+env:
+  base: CartPole-v1
+  noise_dims:
+  - 8
+evaluation:
+  n_eval_episodes: 50
+  seeds:
+  - 42
+  - 123
+  - 456
+  - 789
+  - 1011
+  - 1314
+  - 1617
+  - 1920
+  - 2223
+  - 2526
+intuitive:
+  algorithm: DQN
+  n_steps: 200000
+moet:
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+  expert_counts:
+  - 2
+  - 3
+  - 4
+  gating: soft
+  tree_depths:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+name: exp001_n8
+output_dir: experiments/results/exp001_n8

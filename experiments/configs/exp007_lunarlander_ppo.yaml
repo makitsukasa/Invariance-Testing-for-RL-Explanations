@@ -1,0 +1,32 @@
+name: exp007_lunarlander_ppo
+description: >
+  実験7 PPO版: LunarLander-v3 PPO oracle policy（DQN の追加比較実験）
+  - RL Zoo 推奨: PPO J≈242±32 @ 1M steps (n_envs=8)
+  - DQN は J≈154±79 と高分散のため、PPO を追加実験として実施
+  - draft での採用可否は両者の結果を見て判断
+
+lunar:
+  algorithm: ppo
+  n_envs: 8
+  n_steps: 1000000
+  gravity_conditions:
+    - {name: train,      gravity: -10.0}
+    - {name: gravity_lo, gravity: -3.0}
+    - {name: gravity_hi, gravity: -11.5}
+
+comparison:
+  model_types: [moet, linear, tree]
+  moet:
+    n_experts: 4
+    max_depth: 5
+  tree:
+    max_depth: 5
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 1011]
+  n_eval_episodes: 20
+
+output_dir: experiments/results/exp007_lunarlander_ppo
