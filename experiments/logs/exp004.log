@@ -1,0 +1,943 @@
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+
+[N=0, seed=42] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed42.zip
+  [MoET  , N=0, seed=42] AA=0.938  KL=0.0000  RPD=-0.009
+  [Linear, N=0, seed=42] AA=0.842  KL=0.0030  RPD=0.343
+  [Tree  , N=0, seed=42] AA=0.931  KL=0.0000  RPD=-0.009
+
+[N=0, seed=123] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed123.zip
+  [MoET  , N=0, seed=123] AA=0.885  KL=0.0004  RPD=0.005
+  [Linear, N=0, seed=123] AA=0.845  KL=0.0003  RPD=0.610
+  [Tree  , N=0, seed=123] AA=0.886  KL=0.0003  RPD=0.005
+
+[N=0, seed=456] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed456.zip
+  [MoET  , N=0, seed=456] AA=0.938  KL=0.0002  RPD=0.005
+  [Linear, N=0, seed=456] AA=0.841  KL=0.0007  RPD=0.000
+  [Tree  , N=0, seed=456] AA=0.928  KL=0.0003  RPD=0.079
+
+[N=0, seed=789] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed789.zip
+  [MoET  , N=0, seed=789] AA=0.966  KL=0.0001  RPD=0.000
+  [Linear, N=0, seed=789] AA=0.843  KL=0.0025  RPD=0.720
+  [Tree  , N=0, seed=789] AA=0.958  KL=0.0005  RPD=0.000
+
+[N=0, seed=1011] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed1011.zip
+  [MoET  , N=0, seed=1011] AA=0.898  KL=0.0005  RPD=0.101
+  [Linear, N=0, seed=1011] AA=0.838  KL=0.0004  RPD=0.000
+  [Tree  , N=0, seed=1011] AA=0.879  KL=0.0001  RPD=0.148
+
+[N=0, seed=1314] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed1314.zip
+  [MoET  , N=0, seed=1314] AA=0.909  KL=0.0001  RPD=-0.025
+  [Linear, N=0, seed=1314] AA=0.889  KL=0.0001  RPD=0.331
+  [Tree  , N=0, seed=1314] AA=0.908  KL=0.0002  RPD=-0.023
+
+[N=0, seed=1617] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed1617.zip
+  [MoET  , N=0, seed=1617] AA=0.886  KL=0.0047  RPD=0.128
+  [Linear, N=0, seed=1617] AA=0.859  KL=0.0000  RPD=0.000
+  [Tree  , N=0, seed=1617] AA=0.874  KL=0.0020  RPD=0.100
+
+[N=0, seed=1920] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed1920.zip
+  [MoET  , N=0, seed=1920] AA=0.932  KL=0.0000  RPD=0.000
+  [Linear, N=0, seed=1920] AA=0.853  KL=0.0007  RPD=0.115
+  [Tree  , N=0, seed=1920] AA=0.920  KL=0.0011  RPD=0.000
+
+[N=0, seed=2223] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed2223.zip
+  [MoET  , N=0, seed=2223] AA=0.909  KL=0.0000  RPD=0.067
+  [Linear, N=0, seed=2223] AA=0.758  KL=0.0012  RPD=-0.013
+  [Tree  , N=0, seed=2223] AA=0.871  KL=0.0049  RPD=-0.114
+
+[N=0, seed=2526] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed2526.zip
+  [MoET  , N=0, seed=2526] AA=0.885  KL=0.0001  RPD=-0.044
+  [Linear, N=0, seed=2526] AA=0.849  KL=0.0003  RPD=-0.103
+  [Tree  , N=0, seed=2526] AA=0.870  KL=0.0010  RPD=-0.094
+
+[N=4, seed=42] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed42.zip
+  [MoET  , N=4, seed=42] AA=0.888  KL=0.0000  RPD=0.024
+  [Linear, N=4, seed=42] AA=0.807  KL=0.0011  RPD=0.000
+  [Tree  , N=4, seed=42] AA=0.849  KL=0.0002  RPD=0.226
+
+[N=4, seed=123] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed123.zip
+  [MoET  , N=4, seed=123] AA=0.872  KL=0.0005  RPD=0.183
+  [Linear, N=4, seed=123] AA=0.795  KL=0.0026  RPD=-0.001
+  [Tree  , N=4, seed=123] AA=0.846  KL=0.0021  RPD=-0.001
+
+[N=4, seed=456] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed456.zip
+  [MoET  , N=4, seed=456] AA=0.910  KL=0.0000  RPD=0.020
+  [Linear, N=4, seed=456] AA=0.881  KL=0.0001  RPD=0.283
+  [Tree  , N=4, seed=456] AA=0.894  KL=0.0000  RPD=0.209
+
+[N=4, seed=789] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed789.zip
+  [MoET  , N=4, seed=789] AA=0.842  KL=0.0009  RPD=0.377
+  [Linear, N=4, seed=789] AA=0.793  KL=0.0014  RPD=0.007
+  [Tree  , N=4, seed=789] AA=0.809  KL=0.0004  RPD=0.480
+
+[N=4, seed=1011] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed1011.zip
+  [MoET  , N=4, seed=1011] AA=0.923  KL=0.0000  RPD=0.000
+  [Linear, N=4, seed=1011] AA=0.893  KL=0.0001  RPD=0.770
+  [Tree  , N=4, seed=1011] AA=0.920  KL=0.0001  RPD=0.000
+
+[N=4, seed=1314] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed1314.zip
+  [MoET  , N=4, seed=1314] AA=0.901  KL=0.0001  RPD=0.043
+  [Linear, N=4, seed=1314] AA=0.906  KL=0.0000  RPD=0.030
+  [Tree  , N=4, seed=1314] AA=0.883  KL=0.0000  RPD=0.025
+
+[N=4, seed=1617] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed1617.zip
+  [MoET  , N=4, seed=1617] AA=0.895  KL=0.0002  RPD=0.254
+  [Linear, N=4, seed=1617] AA=0.893  KL=0.0000  RPD=0.056
+  [Tree  , N=4, seed=1617] AA=0.875  KL=0.0015  RPD=0.187
+
+[N=4, seed=1920] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed1920.zip
+  [MoET  , N=4, seed=1920] AA=0.803  KL=0.0007  RPD=-0.210
+  [Linear, N=4, seed=1920] AA=0.786  KL=0.0000  RPD=-0.033
+  [Tree  , N=4, seed=1920] AA=0.775  KL=0.0176  RPD=-1.088
+
+[N=4, seed=2223] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed2223.zip
+  [MoET  , N=4, seed=2223] AA=0.899  KL=0.0000  RPD=0.202
+  [Linear, N=4, seed=2223] AA=0.912  KL=0.0000  RPD=0.075
+  [Tree  , N=4, seed=2223] AA=0.887  KL=0.0000  RPD=0.166
+
+[N=4, seed=2526] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N4_seed2526.zip
+  [MoET  , N=4, seed=2526] AA=0.879  KL=0.0002  RPD=0.163
+  [Linear, N=4, seed=2526] AA=0.902  KL=0.0000  RPD=0.069
+  [Tree  , N=4, seed=2526] AA=0.845  KL=0.0008  RPD=0.694
+
+[N=8, seed=42] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed42.zip
+  [MoET  , N=8, seed=42] AA=0.823  KL=0.0003  RPD=0.000
+  [Linear, N=8, seed=42] AA=0.821  KL=0.0000  RPD=0.000
+  [Tree  , N=8, seed=42] AA=0.786  KL=0.0042  RPD=0.004
+
+[N=8, seed=123] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed123.zip
+  [MoET  , N=8, seed=123] AA=0.826  KL=0.0003  RPD=0.654
+  [Linear, N=8, seed=123] AA=0.843  KL=0.0000  RPD=0.433
+  [Tree  , N=8, seed=123] AA=0.720  KL=0.0085  RPD=0.409
+
+[N=8, seed=456] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed456.zip
+  [MoET  , N=8, seed=456] AA=0.820  KL=0.0007  RPD=0.482
+  [Linear, N=8, seed=456] AA=0.821  KL=0.0000  RPD=0.229
+  [Tree  , N=8, seed=456] AA=0.780  KL=0.0002  RPD=0.533
+
+[N=8, seed=789] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed789.zip
+  [MoET  , N=8, seed=789] AA=0.871  KL=0.0001  RPD=0.197
+  [Linear, N=8, seed=789] AA=0.880  KL=0.0000  RPD=0.466
+  [Tree  , N=8, seed=789] AA=0.843  KL=0.0013  RPD=0.231
+
+[N=8, seed=1011] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed1011.zip
+  [MoET  , N=8, seed=1011] AA=0.815  KL=0.0000  RPD=0.095
+  [Linear, N=8, seed=1011] AA=0.749  KL=0.0003  RPD=-0.200
+  [Tree  , N=8, seed=1011] AA=0.753  KL=0.0001  RPD=0.078
+
+[N=8, seed=1314] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed1314.zipC:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+
+  [MoET  , N=8, seed=1314] AA=0.769  KL=0.0000  RPD=0.031
+  [Linear, N=8, seed=1314] AA=0.756  KL=0.0007  RPD=0.000
+  [Tree  , N=8, seed=1314] AA=0.737  KL=0.0067  RPD=0.046
+
+[N=8, seed=1617] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed1617.zip
+  [MoET  , N=8, seed=1617] AA=0.903  KL=0.0004  RPD=0.125
+  [Linear, N=8, seed=1617] AA=0.915  KL=0.0001  RPD=0.075
+  [Tree  , N=8, seed=1617] AA=0.886  KL=0.0002  RPD=0.387
+
+[N=8, seed=1920] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed1920.zip
+  [MoET  , N=8, seed=1920] AA=0.861  KL=0.0002  RPD=0.074
+  [Linear, N=8, seed=1920] AA=0.862  KL=0.0000  RPD=0.010
+  [Tree  , N=8, seed=1920] AA=0.839  KL=0.0000  RPD=0.292
+
+[N=8, seed=2223] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed2223.zip
+  [MoET  , N=8, seed=2223] AA=0.915  KL=0.0004  RPD=0.350
+  [Linear, N=8, seed=2223] AA=0.903  KL=0.0000  RPD=0.001
+  [Tree  , N=8, seed=2223] AA=0.889  KL=0.0000  RPD=0.466
+
+[N=8, seed=2526] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N8_seed2526.zip
+  [MoET  , N=8, seed=2526] AA=0.921  KL=0.0004  RPD=0.026
+  [Linear, N=8, seed=2526] AA=0.911  KL=0.0001  RPD=0.651
+  [Tree  , N=8, seed=2526] AA=0.887  KL=0.0006  RPD=0.037
+
+[N=16, seed=42] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed42.zip
+  [MoET  , N=16, seed=42] AA=0.849  KL=0.0001  RPD=0.021
+  [Linear, N=16, seed=42] AA=0.860  KL=0.0002  RPD=0.178
+  [Tree  , N=16, seed=42] AA=0.826  KL=0.0001  RPD=0.313
+
+[N=16, seed=123] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed123.zip
+  [MoET  , N=16, seed=123] AA=0.830  KL=0.0000  RPD=0.030
+  [Linear, N=16, seed=123] AA=0.849  KL=0.0001  RPD=0.136
+  [Tree  , N=16, seed=123] AA=0.800  KL=0.0015  RPD=0.225
+
+[N=16, seed=456] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed456.zip
+  [MoET  , N=16, seed=456] AA=0.790  KL=0.0001  RPD=0.374
+  [Linear, N=16, seed=456] AA=0.777  KL=0.0003  RPD=0.071
+  [Tree  , N=16, seed=456] AA=0.724  KL=0.0002  RPD=0.136
+
+[N=16, seed=789] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed789.zip
+  [MoET  , N=16, seed=789] AA=0.783  KL=0.0002  RPD=0.189
+  [Linear, N=16, seed=789] AA=0.835  KL=0.0000  RPD=0.000
+  [Tree  , N=16, seed=789] AA=0.749  KL=0.0019  RPD=0.655
+
+[N=16, seed=1011] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed1011.zip
+  [MoET  , N=16, seed=1011] AA=0.830  KL=0.0005  RPD=0.297
+  [Linear, N=16, seed=1011] AA=0.832  KL=0.0002  RPD=0.000
+  [Tree  , N=16, seed=1011] AA=0.770  KL=0.0007  RPD=0.082
+
+[N=16, seed=1314] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed1314.zip
+  [MoET  , N=16, seed=1314] AA=0.818  KL=0.0005  RPD=0.000
+  [Linear, N=16, seed=1314] AA=0.818  KL=0.0000  RPD=0.000
+  [Tree  , N=16, seed=1314] AA=0.753  KL=0.0000  RPD=0.108
+
+[N=16, seed=1617] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed1617.zip
+  [MoET  , N=16, seed=1617] AA=0.763  KL=0.0002  RPD=-0.121
+  [Linear, N=16, seed=1617] AA=0.769  KL=0.0013  RPD=-0.224
+  [Tree  , N=16, seed=1617] AA=0.698  KL=0.0006  RPD=0.235
+
+[N=16, seed=1920] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed1920.zip
+  [MoET  , N=16, seed=1920] AA=0.865  KL=0.0001  RPD=0.045
+  [Linear, N=16, seed=1920] AA=0.888  KL=0.0000  RPD=0.002
+  [Tree  , N=16, seed=1920] AA=0.844  KL=0.0001  RPD=0.109
+
+[N=16, seed=2223] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed2223.zip
+  [MoET  , N=16, seed=2223] AA=0.838  KL=0.0005  RPD=0.000
+  [Linear, N=16, seed=2223] AA=0.854  KL=0.0000  RPD=0.000
+  [Tree  , N=16, seed=2223] AA=0.734  KL=0.0003  RPD=0.118
+
+[N=16, seed=2526] ä˘ë∂ÉÇÉfÉãÇçƒóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N16_seed2526.zip
+  [MoET  , N=16, seed=2526] AA=0.836  KL=0.0000  RPD=0.000
+  [Linear, N=16, seed=2526] AA=0.816  KL=0.0000  RPD=0.053
+  [Tree  , N=16, seed=2526] AA=0.779  KL=0.0004  RPD=0.014
+
+metrics.csv Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp004_cartpole_comparison\metrics.csv
+ê}Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp004_cartpole_comparison\comparison_aa_cartpole.png
+summary.txt Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp004_cartpole_comparison\summary.txt
+
+=== ÉÇÉfÉãî‰ärÉTÉ}ÉäÅ[ ===
+
+  model_type=linear  noise_dim=0  |  AA=0.842Å}0.033  J_I=428.37  J_R=324.60  RPD=0.200Å}0.287
+  model_type=linear  noise_dim=4  |  AA=0.857Å}0.054  J_I=459.00  J_R=395.19  RPD=0.126Å}0.243
+  model_type=linear  noise_dim=8  |  AA=0.846Å}0.060  J_I=466.28  J_R=379.17  RPD=0.166Å}0.269
+  model_type=linear  noise_dim=16  |  AA=0.830Å}0.037  J_I=487.31  J_R=474.82  RPD=0.022Å}0.107
+  model_type=moet  noise_dim=0  |  AA=0.915Å}0.028  J_I=428.37  J_R=417.49  RPD=0.023Å}0.056
+  model_type=moet  noise_dim=4  |  AA=0.881Å}0.035  J_I=459.00  J_R=402.51  RPD=0.106Å}0.164
+  model_type=moet  noise_dim=8  |  AA=0.852Å}0.050  J_I=466.28  J_R=370.31  RPD=0.203Å}0.221
+  model_type=moet  noise_dim=16  |  AA=0.820Å}0.032  J_I=487.31  J_R=445.49  RPD=0.084Å}0.154
+  model_type=tree  noise_dim=0  |  AA=0.902Å}0.031  J_I=428.37  J_R=416.56  RPD=0.009Å}0.082
+  model_type=tree  noise_dim=4  |  AA=0.858Å}0.043  J_I=459.00  J_R=382.72  RPD=0.090Å}0.468
+  model_type=tree  noise_dim=8  |  AA=0.812Å}0.065  J_I=466.28  J_R=347.16  RPD=0.248Å}0.197
+  model_type=tree  noise_dim=16  |  AA=0.768Å}0.046  J_I=487.31  J_R=390.25  RPD=0.200Å}0.182

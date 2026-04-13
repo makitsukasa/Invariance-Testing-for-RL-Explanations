@@ -1,0 +1,888 @@
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+
+[noise_dim=16, seed=42] Intuitive äwèKíÜ...
+  J_intuitive = 496.96
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=42)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=10042)...
+  [K=2, d=1] AA=0.834, KL=0.0000, RPD=0.485  (1/150)
+  [K=2, d=2] AA=0.834, KL=0.0000, RPD=0.540  (2/150)
+  [K=2, d=3] AA=0.841, KL=0.0007, RPD=-0.006  (3/150)
+  [K=2, d=4] AA=0.846, KL=0.0004, RPD=0.056  (4/150)
+  [K=2, d=5] AA=0.838, KL=0.0002, RPD=0.016  (5/150)
+  [K=3, d=1] AA=0.835, KL=0.0001, RPD=0.519  (6/150)
+  [K=3, d=2] AA=0.835, KL=0.0000, RPD=0.489  (7/150)
+  [K=3, d=3] AA=0.850, KL=0.0001, RPD=0.029  (8/150)
+  [K=3, d=4] AA=0.843, KL=0.0013, RPD=0.070  (9/150)
+  [K=3, d=5] AA=0.843, KL=0.0007, RPD=0.042  (10/150)
+  [K=4, d=1] AA=0.830, KL=0.0002, RPD=0.541  (11/150)
+  [K=4, d=2] AA=0.838, KL=0.0001, RPD=0.486  (12/150)
+  [K=4, d=3] AA=0.844, KL=0.0003, RPD=0.037  (13/150)
+  [K=4, d=4] AA=0.847, KL=0.0003, RPD=0.029  (14/150)
+  [K=4, d=5] AA=0.843, KL=0.0001, RPD=0.154  (15/150)
+
+[noise_dim=16, seed=123] Intuitive äwèKíÜ...
+  J_intuitive = 500.00
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=123)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=10123)...
+  [K=2, d=1] AA=0.797, KL=0.0001, RPD=0.611  (16/150)
+  [K=2, d=2] AA=0.798, KL=0.0001, RPD=0.582  (17/150)
+  [K=2, d=3] AA=0.836, KL=0.0000, RPD=0.127  (18/150)
+  [K=2, d=4] AA=0.833, KL=0.0002, RPD=0.029  (19/150)
+  [K=2, d=5] AA=0.831, KL=0.0001, RPD=0.015  (20/150)
+  [K=3, d=1] AA=0.794, KL=0.0004, RPD=0.592  (21/150)
+  [K=3, d=2] AA=0.814, KL=0.0002, RPD=0.579  (22/150)
+  [K=3, d=3] AA=0.838, KL=0.0000, RPD=0.147  (23/150)
+  [K=3, d=4] AA=0.833, KL=0.0001, RPD=0.042  (24/150)
+  [K=3, d=5] AA=0.841, KL=0.0001, RPD=0.037  (25/150)
+  [K=4, d=1] AA=0.795, KL=0.0002, RPD=0.593  (26/150)
+  [K=4, d=2] AA=0.813, KL=0.0010, RPD=0.563  (27/150)
+  [K=4, d=3] AA=0.834, KL=0.0000, RPD=0.287  (28/150)
+  [K=4, d=4] AA=0.832, KL=0.0000, RPD=0.326  (29/150)
+  [K=4, d=5] AA=0.839, KL=0.0001, RPD=0.080  (30/150)
+
+[noise_dim=16, seed=456] Intuitive äwèKíÜ...
+  J_intuitive = 461.34
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=456)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=10456)...
+  [K=2, d=1] AA=0.751, KL=0.0112, RPD=0.264  (31/150)
+  [K=2, d=2] AA=0.735, KL=0.0070, RPD=0.128  (32/150)
+  [K=2, d=3] AA=0.788, KL=0.0015, RPD=0.455  (33/150)
+  [K=2, d=4] AA=0.781, KL=0.0009, RPD=0.245  (34/150)
+  [K=2, d=5] AA=0.773, KL=0.0000, RPD=0.301  (35/150)
+  [K=3, d=1] AA=0.749, KL=0.0177, RPD=0.338  (36/150)
+  [K=3, d=2] AA=0.784, KL=0.0064, RPD=0.068  (37/150)
+  [K=3, d=3] AA=0.793, KL=0.0007, RPD=0.277  (38/150)
+  [K=3, d=4] AA=0.792, KL=0.0001, RPD=0.320  (39/150)
+  [K=3, d=5] AA=0.787, KL=0.0000, RPD=0.312  (40/150)
+  [K=4, d=1] AA=0.774, KL=0.0014, RPD=0.341  (41/150)
+  [K=4, d=2] AA=0.778, KL=0.0037, RPD=0.255  (42/150)
+  [K=4, d=3] AA=0.808, KL=0.0002, RPD=0.331  (43/150)
+  [K=4, d=4] AA=0.799, KL=0.0001, RPD=0.326  (44/150)
+  [K=4, d=5] AA=0.799, KL=0.0001, RPD=0.223  (45/150)
+
+[noise_dim=16, seed=789] Intuitive äwèKíÜ...
+  J_intuitive = 500.00
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=789)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=10789)...
+  [K=2, d=1] AA=0.755, KL=0.0036, RPD=0.677  (46/150)
+  [K=2, d=2] AA=0.780, KL=0.0005, RPD=0.447  (47/150)
+  [K=2, d=3] AA=0.784, KL=0.0031, RPD=0.669  (48/150)
+  [K=2, d=4] AA=0.781, KL=0.0025, RPD=0.083  (49/150)
+  [K=2, d=5] AA=0.792, KL=0.0000, RPD=0.073  (50/150)
+  [K=3, d=1] AA=0.754, KL=0.0027, RPD=0.662  (51/150)
+  [K=3, d=2] AA=0.790, KL=0.0014, RPD=0.616  (52/150)
+  [K=3, d=3] AA=0.788, KL=0.0015, RPD=0.475  (53/150)
+  [K=3, d=4] AA=0.791, KL=0.0014, RPD=0.080  (54/150)
+  [K=3, d=5] AA=0.788, KL=0.0001, RPD=0.224  (55/150)
+  [K=4, d=1] AA=0.755, KL=0.0041, RPD=0.661  (56/150)
+  [K=4, d=2] AA=0.775, KL=0.0000, RPD=0.564  (57/150)
+  [K=4, d=3] AA=0.794, KL=0.0013, RPD=0.582  (58/150)
+  [K=4, d=4] AA=0.784, KL=0.0000, RPD=0.324  (59/150)
+  [K=4, d=5] AA=0.783, KL=0.0006, RPD=0.337  (60/150)
+
+[noise_dim=16, seed=1011] Intuitive äwèKíÜ...
+  J_intuitive = 500.00
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=1011)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=11011)...
+  [K=2, d=1] AA=0.792, KL=0.0009, RPD=0.644  (61/150)
+  [K=2, d=2] AA=0.793, KL=0.0010, RPD=0.617  (62/150)
+  [K=2, d=3] AA=0.809, KL=0.0001, RPD=0.007  (63/150)
+  [K=2, d=4] AA=0.819, KL=0.0006, RPD=0.061  (64/150)
+  [K=2, d=5] AA=0.818, KL=0.0008, RPD=0.276  (65/150)
+  [K=3, d=1] AA=0.798, KL=0.0024, RPD=0.626  (66/150)
+  [K=3, d=2] AA=0.797, KL=0.0023, RPD=0.640  (67/150)
+  [K=3, d=3] AA=0.831, KL=0.0002, RPD=0.049  (68/150)
+  [K=3, d=4] AA=0.823, KL=0.0010, RPD=0.044  (69/150)
+  [K=3, d=5] AA=0.828, KL=0.0001, RPD=0.032  (70/150)
+  [K=4, d=1] AA=0.803, KL=0.0011, RPD=0.641  (71/150)
+  [K=4, d=2] AA=0.799, KL=0.0024, RPD=0.615  (72/150)
+  [K=4, d=3] AA=0.838, KL=0.0003, RPD=0.165  (73/150)
+  [K=4, d=4] AA=0.834, KL=0.0004, RPD=0.060  (74/150)
+  [K=4, d=5] AA=0.827, KL=0.0002, RPD=0.094  (75/150)
+
+[noise_dim=16, seed=1314] Intuitive äwèKíÜ...
+  J_intuitive = 500.00
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=1314)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=11314)...
+  [K=2, d=1] AA=0.765, KL=0.0010, RPD=0.563  (76/150)
+  [K=2, d=2] AA=0.766, KL=0.0008, RPD=0.568  (77/150)
+  [K=2, d=3] AA=0.804, KL=0.0013, RPD=0.014  (78/150)
+  [K=2, d=4] AA=0.797, KL=0.0021, RPD=0.012  (79/150)
+  [K=2, d=5] AA=0.799, KL=0.0007, RPD=0.004  (80/150)
+  [K=3, d=1] AA=0.766, KL=0.0010, RPD=0.584  (81/150)
+  [K=3, d=2] AA=0.793, KL=0.0027, RPD=0.613  (82/150)
+  [K=3, d=3] AA=0.804, KL=0.0001, RPD=0.002  (83/150)
+  [K=3, d=4] AA=0.809, KL=0.0016, RPD=0.004  (84/150)
+  [K=3, d=5] AA=0.810, KL=0.0012, RPD=0.000  (85/150)
+  [K=4, d=1] AA=0.761, KL=0.0031, RPD=0.613  (86/150)
+  [K=4, d=2] AA=0.786, KL=0.0049, RPD=0.670  (87/150)
+  [K=4, d=3] AA=0.806, KL=0.0007, RPD=0.016  (88/150)
+  [K=4, d=4] AA=0.810, KL=0.0016, RPD=0.059  (89/150)
+  [K=4, d=5] AA=0.806, KL=0.0005, RPD=0.000  (90/150)
+
+[noise_dim=16, seed=1617] Intuitive äwèKíÜ...
+  J_intuitive = 397.36
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=1617)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=11617)...
+  [K=2, d=1] AA=0.714, KL=0.0021, RPD=0.382  (91/150)
+  [K=2, d=2] AA=0.744, KL=0.0002, RPD=-0.178  (92/150)
+  [K=2, d=3] AA=0.753, KL=0.0000, RPD=-0.258  (93/150)
+  [K=2, d=4] AA=0.758, KL=0.0000, RPD=-0.070  (94/150)
+  [K=2, d=5] AA=0.753, KL=0.0004, RPD=-0.219  (95/150)
+  [K=3, d=1] AA=0.752, KL=0.0000, RPD=0.058  (96/150)
+  [K=3, d=2] AA=0.751, KL=0.0002, RPD=-0.250  (97/150)
+  [K=3, d=3] AA=0.755, KL=0.0003, RPD=-0.250  (98/150)
+  [K=3, d=4] AA=0.761, KL=0.0004, RPD=-0.243  (99/150)
+  [K=3, d=5] AA=0.770, KL=0.0001, RPD=0.022  (100/150)
+  [K=4, d=1] AA=0.762, KL=0.0020, RPD=0.140  (101/150)
+  [K=4, d=2] AA=0.759, KL=0.0001, RPD=-0.116  (102/150)
+  [K=4, d=3] AA=0.746, KL=0.0001, RPD=-0.166  (103/150)
+  [K=4, d=4] AA=0.761, KL=0.0000, RPD=-0.086  (104/150)
+  [K=4, d=5] AA=0.753, KL=0.0004, RPD=-0.054  (105/150)
+
+[noise_dim=16, seed=1920] Intuitive äwèKíÜ...
+  J_intuitive = 500.00
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=1920)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=11920)...
+  [K=2, d=1] AA=0.847, KL=0.0008, RPD=0.631  (106/150)
+  [K=2, d=2] AA=0.854, KL=0.0000, RPD=0.624  (107/150)
+  [K=2, d=3] AA=0.864, KL=0.0004, RPD=0.361  (108/150)
+  [K=2, d=4] AA=0.860, KL=0.0001, RPD=0.068  (109/150)
+  [K=2, d=5] AA=0.864, KL=0.0000, RPD=0.042  (110/150)
+  [K=3, d=1] AA=0.846, KL=0.0008, RPD=0.608  (111/150)
+  [K=3, d=2] AA=0.860, KL=0.0000, RPD=0.626  (112/150)
+  [K=3, d=3] AA=0.866, KL=0.0007, RPD=0.453  (113/150)
+  [K=3, d=4] AA=0.867, KL=0.0000, RPD=0.098  (114/150)
+  [K=3, d=5] AA=0.865, KL=0.0002, RPD=0.082  (115/150)
+  [K=4, d=1] AA=0.852, KL=0.0000, RPD=0.627  (116/150)
+  [K=4, d=2] AA=0.854, KL=0.0001, RPD=0.563  (117/150)
+  [K=4, d=3] AA=0.862, KL=0.0003, RPD=0.478  (118/150)
+  [K=4, d=4] AA=0.869, KL=0.0001, RPD=0.108  (119/150)
+  [K=4, d=5] AA=0.864, KL=0.0001, RPD=0.060  (120/150)
+
+[noise_dim=16, seed=2223] Intuitive äwèKíÜ...
+  J_intuitive = 500.00
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=2223)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=12223)...C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+
+  [K=2, d=1] AA=0.798, KL=0.0010, RPD=0.818  (121/150)
+  [K=2, d=2] AA=0.819, KL=0.0022, RPD=0.005  (122/150)
+  [K=2, d=3] AA=0.821, KL=0.0000, RPD=0.000  (123/150)
+  [K=2, d=4] AA=0.848, KL=0.0000, RPD=0.004  (124/150)
+  [K=2, d=5] AA=0.838, KL=0.0001, RPD=0.000  (125/150)
+  [K=3, d=1] AA=0.804, KL=0.0002, RPD=0.791  (126/150)
+  [K=3, d=2] AA=0.825, KL=0.0036, RPD=0.013  (127/150)
+  [K=3, d=3] AA=0.833, KL=0.0000, RPD=0.001  (128/150)
+  [K=3, d=4] AA=0.847, KL=0.0003, RPD=0.000  (129/150)
+  [K=3, d=5] AA=0.828, KL=0.0000, RPD=0.000  (130/150)
+  [K=4, d=1] AA=0.807, KL=0.0001, RPD=0.827  (131/150)
+  [K=4, d=2] AA=0.841, KL=0.0002, RPD=0.065  (132/150)
+  [K=4, d=3] AA=0.835, KL=0.0001, RPD=0.004  (133/150)
+  [K=4, d=4] AA=0.850, KL=0.0005, RPD=0.000  (134/150)
+  [K=4, d=5] AA=0.844, KL=0.0001, RPD=0.000  (135/150)
+
+[noise_dim=16, seed=2526] Intuitive äwèKíÜ...
+  J_intuitive = 500.00
+  èˆóØópÉfÅ[É^é˚èWíÜ (10000 samples, seed=2526)...
+  ï]âøópÉfÅ[É^é˚èWíÜ (5000 samples, seed=12526)...
+  [K=2, d=1] AA=0.754, KL=0.0021, RPD=0.598  (136/150)
+  [K=2, d=2] AA=0.806, KL=0.0000, RPD=0.640  (137/150)
+  [K=2, d=3] AA=0.813, KL=0.0010, RPD=0.000  (138/150)
+  [K=2, d=4] AA=0.832, KL=0.0001, RPD=0.000  (139/150)
+  [K=2, d=5] AA=0.827, KL=0.0015, RPD=0.002  (140/150)
+  [K=3, d=1] AA=0.780, KL=0.0000, RPD=0.600  (141/150)
+  [K=3, d=2] AA=0.811, KL=0.0000, RPD=0.596  (142/150)
+  [K=3, d=3] AA=0.817, KL=0.0008, RPD=0.000  (143/150)
+  [K=3, d=4] AA=0.836, KL=0.0001, RPD=0.000  (144/150)
+  [K=3, d=5] AA=0.839, KL=0.0005, RPD=0.000  (145/150)
+  [K=4, d=1] AA=0.780, KL=0.0001, RPD=0.612  (146/150)
+  [K=4, d=2] AA=0.807, KL=0.0000, RPD=0.420  (147/150)
+  [K=4, d=3] AA=0.824, KL=0.0004, RPD=0.000  (148/150)
+  [K=4, d=4] AA=0.842, KL=0.0001, RPD=0.000  (149/150)
+  [K=4, d=5] AA=0.836, KL=0.0000, RPD=0.000  (150/150)
+
+metrics.csv Çï€ë∂ÇµÇ‹ÇµÇΩ: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_n16\metrics.csv
+heatmap Çï€ë∂ÇµÇ‹ÇµÇΩ: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_n16\heatmap_action_agreement.png
+summary.txt Çï€ë∂ÇµÇ‹ÇµÇΩ: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_n16\summary.txt
+
+=== é¿å±ÉTÉ}ÉäÅ[ ===
+
+noise_dim=16, K=2, depth=1: AA=0.781Å}0.041  KL=0.0023Å}0.0033  RPD=0.567Å}0.157
+noise_dim=16, K=2, depth=2: AA=0.793Å}0.038  KL=0.0012Å}0.0021  RPD=0.397Å}0.299
+noise_dim=16, K=2, depth=3: AA=0.811Å}0.032  KL=0.0008Å}0.0010  RPD=0.137Å}0.275
+noise_dim=16, K=2, depth=4: AA=0.815Å}0.034  KL=0.0007Å}0.0009  RPD=0.049Å}0.082
+noise_dim=16, K=2, depth=5: AA=0.813Å}0.034  KL=0.0004Å}0.0005  RPD=0.051Å}0.148
+noise_dim=16, K=3, depth=1: AA=0.788Å}0.034  KL=0.0025Å}0.0054  RPD=0.538Å}0.203
+noise_dim=16, K=3, depth=2: AA=0.806Å}0.030  KL=0.0017Å}0.0021  RPD=0.399Å}0.327
+noise_dim=16, K=3, depth=3: AA=0.817Å}0.033  KL=0.0004Å}0.0005  RPD=0.118Å}0.225
+noise_dim=16, K=3, depth=4: AA=0.820Å}0.032  KL=0.0006Å}0.0006  RPD=0.042Å}0.137
+noise_dim=16, K=3, depth=5: AA=0.820Å}0.030  KL=0.0003Å}0.0004  RPD=0.075Å}0.107
+noise_dim=16, K=4, depth=1: AA=0.792Å}0.032  KL=0.0012Å}0.0014  RPD=0.560Å}0.190
+noise_dim=16, K=4, depth=2: AA=0.805Å}0.032  KL=0.0012Å}0.0018  RPD=0.409Å}0.259
+noise_dim=16, K=4, depth=3: AA=0.819Å}0.033  KL=0.0004Å}0.0004  RPD=0.173Å}0.239
+noise_dim=16, K=4, depth=4: AA=0.823Å}0.033  KL=0.0003Å}0.0005  RPD=0.115Å}0.154
+noise_dim=16, K=4, depth=5: AA=0.819Å}0.033  KL=0.0002Å}0.0002  RPD=0.089Å}0.120
+
+é¿å±äÆóπÅBåãâ : C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_n16

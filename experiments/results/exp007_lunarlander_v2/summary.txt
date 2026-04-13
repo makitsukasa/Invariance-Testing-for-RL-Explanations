@@ -1,0 +1,12 @@
+=== 予備実験（連続制御）サマリー ===
+
+【lunarlander】
+  Linear  gravity_hi    AA=0.610±0.058
+  Linear  gravity_lo    AA=0.432±0.099
+  Linear  train         AA=0.575±0.038
+  MoET    gravity_hi    AA=0.707±0.047
+  MoET    gravity_lo    AA=0.456±0.080
+  MoET    train         AA=0.698±0.058
+  Tree    gravity_hi    AA=0.697±0.047
+  Tree    gravity_lo    AA=0.449±0.094
+  Tree    train         AA=0.693±0.063

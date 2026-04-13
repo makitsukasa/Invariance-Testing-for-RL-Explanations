@@ -1,0 +1,24 @@
+name: exp001_n0_500k
+description: "CartPole N=0 再学習 500k ステップ（M3対応: Intuitive policy 学習品質改善）"
+
+env:
+  base: CartPole-v1
+  noise_dims: [0]
+
+intuitive:
+  algorithm: DQN
+  n_steps: 500000
+
+moet:
+  gating: soft
+  expert_counts: [2, 3, 4]
+  tree_depths: [1, 2, 3, 4, 5]
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+
+evaluation:
+  n_eval_episodes: 50
+  seeds: [42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526]
+
+output_dir: experiments/results/exp001_n0_500k

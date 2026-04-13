@@ -1,0 +1,29 @@
+name: exp007_lunarlander_v2
+description: >
+  実験7 v2: LunarLander-v3 2M steps 再学習 + per-condition AA 計算（M2対応）
+  - n_steps: 1M → 2M（収束改善）
+  - action_agreement を train 条件固定から各重力条件ごとに再計算
+
+lunar:
+  n_steps: 2000000
+  gravity_conditions:
+    - {name: train,      gravity: -10.0}
+    - {name: gravity_lo, gravity: -3.0}
+    - {name: gravity_hi, gravity: -11.5}
+
+comparison:
+  model_types: [moet, linear, tree]
+  moet:
+    n_experts: 4
+    max_depth: 5
+  tree:
+    max_depth: 5
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 1011]
+  n_eval_episodes: 20
+
+output_dir: experiments/results/exp007_lunarlander_v2

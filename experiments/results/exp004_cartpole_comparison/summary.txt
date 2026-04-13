@@ -1,14 +1,14 @@
 === モデル比較サマリー ===
 
-  model_type=linear  noise_dim=0  |  AA=0.794±0.065  J_I=216.09  J_R=273.87  RPD=-0.269±0.285
-  model_type=linear  noise_dim=4  |  AA=0.829±0.034  J_I=136.67  J_R=148.19  RPD=-0.086±0.074
-  model_type=linear  noise_dim=8  |  AA=0.832±0.023  J_I=113.03  J_R=115.76  RPD=-0.028±0.081
-  model_type=linear  noise_dim=16  |  AA=0.823±0.011  J_I=67.15  J_R=71.73  RPD=-0.063±0.092
-  model_type=moet  noise_dim=0  |  AA=0.913±0.018  J_I=216.09  J_R=230.19  RPD=-0.065±0.132
-  model_type=moet  noise_dim=4  |  AA=0.839±0.033  J_I=136.67  J_R=138.65  RPD=-0.018±0.080
-  model_type=moet  noise_dim=8  |  AA=0.838±0.021  J_I=113.03  J_R=110.36  RPD=-0.005±0.113
-  model_type=moet  noise_dim=16  |  AA=0.810±0.013  J_I=67.15  J_R=69.14  RPD=-0.030±0.092
-  model_type=tree  noise_dim=0  |  AA=0.896±0.016  J_I=216.09  J_R=239.80  RPD=-0.106±0.296
-  model_type=tree  noise_dim=4  |  AA=0.813±0.040  J_I=136.67  J_R=140.73  RPD=-0.035±0.260
-  model_type=tree  noise_dim=8  |  AA=0.817±0.024  J_I=113.03  J_R=103.90  RPD=0.027±0.143
-  model_type=tree  noise_dim=16  |  AA=0.798±0.012  J_I=67.15  J_R=69.54  RPD=-0.034±0.160
+  model_type=linear  noise_dim=0  |  AA=0.842±0.033  J_I=428.37  J_R=324.60  RPD=0.200±0.287
+  model_type=linear  noise_dim=4  |  AA=0.857±0.054  J_I=459.00  J_R=395.19  RPD=0.126±0.243
+  model_type=linear  noise_dim=8  |  AA=0.846±0.060  J_I=466.28  J_R=379.17  RPD=0.166±0.269
+  model_type=linear  noise_dim=16  |  AA=0.830±0.037  J_I=487.31  J_R=474.82  RPD=0.022±0.107
+  model_type=moet  noise_dim=0  |  AA=0.915±0.028  J_I=428.37  J_R=417.49  RPD=0.023±0.056
+  model_type=moet  noise_dim=4  |  AA=0.881±0.035  J_I=459.00  J_R=402.51  RPD=0.106±0.164
+  model_type=moet  noise_dim=8  |  AA=0.852±0.050  J_I=466.28  J_R=370.31  RPD=0.203±0.221
+  model_type=moet  noise_dim=16  |  AA=0.820±0.032  J_I=487.31  J_R=445.49  RPD=0.084±0.154
+  model_type=tree  noise_dim=0  |  AA=0.902±0.031  J_I=428.37  J_R=416.56  RPD=0.009±0.082
+  model_type=tree  noise_dim=4  |  AA=0.858±0.043  J_I=459.00  J_R=382.72  RPD=0.090±0.468
+  model_type=tree  noise_dim=8  |  AA=0.812±0.065  J_I=466.28  J_R=347.16  RPD=0.248±0.197
+  model_type=tree  noise_dim=16  |  AA=0.768±0.046  J_I=487.31  J_R=390.25  RPD=0.200±0.182

@@ -312,9 +312,12 @@ def run_experiment(cfg: dict) -> None:
     cp_df = run_cartpole_sensitivity(cfg, output_dir)
     all_records.append(cp_df)
 
-    print("\n=== GridWorld 感度分析 ===", flush=True)
-    gw_df = run_gridworld_sensitivity(cfg, output_dir)
-    all_records.append(gw_df)
+    if cfg.get("gridworld"):
+        print("\n=== GridWorld 感度分析 ===", flush=True)
+        gw_df = run_gridworld_sensitivity(cfg, output_dir)
+        all_records.append(gw_df)
+    else:
+        print("\n[GridWorld 感度分析スキップ: config に gridworld セクションなし]", flush=True)
 
     df = pd.concat([d for d in all_records if not d.empty], ignore_index=True)
     csv_path = output_dir / "metrics.csv"

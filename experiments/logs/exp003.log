@@ -1,0 +1,161 @@
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+
+[seed=42] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed42.zip
+  J_intuitive (train) = 498.42
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.938, J_I=498.4, J_R=500.0, RPD=-0.003
+    gravity_lo (g=5.0, len=0.5): AA=0.914, J_I=500.0, J_R=500.0, RPD=0.000
+    gravity_hi (g=20.0, len=0.5): AA=0.914, J_I=467.4, J_R=492.3, RPD=-0.053
+    pole_short (g=9.8, len=0.25): AA=0.936, J_I=496.8, J_R=497.8, RPD=-0.002
+    pole_long (g=9.8, len=1.0): AA=0.821, J_I=500.0, J_R=500.0, RPD=0.000
+
+[seed=123] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed123.zip
+  J_intuitive (train) = 500.00
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.886, J_I=500.0, J_R=497.4, RPD=0.005
+    gravity_lo (g=5.0, len=0.5): AA=0.891, J_I=500.0, J_R=500.0, RPD=0.000
+    gravity_hi (g=20.0, len=0.5): AA=0.867, J_I=500.0, J_R=450.7, RPD=0.099
+    pole_short (g=9.8, len=0.25): AA=0.822, J_I=500.0, J_R=500.0, RPD=0.000
+    pole_long (g=9.8, len=1.0): AA=0.721, J_I=500.0, J_R=500.0, RPD=0.000
+
+[seed=456] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed456.zip
+  J_intuitive (train) = 500.00
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.938, J_I=500.0, J_R=497.3, RPD=0.005
+    gravity_lo (g=5.0, len=0.5): AA=0.925, J_I=500.0, J_R=500.0, RPD=0.000
+    gravity_hi (g=20.0, len=0.5): AA=0.854, J_I=500.0, J_R=439.2, RPD=0.122
+    pole_short (g=9.8, len=0.25): AA=0.919, J_I=500.0, J_R=489.4, RPD=0.021
+    pole_long (g=9.8, len=1.0): AA=0.848, J_I=497.4, J_R=499.9, RPD=-0.005
+
+[seed=789] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed789.zip
+  J_intuitive (train) = 500.00
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.966, J_I=500.0, J_R=500.0, RPD=0.000
+    gravity_lo (g=5.0, len=0.5): AA=0.947, J_I=500.0, J_R=500.0, RPD=0.000
+    gravity_hi (g=20.0, len=0.5): AA=0.952, J_I=500.0, J_R=493.7, RPD=0.013
+    pole_short (g=9.8, len=0.25): AA=0.926, J_I=500.0, J_R=500.0, RPD=0.000
+    pole_long (g=9.8, len=1.0): AA=0.630, J_I=450.0, J_R=500.0, RPD=-0.111
+
+[seed=1011] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed1011.zip
+  J_intuitive (train) = 500.00
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.898, J_I=500.0, J_R=449.4, RPD=0.101
+    gravity_lo (g=5.0, len=0.5): AA=0.865, J_I=500.0, J_R=302.2, RPD=0.396
+    gravity_hi (g=20.0, len=0.5): AA=0.823, J_I=74.4, J_R=135.0, RPD=-0.813
+    pole_short (g=9.8, len=0.25): AA=0.865, J_I=354.2, J_R=245.2, RPD=0.308
+    pole_long (g=9.8, len=1.0): AA=0.814, J_I=432.7, J_R=470.1, RPD=-0.086
+
+[seed=1314] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed1314.zip
+  J_intuitive (train) = 489.14
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.909, J_I=489.1, J_R=499.3, RPD=-0.021
+    gravity_lo (g=5.0, len=0.5): AA=0.897, J_I=500.0, J_R=500.0, RPD=0.000
+    gravity_hi (g=20.0, len=0.5): AA=0.882, J_I=295.6, J_R=498.0, RPD=-0.684
+    pole_short (g=9.8, len=0.25): AA=0.916, J_I=493.0, J_R=340.6, RPD=0.309
+    pole_long (g=9.8, len=1.0): AA=0.805, J_I=372.4, J_R=500.0, RPD=-0.343
+
+[seed=1617] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed1617.zip
+  J_intuitive (train) = 500.00
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.886, J_I=500.0, J_R=436.1, RPD=0.128
+    gravity_lo (g=5.0, len=0.5): AA=0.865, J_I=500.0, J_R=492.7, RPD=0.015
+    gravity_hi (g=20.0, len=0.5): AA=0.827, J_I=285.8, J_R=271.4, RPD=0.051
+    pole_short (g=9.8, len=0.25): AA=0.852, J_I=474.6, J_R=272.8, RPD=0.425
+    pole_long (g=9.8, len=1.0): AA=0.693, J_I=340.1, J_R=439.3, RPD=-0.292
+
+[seed=1920] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed1920.zip
+  J_intuitive (train) = 500.00
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.933, J_I=500.0, J_R=500.0, RPD=0.000
+    gravity_lo (g=5.0, len=0.5): AA=0.907, J_I=500.0, J_R=500.0, RPD=0.000
+    gravity_hi (g=20.0, len=0.5): AA=0.920, J_I=500.0, J_R=500.0, RPD=0.000
+    pole_short (g=9.8, len=0.25): AA=0.886, J_I=500.0, J_R=500.0, RPD=0.000
+    pole_long (g=9.8, len=1.0): AA=0.856, J_I=490.3, J_R=500.0, RPD=-0.020
+
+[seed=2223] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed2223.zip
+  J_intuitive (train) = 159.20
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.909, J_I=159.2, J_R=163.9, RPD=-0.030
+    gravity_lo (g=5.0, len=0.5): AA=0.846, J_I=190.3, J_R=271.6, RPD=-0.428
+    gravity_hi (g=20.0, len=0.5): AA=0.845, J_I=134.9, J_R=104.0, RPD=0.229
+    pole_short (g=9.8, len=0.25): AA=0.551, J_I=218.8, J_R=135.5, RPD=0.381
+    pole_long (g=9.8, len=1.0): AA=0.710, J_I=70.4, J_R=216.3, RPD=-2.074
+
+[seed=2526] exp001 ‚ÌŠwKÏ‚İƒ‚ƒfƒ‹‚ğÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp001_cartpole_noise\intuitive_N0_seed2526.zip
+  J_intuitive (train) = 133.96
+  ö—¯—pƒf[ƒ^ûW’† (10000 samples)...
+  [K=4, d=5] ö—¯Š®—¹
+    train (g=9.8, len=0.5): AA=0.885, J_I=134.0, J_R=135.1, RPD=-0.009
+    gravity_lo (g=5.0, len=0.5): AA=0.775, J_I=174.4, J_R=191.7, RPD=-0.099
+    gravity_hi (g=20.0, len=0.5): AA=0.729, J_I=103.6, J_R=89.4, RPD=0.137
+    pole_short (g=9.8, len=0.25): AA=0.783, J_I=30.6, J_R=130.1, RPD=-3.250
+    pole_long (g=9.8, len=1.0): AA=0.696, J_I=111.4, J_R=139.5, RPD=-0.252
+
+metrics.csv ‚ğ•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp003_cartpole_gravity\metrics.csv
+”äŠrƒOƒ‰ƒt‚ğ•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp003_cartpole_gravity\physics_shift_comparison.png
+summary.txt ‚ğ•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp003_cartpole_gravity\summary.txt
+
+=== exp003: CartPole N=0 + •¨—ƒpƒ‰ƒ[ƒ^ƒVƒtƒg ===
+f’f: ÄŒ»«‚ ~ •s•Ï«‚iƒXƒvƒŠƒAƒX‚È‚µj
+
+y”äŠrzexp002 reversed_c: AA=0.954, J_I=-1.000, J_R=-1.000
+
+train (g=9.8, len=0.5): AA=0.915}0.028  J_I=428.1  J_R=417.9  RPD=0.018}0.053
+gravity_lo (g=5.0, len=0.5): AA=0.883}0.049  J_I=436.5  J_R=425.8  RPD=-0.012}0.197
+gravity_hi (g=20.0, len=0.5): AA=0.861}0.063  J_I=336.2  J_R=347.4  RPD=-0.090}0.357
+pole_short (g=9.8, len=0.25): AA=0.846}0.115  J_I=406.8  J_R=361.1  RPD=-0.181}1.093
+pole_long (g=9.8, len=1.0): AA=0.759}0.078  J_I=376.5  J_R=426.5  RPD=-0.318}0.630
+
+ÀŒ±Š®—¹BŒ‹‰Ê: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp003_cartpole_gravity

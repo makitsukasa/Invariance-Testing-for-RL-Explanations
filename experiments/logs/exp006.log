@@ -1,0 +1,955 @@
+=== CartPole ä¥ìxï™êÕ ===
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=42]  AA=0.886  KL=0.0114
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=42]  AA=0.837  KL=0.0046
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=42]  AA=0.843  KL=0.0083
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=42]  AA=0.922  KL=0.0013
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=42]  AA=0.840  KL=0.0036
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=42]  AA=0.913  KL=0.0032
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=42]  AA=0.934  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=42]  AA=0.842  KL=0.0030
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=42]  AA=0.931  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=42]  AA=0.940  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=42]  AA=0.844  KL=0.0026
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=42]  AA=0.936  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=123]  AA=0.890  KL=0.0015
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=123]  AA=0.789  KL=0.0009
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=123]  AA=0.890  KL=0.0017
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=123]  AA=0.925  KL=0.0015
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=123]  AA=0.840  KL=0.0006
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=123]  AA=0.888  KL=0.0012
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=123]  AA=0.906  KL=0.0027
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=123]  AA=0.845  KL=0.0003
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=123]  AA=0.886  KL=0.0003
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=123]  AA=0.945  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=123]  AA=0.846  KL=0.0004
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=123]  AA=0.888  KL=0.0117
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=456]  AA=0.867  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=456]  AA=0.823  KL=0.0027
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=456]  AA=0.888  KL=0.0011
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=456]  AA=0.935  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=456]  AA=0.835  KL=0.0001
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=456]  AA=0.932  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=456]  AA=0.939  KL=0.0004
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=456]  AA=0.841  KL=0.0007
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=456]  AA=0.928  KL=0.0003
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=456]  AA=0.937  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=456]  AA=0.844  KL=0.0028
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=456]  AA=0.931  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=789]  AA=0.936  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=789]  AA=0.842  KL=0.0050
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=789]  AA=0.946  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=789]  AA=0.965  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=789]  AA=0.843  KL=0.0026
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=789]  AA=0.958  KL=0.0003
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=789]  AA=0.966  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=789]  AA=0.843  KL=0.0025
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=789]  AA=0.958  KL=0.0005
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=789]  AA=0.964  KL=0.0001
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=789]  AA=0.844  KL=0.0022
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=789]  AA=0.957  KL=0.0001
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=1011]  AA=0.885  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=1011]  AA=0.846  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=1011]  AA=0.871  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=1011]  AA=0.891  KL=0.0009
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=1011]  AA=0.843  KL=0.0005
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=1011]  AA=0.875  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=1011]  AA=0.895  KL=0.0013
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=1011]  AA=0.838  KL=0.0004
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=1011]  AA=0.879  KL=0.0001
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=1011]  AA=0.901  KL=0.0016
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=1011]  AA=0.833  KL=0.0006
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=1011]  AA=0.877  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=1314]  AA=0.894  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=1314]  AA=0.884  KL=0.0006
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=1314]  AA=0.901  KL=0.0005
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=1314]  AA=0.909  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=1314]  AA=0.888  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=1314]  AA=0.906  KL=0.0008
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=1314]  AA=0.910  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=1314]  AA=0.889  KL=0.0001
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=1314]  AA=0.908  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=1314]  AA=0.915  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=1314]  AA=0.889  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=1314]  AA=0.908  KL=0.0001
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=1617]  AA=0.862  KL=0.0155
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=1617]  AA=0.836  KL=0.0001
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=1617]  AA=0.871  KL=0.0016
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=1617]  AA=0.897  KL=0.0008
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=1617]  AA=0.858  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=1617]  AA=0.895  KL=0.0068
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=1617]  AA=0.877  KL=0.0048
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=1617]  AA=0.859  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=1617]  AA=0.874  KL=0.0020
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=1617]  AA=0.921  KL=0.0036
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=1617]  AA=0.859  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=1617]  AA=0.889  KL=0.0005
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=1920]  AA=0.884  KL=0.0001
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=1920]  AA=0.843  KL=0.0001
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=1920]  AA=0.868  KL=0.0104
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=1920]  AA=0.926  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=1920]  AA=0.850  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=1920]  AA=0.925  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=1920]  AA=0.931  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=1920]  AA=0.853  KL=0.0007
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=1920]  AA=0.920  KL=0.0010
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=1920]  AA=0.934  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=1920]  AA=0.861  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=1920]  AA=0.933  KL=0.0000
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=2223]  AA=0.896  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=2223]  AA=0.693  KL=0.0027
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=2223]  AA=0.865  KL=0.0049
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=2223]  AA=0.904  KL=0.0006
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=2223]  AA=0.754  KL=0.0004
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=2223]  AA=0.875  KL=0.0025
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=2223]  AA=0.909  KL=0.0018
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=2223]  AA=0.758  KL=0.0012
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=2223]  AA=0.871  KL=0.0049
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=2223]  AA=0.912  KL=0.0002
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=2223]  AA=0.762  KL=0.0019
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=2223]  AA=0.866  KL=0.0055
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 1000, seed=2526]  AA=0.878  KL=0.0025
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 1000, seed=2526]  AA=0.839  KL=0.0008
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 1000, seed=2526]  AA=0.867  KL=0.0013
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n= 5000, seed=2526]  AA=0.882  KL=0.0007
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n= 5000, seed=2526]  AA=0.841  KL=0.0004
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n= 5000, seed=2526]  AA=0.875  KL=0.0010
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=10000, seed=2526]  AA=0.881  KL=0.0013
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=10000, seed=2526]  AA=0.849  KL=0.0003
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=10000, seed=2526]  AA=0.870  KL=0.0010
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, MoET  , n=20000, seed=2526]  AA=0.889  KL=0.0029
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Linear, n=20000, seed=2526]  AA=0.859  KL=0.0004
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+  [CartPole, Tree  , n=20000, seed=2526]  AA=0.879  KL=0.0073
+
+=== GridWorld ä¥ìxï™êÕ ===
+  [GridWorld p=0.0, MoET  , n= 1000, seed=42]  AA(train)=0.970  AA(rev)=0.904
+  [GridWorld p=0.0, Linear, n= 1000, seed=42]  AA(train)=0.908  AA(rev)=0.515
+  [GridWorld p=0.0, Tree  , n= 1000, seed=42]  AA(train)=0.970  AA(rev)=0.904
+  [GridWorld p=0.0, MoET  , n= 5000, seed=42]  AA(train)=0.970  AA(rev)=0.904
+  [GridWorld p=0.0, Linear, n= 5000, seed=42]  AA(train)=0.925  AA(rev)=0.594
+  [GridWorld p=0.0, Tree  , n= 5000, seed=42]  AA(train)=0.970  AA(rev)=0.904
+  [GridWorld p=0.0, MoET  , n=10000, seed=42]  AA(train)=0.970  AA(rev)=0.904
+  [GridWorld p=0.0, Linear, n=10000, seed=42]  AA(train)=0.925  AA(rev)=0.594
+  [GridWorld p=0.0, Tree  , n=10000, seed=42]  AA(train)=0.970  AA(rev)=0.904
+  [GridWorld p=0.0, MoET  , n=20000, seed=42]  AA(train)=0.970  AA(rev)=0.904
+  [GridWorld p=0.0, Linear, n=20000, seed=42]  AA(train)=0.925  AA(rev)=0.594
+  [GridWorld p=0.0, Tree  , n=20000, seed=42]  AA(train)=0.970  AA(rev)=0.904
+  [GridWorld p=0.0, MoET  , n= 1000, seed=123]  AA(train)=0.986  AA(rev)=0.962
+  [GridWorld p=0.0, Linear, n= 1000, seed=123]  AA(train)=0.921  AA(rev)=0.892
+  [GridWorld p=0.0, Tree  , n= 1000, seed=123]  AA(train)=0.986  AA(rev)=0.962
+  [GridWorld p=0.0, MoET  , n= 5000, seed=123]  AA(train)=0.986  AA(rev)=0.962
+  [GridWorld p=0.0, Linear, n= 5000, seed=123]  AA(train)=0.921  AA(rev)=0.892
+  [GridWorld p=0.0, Tree  , n= 5000, seed=123]  AA(train)=0.986  AA(rev)=0.962
+  [GridWorld p=0.0, MoET  , n=10000, seed=123]  AA(train)=0.986  AA(rev)=0.962
+  [GridWorld p=0.0, Linear, n=10000, seed=123]  AA(train)=0.921  AA(rev)=0.892
+  [GridWorld p=0.0, Tree  , n=10000, seed=123]  AA(train)=0.986  AA(rev)=0.962
+  [GridWorld p=0.0, MoET  , n=20000, seed=123]  AA(train)=0.989  AA(rev)=0.968
+  [GridWorld p=0.0, Linear, n=20000, seed=123]  AA(train)=0.921  AA(rev)=0.888
+  [GridWorld p=0.0, Tree  , n=20000, seed=123]  AA(train)=0.984  AA(rev)=0.968
+  [GridWorld p=0.0, MoET  , n= 1000, seed=456]  AA(train)=0.989  AA(rev)=0.918
+  [GridWorld p=0.0, Linear, n= 1000, seed=456]  AA(train)=0.869  AA(rev)=0.732
+  [GridWorld p=0.0, Tree  , n= 1000, seed=456]  AA(train)=0.984  AA(rev)=0.918
+  [GridWorld p=0.0, MoET  , n= 5000, seed=456]  AA(train)=0.994  AA(rev)=0.995
+  [GridWorld p=0.0, Linear, n= 5000, seed=456]  AA(train)=0.869  AA(rev)=0.725
+  [GridWorld p=0.0, Tree  , n= 5000, seed=456]  AA(train)=0.984  AA(rev)=0.918
+  [GridWorld p=0.0, MoET  , n=10000, seed=456]  AA(train)=0.996  AA(rev)=0.918
+  [GridWorld p=0.0, Linear, n=10000, seed=456]  AA(train)=0.878  AA(rev)=0.783
+  [GridWorld p=0.0, Tree  , n=10000, seed=456]  AA(train)=0.986  AA(rev)=0.945
+  [GridWorld p=0.0, MoET  , n=20000, seed=456]  AA(train)=1.000  AA(rev)=0.995
+  [GridWorld p=0.0, Linear, n=20000, seed=456]  AA(train)=0.878  AA(rev)=0.783
+  [GridWorld p=0.0, Tree  , n=20000, seed=456]  AA(train)=0.986  AA(rev)=0.945
+  [GridWorld p=0.0, MoET  , n= 1000, seed=789]  AA(train)=0.974  AA(rev)=0.869
+  [GridWorld p=0.0, Linear, n= 1000, seed=789]  AA(train)=0.848  AA(rev)=0.506
+  [GridWorld p=0.0, Tree  , n= 1000, seed=789]  AA(train)=0.960  AA(rev)=0.873
+  [GridWorld p=0.0, MoET  , n= 5000, seed=789]  AA(train)=0.983  AA(rev)=0.914
+  [GridWorld p=0.0, Linear, n= 5000, seed=789]  AA(train)=0.848  AA(rev)=0.510
+  [GridWorld p=0.0, Tree  , n= 5000, seed=789]  AA(train)=0.960  AA(rev)=0.873
+  [GridWorld p=0.0, MoET  , n=10000, seed=789]  AA(train)=0.974  AA(rev)=0.869
+  [GridWorld p=0.0, Linear, n=10000, seed=789]  AA(train)=0.848  AA(rev)=0.510
+  [GridWorld p=0.0, Tree  , n=10000, seed=789]  AA(train)=0.960  AA(rev)=0.873
+  [GridWorld p=0.0, MoET  , n=20000, seed=789]  AA(train)=0.960  AA(rev)=0.873
+  [GridWorld p=0.0, Linear, n=20000, seed=789]  AA(train)=0.854  AA(rev)=0.552
+  [GridWorld p=0.0, Tree  , n=20000, seed=789]  AA(train)=0.960  AA(rev)=0.873
+  [GridWorld p=0.0, MoET  , n= 1000, seed=1011]  AA(train)=0.958  AA(rev)=0.943
+  [GridWorld p=0.0, Linear, n= 1000, seed=1011]  AA(train)=0.855  AA(rev)=0.758
+  [GridWorld p=0.0, Tree  , n= 1000, seed=1011]  AA(train)=0.959  AA(rev)=0.920
+  [GridWorld p=0.0, MoET  , n= 5000, seed=1011]  AA(train)=0.991  AA(rev)=0.927
+  [GridWorld p=0.0, Linear, n= 5000, seed=1011]  AA(train)=0.849  AA(rev)=0.674
+  [GridWorld p=0.0, Tree  , n= 5000, seed=1011]  AA(train)=0.959  AA(rev)=0.920
+  [GridWorld p=0.0, MoET  , n=10000, seed=1011]  AA(train)=0.996  AA(rev)=0.950
+  [GridWorld p=0.0, Linear, n=10000, seed=1011]  AA(train)=0.855  AA(rev)=0.769
+  [GridWorld p=0.0, Tree  , n=10000, seed=1011]  AA(train)=0.959  AA(rev)=0.920
+  [GridWorld p=0.0, MoET  , n=20000, seed=1011]  AA(train)=0.996  AA(rev)=0.950
+  [GridWorld p=0.0, Linear, n=20000, seed=1011]  AA(train)=0.849  AA(rev)=0.674
+  [GridWorld p=0.0, Tree  , n=20000, seed=1011]  AA(train)=0.959  AA(rev)=0.920
+  [GridWorld p=0.0, MoET  , n= 1000, seed=1314]  AA(train)=0.990  AA(rev)=0.857
+  [GridWorld p=0.0, Linear, n= 1000, seed=1314]  AA(train)=0.926  AA(rev)=0.808
+  [GridWorld p=0.0, Tree  , n= 1000, seed=1314]  AA(train)=0.955  AA(rev)=0.747
+  [GridWorld p=0.0, MoET  , n= 5000, seed=1314]  AA(train)=0.975  AA(rev)=0.731
+  [GridWorld p=0.0, Linear, n= 5000, seed=1314]  AA(train)=0.987  AA(rev)=0.831
+  [GridWorld p=0.0, Tree  , n= 5000, seed=1314]  AA(train)=0.955  AA(rev)=0.747
+  [GridWorld p=0.0, MoET  , n=10000, seed=1314]  AA(train)=0.975  AA(rev)=0.731
+  [GridWorld p=0.0, Linear, n=10000, seed=1314]  AA(train)=0.987  AA(rev)=0.831
+  [GridWorld p=0.0, Tree  , n=10000, seed=1314]  AA(train)=0.955  AA(rev)=0.747
+  [GridWorld p=0.0, MoET  , n=20000, seed=1314]  AA(train)=0.987  AA(rev)=0.836
+  [GridWorld p=0.0, Linear, n=20000, seed=1314]  AA(train)=0.987  AA(rev)=0.831
+  [GridWorld p=0.0, Tree  , n=20000, seed=1314]  AA(train)=0.956  AA(rev)=0.750
+  [GridWorld p=0.0, MoET  , n= 1000, seed=1617]  AA(train)=1.000  AA(rev)=0.992
+  [GridWorld p=0.0, Linear, n= 1000, seed=1617]  AA(train)=0.949  AA(rev)=0.778
+  [GridWorld p=0.0, Tree  , n= 1000, seed=1617]  AA(train)=0.986  AA(rev)=0.969
+  [GridWorld p=0.0, MoET  , n= 5000, seed=1617]  AA(train)=1.000  AA(rev)=0.992
+  [GridWorld p=0.0, Linear, n= 5000, seed=1617]  AA(train)=0.949  AA(rev)=0.778
+  [GridWorld p=0.0, Tree  , n= 5000, seed=1617]  AA(train)=0.986  AA(rev)=0.969
+  [GridWorld p=0.0, MoET  , n=10000, seed=1617]  AA(train)=0.986  AA(rev)=0.969
+  [GridWorld p=0.0, Linear, n=10000, seed=1617]  AA(train)=0.949  AA(rev)=0.778
+  [GridWorld p=0.0, Tree  , n=10000, seed=1617]  AA(train)=0.986  AA(rev)=0.969
+  [GridWorld p=0.0, MoET  , n=20000, seed=1617]  AA(train)=1.000  AA(rev)=0.992
+  [GridWorld p=0.0, Linear, n=20000, seed=1617]  AA(train)=0.949  AA(rev)=0.778
+  [GridWorld p=0.0, Tree  , n=20000, seed=1617]  AA(train)=0.986  AA(rev)=0.969
+  [GridWorld p=0.0, MoET  , n= 1000, seed=1920]  AA(train)=0.972  AA(rev)=0.964
+  [GridWorld p=0.0, Linear, n= 1000, seed=1920]  AA(train)=0.944  AA(rev)=0.841
+  [GridWorld p=0.0, Tree  , n= 1000, seed=1920]  AA(train)=0.972  AA(rev)=0.964
+  [GridWorld p=0.0, MoET  , n= 5000, seed=1920]  AA(train)=0.972  AA(rev)=0.964
+  [GridWorld p=0.0, Linear, n= 5000, seed=1920]  AA(train)=0.962  AA(rev)=0.926
+  [GridWorld p=0.0, Tree  , n= 5000, seed=1920]  AA(train)=0.972  AA(rev)=0.964
+  [GridWorld p=0.0, MoET  , n=10000, seed=1920]  AA(train)=0.982  AA(rev)=0.979
+  [GridWorld p=0.0, Linear, n=10000, seed=1920]  AA(train)=0.962  AA(rev)=0.926
+  [GridWorld p=0.0, Tree  , n=10000, seed=1920]  AA(train)=0.972  AA(rev)=0.964
+  [GridWorld p=0.0, MoET  , n=20000, seed=1920]  AA(train)=0.972  AA(rev)=0.964
+  [GridWorld p=0.0, Linear, n=20000, seed=1920]  AA(train)=0.962  AA(rev)=0.926
+  [GridWorld p=0.0, Tree  , n=20000, seed=1920]  AA(train)=0.972  AA(rev)=0.964
+  [GridWorld p=0.0, MoET  , n= 1000, seed=2223]  AA(train)=0.977  AA(rev)=0.842
+  [GridWorld p=0.0, Linear, n= 1000, seed=2223]  AA(train)=0.866  AA(rev)=0.730
+  [GridWorld p=0.0, Tree  , n= 1000, seed=2223]  AA(train)=0.966  AA(rev)=0.764
+  [GridWorld p=0.0, MoET  , n= 5000, seed=2223]  AA(train)=0.977  AA(rev)=0.842
+  [GridWorld p=0.0, Linear, n= 5000, seed=2223]  AA(train)=0.866  AA(rev)=0.730
+  [GridWorld p=0.0, Tree  , n= 5000, seed=2223]  AA(train)=0.966  AA(rev)=0.764
+  [GridWorld p=0.0, MoET  , n=10000, seed=2223]  AA(train)=0.970  AA(rev)=0.745
+  [GridWorld p=0.0, Linear, n=10000, seed=2223]  AA(train)=0.866  AA(rev)=0.730
+  [GridWorld p=0.0, Tree  , n=10000, seed=2223]  AA(train)=0.966  AA(rev)=0.764
+  [GridWorld p=0.0, MoET  , n=20000, seed=2223]  AA(train)=0.966  AA(rev)=0.764
+  [GridWorld p=0.0, Linear, n=20000, seed=2223]  AA(train)=0.866  AA(rev)=0.730
+  [GridWorld p=0.0, Tree  , n=20000, seed=2223]  AA(train)=0.966  AA(rev)=0.764
+  [GridWorld p=0.0, MoET  , n= 1000, seed=2526]  AA(train)=1.000  AA(rev)=0.989
+  [GridWorld p=0.0, Linear, n= 1000, seed=2526]  AA(train)=0.843  AA(rev)=0.893
+  [GridWorld p=0.0, Tree  , n= 1000, seed=2526]  AA(train)=0.964  AA(rev)=0.936
+  [GridWorld p=0.0, MoET  , n= 5000, seed=2526]  AA(train)=1.000  AA(rev)=0.989
+  [GridWorld p=0.0, Linear, n= 5000, seed=2526]  AA(train)=0.843  AA(rev)=0.893
+  [GridWorld p=0.0, Tree  , n= 5000, seed=2526]  AA(train)=0.974  AA(rev)=0.954
+  [GridWorld p=0.0, MoET  , n=10000, seed=2526]  AA(train)=1.000  AA(rev)=0.989
+  [GridWorld p=0.0, Linear, n=10000, seed=2526]  AA(train)=0.843  AA(rev)=0.893
+  [GridWorld p=0.0, Tree  , n=10000, seed=2526]  AA(train)=0.974  AA(rev)=0.819
+  [GridWorld p=0.0, MoET  , n=20000, seed=2526]  AA(train)=1.000  AA(rev)=0.989
+  [GridWorld p=0.0, Linear, n=20000, seed=2526]  AA(train)=0.843  AA(rev)=0.893
+  [GridWorld p=0.0, Tree  , n=20000, seed=2526]  AA(train)=0.974  AA(rev)=0.819
+  [GridWorld p=0.5, MoET  , n= 1000, seed=42]  AA(train)=0.994  AA(rev)=0.989
+  [GridWorld p=0.5, Linear, n= 1000, seed=42]  AA(train)=0.789  AA(rev)=0.599
+  [GridWorld p=0.5, Tree  , n= 1000, seed=42]  AA(train)=0.994  AA(rev)=0.989
+  [GridWorld p=0.5, MoET  , n= 5000, seed=42]  AA(train)=0.997  AA(rev)=0.999
+  [GridWorld p=0.5, Linear, n= 5000, seed=42]  AA(train)=0.788  AA(rev)=0.597
+  [GridWorld p=0.5, Tree  , n= 5000, seed=42]  AA(train)=0.997  AA(rev)=0.999
+  [GridWorld p=0.5, MoET  , n=10000, seed=42]  AA(train)=0.999  AA(rev)=0.999
+  [GridWorld p=0.5, Linear, n=10000, seed=42]  AA(train)=0.792  AA(rev)=0.600
+  [GridWorld p=0.5, Tree  , n=10000, seed=42]  AA(train)=0.998  AA(rev)=0.997
+  [GridWorld p=0.5, MoET  , n=20000, seed=42]  AA(train)=0.996  AA(rev)=0.999
+  [GridWorld p=0.5, Linear, n=20000, seed=42]  AA(train)=0.742  AA(rev)=0.502
+  [GridWorld p=0.5, Tree  , n=20000, seed=42]  AA(train)=0.994  AA(rev)=0.995
+  [GridWorld p=0.5, MoET  , n= 1000, seed=123]  AA(train)=0.991  AA(rev)=0.994
+  [GridWorld p=0.5, Linear, n= 1000, seed=123]  AA(train)=0.970  AA(rev)=0.796
+  [GridWorld p=0.5, Tree  , n= 1000, seed=123]  AA(train)=0.991  AA(rev)=0.993
+  [GridWorld p=0.5, MoET  , n= 5000, seed=123]  AA(train)=0.997  AA(rev)=0.997
+  [GridWorld p=0.5, Linear, n= 5000, seed=123]  AA(train)=0.973  AA(rev)=0.803
+  [GridWorld p=0.5, Tree  , n= 5000, seed=123]  AA(train)=0.994  AA(rev)=0.995
+  [GridWorld p=0.5, MoET  , n=10000, seed=123]  AA(train)=0.997  AA(rev)=0.998
+  [GridWorld p=0.5, Linear, n=10000, seed=123]  AA(train)=0.973  AA(rev)=0.804
+  [GridWorld p=0.5, Tree  , n=10000, seed=123]  AA(train)=0.995  AA(rev)=0.997
+  [GridWorld p=0.5, MoET  , n=20000, seed=123]  AA(train)=0.994  AA(rev)=0.995
+  [GridWorld p=0.5, Linear, n=20000, seed=123]  AA(train)=0.976  AA(rev)=0.809
+  [GridWorld p=0.5, Tree  , n=20000, seed=123]  AA(train)=0.993  AA(rev)=0.994
+  [GridWorld p=0.5, MoET  , n= 1000, seed=456]  AA(train)=0.878  AA(rev)=0.996
+  [GridWorld p=0.5, Linear, n= 1000, seed=456]  AA(train)=0.917  AA(rev)=0.696
+  [GridWorld p=0.5, Tree  , n= 1000, seed=456]  AA(train)=0.877  AA(rev)=0.995
+  [GridWorld p=0.5, MoET  , n= 5000, seed=456]  AA(train)=0.998  AA(rev)=0.880
+  [GridWorld p=0.5, Linear, n= 5000, seed=456]  AA(train)=0.917  AA(rev)=0.696
+  [GridWorld p=0.5, Tree  , n= 5000, seed=456]  AA(train)=0.997  AA(rev)=0.879
+  [GridWorld p=0.5, MoET  , n=10000, seed=456]  AA(train)=0.998  AA(rev)=0.880
+  [GridWorld p=0.5, Linear, n=10000, seed=456]  AA(train)=0.917  AA(rev)=0.696
+  [GridWorld p=0.5, Tree  , n=10000, seed=456]  AA(train)=0.997  AA(rev)=0.879
+  [GridWorld p=0.5, MoET  , n=20000, seed=456]  AA(train)=0.999  AA(rev)=0.881
+  [GridWorld p=0.5, Linear, n=20000, seed=456]  AA(train)=0.917  AA(rev)=0.696
+  [GridWorld p=0.5, Tree  , n=20000, seed=456]  AA(train)=0.997  AA(rev)=0.879
+  [GridWorld p=0.5, MoET  , n= 1000, seed=789]  AA(train)=0.954  AA(rev)=0.989
+  [GridWorld p=0.5, Linear, n= 1000, seed=789]  AA(train)=0.732  AA(rev)=0.431
+  [GridWorld p=0.5, Tree  , n= 1000, seed=789]  AA(train)=0.957  AA(rev)=0.993
+  [GridWorld p=0.5, MoET  , n= 5000, seed=789]  AA(train)=0.995  AA(rev)=0.990
+  [GridWorld p=0.5, Linear, n= 5000, seed=789]  AA(train)=0.772  AA(rev)=0.433
+  [GridWorld p=0.5, Tree  , n= 5000, seed=789]  AA(train)=0.995  AA(rev)=0.990
+  [GridWorld p=0.5, MoET  , n=10000, seed=789]  AA(train)=1.000  AA(rev)=0.997
+  [GridWorld p=0.5, Linear, n=10000, seed=789]  AA(train)=0.772  AA(rev)=0.432
+  [GridWorld p=0.5, Tree  , n=10000, seed=789]  AA(train)=0.999  AA(rev)=0.995
+  [GridWorld p=0.5, MoET  , n=20000, seed=789]  AA(train)=0.999  AA(rev)=0.997
+  [GridWorld p=0.5, Linear, n=20000, seed=789]  AA(train)=0.769  AA(rev)=0.342
+  [GridWorld p=0.5, Tree  , n=20000, seed=789]  AA(train)=0.998  AA(rev)=0.996
+  [GridWorld p=0.5, MoET  , n= 1000, seed=1011]  AA(train)=0.990  AA(rev)=0.991
+  [GridWorld p=0.5, Linear, n= 1000, seed=1011]  AA(train)=0.683  AA(rev)=0.520
+  [GridWorld p=0.5, Tree  , n= 1000, seed=1011]  AA(train)=0.989  AA(rev)=0.988
+  [GridWorld p=0.5, MoET  , n= 5000, seed=1011]  AA(train)=0.999  AA(rev)=0.999
+  [GridWorld p=0.5, Linear, n= 5000, seed=1011]  AA(train)=0.684  AA(rev)=0.592
+  [GridWorld p=0.5, Tree  , n= 5000, seed=1011]  AA(train)=0.998  AA(rev)=0.998
+  [GridWorld p=0.5, MoET  , n=10000, seed=1011]  AA(train)=0.998  AA(rev)=0.999
+  [GridWorld p=0.5, Linear, n=10000, seed=1011]  AA(train)=0.684  AA(rev)=0.592
+  [GridWorld p=0.5, Tree  , n=10000, seed=1011]  AA(train)=0.998  AA(rev)=0.999
+  [GridWorld p=0.5, MoET  , n=20000, seed=1011]  AA(train)=0.999  AA(rev)=0.998
+  [GridWorld p=0.5, Linear, n=20000, seed=1011]  AA(train)=0.684  AA(rev)=0.592
+  [GridWorld p=0.5, Tree  , n=20000, seed=1011]  AA(train)=0.999  AA(rev)=0.998
+  [GridWorld p=0.5, MoET  , n= 1000, seed=1314]  AA(train)=0.937  AA(rev)=0.995
+  [GridWorld p=0.5, Linear, n= 1000, seed=1314]  AA(train)=0.914  AA(rev)=0.912
+  [GridWorld p=0.5, Tree  , n= 1000, seed=1314]  AA(train)=0.934  AA(rev)=0.995
+  [GridWorld p=0.5, MoET  , n= 5000, seed=1314]  AA(train)=0.998  AA(rev)=0.999
+  [GridWorld p=0.5, Linear, n= 5000, seed=1314]  AA(train)=0.918  AA(rev)=0.982
+  [GridWorld p=0.5, Tree  , n= 5000, seed=1314]  AA(train)=0.996  AA(rev)=0.996
+  [GridWorld p=0.5, MoET  , n=10000, seed=1314]  AA(train)=0.997  AA(rev)=0.997
+  [GridWorld p=0.5, Linear, n=10000, seed=1314]  AA(train)=0.859  AA(rev)=0.981
+  [GridWorld p=0.5, Tree  , n=10000, seed=1314]  AA(train)=0.998  AA(rev)=0.998
+  [GridWorld p=0.5, MoET  , n=20000, seed=1314]  AA(train)=0.998  AA(rev)=0.998
+  [GridWorld p=0.5, Linear, n=20000, seed=1314]  AA(train)=0.859  AA(rev)=0.981
+  [GridWorld p=0.5, Tree  , n=20000, seed=1314]  AA(train)=0.998  AA(rev)=0.998
+  [GridWorld p=0.5, MoET  , n= 1000, seed=1617]  AA(train)=0.936  AA(rev)=0.936
+  [GridWorld p=0.5, Linear, n= 1000, seed=1617]  AA(train)=0.906  AA(rev)=0.576
+  [GridWorld p=0.5, Tree  , n= 1000, seed=1617]  AA(train)=0.936  AA(rev)=0.936
+  [GridWorld p=0.5, MoET  , n= 5000, seed=1617]  AA(train)=0.995  AA(rev)=0.948
+  [GridWorld p=0.5, Linear, n= 5000, seed=1617]  AA(train)=0.926  AA(rev)=0.751
+  [GridWorld p=0.5, Tree  , n= 5000, seed=1617]  AA(train)=0.994  AA(rev)=0.938
+  [GridWorld p=0.5, MoET  , n=10000, seed=1617]  AA(train)=0.998  AA(rev)=0.939
+  [GridWorld p=0.5, Linear, n=10000, seed=1617]  AA(train)=0.933  AA(rev)=0.928
+  [GridWorld p=0.5, Tree  , n=10000, seed=1617]  AA(train)=0.996  AA(rev)=0.988
+  [GridWorld p=0.5, MoET  , n=20000, seed=1617]  AA(train)=0.996  AA(rev)=0.998
+  [GridWorld p=0.5, Linear, n=20000, seed=1617]  AA(train)=0.932  AA(rev)=0.928
+  [GridWorld p=0.5, Tree  , n=20000, seed=1617]  AA(train)=0.996  AA(rev)=0.988
+  [GridWorld p=0.5, MoET  , n= 1000, seed=1920]  AA(train)=0.999  AA(rev)=0.995
+  [GridWorld p=0.5, Linear, n= 1000, seed=1920]  AA(train)=0.741  AA(rev)=0.856
+  [GridWorld p=0.5, Tree  , n= 1000, seed=1920]  AA(train)=0.999  AA(rev)=0.995
+  [GridWorld p=0.5, MoET  , n= 5000, seed=1920]  AA(train)=0.998  AA(rev)=0.997
+  [GridWorld p=0.5, Linear, n= 5000, seed=1920]  AA(train)=0.928  AA(rev)=0.923
+  [GridWorld p=0.5, Tree  , n= 5000, seed=1920]  AA(train)=0.998  AA(rev)=0.996
+  [GridWorld p=0.5, MoET  , n=10000, seed=1920]  AA(train)=0.998  AA(rev)=0.996
+  [GridWorld p=0.5, Linear, n=10000, seed=1920]  AA(train)=0.989  AA(rev)=0.990
+  [GridWorld p=0.5, Tree  , n=10000, seed=1920]  AA(train)=0.998  AA(rev)=0.996
+  [GridWorld p=0.5, MoET  , n=20000, seed=1920]  AA(train)=1.000  AA(rev)=0.998
+  [GridWorld p=0.5, Linear, n=20000, seed=1920]  AA(train)=0.989  AA(rev)=0.989
+  [GridWorld p=0.5, Tree  , n=20000, seed=1920]  AA(train)=0.999  AA(rev)=0.996
+  [GridWorld p=0.5, MoET  , n= 1000, seed=2223]  AA(train)=0.975  AA(rev)=0.985
+  [GridWorld p=0.5, Linear, n= 1000, seed=2223]  AA(train)=0.969  AA(rev)=0.960
+  [GridWorld p=0.5, Tree  , n= 1000, seed=2223]  AA(train)=0.975  AA(rev)=0.985
+  [GridWorld p=0.5, MoET  , n= 5000, seed=2223]  AA(train)=0.997  AA(rev)=0.997
+  [GridWorld p=0.5, Linear, n= 5000, seed=2223]  AA(train)=0.928  AA(rev)=0.782
+  [GridWorld p=0.5, Tree  , n= 5000, seed=2223]  AA(train)=0.997  AA(rev)=0.997
+  [GridWorld p=0.5, MoET  , n=10000, seed=2223]  AA(train)=0.998  AA(rev)=0.998
+  [GridWorld p=0.5, Linear, n=10000, seed=2223]  AA(train)=0.959  AA(rev)=0.959
+  [GridWorld p=0.5, Tree  , n=10000, seed=2223]  AA(train)=0.998  AA(rev)=0.998
+  [GridWorld p=0.5, MoET  , n=20000, seed=2223]  AA(train)=1.000  AA(rev)=0.999
+  [GridWorld p=0.5, Linear, n=20000, seed=2223]  AA(train)=0.959  AA(rev)=0.959
+  [GridWorld p=0.5, Tree  , n=20000, seed=2223]  AA(train)=0.998  AA(rev)=0.997
+  [GridWorld p=0.5, MoET  , n= 1000, seed=2526]  AA(train)=0.935  AA(rev)=0.516
+  [GridWorld p=0.5, Linear, n= 1000, seed=2526]  AA(train)=0.844  AA(rev)=0.421
+  [GridWorld p=0.5, Tree  , n= 1000, seed=2526]  AA(train)=0.935  AA(rev)=0.516
+  [GridWorld p=0.5, MoET  , n= 5000, seed=2526]  AA(train)=1.000  AA(rev)=0.580
+  [GridWorld p=0.5, Linear, n= 5000, seed=2526]  AA(train)=0.825  AA(rev)=0.422
+  [GridWorld p=0.5, Tree  , n= 5000, seed=2526]  AA(train)=0.999  AA(rev)=0.517
+  [GridWorld p=0.5, MoET  , n=10000, seed=2526]  AA(train)=1.000  AA(rev)=0.580
+  [GridWorld p=0.5, Linear, n=10000, seed=2526]  AA(train)=0.904  AA(rev)=0.441
+  [GridWorld p=0.5, Tree  , n=10000, seed=2526]  AA(train)=0.999  AA(rev)=0.579
+  [GridWorld p=0.5, MoET  , n=20000, seed=2526]  AA(train)=1.000  AA(rev)=0.580
+  [GridWorld p=0.5, Linear, n=20000, seed=2526]  AA(train)=0.904  AA(rev)=0.441
+  [GridWorld p=0.5, Tree  , n=20000, seed=2526]  AA(train)=0.999  AA(rev)=0.579
+
+metrics.csv Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp006_distill_sensitivity\metrics.csv
+ê}Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp006_distill_sensitivity\sensitivity_cartpole.png
+ê}Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp006_distill_sensitivity\sensitivity_gridworld_p00.png
+ê}Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp006_distill_sensitivity\sensitivity_gridworld_p05.png
+summary.txt Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp006_distill_sensitivity\summary.txt
+
+=== èˆóØÉfÅ[É^ó ä¥ìxï™êÕÉTÉ}ÉäÅ[ ===
+
+ÅyCartPole N=0Åz
+  Linear  n= 1000  AA=0.823Å}0.051
+  Linear  n= 5000  AA=0.839Å}0.034
+  Linear  n=10000  AA=0.842Å}0.033
+  Linear  n=20000  AA=0.844Å}0.033
+  MoET    n= 1000  AA=0.888Å}0.020
+  MoET    n= 5000  AA=0.916Å}0.024
+  MoET    n=10000  AA=0.915Å}0.028
+  MoET    n=20000  AA=0.926Å}0.022
+  Tree    n= 1000  AA=0.881Å}0.028
+  Tree    n= 5000  AA=0.904Å}0.028
+  Tree    n=10000  AA=0.903Å}0.031
+  Tree    n=20000  AA=0.906Å}0.031
+
+ÅyGridWorld p=0.0Åz
+  Linear  n= 1000  random_c      AA=0.818Å}0.076
+  Linear  n= 1000  reversed_c    AA=0.745Å}0.137
+  Linear  n= 1000  train         AA=0.893Å}0.041
+  Linear  n= 5000  random_c      AA=0.828Å}0.082
+  Linear  n= 5000  reversed_c    AA=0.755Å}0.136
+  Linear  n= 5000  train         AA=0.902Å}0.053
+  Linear  n=10000  random_c      AA=0.836Å}0.079
+  Linear  n=10000  reversed_c    AA=0.771Å}0.133
+  Linear  n=10000  train         AA=0.903Å}0.052
+  Linear  n=20000  random_c      AA=0.834Å}0.076
+  Linear  n=20000  reversed_c    AA=0.765Å}0.128
+  Linear  n=20000  train         AA=0.903Å}0.052
+  MoET    n= 1000  random_c      AA=0.953Å}0.030
+  MoET    n= 1000  reversed_c    AA=0.924Å}0.055
+  MoET    n= 1000  train         AA=0.982Å}0.014
+  MoET    n= 5000  random_c      AA=0.954Å}0.043
+  MoET    n= 5000  reversed_c    AA=0.922Å}0.082
+  MoET    n= 5000  train         AA=0.985Å}0.011
+  MoET    n=10000  random_c      AA=0.943Å}0.050
+  MoET    n=10000  reversed_c    AA=0.902Å}0.094
+  MoET    n=10000  train         AA=0.983Å}0.011
+  MoET    n=20000  random_c      AA=0.954Å}0.044
+  MoET    n=20000  reversed_c    AA=0.923Å}0.078
+  MoET    n=20000  train         AA=0.984Å}0.016

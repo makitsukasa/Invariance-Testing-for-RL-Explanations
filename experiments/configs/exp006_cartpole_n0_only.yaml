@@ -1,0 +1,28 @@
+name: exp006_cartpole_n0_only
+description: >
+  CartPole N=0 蒸留感度分析のみ（M3対応: GridWorld は変更なしのためスキップ）
+
+cartpole:
+  env_base: CartPole-v1
+  noise_dim: 0
+  reuse_from: experiments/results/exp001_cartpole_noise
+
+# gridworld セクション省略 → run_distill_sensitivity.py が自動でスキップ
+
+distill_n_samples_list: [1000, 5000, 10000, 20000]
+
+comparison:
+  model_types: [moet, linear, tree]
+  moet:
+    n_experts: 4
+    max_depth: 5
+  tree:
+    max_depth: 5
+  distill_epochs: 100
+  eval_n_samples: 5000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526]
+  n_eval_episodes: 50
+
+output_dir: experiments/results/exp006_cartpole_n0

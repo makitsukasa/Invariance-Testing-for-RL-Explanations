@@ -7,7 +7,7 @@ env:
 
 intuitive:
   algorithm: DQN
-  n_steps: 100000
+  n_steps: 500000
 
 moet:
   gating: soft

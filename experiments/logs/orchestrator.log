@@ -1,0 +1,32 @@
+[09:17:37] ============================================================
+[09:17:37] M3/M2 ƒI[ƒPƒXƒgƒŒ[ƒVƒ‡ƒ“ŠJn
+[09:17:37] ============================================================
+[09:17:37] Started [exp007_lunarlander_v2.yaml] PID=11428 ¨ m2_lunarlander_v2.log
+[09:17:37] 
+--- M3 Step 1: û‘©Šm”F (2 seeds, 500k steps) ---
+[09:17:44]   û‘©Šm”F: seed=42, n_steps=500,000 ŠwK’†...
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\gymnasium\spaces\box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\evaluation.py:71: UserWarning: Evaluation environment is not wrapped with a ``Monitor`` wrapper. This may result in reporting modified episode lengths and rewards, if other wrappers happen to modify these. Consider wrapping environment first with ``Monitor`` wrapper.
+  warnings.warn(
+[09:24:32]   seed=42: J=129.8
+[09:24:32]   û‘©Šm”F: seed=123, n_steps=500,000 ŠwK’†...
+[09:31:17]   seed=123: J=89.1
+[09:31:17]   ¨ 2ƒV[ƒh•½‹Ï J=109.4iè‡’l=400.0j
+Traceback (most recent call last):
+  File "C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\run_m3_m2.py", line 315, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\run_m3_m2.py", line 257, in main
+    log(f"\u2717 û‘©•s‘« ¨ 1M steps ‚ÉØ‚è‘Ö‚¦‚ÄÄÀs")
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\run_m3_m2.py", line 50, in log
+    print(f"[{ts}] {msg}", flush=True)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'cp932' codec can't encode character '\u2717' in position 11: illegal multibyte sequence

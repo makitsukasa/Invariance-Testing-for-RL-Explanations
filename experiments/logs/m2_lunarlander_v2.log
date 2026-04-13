@@ -1,0 +1,40 @@
+=== LunarLander ŽÀŒ± ===
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+  [LunarLander seed=42] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=42]  AA(train)=0.638  J(train)=-242.0
+  [LunarLander, Linear, seed=42]  AA(train)=0.629  J(train)=-9.8
+  [LunarLander, Tree  , seed=42]  AA(train)=0.625  J(train)=-426.2
+  [LunarLander seed=123] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=123]  AA(train)=0.780  J(train)=-383.3
+  [LunarLander, Linear, seed=123]  AA(train)=0.565  J(train)=-100.0
+  [LunarLander, Tree  , seed=123]  AA(train)=0.782  J(train)=-446.5
+  [LunarLander seed=456] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=456]  AA(train)=0.654  J(train)=-522.8
+  [LunarLander, Linear, seed=456]  AA(train)=0.523  J(train)=-74.1
+  [LunarLander, Tree  , seed=456]  AA(train)=0.687  J(train)=-501.3
+  [LunarLander seed=789] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=789]  AA(train)=0.729  J(train)=-408.3
+  [LunarLander, Linear, seed=789]  AA(train)=0.578  J(train)=-107.0
+  [LunarLander, Tree  , seed=789]  AA(train)=0.724  J(train)=-444.0
+  [LunarLander seed=1011] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=1011]  AA(train)=0.687  J(train)=-422.7
+  [LunarLander, Linear, seed=1011]  AA(train)=0.579  J(train)=-440.3
+  [LunarLander, Tree  , seed=1011]  AA(train)=0.644  J(train)=-325.6
+
+metrics.csv ‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp007_lunarlander_v2\metrics.csv
+}‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp007_lunarlander_v2\aa_bar_lunarlander.png
+
+=== —\”õŽÀŒ±i˜A‘±§ŒäjƒTƒ}ƒŠ[ ===
+
+ylunarlanderz
+  Linear  gravity_hi    AA=0.610}0.058
+  Linear  gravity_lo    AA=0.432}0.099
+  Linear  train         AA=0.575}0.038
+  MoET    gravity_hi    AA=0.707}0.047
+  MoET    gravity_lo    AA=0.456}0.080
+  MoET    train         AA=0.698}0.058
+  Tree    gravity_hi    AA=0.697}0.047
+  Tree    gravity_lo    AA=0.449}0.094
+  Tree    train         AA=0.693}0.063
+
