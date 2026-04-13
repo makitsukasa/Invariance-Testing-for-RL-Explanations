@@ -13,3 +13,28 @@ C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\pygame\pkgda
   [LunarLander, MoET  , seed=456]  AA(train)=0.996  J(train)=-616.3
   [LunarLander, Linear, seed=456]  AA(train)=0.998  J(train)=-615.9
   [LunarLander, Tree  , seed=456]  AA(train)=0.994  J(train)=-622.3
+  [LunarLander seed=789] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=789]  AA(train)=0.956  J(train)=-588.7
+  [LunarLander, Linear, seed=789]  AA(train)=0.946  J(train)=-587.1
+  [LunarLander, Tree  , seed=789]  AA(train)=0.947  J(train)=-588.0
+  [LunarLander seed=1011] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=1011]  AA(train)=0.958  J(train)=-817.9
+  [LunarLander, Linear, seed=1011]  AA(train)=0.963  J(train)=-753.8
+  [LunarLander, Tree  , seed=1011]  AA(train)=0.957  J(train)=-946.5
+
+metrics.csv ‚ğ•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp007_lunarlander_v2\metrics.csv
+}‚ğ•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp007_lunarlander_v2\aa_bar_lunarlander.png
+
+=== —\”õÀŒ±i˜A‘±§ŒäjƒTƒ}ƒŠ[ ===
+
+ylunarlanderz
+  Linear  gravity_hi    AA=0.972}0.015
+  Linear  gravity_lo    AA=0.908}0.058
+  Linear  train         AA=0.969}0.019
+  MoET    gravity_hi    AA=0.976}0.017
+  MoET    gravity_lo    AA=0.915}0.044
+  MoET    train         AA=0.975}0.018
+  Tree    gravity_hi    AA=0.972}0.015
+  Tree    gravity_lo    AA=0.919}0.045
+  Tree    train         AA=0.969}0.018
+
