@@ -1,3 +1,15 @@
 === LunarLander ŽÀŒ± ===
 C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import resource_stream, resource_exists
+  [LunarLander seed=42] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=42]  AA(train)=0.977  J(train)=-1039.6
+  [LunarLander, Linear, seed=42]  AA(train)=0.972  J(train)=-918.2
+  [LunarLander, Tree  , seed=42]  AA(train)=0.976  J(train)=-1062.1
+  [LunarLander seed=123] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=123]  AA(train)=0.989  J(train)=-640.9
+  [LunarLander, Linear, seed=123]  AA(train)=0.966  J(train)=-580.4
+  [LunarLander, Tree  , seed=123]  AA(train)=0.971  J(train)=-587.8
+  [LunarLander seed=456] ŠwKŠ®—¹ (2000000 steps)
+  [LunarLander, MoET  , seed=456]  AA(train)=0.996  J(train)=-616.3
+  [LunarLander, Linear, seed=456]  AA(train)=0.998  J(train)=-615.9
+  [LunarLander, Tree  , seed=456]  AA(train)=0.994  J(train)=-622.3
