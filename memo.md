@@ -17,8 +17,10 @@ Overall: **Major Revision（borderline）** — 前回より改善
 **[W-A1] フレームワークの新規性が薄い**
     標準的な OOD 評価を XRL に適用しただけ、との指摘。
     貢献をより明確に差別化する必要あり。
-    ※ PAPER_REVISION では序論に新規性の 1 文を追加・貢献と実験の 1 対 1 対応を明示したが、
-    根本的な差別化は未解決。次回レビューで再確認。
+
+    [対応方針]
+    ※ 根本的に違うことを示すため序論に新規性の 1 文を追加・貢献と実験の 1 対 1 対応を明示したが、
+    査読者視点での評価がどう変わるか次回レビューで確認。
 
 ### Major / B-level
 
@@ -26,12 +28,28 @@ Overall: **Major Revision（borderline）** — 前回より改善
     CartPole(4次元), LunarLander のみ。トップ会場では不十分。
     Hopper/HalfCheetah などの連続制御環境への拡張が必要、との強いプレッシャー。
 
+    [対応方針]
+    LunarLanderとHopperを「予備実験」から実験に格上げしたい。下2点を対応したい。
+
+    実験済みモデル
+        ノイズ拡張cartpoleとスプリアス付きGridWorldはうちで勝手に作った実験だから無理だとして、
+        LunarLanderとHopperは実験済みモデルを探してきて使いたい。うちでは蒸留だけする。
+    Surrogate
+        「複雑な力学系の難易度に起因する」低いAAを上げるには、MoETよりも性能が高くて説明可能なモデルをsurrogateに使いたい。
+        LunarLanderでは収束することが知られているGradient Boosted Treesを使う。
+        Hopperでは1度の蒸留で収束する説明可能なモデルが知られていないが、Gradient Boosted Treesで確認する。
+        数度蒸留してやっとらしいがOblique Decision Treeも候補かも
+
 **[W-B2] ~~モデル比較の主張が過大~~** → **[対応済み]**
     Abstract/結論の「Tree > Linear under distribution shift」をソフト化。
     「傾向は見られたものの、統計的に有意な差が広く確認されたわけではない」「一部の条件に限られた」に変更。
 
-**[W-B3] Section 3, 5, 6, 7 の引用が皆無**
+**[W-B3] ~~Section 3, 5, 6, 7 の引用が皆無~~** → **[対応済み]**
     これらのセクションに参照文献がゼロ。査読で必ず指摘される。
+
+    [対応方針]
+    Section3と7は引用した。
+    5と6については実験の内容と結果の章で何を引用しろと言われてるかがわからん。対応済みってことで。
 
 **[W-B4] ~~Mindlin [^2] が本文で一度も引用されていない~~** → **[対応済み]**
     Section 1 冒頭段落に引用を追加。
@@ -42,14 +60,23 @@ Overall: **Major Revision（borderline）** — 前回より改善
     J_oracle std=148.5 でオラクルベースラインの品質に疑問符。
     Section 5.2 か 4.4 で言及・議論が必要。
 
+    [対応方針]
+    そもそもoracleの学習がうまくいってない時点で議論できないんですよね、っていうのを論文で言えないかしら。
+    oracleの学習がうまくいくかどうかは本研究の趣旨から外れる。学習がうまくできてるシード値のみから無作為に選んで数値実験に使用する。みたいな。
+
 **[W-C2] ~~factual error: pole_short std の数値不一致~~** → **[対応済み]**
     Section 8 の "0.122" を正しい値 0.115 に修正。
 
-**[W-C3] 効果量（Cohen's d）が未報告**
-    統計的有意性だけでなく効果量の報告が標準。
+**[W-C3] ~~効果量（Cohen's d）が未報告~~** → **[対応済み]**
+    有意な比較4件（exp004 N=0 MoET vs Linear d=2.39、Tree vs Linear d=1.90、
+    exp005 p=0.0 train/random_c MoET vs Linear d=2.13/2.00）に d を付記。
+    また exp004 N=16 Linear vs Tree（p_holm=0.037, d=1.50）が有意であることも判明し追記。
+    非有意な比較への d の記載はノイズになるため省略。
 
 **[W-C4] ~~Section 6.1 と Table 3 のデータソースの不一致~~** → **[対応済み]**
-    Section 6.1 と Table 3 に「これらは別実行（exp001/exp004）の結果」である旨を注記。
+    oracle は同一（exp004 が exp001 の oracle を reuse）だが surrogate の学習が別走のため
+    seed を合わせても完全一致しない（AA の差は 0.001 程度）。
+    Section 6.1 を exp004 の値（0.915±0.028）に統一し、「別走」注記を削除。
 
 # TODO - 実験
 
@@ -129,7 +156,7 @@ Weight Agnostic Neural Networks (Adam Gaier, David Ha)
 Neural Module Networks（Andreas et al. 2016）「is_red?」「is_cube?」みたいなモジュールを組み合わせて VQA を解くやつです。
 KAN（Kolmogorov-Arnold Networks） 「各接続が univariateな学習可能関数」という意味での局所的説明可能性を狙っている。
 
-# draftに不採用の指標
+# draftに不採用の内容
 
 KL divergence
     行動分布間の乖離の補助指標。
@@ -141,6 +168,10 @@ Relative Performance Drop
 
 Inv_J = J_R(D_shift) / J_R(D_train)
     Jの崩壊を直接捉えるが、pole_longでJ_R(train)→J_R(shift)の方向が逆転するケースで解釈が難しい
+
+$J_{\mathrm{surrogate}} > J_{\mathrm{oracle}}$ の強調
+    実験3で見られた$J$の逆転現象は、説明可能性のための構造制約が、意図せずしてモデルの汎化性能を向上させる可能性を示唆している？
+    元アイデアに書いた「説明できるように理解を深める」のポジティブな面が覗いているが、どうもメインの主張のノイズにしかならんので不採用。
 
 # 根幹となる主張
 - 良し悪しを論じる方法自体を提供している。
