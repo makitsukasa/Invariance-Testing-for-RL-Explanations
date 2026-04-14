@@ -16,11 +16,8 @@ Overall: **REVISE**（中核論理・実験設計は健全、下記 Critical 2�
     (b) 全 seed で同じ oracle を使っているため評価が同一になる（この場合は明記で対応可）
     draft の Table 1 は J_S(train) のみ std 報告しており直接的なダメージは限定的だが信頼性に関わる。
 
-**[C3] 3件の引用が本文にあるが footnote 未定義** → **[要対応・desk reject 直結]**
-    - "Gulrajani & Lopez-Paz, 2021"（Section 2.3）
-    - "Sagawa et al., 2020"（Section 2.3）
-    - "Puiutta & Veith (2020)"（Section 2.4）
-    → [^15][^16][^17] を追加して footnote に書誌情報を記載する。
+**[C3] 3件の引用が本文にあるが footnote 未定義** → **[対応済み]**
+    [^15] Gulrajani & Lopez-Paz (2021)、[^16] Sagawa et al. (2020)、[^17] Puiutta & Veith (2020) を Section 2.3/2.4 に追加、footnote 定義を末尾に追記済み。
 
 ### Major（優先度高）
 
@@ -40,33 +37,17 @@ Overall: **REVISE**（中核論理・実験設計は健全、下記 Critical 2�
 
     [所感] Hopperがちゃんと動けばいいんだけどな
 
-**[M3] Section 3/5/6/7 の引用が皆無** → **[部分対応・要追加]**
-    Section 3・7 は引用済み。Section 5/6 には footnote marker がゼロのまま（再指摘）。
-    最低限: Section 6.2 に SHAP[^4]、Section 5.2 に DQN[^14] のマーカーを追加する。
+**[M3] Section 3/5/6/7 の引用が皆無** → **[対応済み]**
+    Section 5.2 に DQN[^14]、Section 6.2 に SHAP[^4] のマーカーを追加済み。
 
-**[M4] Contribution 3「多様な RL 環境」の overclaim** → **[要修正]**
-    CartPole + GridWorld（どちらも低次元離散）で「多様な RL 環境で一貫した評価軸」は過大。
-    → Contribution 3 の文言をソフト化する。
-    「CartPole と GridWorld を用いた実験で一貫した傾向を示し、LunarLander で適用可能性を確認した」程度が適切。
+**[M4] Contribution 3「多様な RL 環境」の overclaim** → **[対応済み]**
+    「複数の RL 環境で一貫した評価軸として機能する傾向を示す（実験 4--6 が補強的証拠、LunarLander-v3 で適用可能性を確認）」に修正済み。
 
-    [所感] ここで長々と説明したくないので、「複数の RL 環境で一貫した評価軸」とかで
+**[M5] Section 4.4 の構造的ミスプレース** → **[対応済み]**
+    Section 4.4 を削除し、Section 5.6（実験設計）と Section 6.5（結果）に分割移動済み。Section 5.1 に実験7 の目的を追記。
 
-**[M5] Section 4.4 の構造的ミスプレース** → **[要対応]**
-    「実験7」が Section 4（提案枠組み）に置かれており、実験 Section 5/6 と整合しない。
-    対応オプション：
-    (a) Section 4.4 を Section 5/6 に移動して「実験7」として正式に組み込む
-    (b) Section 4.4 の冒頭に「本節は枠組みの拡張例として示す」と明記し、Section 5/6 とは別扱いと宣言
-
-    [所感] aがよさそう
-
-**[M6] Hopper 11% では「枠組みは機能する」主張が認識論的に弱い** → **[要文言修正]**
-    AA < 0.5 の状況では枠組みの診断能力（高AA+低J = スプリアス）が前提条件を満たせない。
-    「枠組みは機能するが surrogate が弱い」を検証できる土俵に立っていない、という指摘。
-    → Section 8 の文言を少し弱める方向で対応。
-    例：「Hopper での試行は枠組みの診断機能の実証には至らなかったが、AA の再定義と回帰型
-    surrogate の方向性を示した」程度に収める。
-
-    [所感] いったんその文言で修正をお願いします。M2への対応次第では再修正するかも
+**[M6] Hopper 11% では「枠組みは機能する」主張が認識論的に弱い** → **[対応済み]**
+    Section 6.5 末尾と Section 8 の Hopper 記述を緩和。「本試行は枠組みの診断機能の実証には至らなかったが、AA の再定義と回帰型 surrogate の適用方向を示すものである」に修正済み。
 
 ### Minor（次回投稿前に対応推奨）
 
