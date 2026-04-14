@@ -24,21 +24,36 @@ Overall: **Major Revision（borderline）** — 前回より改善
 
 ### Major / B-level
 
-**[W-B1] 環境がおもちゃすぎる**
+**[W-B1] 環境がおもちゃすぎる** → **[部分対応済み・次回レビュー確認]**
     CartPole(4次元), LunarLander のみ。トップ会場では不十分。
     Hopper/HalfCheetah などの連続制御環境への拡張が必要、との強いプレッシャー。
 
-    [対応方針]
-    LunarLanderとHopperを「予備実験」から実験に格上げしたい。下2点を対応したい。
+    [実施内容]
+    LunarLander を「予備実験」から「実験7」に格上げ。GBT surrogate を追加（exp009）。
+    結果: GBT AA=0.876±0.026, J=240±13（oracle J=260）。MoET/Tree はクラッシュ。
+    分布シフト（gravity_hi）でも安定。gravity_lo では graceful degradation を確認。
+    Section 4.4, 8, 9 を更新済み。
 
-    実験済みモデル
+    Hopper は試みたが失敗（GBT AA=0.22、全モデルで J_S << oracle）。
+    Walker2d, Ant は未試行。連続行動への本格対応は今後の課題として Section 8/9 に記述。
+
+    [残課題]
+    「LunarLander 1環境追加で査読者が納得するか」は次回 PEER_REVIEW で確認。
+    納得しない場合は回帰型 Surrogate model で Hopper に再挑戦が必要。
+
+    環境選定
+        LunarLander、Hopper、Walker2d、Antを試したい。うまく議論の補強ができる中で難しいのを採用したい。
+    学習済みのパラメータ
         ノイズ拡張cartpoleとスプリアス付きGridWorldはうちで勝手に作った実験だから無理だとして、
-        LunarLanderとHopperは実験済みモデルを探してきて使いたい。うちでは蒸留だけする。
+        LunarLander、Hopper、Walker2d、Antは学習済みのパラメータを探してきて使いたい。うちでは蒸留だけする。
     Surrogate
         「複雑な力学系の難易度に起因する」低いAAを上げるには、MoETよりも性能が高くて説明可能なモデルをsurrogateに使いたい。
         LunarLanderでは収束することが知られているGradient Boosted Treesを使う。
         Hopperでは1度の蒸留で収束する説明可能なモデルが知られていないが、Gradient Boosted Treesで確認する。
-        数度蒸留してやっとらしいがOblique Decision Treeも候補かも
+        数度蒸留してやっとらしいがOblique Decision Treeも候補かも。
+        Walker2d、Antも同様に説明可能なモデルがないだろうか
+
+        どうやらStable-Baselines3が全部解決してくれそう
 
 **[W-B2] ~~モデル比較の主張が過大~~** → **[対応済み]**
     Abstract/結論の「Tree > Linear under distribution shift」をソフト化。
@@ -169,11 +184,22 @@ $J_{\mathrm{surrogate}} > J_{\mathrm{oracle}}$ の強調
     実験3で見られた$J$の逆転現象は、説明可能性のための構造制約が、意図せずしてモデルの汎化性能を向上させる可能性を示唆している？
     元アイデアに書いた「説明できるように理解を深める」のポジティブな面が覗いているが、どうもメインの主張のノイズにしかならんので不採用。
 
+MoETとTreeとLinearを比較したいわけじゃないのをもっと明示
+    追加する文の例
+    本研究の目的はモデル間の優劣を結論づけることではないが、提案する評価軸が構造の違いに応じた挙動の差を捉えられることを確認する
+    構造の違いが、再現性と不変性のトレードオフとしてどのように現れるかを観察する
+
 # 根幹となる主張
 - 良し悪しを論じる方法自体を提供している。
 - 説明可能性 vs 性能のトレードオフを回避できる
 - モデル非依存の共通軸を提供する。説明可能性の定義が何であれフレームワークとして使えて、Reasoned の中身は何でも差し替えられる。
     決定木でも MoETでもKANでも、どれだけ Intuitive を再現できるか・シフトに強いかが共通の評価軸になりうる。
+
+# 次やりたいfuture work
+
+メカニズムを解明というか再現したい
+AA の低下が Surrogate model の不変性の欠如によるものか Oracle policy の失敗に伴う必然的な乖離かを区別したい
+> 第三に、本枠組みは Oracle policy が評価分布上でも動作することを前提とする。本実験では pole\_long 条件でも Oracle policy は $J_{\mathrm{oracle}}=376.5$ と動作しており、Surrogate model が $J_{\mathrm{surrogate}}=426.5$ と逆転する現象が観察された。この逆転は蒸留の正則化効果（より単純な構造への圧縮がシフト後の汎化を助ける）を示唆するが、メカニズムの解明は今後の課題である。仮に Oracle policy が OOD で機能不全に陥る条件では、AA の低下が Surrogate model の不変性の欠如によるものか Oracle policy の失敗に伴う必然的な乖離かを区別できないため、注意が必要である。
 
 # 元アイデア
 

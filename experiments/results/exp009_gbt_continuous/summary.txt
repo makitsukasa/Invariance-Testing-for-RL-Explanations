@@ -1,0 +1,29 @@
+=== 予備実験（連続制御）サマリー ===
+
+【lunarlander】
+  GBT     gravity_hi    AA=0.864±nan
+  GBT     gravity_lo    AA=0.658±nan
+  GBT     train         AA=0.840±nan
+  Linear  gravity_hi    AA=0.765±nan
+  Linear  gravity_lo    AA=0.669±nan
+  Linear  train         AA=0.716±nan
+  MoET    gravity_hi    AA=0.737±nan
+  MoET    gravity_lo    AA=0.387±nan
+  MoET    train         AA=0.697±nan
+  Tree    gravity_hi    AA=0.721±nan
+  Tree    gravity_lo    AA=0.511±nan
+  Tree    train         AA=0.673±nan
+
+【hopper】
+  GBT     gravity_hi    AA=0.023±nan
+  GBT     gravity_lo    AA=0.036±nan
+  GBT     train         AA=0.167±nan
+  Linear  gravity_hi    AA=0.100±nan
+  Linear  gravity_lo    AA=0.412±nan
+  Linear  train         AA=0.532±nan
+  MoET    gravity_hi    AA=0.179±nan
+  MoET    gravity_lo    AA=0.262±nan
+  MoET    train         AA=0.662±nan
+  Tree    gravity_hi    AA=0.122±nan
+  Tree    gravity_lo    AA=0.373±nan
+  Tree    train         AA=0.532±nan

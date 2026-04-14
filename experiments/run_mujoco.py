@@ -24,10 +24,38 @@ from stable_baselines3 import DQN, PPO, SAC
 from stable_baselines3.common.env_util import make_vec_env
 
 from experiments.src.evaluate import action_agreement, relative_perf_drop
-from experiments.run_comparison import make_model, fit_model
+from experiments.src.baselines import LinearReasonedModel, SingleTreeReasonedModel, GBTReasonedModel
+from experiments.src.moet import SoftMoET
+from experiments.src.distill import distill
 
-MODEL_LABEL = {"moet": "MoET", "linear": "Linear", "tree": "Tree"}
-COLORS = {"moet": "steelblue", "linear": "tomato", "tree": "seagreen"}
+MODEL_LABEL = {"moet": "MoET", "linear": "Linear", "tree": "Tree", "gbt": "GBT"}
+COLORS = {"moet": "steelblue", "linear": "tomato", "tree": "seagreen", "gbt": "darkorange"}
+
+
+def make_model(model_type: str, input_dim: int, n_actions: int, comp_cfg: dict):
+    if model_type == "moet":
+        return SoftMoET(input_dim, n_actions, comp_cfg["moet"]["n_experts"], comp_cfg["moet"]["max_depth"])
+    elif model_type == "linear":
+        return LinearReasonedModel(input_dim, n_actions)
+    elif model_type == "tree":
+        return SingleTreeReasonedModel(input_dim, n_actions, comp_cfg["tree"]["max_depth"])
+    elif model_type == "gbt":
+        gbt_cfg = comp_cfg.get("gbt", {})
+        return GBTReasonedModel(
+            input_dim, n_actions,
+            max_iter=gbt_cfg.get("max_iter", 200),
+            max_depth=gbt_cfg.get("max_depth", None),
+            learning_rate=gbt_cfg.get("learning_rate", 0.1),
+        )
+    else:
+        raise ValueError(f"Unknown model_type: {model_type}")
+
+
+def fit_model(model, obs: np.ndarray, actions: np.ndarray, comp_cfg: dict):
+    if isinstance(model, SoftMoET):
+        return distill(model, obs, actions, epochs=comp_cfg["distill_epochs"])
+    else:
+        return model.fit(obs, actions)
 
 
 def _kl_empirical(acts1: np.ndarray, acts2: np.ndarray, n_actions: int) -> float:
@@ -67,49 +95,57 @@ def run_lunarlander(cfg: dict, output_dir: Path) -> pd.DataFrame:
     algorithm = cfg["lunar"].get("algorithm", "dqn").lower()
     n_envs = cfg["lunar"].get("n_envs", 1)
 
+    # oracle_model_dir: 外部の学習済みモデルを参照する場合に指定
+    oracle_dir_lunar = Path(cfg["lunar"].get("oracle_model_dir", str(output_dir)))
+
     for seed in seeds:
-        # Intuitive policy の学習 or 再利用
-        model_path = output_dir / f"intuitive_lunar_seed{seed}"
-        zip_path = output_dir / f"intuitive_lunar_seed{seed}.zip"
-        if model_path.exists() or zip_path.exists():
-            load_path = str(model_path if model_path.exists() else zip_path)
-            env = make_lunar(gravity=train_gravity)
-            if algorithm == "ppo":
-                model = PPO.load(load_path, env=env)
-            else:
-                model = DQN.load(load_path, env=env)
-            env.close()
-            print(f"  [LunarLander seed={seed}] 既存モデルを再利用", flush=True)
-        elif algorithm == "ppo":
-            vec_env = make_vec_env(lambda: make_lunar(gravity=train_gravity), n_envs=n_envs)
-            model = PPO(
-                "MlpPolicy", vec_env,
-                n_steps=1024, batch_size=64,
-                gae_lambda=0.98, gamma=0.999,
-                n_epochs=4, ent_coef=0.01,
-                seed=seed, verbose=0,
-            )
-            model.learn(total_timesteps=n_steps)
-            model.save(str(model_path))
-            vec_env.close()
-            print(f"  [LunarLander seed={seed}] PPO 学習完了 ({n_steps} steps)", flush=True)
+        # Intuitive policy の学習 or 再利用（oracle_model_dir を優先参照）
+        for search_dir in [oracle_dir_lunar, output_dir]:
+            model_path = search_dir / f"intuitive_lunar_seed{seed}"
+            zip_path = search_dir / f"intuitive_lunar_seed{seed}.zip"
+            if model_path.exists() or zip_path.exists():
+                load_path = str(model_path if model_path.exists() else zip_path)
+                env = make_lunar(gravity=train_gravity)
+                if algorithm == "ppo":
+                    model = PPO.load(load_path, env=env)
+                else:
+                    model = DQN.load(load_path, env=env)
+                env.close()
+                print(f"  [LunarLander seed={seed}] 既存モデルを再利用: {load_path}", flush=True)
+                break
         else:
-            env = make_lunar(gravity=train_gravity)
-            model = DQN(
-                "MlpPolicy", env,
-                learning_rate=6.3e-4, batch_size=128,
-                buffer_size=50000, learning_starts=0,
-                train_freq=4, gradient_steps=-1,
-                target_update_interval=250,
-                exploration_fraction=0.12,
-                exploration_final_eps=0.1,
-                policy_kwargs=dict(net_arch=[256, 256]),
-                seed=seed, verbose=0,
-            )
-            model.learn(total_timesteps=n_steps)
-            model.save(str(model_path))
-            env.close()
-            print(f"  [LunarLander seed={seed}] DQN 学習完了 ({n_steps} steps)", flush=True)
+            # モデルが見つからない場合は新規学習して output_dir に保存
+            new_model_path = output_dir / f"intuitive_lunar_seed{seed}"
+            if algorithm == "ppo":
+                vec_env = make_vec_env(lambda: make_lunar(gravity=train_gravity), n_envs=n_envs)
+                model = PPO(
+                    "MlpPolicy", vec_env,
+                    n_steps=1024, batch_size=64,
+                    gae_lambda=0.98, gamma=0.999,
+                    n_epochs=4, ent_coef=0.01,
+                    seed=seed, verbose=0,
+                )
+                model.learn(total_timesteps=n_steps)
+                model.save(str(new_model_path))
+                vec_env.close()
+                print(f"  [LunarLander seed={seed}] PPO 学習完了 ({n_steps} steps)", flush=True)
+            else:
+                env = make_lunar(gravity=train_gravity)
+                model = DQN(
+                    "MlpPolicy", env,
+                    learning_rate=6.3e-4, batch_size=128,
+                    buffer_size=50000, learning_starts=0,
+                    train_freq=4, gradient_steps=-1,
+                    target_update_interval=250,
+                    exploration_fraction=0.12,
+                    exploration_final_eps=0.1,
+                    policy_kwargs=dict(net_arch=[256, 256]),
+                    seed=seed, verbose=0,
+                )
+                model.learn(total_timesteps=n_steps)
+                model.save(str(new_model_path))
+                env.close()
+                print(f"  [LunarLander seed={seed}] DQN 学習完了 ({n_steps} steps)", flush=True)
 
         eval_seed = seed + 10000
 
@@ -173,6 +209,45 @@ def run_lunarlander(cfg: dict, output_dir: Path) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
+# Hopper ユーティリティ
+# ---------------------------------------------------------------------------
+
+def _collect_hopper_gravity(
+    sac_model,
+    gravity: float,
+    n_samples: int,
+    seed: int,
+    bins_per_dim: int,
+) -> tuple[np.ndarray, np.ndarray]:
+    """指定重力の Hopper 環境でロールアウトし (obs, binned_action) を収集する。"""
+    import gymnasium as gym
+    from experiments.src.hopper_env import BinnedHopperEnv, ACTION_DIM
+
+    binner = BinnedHopperEnv(bins_per_dim=bins_per_dim)
+    raw_env = gym.make("Hopper-v5")
+    raw_env.unwrapped.model.opt.gravity[2] = gravity
+    obs_list, act_list = [], []
+    rng = np.random.default_rng(seed)
+    obs, _ = raw_env.reset(seed=int(rng.integers(1_000_000)))
+    raw_env.unwrapped.model.opt.gravity[2] = gravity
+    while len(obs_list) < n_samples:
+        cont_action, _ = sac_model.predict(obs, deterministic=True)
+        binned = binner.bin_continuous(cont_action)
+        obs_list.append(obs.copy())
+        act_list.append(binned)
+        obs, _, terminated, truncated, _ = raw_env.step(cont_action)
+        if terminated or truncated:
+            obs, _ = raw_env.reset(seed=int(rng.integers(1_000_000)))
+            raw_env.unwrapped.model.opt.gravity[2] = gravity
+    raw_env.close()
+    binner.close()
+    return (
+        np.array(obs_list[:n_samples], dtype=np.float32),
+        np.array(act_list[:n_samples], dtype=np.int64),
+    )
+
+
+# ---------------------------------------------------------------------------
 # Hopper
 # ---------------------------------------------------------------------------
 
@@ -200,16 +275,22 @@ def run_hopper(cfg: dict, output_dir: Path) -> pd.DataFrame:
 
     records = []
 
+    # oracle_model_dir: 外部の学習済みモデルを参照する場合に指定
+    oracle_dir_hopper = Path(cfg["hopper"].get("oracle_model_dir", str(output_dir)))
+
     for seed in seeds:
-        # Intuitive policy の学習 or 再利用 (SAC)
-        model_path = output_dir / f"intuitive_hopper_seed{seed}"
-        zip_path = output_dir / f"intuitive_hopper_seed{seed}.zip"
-        if model_path.exists() or zip_path.exists():
-            raw_env = gym.make("Hopper-v5")
-            model = SAC.load(str(model_path if model_path.exists() else zip_path), env=raw_env)
-            raw_env.close()
-            print(f"  [Hopper seed={seed}] 既存モデルを再利用", flush=True)
+        # Intuitive policy の学習 or 再利用（oracle_model_dir を優先参照）
+        for search_dir in [oracle_dir_hopper, output_dir]:
+            model_path = search_dir / f"intuitive_hopper_seed{seed}"
+            zip_path = search_dir / f"intuitive_hopper_seed{seed}.zip"
+            if model_path.exists() or zip_path.exists():
+                raw_env = gym.make("Hopper-v5")
+                model = SAC.load(str(model_path if model_path.exists() else zip_path), env=raw_env)
+                raw_env.close()
+                print(f"  [Hopper seed={seed}] 既存モデルを再利用: {model_path if model_path.exists() else zip_path}", flush=True)
+                break
         else:
+            new_model_path = output_dir / f"intuitive_hopper_seed{seed}"
             raw_env = gym.make("Hopper-v5")
             model = SAC(
                 "MlpPolicy", raw_env,
@@ -218,27 +299,31 @@ def run_hopper(cfg: dict, output_dir: Path) -> pd.DataFrame:
                 seed=seed, verbose=0,
             )
             model.learn(total_timesteps=n_steps)
-            model.save(str(model_path))
+            model.save(str(new_model_path))
             raw_env.close()
             print(f"  [Hopper seed={seed}] SAC 学習完了 ({n_steps} steps)", flush=True)
 
         eval_seed = seed + 10000
 
-        # 蒸留データと評価データを収集（訓練重力）
+        # 蒸留データを訓練重力で収集
         obs_all, act_all = collect_hopper(model, distill_n, seed, bins_per_dim)
-        obs_eval, act_eval = collect_hopper(model, eval_n, eval_seed, bins_per_dim)
 
         for model_type in comp_cfg["model_types"]:
             rm = make_model(model_type, n_obs, n_actions, comp_cfg)
             rm = fit_model(rm, obs_all, act_all, comp_cfg)
 
-            rm_actions_eval = rm.predict(obs_eval)
-            aa_train = float(np.mean(act_eval == rm_actions_eval))
-            kl_train = _kl_empirical(act_eval, rm_actions_eval, n_actions)
-
             for gc in gravity_conds:
                 cname = gc["name"]
                 gravity = gc["gravity"]
+
+                # 各重力条件の oracle rollout データで per-condition AA を計算
+                if cname == "train":
+                    obs_eval_cond, act_eval_cond = collect_hopper(model, eval_n, eval_seed, bins_per_dim)
+                else:
+                    obs_eval_cond, act_eval_cond = _collect_hopper_gravity(model, gravity, eval_n, eval_seed, bins_per_dim)
+                rm_actions_cond = rm.predict(obs_eval_cond)
+                aa_cond = float(np.mean(act_eval_cond == rm_actions_cond))
+                kl_cond = _kl_empirical(act_eval_cond, rm_actions_cond, n_actions)
 
                 j_intuitive = eval_hopper_intuitive(model, gravity, n_eval, eval_seed)
                 j_reasoned = eval_hopper_reasoned(rm, gravity, n_eval, eval_seed, bins_per_dim)
@@ -252,14 +337,15 @@ def run_hopper(cfg: dict, output_dir: Path) -> pd.DataFrame:
                     "seed": seed,
                     "j_intuitive": j_intuitive,
                     "j_reasoned": j_reasoned,
-                    "action_agreement": aa_train,
-                    "kl_divergence": kl_train,
+                    "action_agreement": aa_cond,
+                    "kl_divergence": kl_cond,
                     "relative_perf_drop": rpd,
                 })
 
+            train_rec = next(r for r in reversed(records) if r["eval_condition"] == "train" and r["seed"] == seed and r["model_type"] == model_type)
             print(
-                f"  [Hopper,      {MODEL_LABEL[model_type]:6s}, seed={seed}]"
-                f"  AA={aa_train:.3f}  J(train)={records[-len(gravity_conds)]['j_reasoned']:.1f}",
+                f"  [Hopper,      {MODEL_LABEL.get(model_type, model_type):6s}, seed={seed}]"
+                f"  AA(train)={train_rec['action_agreement']:.3f}  J(train)={train_rec['j_reasoned']:.1f}",
                 flush=True,
             )
 
@@ -279,7 +365,7 @@ def _plot_results(df: pd.DataFrame, output_dir: Path) -> None:
             axes = [axes]
         for ax, cond in zip(axes, conds):
             sc = sub[sub["eval_condition"] == cond]
-            for mt in ["moet", "tree", "linear"]:
+            for mt in ["gbt", "moet", "tree", "linear"]:
                 vals = sc[sc["model_type"] == mt]["action_agreement"]
                 if vals.empty:
                     continue
@@ -335,7 +421,13 @@ def run_experiment(cfg: dict) -> None:
         all_records.append(hopper_df)
 
     df = pd.concat([d for d in all_records if not d.empty], ignore_index=True)
-    csv_path = output_dir / "metrics.csv"
+
+    # --seed 1シードで並列実行した場合はシード別ファイルに保存（競合防止）
+    seeds = cfg.get("evaluation", {}).get("seeds", [])
+    if len(seeds) == 1:
+        csv_path = output_dir / f"metrics_seed{seeds[0]}.csv"
+    else:
+        csv_path = output_dir / "metrics.csv"
     df.to_csv(csv_path, index=False)
     print(f"\nmetrics.csv を保存: {csv_path}", flush=True)
 

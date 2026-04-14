@@ -1,0 +1,47 @@
+name: exp009_gbt_continuous
+description: >
+  実験9: GBT surrogate による連続制御環境の本格実験
+  - LunarLander-v3: 学習済み PPO oracle (exp007_lunarlander_ppo) を再利用
+  - MuJoCo Hopper-v5: 学習済み SAC oracle (exp007_mujoco_v2) を再利用（seed=456は未収束のため除外）
+  - surrogate: GBT (HistGradientBoostingClassifier) を主とし、MoET と比較
+  - 分布シフト下の per-condition AA と J を評価
+
+lunar:
+  algorithm: ppo
+  n_envs: 8
+  n_steps: 1000000  # 既存モデルがある場合は学習しない
+  oracle_model_dir: experiments/results/exp007_lunarlander_ppo
+  gravity_conditions:
+    - {name: train,      gravity: -10.0}
+    - {name: gravity_lo, gravity: -3.0}
+    - {name: gravity_hi, gravity: -11.5}
+
+hopper:
+  n_steps: 500000  # 既存モデルがある場合は学習しない
+  bins_per_dim: 3
+  oracle_model_dir: experiments/results/exp007_mujoco_v2
+  gravity_conditions:
+    - {name: train,      gravity: -9.81}
+    - {name: gravity_lo, gravity: -5.0}
+    - {name: gravity_hi, gravity: -20.0}
+
+comparison:
+  model_types: [gbt, moet, tree, linear]
+  gbt:
+    max_iter: 300
+    max_depth: null
+    learning_rate: 0.1
+  moet:
+    n_experts: 4
+    max_depth: 5
+  tree:
+    max_depth: 5
+  distill_epochs: 100
+  distill_n_samples: 10000
+  eval_n_samples: 5000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 1011]
+  n_eval_episodes: 20
+
+output_dir: experiments/results/exp009_gbt_continuous

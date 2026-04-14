@@ -21,6 +21,7 @@ import yaml
 def main():
     parser = argparse.ArgumentParser(description="実験ランナー")
     parser.add_argument("--config", required=True, help="YAML 設定ファイルのパス")
+    parser.add_argument("--seed", type=int, default=None, help="シードを1つ指定して実行（並列化用）")
     args = parser.parse_args()
 
     config_path = Path(args.config)
@@ -30,6 +31,9 @@ def main():
 
     with open(config_path, encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
+
+    if args.seed is not None:
+        cfg["evaluation"]["seeds"] = [args.seed]
 
     env_cfg = cfg.get("env", {})
     env_base = env_cfg.get("base", "")
