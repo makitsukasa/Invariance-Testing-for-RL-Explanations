@@ -1,0 +1,19 @@
+
+=== Hopper ÀŒ± (Regression Surrogate) ===
+  [Hopper seed=456] Šù‘¶ƒ‚ƒfƒ‹‚ğÄ—˜—p: experiments\results\exp007_mujoco_v2\intuitive_hopper_seed456.zip
+  [Hopper(Reg), RegTree   , seed=456]  AA_eps(train)=0.450  J(train)=60.1
+  [Hopper(Reg), RegLinear , seed=456]  AA_eps(train)=0.230  J(train)=243.4
+
+metrics.csv ‚ğ•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp010_regression_hopper\metrics_seed456.csv
+}‚ğ•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp010_regression_hopper\aa_bar_hopper.png
+
+=== —\”õÀŒ±i˜A‘±§ŒäjƒTƒ}ƒŠ[ ===
+
+yhopperz
+  RegLinear  gravity_hi    AA=0.009}nan
+  RegLinear  gravity_lo    AA=0.014}nan
+  RegLinear  train         AA=0.230}nan
+  RegTree  gravity_hi    AA=0.083}nan
+  RegTree  gravity_lo    AA=0.094}nan
+  RegTree  train         AA=0.450}nan
+

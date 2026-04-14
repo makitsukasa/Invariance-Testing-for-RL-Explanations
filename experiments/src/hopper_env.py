@@ -163,3 +163,64 @@ def evaluate_reasoned(
             done = terminated or truncated
     env.close()
     return total / n_episodes
+
+
+# ---------------------------------------------------------------------------
+# 連続行動版ユーティリティ（回帰型 Surrogate 用）
+# ---------------------------------------------------------------------------
+
+def collect_transitions_continuous(
+    sac_model,
+    n_samples: int,
+    seed: int,
+    gravity: float = DEFAULT_GRAVITY,
+) -> tuple[np.ndarray, np.ndarray]:
+    """SAC モデルのロールアウトから (obs, continuous_action) を収集する。
+
+    binning なし。回帰型 Reasoned model の訓練・AA 評価データに使う。
+    """
+    env = gym.make("Hopper-v5")
+    env.unwrapped.model.opt.gravity[2] = gravity
+    obs_list, act_list = [], []
+    rng = np.random.default_rng(seed)
+    obs, _ = env.reset(seed=int(rng.integers(1_000_000)))
+    env.unwrapped.model.opt.gravity[2] = gravity
+    while len(obs_list) < n_samples:
+        cont_action, _ = sac_model.predict(obs, deterministic=True)
+        obs_list.append(obs.copy())
+        act_list.append(cont_action.copy())
+        obs, _, terminated, truncated, _ = env.step(cont_action)
+        if terminated or truncated:
+            obs, _ = env.reset(seed=int(rng.integers(1_000_000)))
+            env.unwrapped.model.opt.gravity[2] = gravity
+    env.close()
+    return (
+        np.array(obs_list[:n_samples], dtype=np.float32),
+        np.array(act_list[:n_samples], dtype=np.float32),
+    )
+
+
+def evaluate_reasoned_continuous(
+    rm,
+    gravity: float,
+    n_episodes: int,
+    seed: int,
+) -> float:
+    """回帰型 Reasoned model の Hopper-v5 ロールアウト平均累積報酬を返す。
+
+    rm.predict(obs) が連続行動ベクトル (action_dim,) を返すことを前提とする。
+    """
+    env = gym.make("Hopper-v5")
+    env.unwrapped.model.opt.gravity[2] = gravity
+    total = 0.0
+    for ep in range(n_episodes):
+        obs, _ = env.reset(seed=seed + ep)
+        env.unwrapped.model.opt.gravity[2] = gravity
+        done = False
+        while not done:
+            action = rm.predict(obs[np.newaxis])[0]
+            obs, reward, terminated, truncated, _ = env.step(action)
+            total += reward
+            done = terminated or truncated
+    env.close()
+    return total / n_episodes

@@ -1,0 +1,9 @@
+=== 予備実験（連続制御）サマリー ===
+
+【hopper】
+  RegLinear  gravity_hi    AA=0.029±nan
+  RegLinear  gravity_lo    AA=0.024±nan
+  RegLinear  train         AA=0.087±nan
+  RegTree  gravity_hi    AA=0.029±nan
+  RegTree  gravity_lo    AA=0.099±nan
+  RegTree  train         AA=0.228±nan

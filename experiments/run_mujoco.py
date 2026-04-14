@@ -24,12 +24,21 @@ from stable_baselines3 import DQN, PPO, SAC
 from stable_baselines3.common.env_util import make_vec_env
 
 from experiments.src.evaluate import action_agreement, relative_perf_drop
-from experiments.src.baselines import LinearReasonedModel, SingleTreeReasonedModel, GBTReasonedModel
+from experiments.src.baselines import (
+    LinearReasonedModel, SingleTreeReasonedModel, GBTReasonedModel,
+    RegressionTreeModel, RegressionLinearModel,
+)
 from experiments.src.moet import SoftMoET
 from experiments.src.distill import distill
 
-MODEL_LABEL = {"moet": "MoET", "linear": "Linear", "tree": "Tree", "gbt": "GBT"}
-COLORS = {"moet": "steelblue", "linear": "tomato", "tree": "seagreen", "gbt": "darkorange"}
+MODEL_LABEL = {
+    "moet": "MoET", "linear": "Linear", "tree": "Tree", "gbt": "GBT",
+    "reg_tree": "RegTree", "reg_linear": "RegLinear",
+}
+COLORS = {
+    "moet": "steelblue", "linear": "tomato", "tree": "seagreen", "gbt": "darkorange",
+    "reg_tree": "darkgreen", "reg_linear": "darkorchid",
+}
 
 
 def make_model(model_type: str, input_dim: int, n_actions: int, comp_cfg: dict):
@@ -353,6 +362,118 @@ def run_hopper(cfg: dict, output_dir: Path) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
+# Hopper 回帰型 Surrogate（連続行動・AA 再定義）
+# ---------------------------------------------------------------------------
+
+def _continuous_aa(a_oracle: np.ndarray, a_surrogate: np.ndarray, eps: float) -> float:
+    """ε-agreement: ||a_s − a_o||₂ < ε の割合。
+    離散 AA（exact match）の連続行動版アナログ。
+    """
+    diffs = np.linalg.norm(a_oracle - a_surrogate, axis=1)
+    return float(np.mean(diffs < eps))
+
+
+def make_regression_model(model_type: str, input_dim: int, action_dim: int, comp_cfg: dict):
+    if model_type == "reg_tree":
+        max_depth = comp_cfg.get("reg_tree", {}).get("max_depth", 5)
+        return RegressionTreeModel(input_dim, action_dim, max_depth=max_depth)
+    elif model_type == "reg_linear":
+        return RegressionLinearModel(input_dim, action_dim)
+    else:
+        raise ValueError(f"Unknown regression model_type: {model_type}")
+
+
+def run_hopper_regression(cfg: dict, output_dir: Path) -> pd.DataFrame:
+    """回帰型 Surrogate による Hopper 実験。
+
+    binning なし・連続行動を直接模倣し、AA を ε-agreement で定義する。
+    """
+    from experiments.src.hopper_env import (
+        collect_transitions_continuous,
+        evaluate_intuitive as eval_hopper_intuitive,
+        evaluate_reasoned_continuous,
+    )
+    import gymnasium as gym
+
+    seeds: list[int] = cfg["evaluation"]["seeds"]
+    n_eval: int = cfg["evaluation"]["n_eval_episodes"]
+    comp_cfg: dict = cfg["comparison"]
+    distill_n: int = comp_cfg["distill_n_samples"]
+    eval_n: int = comp_cfg["eval_n_samples"]
+    gravity_conds: list[dict] = cfg["hopper"]["gravity_conditions"]
+    train_gravity: float = gravity_conds[0]["gravity"]
+    aa_eps: float = cfg["hopper"].get("aa_epsilon", 0.2)
+    n_obs = 11
+    action_dim = 3
+
+    records = []
+    oracle_dir_hopper = Path(cfg["hopper"].get("oracle_model_dir", str(output_dir)))
+
+    for seed in seeds:
+        for search_dir in [oracle_dir_hopper, output_dir]:
+            model_path = search_dir / f"intuitive_hopper_seed{seed}"
+            zip_path = search_dir / f"intuitive_hopper_seed{seed}.zip"
+            if model_path.exists() or zip_path.exists():
+                raw_env = gym.make("Hopper-v5")
+                model = SAC.load(str(model_path if model_path.exists() else zip_path), env=raw_env)
+                raw_env.close()
+                print(f"  [Hopper seed={seed}] 既存モデルを再利用: {model_path if model_path.exists() else zip_path}", flush=True)
+                break
+        else:
+            raise FileNotFoundError(
+                f"Oracle model not found for seed={seed}. "
+                "Set hopper.oracle_model_dir in config."
+            )
+
+        eval_seed = seed + 10000
+
+        # 蒸留データ（連続行動）を訓練重力で収集
+        obs_all, act_all = collect_transitions_continuous(model, distill_n, seed, train_gravity)
+
+        for model_type in comp_cfg["model_types"]:
+            rm = make_regression_model(model_type, n_obs, action_dim, comp_cfg)
+            rm.fit(obs_all, act_all)
+
+            for gc in gravity_conds:
+                cname = gc["name"]
+                gravity = gc["gravity"]
+
+                # per-condition AA: 各重力条件の oracle rollout と比較
+                obs_eval, act_eval = collect_transitions_continuous(model, eval_n, eval_seed, gravity)
+                rm_actions = rm.predict(obs_eval)
+                aa_cond = _continuous_aa(act_eval, rm_actions, aa_eps)
+
+                j_intuitive = eval_hopper_intuitive(model, gravity, n_eval, eval_seed)
+                j_reasoned = evaluate_reasoned_continuous(rm, gravity, n_eval, eval_seed)
+                rpd = relative_perf_drop(j_intuitive, j_reasoned)
+
+                records.append({
+                    "env": "hopper",
+                    "model_type": model_type,
+                    "eval_condition": cname,
+                    "gravity": gravity,
+                    "seed": seed,
+                    "j_intuitive": j_intuitive,
+                    "j_reasoned": j_reasoned,
+                    "action_agreement": aa_cond,
+                    "relative_perf_drop": rpd,
+                })
+
+            train_rec = next(
+                r for r in reversed(records)
+                if r["eval_condition"] == "train" and r["seed"] == seed and r["model_type"] == model_type
+            )
+            print(
+                f"  [Hopper(Reg), {MODEL_LABEL.get(model_type, model_type):10s}, seed={seed}]"
+                f"  AA_eps(train)={train_rec['action_agreement']:.3f}"
+                f"  J(train)={train_rec['j_reasoned']:.1f}",
+                flush=True,
+            )
+
+    return pd.DataFrame(records)
+
+
+# ---------------------------------------------------------------------------
 # 可視化・サマリー
 # ---------------------------------------------------------------------------
 
@@ -365,7 +486,7 @@ def _plot_results(df: pd.DataFrame, output_dir: Path) -> None:
             axes = [axes]
         for ax, cond in zip(axes, conds):
             sc = sub[sub["eval_condition"] == cond]
-            for mt in ["gbt", "moet", "tree", "linear"]:
+            for mt in sub["model_type"].unique():
                 vals = sc[sc["model_type"] == mt]["action_agreement"]
                 if vals.empty:
                     continue
@@ -416,8 +537,12 @@ def run_experiment(cfg: dict) -> None:
         all_records.append(lunar_df)
 
     if cfg.get("hopper"):
-        print("\n=== Hopper 実験 ===", flush=True)
-        hopper_df = run_hopper(cfg, output_dir)
+        if cfg["hopper"].get("regression_mode", False):
+            print("\n=== Hopper 実験 (Regression Surrogate) ===", flush=True)
+            hopper_df = run_hopper_regression(cfg, output_dir)
+        else:
+            print("\n=== Hopper 実験 ===", flush=True)
+            hopper_df = run_hopper(cfg, output_dir)
         all_records.append(hopper_df)
 
     df = pd.concat([d for d in all_records if not d.empty], ignore_index=True)

@@ -24,7 +24,7 @@ Overall: **Major Revision（borderline）** — 前回より改善
 
 ### Major / B-level
 
-**[W-B1] 環境がおもちゃすぎる** → **[部分対応済み・次回レビュー確認]**
+**[W-B1] 環境がおもちゃすぎる** → **[対応済み・次回レビュー確認]**
     CartPole(4次元), LunarLander のみ。トップ会場では不十分。
     Hopper/HalfCheetah などの連続制御環境への拡張が必要、との強いプレッシャー。
 
@@ -32,14 +32,16 @@ Overall: **Major Revision（borderline）** — 前回より改善
     LunarLander を「予備実験」から「実験7」に格上げ。GBT surrogate を追加（exp009）。
     結果: GBT AA=0.876±0.026, J=240±13（oracle J=260）。MoET/Tree はクラッシュ。
     分布シフト（gravity_hi）でも安定。gravity_lo では graceful degradation を確認。
-    Section 4.4, 8, 9 を更新済み。
 
-    Hopper は試みたが失敗（GBT AA=0.22、全モデルで J_S << oracle）。
-    Walker2d, Ant は未試行。連続行動への本格対応は今後の課題として Section 8/9 に記述。
+    Hopper は exp009（GBT AA=0.22、binning）→ exp010（回帰型 surrogate + ε-AA）と試行。
+    exp010 RegLinear J=292±120 はビニングあり最良（Tree ~167）を上回ったが oracle 水準の ~11%。
+    この制約は本枠組みではなく解釈可能モデルの表現力の限界として位置づけ、Section 8/9 に記述。
+    Walker2d, Ant は未試行（surrogate 側の問題が解決しないと同じ結果になるため意図的に見送り）。
 
-    [残課題]
-    「LunarLander 1環境追加で査読者が納得するか」は次回 PEER_REVIEW で確認。
-    納得しない場合は回帰型 Surrogate model で Hopper に再挑戦が必要。
+    [フレーミング]
+    「連続行動環境への本格適用は surrogate 側の進展（oblique tree、NAM 等）に依存する。
+    枠組み自体は適用可能（ε-AA に再定義）であり、制約は枠組みではなく interpretable ML の問題」
+    → この主張が次回 PEER_REVIEW で受け入れられるか確認。
 
     環境選定
         LunarLander、Hopper、Walker2d、Antを試したい。うまく議論の補強ができる中で難しいのを採用したい。
@@ -183,6 +185,10 @@ Inv_J = J_R(D_shift) / J_R(D_train)
 $J_{\mathrm{surrogate}} > J_{\mathrm{oracle}}$ の強調
     実験3で見られた$J$の逆転現象は、説明可能性のための構造制約が、意図せずしてモデルの汎化性能を向上させる可能性を示唆している？
     元アイデアに書いた「説明できるように理解を深める」のポジティブな面が覗いているが、どうもメインの主張のノイズにしかならんので不採用。
+
+連続制御用のタスクを離散制御
+    Jが低くなる。そりゃそうだ。
+    連続制御をしようとするとAAの定義を連続用に作り直さなきゃだけど仕方ない。
 
 MoETとTreeとLinearを比較したいわけじゃないのをもっと明示
     追加する文の例

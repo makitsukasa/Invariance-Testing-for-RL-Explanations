@@ -1,0 +1,26 @@
+# exp010: Hopper 回帰型 Surrogate 実験
+# binning なし・連続行動を直接模倣。AA = ε-agreement (eps=0.2)
+# 目的: exp009 の Hopper 失敗を受けて、分類ではなく回帰型 surrogate で再試行
+
+hopper:
+  oracle_model_dir: experiments/results/exp007_mujoco_v2
+  gravity_conditions:
+    - {name: train,      gravity: -9.81}
+    - {name: gravity_lo, gravity: -5.0}
+    - {name: gravity_hi, gravity: -20.0}
+  regression_mode: true
+  aa_epsilon: 0.2   # ||a_s - a_o||_2 < eps を "合意" とみなす閾値
+
+comparison:
+  model_types: [reg_tree, reg_linear]
+  reg_tree:
+    max_depth: 5
+  distill_n_samples: 10000
+  eval_n_samples:   5000
+  distill_epochs:   200   # MoET 用（今回は未使用、互換性のため残す）
+
+evaluation:
+  seeds: [42, 123, 456, 789, 1011]
+  n_eval_episodes: 10
+
+output_dir: experiments/results/exp010_regression_hopper

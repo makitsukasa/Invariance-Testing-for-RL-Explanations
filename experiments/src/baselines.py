@@ -12,8 +12,8 @@ evaluate.py の action_agreement / kl_divergence / evaluate_rollout で
 from __future__ import annotations
 
 import numpy as np
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression, LinearRegression
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.ensemble import HistGradientBoostingClassifier
 
 
@@ -90,6 +90,72 @@ class SingleTreeReasonedModel:
     def predict(self, obs: np.ndarray) -> np.ndarray:
         """shape: (n_samples,)"""
         return self.predict_proba(obs).argmax(axis=1)
+
+
+class RegressionTreeModel:
+    """多出力決定木回帰による Reasoned model（連続行動空間用）。
+
+    DecisionTreeRegressor を使用し、連続行動ベクトルを直接予測する。
+    binning 不要で、Hopper 等の連続制御タスクに適用できる。
+
+    Parameters
+    ----------
+    input_dim : int
+        入力次元数（状態空間）
+    action_dim : int
+        行動空間の次元数（例: Hopper は 3）
+    max_depth : int
+        決定木の最大深さ
+    """
+
+    def __init__(self, input_dim: int, action_dim: int, max_depth: int = 5):
+        self.input_dim = input_dim
+        self.action_dim = action_dim
+        self.max_depth = max_depth
+        self.model = DecisionTreeRegressor(max_depth=max_depth)
+        self._fitted = False
+
+    def fit(self, X: np.ndarray, y: np.ndarray) -> "RegressionTreeModel":
+        self.model.fit(X, y)
+        self._fitted = True
+        return self
+
+    def predict(self, obs: np.ndarray) -> np.ndarray:
+        """shape: (n_samples, action_dim)"""
+        pred = self.model.predict(obs)
+        if pred.ndim == 1:
+            pred = pred[:, np.newaxis]
+        return np.clip(pred, -1.0, 1.0).astype(np.float32)
+
+
+class RegressionLinearModel:
+    """多出力線形回帰による Reasoned model（連続行動空間用）。
+
+    Parameters
+    ----------
+    input_dim : int
+        入力次元数（状態空間）
+    action_dim : int
+        行動空間の次元数
+    """
+
+    def __init__(self, input_dim: int, action_dim: int):
+        self.input_dim = input_dim
+        self.action_dim = action_dim
+        self.model = LinearRegression()
+        self._fitted = False
+
+    def fit(self, X: np.ndarray, y: np.ndarray) -> "RegressionLinearModel":
+        self.model.fit(X, y)
+        self._fitted = True
+        return self
+
+    def predict(self, obs: np.ndarray) -> np.ndarray:
+        """shape: (n_samples, action_dim)"""
+        pred = self.model.predict(obs)
+        if pred.ndim == 1:
+            pred = pred[:, np.newaxis]
+        return np.clip(pred, -1.0, 1.0).astype(np.float32)
 
 
 class GBTReasonedModel:
