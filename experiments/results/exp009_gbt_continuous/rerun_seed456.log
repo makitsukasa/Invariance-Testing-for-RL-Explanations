@@ -1,0 +1,50 @@
+=== LunarLander ŽÀŒ± ===
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+  [LunarLander seed=456] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p: experiments\results\exp007_lunarlander_ppo\intuitive_lunar_seed456.zip
+  [LunarLander, GBT   , seed=456]  AA(train)=0.859  J(train)=247.0
+  [LunarLander, MoET  , seed=456]  AA(train)=0.719  J(train)=-227.6
+  [LunarLander, Tree  , seed=456]  AA(train)=0.720  J(train)=-128.4
+  [LunarLander, Linear, seed=456]  AA(train)=0.723  J(train)=270.7
+
+=== Hopper ŽÀŒ± ===
+  [Hopper seed=456] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p: experiments\results\exp007_mujoco_v2\intuitive_hopper_seed456.zip
+  [Hopper,      GBT   , seed=456]  AA(train)=0.365  J(train)=154.2
+  [Hopper,      MoET  , seed=456]  AA(train)=0.913  J(train)=41.7
+  [Hopper,      Tree  , seed=456]  AA(train)=0.791  J(train)=19.7
+  [Hopper,      Linear, seed=456]  AA(train)=0.764  J(train)=11.9
+
+metrics.csv ‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\metrics_seed456.csv
+}‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\aa_bar_lunarlander.png
+}‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\aa_bar_hopper.png
+
+=== —\”õŽÀŒ±i˜A‘±§ŒäjƒTƒ}ƒŠ[ ===
+
+ylunarlanderz
+  GBT     gravity_hi    AA=0.869}nan
+  GBT     gravity_lo    AA=0.711}nan
+  GBT     train         AA=0.859}nan
+  Linear  gravity_hi    AA=0.775}nan
+  Linear  gravity_lo    AA=0.627}nan
+  Linear  train         AA=0.723}nan
+  MoET    gravity_hi    AA=0.766}nan
+  MoET    gravity_lo    AA=0.475}nan
+  MoET    train         AA=0.719}nan
+  Tree    gravity_hi    AA=0.766}nan
+  Tree    gravity_lo    AA=0.513}nan
+  Tree    train         AA=0.720}nan
+
+yhopperz
+  GBT     gravity_hi    AA=0.137}nan
+  GBT     gravity_lo    AA=0.236}nan
+  GBT     train         AA=0.365}nan
+  Linear  gravity_hi    AA=0.135}nan
+  Linear  gravity_lo    AA=0.236}nan
+  Linear  train         AA=0.764}nan
+  MoET    gravity_hi    AA=0.328}nan
+  MoET    gravity_lo    AA=0.252}nan
+  MoET    train         AA=0.913}nan
+  Tree    gravity_hi    AA=0.332}nan
+  Tree    gravity_lo    AA=0.199}nan
+  Tree    train         AA=0.791}nan
+

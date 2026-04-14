@@ -1,29 +1,29 @@
 === 予備実験（連続制御）サマリー ===
 
 【lunarlander】
-  GBT     gravity_hi    AA=0.864±nan
-  GBT     gravity_lo    AA=0.658±nan
-  GBT     train         AA=0.840±nan
-  Linear  gravity_hi    AA=0.765±nan
-  Linear  gravity_lo    AA=0.669±nan
-  Linear  train         AA=0.716±nan
-  MoET    gravity_hi    AA=0.737±nan
-  MoET    gravity_lo    AA=0.387±nan
-  MoET    train         AA=0.697±nan
-  Tree    gravity_hi    AA=0.721±nan
-  Tree    gravity_lo    AA=0.511±nan
-  Tree    train         AA=0.673±nan
+  GBT     gravity_hi    AA=0.886±0.019
+  GBT     gravity_lo    AA=0.706±0.049
+  GBT     train         AA=0.876±0.026
+  Linear  gravity_hi    AA=0.802±0.033
+  Linear  gravity_lo    AA=0.704±0.076
+  Linear  train         AA=0.764±0.045
+  MoET    gravity_hi    AA=0.779±0.028
+  MoET    gravity_lo    AA=0.545±0.116
+  MoET    train         AA=0.739±0.029
+  Tree    gravity_hi    AA=0.767±0.028
+  Tree    gravity_lo    AA=0.572±0.069
+  Tree    train         AA=0.725±0.032
 
 【hopper】
-  GBT     gravity_hi    AA=0.023±nan
-  GBT     gravity_lo    AA=0.036±nan
-  GBT     train         AA=0.167±nan
-  Linear  gravity_hi    AA=0.100±nan
-  Linear  gravity_lo    AA=0.412±nan
-  Linear  train         AA=0.532±nan
-  MoET    gravity_hi    AA=0.179±nan
-  MoET    gravity_lo    AA=0.262±nan
-  MoET    train         AA=0.662±nan
-  Tree    gravity_hi    AA=0.122±nan
-  Tree    gravity_lo    AA=0.373±nan
-  Tree    train         AA=0.532±nan
+  GBT     gravity_hi    AA=0.101±0.072
+  GBT     gravity_lo    AA=0.121±0.089
+  GBT     train         AA=0.223±0.091
+  Linear  gravity_hi    AA=0.131±0.030
+  Linear  gravity_lo    AA=0.260±0.136
+  Linear  train         AA=0.565±0.116
+  MoET    gravity_hi    AA=0.187±0.087
+  MoET    gravity_lo    AA=0.234±0.080
+  MoET    train         AA=0.712±0.119
+  Tree    gravity_hi    AA=0.139±0.110
+  Tree    gravity_lo    AA=0.232±0.088
+  Tree    train         AA=0.579±0.131

@@ -8,13 +8,16 @@ Overall: **REVISE**（中核論理・実験設計は健全、下記 Critical 2�
 
 ### Critical（要対応）
 
-**[C2] exp009 重力シフト条件の J_S が全 seed で同一値**  → **[要調査]**
-    metrics.csv を確認すると、GBT gravity_hi の j_reasoned=230.284... が全5 seed で完全一致。
-    j_intuitive も同条件では同一値。train 条件の j_reasoned は seed 間で異なる（正常）。
-    考えられる原因：
-    (a) shift 条件のロールアウトが per-seed になっていないコードバグ
-    (b) 全 seed で同じ oracle を使っているため評価が同一になる（この場合は明記で対応可）
-    draft の Table 1 は J_S(train) のみ std 報告しており直接的なダメージは限定的だが信頼性に関わる。
+**[C2] exp009 重力シフト条件の J_S が全 seed で同一値**  → **[対応済み]**
+    原因：並列実行（--seed N）時に旧コードが全実行で metrics.csv を上書きし、最後の seed=1011 の
+    j_intuitive・j_reasoned(shift) が全 seed に流用されていた。
+    対応：exp009 を 5 seed 並列再実行（現コードは metrics_seedN.csv に正しく保存）し、
+    マージ後の正しいデータで Table 1 および本文を更新済み。
+    修正内容：
+      - Table 1 に J_S(gravity_lo), J_S(gravity_hi) 列を追加
+      - GBT J_S(gravity_hi): 旧230(単値) → 221.9±11.7
+      - GBT J_S(gravity_lo): 旧126(単値) → 123.4±41.0
+      - AA・J_S(train) は元データが正確だったため実質変化なし
 
 **[C3] 3件の引用が本文にあるが footnote 未定義** → **[対応済み]**
     [^15] Gulrajani & Lopez-Paz (2021)、[^16] Sagawa et al. (2020)、[^17] Puiutta & Veith (2020) を Section 2.3/2.4 に追加、footnote 定義を末尾に追記済み。
