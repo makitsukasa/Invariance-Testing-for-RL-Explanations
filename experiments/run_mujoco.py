@@ -20,12 +20,14 @@ import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from stable_baselines3 import DQN, PPO, SAC
+from stable_baselines3 import DQN, PPO, SAC, TD3
 from stable_baselines3.common.env_util import make_vec_env
 
 from experiments.src.evaluate import action_agreement, relative_perf_drop
 from experiments.src.baselines import (
     LinearReasonedModel, SingleTreeReasonedModel, GBTReasonedModel,
+    EBMReasonedModel, SoftDecisionTreeReasonedModel, SymbolicReasonedModel,
+    EBMRegressionReasonedModel, SoftDecisionTreeRegressionReasonedModel, SymbolicRegressionReasonedModel,
     RegressionTreeModel, RegressionLinearModel,
 )
 from experiments.src.moet import SoftMoET
@@ -33,11 +35,15 @@ from experiments.src.distill import distill
 
 MODEL_LABEL = {
     "moet": "MoET", "linear": "Linear", "tree": "Tree", "gbt": "GBT",
-    "reg_tree": "RegTree", "reg_linear": "RegLinear",
+    "dt_viper": "DT-VIPER", "ebm": "EBM", "sdt": "SoftTree", "symbolic": "Symbolic",
+    "reg_tree": "RegTree", "reg_linear": "RegLinear", "reg_ebm": "RegEBM",
+    "reg_sdt": "RegSoftTree", "reg_symbolic": "RegSymbolic",
 }
 COLORS = {
     "moet": "steelblue", "linear": "tomato", "tree": "seagreen", "gbt": "darkorange",
-    "reg_tree": "darkgreen", "reg_linear": "darkorchid",
+    "dt_viper": "forestgreen", "ebm": "royalblue", "sdt": "mediumpurple", "symbolic": "sienna",
+    "reg_tree": "darkgreen", "reg_linear": "darkorchid", "reg_ebm": "cornflowerblue",
+    "reg_sdt": "plum", "reg_symbolic": "peru",
 }
 
 
@@ -55,6 +61,40 @@ def make_model(model_type: str, input_dim: int, n_actions: int, comp_cfg: dict):
             max_iter=gbt_cfg.get("max_iter", 200),
             max_depth=gbt_cfg.get("max_depth", None),
             learning_rate=gbt_cfg.get("learning_rate", 0.1),
+        )
+    elif model_type in ("dt_viper", "tree_viper"):
+        tree_cfg = comp_cfg.get("dt_viper", {})
+        return SingleTreeReasonedModel(
+            input_dim, n_actions, max_depth=tree_cfg.get("max_depth", 20)
+        )
+    elif model_type == "ebm":
+        ebm_cfg = comp_cfg.get("ebm", {})
+        return EBMReasonedModel(
+            input_dim, n_actions,
+            max_rounds=ebm_cfg.get("max_rounds", 300),
+            outer_bags=ebm_cfg.get("outer_bags", 8),
+            interactions=ebm_cfg.get("interactions", 0),
+        )
+    elif model_type == "sdt":
+        sdt_cfg = comp_cfg.get("sdt", {})
+        return SoftDecisionTreeReasonedModel(
+            input_dim, n_actions,
+            depth=sdt_cfg.get("depth", 5),
+            epochs=sdt_cfg.get("epochs", 150),
+            lr=sdt_cfg.get("lr", 1e-3),
+            batch_size=sdt_cfg.get("batch_size", 512),
+            entropy_coef=sdt_cfg.get("entropy_coef", 1e-3),
+            seed=sdt_cfg.get("seed", 42),
+        )
+    elif model_type == "symbolic":
+        sym_cfg = comp_cfg.get("symbolic", {})
+        return SymbolicReasonedModel(
+            input_dim, n_actions,
+            population_size=sym_cfg.get("population_size", 1200),
+            generations=sym_cfg.get("generations", 25),
+            tournament_size=sym_cfg.get("tournament_size", 20),
+            parsimony_coefficient=sym_cfg.get("parsimony_coefficient", 0.001),
+            random_state=sym_cfg.get("random_state", 42),
         )
     else:
         raise ValueError(f"Unknown model_type: {model_type}")
@@ -162,8 +202,15 @@ def run_lunarlander(cfg: dict, output_dir: Path) -> pd.DataFrame:
         obs_all, act_all = collect_lunar(model, train_gravity, distill_n, seed)
 
         for model_type in comp_cfg["model_types"]:
-            rm = make_model(model_type, n_obs, n_actions, comp_cfg)
-            rm = fit_model(rm, obs_all, act_all, comp_cfg)
+            try:
+                rm = make_model(model_type, n_obs, n_actions, comp_cfg)
+                rm = fit_model(rm, obs_all, act_all, comp_cfg)
+            except Exception as e:
+                print(
+                    f"  [Hopper, {model_type}] 学習スキップ: {type(e).__name__}: {e}",
+                    flush=True,
+                )
+                continue
 
             for gc in gravity_conds:
                 cname = gc["name"]
@@ -277,8 +324,13 @@ def run_hopper(cfg: dict, output_dir: Path) -> pd.DataFrame:
     eval_n: int = comp_cfg["eval_n_samples"]
     n_steps: int = cfg["hopper"]["n_steps"]
     bins_per_dim: int = cfg["hopper"]["bins_per_dim"]
-    gravity_conds: list[dict] = cfg["hopper"]["gravity_conditions"]
-    train_gravity: float = gravity_conds[0]["gravity"]
+    dynamics_conds: list[dict] = cfg["hopper"].get("dynamics_conditions") or cfg["hopper"].get("gravity_conditions", [])
+    if not dynamics_conds:
+        raise ValueError("hopper.dynamics_conditions か hopper.gravity_conditions を設定してください。")
+    train_cond = dynamics_conds[0]
+    train_gravity: float = train_cond.get("gravity", -9.81)
+    train_friction_scale: float | None = train_cond.get("friction_scale", None)
+    gravity_conds = dynamics_conds  # 既存の離散 Hopper 実装との互換
     n_actions = bins_per_dim ** 3
     n_obs = 11
 
@@ -379,6 +431,35 @@ def make_regression_model(model_type: str, input_dim: int, action_dim: int, comp
         return RegressionTreeModel(input_dim, action_dim, max_depth=max_depth)
     elif model_type == "reg_linear":
         return RegressionLinearModel(input_dim, action_dim)
+    elif model_type == "reg_ebm":
+        ebm_cfg = comp_cfg.get("reg_ebm", {})
+        return EBMRegressionReasonedModel(
+            input_dim, action_dim,
+            max_rounds=ebm_cfg.get("max_rounds", 300),
+            outer_bags=ebm_cfg.get("outer_bags", 8),
+            interactions=ebm_cfg.get("interactions", 0),
+        )
+    elif model_type == "reg_sdt":
+        sdt_cfg = comp_cfg.get("reg_sdt", {})
+        return SoftDecisionTreeRegressionReasonedModel(
+            input_dim, action_dim,
+            depth=sdt_cfg.get("depth", 5),
+            epochs=sdt_cfg.get("epochs", 150),
+            lr=sdt_cfg.get("lr", 1e-3),
+            batch_size=sdt_cfg.get("batch_size", 512),
+            l2_leaf_coef=sdt_cfg.get("l2_leaf_coef", 1e-4),
+            seed=sdt_cfg.get("seed", 42),
+        )
+    elif model_type == "reg_symbolic":
+        sym_cfg = comp_cfg.get("reg_symbolic", {})
+        return SymbolicRegressionReasonedModel(
+            input_dim, action_dim,
+            population_size=sym_cfg.get("population_size", 1200),
+            generations=sym_cfg.get("generations", 25),
+            tournament_size=sym_cfg.get("tournament_size", 20),
+            parsimony_coefficient=sym_cfg.get("parsimony_coefficient", 0.001),
+            random_state=sym_cfg.get("random_state", 42),
+        )
     else:
         raise ValueError(f"Unknown regression model_type: {model_type}")
 
@@ -400,51 +481,111 @@ def run_hopper_regression(cfg: dict, output_dir: Path) -> pd.DataFrame:
     comp_cfg: dict = cfg["comparison"]
     distill_n: int = comp_cfg["distill_n_samples"]
     eval_n: int = comp_cfg["eval_n_samples"]
-    gravity_conds: list[dict] = cfg["hopper"]["gravity_conditions"]
-    train_gravity: float = gravity_conds[0]["gravity"]
+    dynamics_conds: list[dict] = cfg["hopper"].get("dynamics_conditions") or cfg["hopper"].get("gravity_conditions", [])
+    if not dynamics_conds:
+        raise ValueError("hopper.dynamics_conditions か hopper.gravity_conditions を設定してください。")
+    train_cond = dynamics_conds[0]
+    train_gravity: float = train_cond.get("gravity", -9.81)
+    train_friction_scale: float | None = train_cond.get("friction_scale", None)
     aa_eps: float = cfg["hopper"].get("aa_epsilon", 0.2)
     n_obs = 11
     action_dim = 3
 
     records = []
+    action_diff_dir = output_dir / "action_diffs"
+    action_diff_dir.mkdir(parents=True, exist_ok=True)
     oracle_dir_hopper = Path(cfg["hopper"].get("oracle_model_dir", str(output_dir)))
+    oracle_model_path = cfg["hopper"].get("oracle_model_path", None)
+    oracle_algo = cfg["hopper"].get("oracle_algo", "sac").lower()
 
     for seed in seeds:
-        for search_dir in [oracle_dir_hopper, output_dir]:
-            model_path = search_dir / f"intuitive_hopper_seed{seed}"
-            zip_path = search_dir / f"intuitive_hopper_seed{seed}.zip"
-            if model_path.exists() or zip_path.exists():
-                raw_env = gym.make("Hopper-v5")
-                model = SAC.load(str(model_path if model_path.exists() else zip_path), env=raw_env)
-                raw_env.close()
-                print(f"  [Hopper seed={seed}] 既存モデルを再利用: {model_path if model_path.exists() else zip_path}", flush=True)
-                break
+        if oracle_model_path:
+            raw_env = gym.make("Hopper-v5")
+            load_path = str((ROOT / oracle_model_path) if not Path(oracle_model_path).is_absolute() else Path(oracle_model_path))
+            if oracle_algo == "ppo":
+                model = PPO.load(load_path, env=raw_env)
+            elif oracle_algo == "td3":
+                model = TD3.load(load_path, env=raw_env)
+            else:
+                model = SAC.load(load_path, env=raw_env)
+            raw_env.close()
+            print(f"  [Hopper seed={seed}] oracle_model_path を利用: {load_path} (algo={oracle_algo})", flush=True)
         else:
-            raise FileNotFoundError(
-                f"Oracle model not found for seed={seed}. "
-                "Set hopper.oracle_model_dir in config."
-            )
+            for search_dir in [oracle_dir_hopper, output_dir]:
+                model_path = search_dir / f"intuitive_hopper_seed{seed}"
+                zip_path = search_dir / f"intuitive_hopper_seed{seed}.zip"
+                if model_path.exists() or zip_path.exists():
+                    raw_env = gym.make("Hopper-v5")
+                    model = SAC.load(str(model_path if model_path.exists() else zip_path), env=raw_env)
+                    raw_env.close()
+                    print(f"  [Hopper seed={seed}] 既存モデルを再利用: {model_path if model_path.exists() else zip_path}", flush=True)
+                    break
+            else:
+                raise FileNotFoundError(
+                    f"Oracle model not found for seed={seed}. "
+                    "Set hopper.oracle_model_dir or hopper.oracle_model_path in config."
+                )
 
         eval_seed = seed + 10000
 
-        # 蒸留データ（連続行動）を訓練重力で収集
-        obs_all, act_all = collect_transitions_continuous(model, distill_n, seed, train_gravity)
+        # 蒸留データ（連続行動）を訓練条件（重力・摩擦）で収集
+        obs_all, act_all = collect_transitions_continuous(
+            model,
+            distill_n,
+            seed,
+            gravity=train_gravity,
+            friction_scale=train_friction_scale,
+        )
 
         for model_type in comp_cfg["model_types"]:
-            rm = make_regression_model(model_type, n_obs, action_dim, comp_cfg)
-            rm.fit(obs_all, act_all)
+            try:
+                rm = make_regression_model(model_type, n_obs, action_dim, comp_cfg)
+                rm.fit(obs_all, act_all)
+            except Exception as e:
+                print(
+                    f"  [Hopper(Reg), {model_type}] 学習スキップ: {type(e).__name__}: {e}",
+                    flush=True,
+                )
+                continue
 
-            for gc in gravity_conds:
+            for gc in dynamics_conds:
                 cname = gc["name"]
-                gravity = gc["gravity"]
+                gravity = gc.get("gravity", train_gravity)
+                friction_scale = gc.get("friction_scale", None)
 
-                # per-condition AA: 各重力条件の oracle rollout と比較
-                obs_eval, act_eval = collect_transitions_continuous(model, eval_n, eval_seed, gravity)
+                # per-condition AA: 各力学条件の oracle rollout と比較
+                obs_eval, act_eval = collect_transitions_continuous(
+                    model,
+                    eval_n,
+                    eval_seed,
+                    gravity=gravity,
+                    friction_scale=friction_scale,
+                )
                 rm_actions = rm.predict(obs_eval)
-                aa_cond = _continuous_aa(act_eval, rm_actions, aa_eps)
+                l2_diffs = np.linalg.norm(act_eval - rm_actions, axis=1)
+                aa_cond = float(np.mean(l2_diffs < aa_eps))
+                diff_path = action_diff_dir / f"seed{seed}_{model_type}_{cname}.npz"
+                np.savez_compressed(
+                    diff_path,
+                    l2_diffs=l2_diffs.astype(np.float32),
+                    oracle_actions=act_eval.astype(np.float32),
+                    surrogate_actions=rm_actions.astype(np.float32),
+                )
 
-                j_intuitive = eval_hopper_intuitive(model, gravity, n_eval, eval_seed)
-                j_reasoned = evaluate_reasoned_continuous(rm, gravity, n_eval, eval_seed)
+                j_intuitive = eval_hopper_intuitive(
+                    model,
+                    gravity,
+                    n_eval,
+                    eval_seed,
+                    friction_scale=friction_scale,
+                )
+                j_reasoned = evaluate_reasoned_continuous(
+                    rm,
+                    gravity,
+                    n_eval,
+                    eval_seed,
+                    friction_scale=friction_scale,
+                )
                 rpd = relative_perf_drop(j_intuitive, j_reasoned)
 
                 records.append({
@@ -452,10 +593,14 @@ def run_hopper_regression(cfg: dict, output_dir: Path) -> pd.DataFrame:
                     "model_type": model_type,
                     "eval_condition": cname,
                     "gravity": gravity,
+                    "friction_scale": friction_scale if friction_scale is not None else 1.0,
                     "seed": seed,
                     "j_intuitive": j_intuitive,
                     "j_reasoned": j_reasoned,
                     "action_agreement": aa_cond,
+                    "action_l2_mean": float(np.mean(l2_diffs)),
+                    "action_l2_p90": float(np.quantile(l2_diffs, 0.9)),
+                    "action_l2_p95": float(np.quantile(l2_diffs, 0.95)),
                     "relative_perf_drop": rpd,
                 })
 
@@ -496,7 +641,7 @@ def _plot_results(df: pd.DataFrame, output_dir: Path) -> None:
             ax.set_ylabel("Action Agreement (AA)")
             ax.set_ylim(0, 1.05)
             ax.axhline(1.0, color="gray", linestyle=":", linewidth=0.8)
-        fig.suptitle(f"{env_name}: AA under gravity shifts")
+        fig.suptitle(f"{env_name}: AA under dynamics shifts")
         plt.tight_layout()
         out = output_dir / f"aa_bar_{env_name}.png"
         plt.savefig(out, dpi=120, bbox_inches="tight")

@@ -26,6 +26,23 @@ GRAVITY_CONDITIONS = {
 }
 
 
+def apply_hopper_dynamics(
+    env,
+    gravity: float | None = None,
+    friction_scale: float | None = None,
+    base_friction: np.ndarray | None = None,
+) -> None:
+    """Hopper の力学パラメータ（重力・摩擦）を環境に適用する。"""
+    if gravity is not None:
+        env.unwrapped.model.opt.gravity[2] = gravity
+    if friction_scale is not None:
+        if base_friction is None:
+            base_friction = env.unwrapped.model.geom_friction.copy()
+        env.unwrapped.model.geom_friction[:] = base_friction
+        # geom_friction[:, 0] は sliding friction
+        env.unwrapped.model.geom_friction[:, 0] = base_friction[:, 0] * friction_scale
+
+
 class BinnedHopperEnv(gym.Env):
     """Hopper-v5 ラッパー: Reasoned model 向け離散行動インタフェースを提供する。
 
@@ -34,13 +51,20 @@ class BinnedHopperEnv(gym.Env):
     Reasoned model のロールアウト評価専用。
     """
 
-    def __init__(self, gravity: float | None = None, bins_per_dim: int = DEFAULT_BINS_PER_DIM):
+    def __init__(
+        self,
+        gravity: float | None = None,
+        bins_per_dim: int = DEFAULT_BINS_PER_DIM,
+        friction_scale: float | None = None,
+    ):
         super().__init__()
         self._gravity = gravity
+        self._friction_scale = friction_scale
         self.bins_per_dim = bins_per_dim
         self.n_actions = bins_per_dim ** ACTION_DIM
 
         self._base = gym.make("Hopper-v5")
+        self._base_friction = self._base.unwrapped.model.geom_friction.copy()
         self.observation_space = self._base.observation_space
         self.action_space = gym.spaces.Discrete(self.n_actions)
 
@@ -53,13 +77,17 @@ class BinnedHopperEnv(gym.Env):
             np.unravel_index(np.arange(self.n_actions), (bins_per_dim,) * ACTION_DIM)
         ).T  # shape: (n_actions, ACTION_DIM)
 
-    def _apply_gravity(self) -> None:
-        if self._gravity is not None:
-            self._base.unwrapped.model.opt.gravity[2] = self._gravity
+    def _apply_dynamics(self) -> None:
+        apply_hopper_dynamics(
+            self._base,
+            gravity=self._gravity,
+            friction_scale=self._friction_scale,
+            base_friction=self._base_friction,
+        )
 
     def reset(self, **kwargs):
         obs, info = self._base.reset(**kwargs)
-        self._apply_gravity()
+        self._apply_dynamics()
         return obs, info
 
     def step(self, discrete_action: int):
@@ -124,15 +152,17 @@ def evaluate_intuitive(
     gravity: float,
     n_episodes: int,
     seed: int,
+    friction_scale: float | None = None,
 ) -> float:
     """SAC モデルの Hopper 平均累積報酬を返す（連続行動で評価）。"""
     env = gym.make("Hopper-v5")
+    base_friction = env.unwrapped.model.geom_friction.copy()
     env.reset()
-    env.unwrapped.model.opt.gravity[2] = gravity
+    apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
     total = 0.0
     for ep in range(n_episodes):
         obs, _ = env.reset(seed=seed + ep)
-        env.unwrapped.model.opt.gravity[2] = gravity
+        apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
         done = False
         while not done:
             action, _ = sac_model.predict(obs, deterministic=True)
@@ -149,9 +179,14 @@ def evaluate_reasoned(
     n_episodes: int,
     seed: int,
     bins_per_dim: int = DEFAULT_BINS_PER_DIM,
+    friction_scale: float | None = None,
 ) -> float:
     """Reasoned model の BinnedHopperEnv ロールアウト平均累積報酬を返す。"""
-    env = BinnedHopperEnv(gravity=gravity, bins_per_dim=bins_per_dim)
+    env = BinnedHopperEnv(
+        gravity=gravity,
+        bins_per_dim=bins_per_dim,
+        friction_scale=friction_scale,
+    )
     total = 0.0
     for ep in range(n_episodes):
         obs, _ = env.reset(seed=seed + ep)
@@ -174,17 +209,19 @@ def collect_transitions_continuous(
     n_samples: int,
     seed: int,
     gravity: float = DEFAULT_GRAVITY,
+    friction_scale: float | None = None,
 ) -> tuple[np.ndarray, np.ndarray]:
     """SAC モデルのロールアウトから (obs, continuous_action) を収集する。
 
     binning なし。回帰型 Reasoned model の訓練・AA 評価データに使う。
     """
     env = gym.make("Hopper-v5")
-    env.unwrapped.model.opt.gravity[2] = gravity
+    base_friction = env.unwrapped.model.geom_friction.copy()
+    apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
     obs_list, act_list = [], []
     rng = np.random.default_rng(seed)
     obs, _ = env.reset(seed=int(rng.integers(1_000_000)))
-    env.unwrapped.model.opt.gravity[2] = gravity
+    apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
     while len(obs_list) < n_samples:
         cont_action, _ = sac_model.predict(obs, deterministic=True)
         obs_list.append(obs.copy())
@@ -192,7 +229,7 @@ def collect_transitions_continuous(
         obs, _, terminated, truncated, _ = env.step(cont_action)
         if terminated or truncated:
             obs, _ = env.reset(seed=int(rng.integers(1_000_000)))
-            env.unwrapped.model.opt.gravity[2] = gravity
+            apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
     env.close()
     return (
         np.array(obs_list[:n_samples], dtype=np.float32),
@@ -205,17 +242,19 @@ def evaluate_reasoned_continuous(
     gravity: float,
     n_episodes: int,
     seed: int,
+    friction_scale: float | None = None,
 ) -> float:
     """回帰型 Reasoned model の Hopper-v5 ロールアウト平均累積報酬を返す。
 
     rm.predict(obs) が連続行動ベクトル (action_dim,) を返すことを前提とする。
     """
     env = gym.make("Hopper-v5")
-    env.unwrapped.model.opt.gravity[2] = gravity
+    base_friction = env.unwrapped.model.geom_friction.copy()
+    apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
     total = 0.0
     for ep in range(n_episodes):
         obs, _ = env.reset(seed=seed + ep)
-        env.unwrapped.model.opt.gravity[2] = gravity
+        apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
         done = False
         while not done:
             action = rm.predict(obs[np.newaxis])[0]
