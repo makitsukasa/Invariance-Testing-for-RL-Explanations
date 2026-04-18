@@ -119,6 +119,29 @@ DQN はシード間で $J$ の分散が大きく、一部のシードでは Eval
 
 主実験（CartPole・GridWorld）の枠組みが連続物理系に適用可能かどうかを、LunarLander-v3 を用いて検証する。LunarLander-v3 は 4 値の離散行動で連続力学系を制御する環境であり、重力係数 $g \in \{-10.0, -3.0, -11.5\}$ を分布シフト条件として用いる。Oracle policy には PPO（1M ステップ、$J_{\mathrm{oracle}} = 260 \pm 13$）を採用した。Surrogate model の候補として、主実験の MoET・単一決定木・線形モデルに加え、**勾配ブースティング木（GBT；HistGradientBoostingClassifier）**を追加する。GBT は連続力学系の小規模離散行動問題に対して高い再現性を示すことが知られており、本環境での適用可能性を評価する。さらに MuJoCo Hopper-v5 に対し、回帰型 Surrogate model（RegTree, RegEBM, RegSDT）を適用する。再現性の指標として決定係数（$R^2$）および $\varepsilon$-agreement（$\|\hat{a} - a\|_2 < 0.5$）を用い、構造制約の強度が再現性に与える影響を調べるため、RegTree の深さを $d \in \{5, 12\}$ で比較する。分布シフト条件として、重力係数 $g \in \{-9.81, -5.0, -20.0\}$ に加え、足接地の摩擦係数スケール $f \in \{0.7, 1.3\}$ を導入し、物理パラメータの変化に対する「説明」の不変性を診断する。Oracle policy には TD3（1M ステップ、$J_{\mathrm{oracle}} \approx 3500$）を採用した。本試行により、離散制御タスクで得られた評価方法論が、より高次元かつ連続的な制御タスクの診断においても共通の土台として機能するかを検証する。
 
+### 5.7 実装詳細とハイパーパラメータ
+
+Oracle policy には stable-baselines3 を使用し、Surrogate model は scikit-learn（決定木・線形モデル）、PyTorch（MoET ゲーティング層）、および sklearn.ensemble（GBT）で実装した。全実験で蒸留データ 10,000 サンプル（評価用 5,000 サンプルは独立シードで収集）を標準設定とした。
+
+**Table A1**: Oracle policy の主要ハイパーパラメータ
+
+| アルゴリズム | 環境 | 主要設定 |
+|------------|------|---------|
+| DQN | CartPole-v1 | lr=2.3×10⁻³, batch=64, buffer=100k, train\_freq=256, gradient\_steps=128, exploration\_fraction=0.16, 500k steps, EvalCallback（5k steps ごと） |
+| DQN | Spurious GridWorld | SB3 デフォルト, learning\_starts=1,000, 200k steps |
+| PPO | LunarLander-v3 | n\_envs=8, rollout n\_steps=1024/env, batch=64, n\_epochs=4, ent\_coef=0.01, 1M steps |
+| TD3 | MuJoCo Hopper-v5 | RL Zoo 事前学習済みモデル（Hopper-v3\_1）を使用 |
+
+**Table A2**: Surrogate model の主要ハイパーパラメータ
+
+| モデル | 主要設定 |
+|--------|---------|
+| MoET | $K=4$, $d=5$（best config）, soft gating, Adam lr=1×10⁻³, 蒸留 100 epoch |
+| 単一決定木 | DecisionTreeClassifier, max\_depth=5 |
+| 線形モデル | LogisticRegression, C=1.0（sklearn デフォルト） |
+| GBT | HistGradientBoostingClassifier, max\_iter=300, lr=0.1, max\_depth=無制限 |
+| RegTree (Hopper) | DecisionTreeRegressor, max\_depth=12（exp011）/ 5（exp012） |
+
 ## 6. 結果
 
 ### 6.1 実験1：再現性の構造的上限
@@ -132,6 +155,27 @@ DQN はシード間で $J$ の分散が大きく、一部のシードでは Eval
 train 条件では AA が高く（最良設定 $K=4, d=5$ で 0.988±0.011）、$J$ もほぼ一致する。reversed\_c 条件では AA=0.942±0.056 を維持したまま $J_{\mathrm{oracle}} = J_{\mathrm{surrogate}} = -1.000$ まで崩壊する（Figure 2）。Section 3.3 の判定基準に照らすと、${\rm AA}(D_\text{shift}) = 0.942 > \theta_{\rm AA} = 0.9$ かつ $J_S(D_\text{shift}) = -1.000 \ll \alpha \times J_S(D_\text{train})$ であり、スプリアス依存の疑いが強いケースに該当する。Surrogate model が Oracle policy のスプリアス依存をそのまま複製した結果として解釈される。random\_c 条件でも AA=0.965±0.031 と高水準を維持するが、$J$ は両者とも低水準に留まる。$c$ をランダム化しても Oracle policy と Surrogate model の双方がスプリアス特徴 $c$ に依存した行動を取り続けるため、互いの行動は一致するが環境内での性能は崩壊する。すなわち random\_c 条件も同様にスプリアス依存の判定基準を満たしており、本枠組みが複数種類の分布シフトで一貫してこの状態を識別できることを示す。
 
 SHAP[^4]（KernelExplainer）を同一の Oracle policy に適用した場合、スプリアス特徴 $c$ の重要度は train（Mean $|$SHAP$|$ = 0.0181）と reversed\_c（Mean $|$SHAP$|$ = 0.0178）でほぼ同値となる（Figure 4）。SHAP は「方策が何に依存しているか」を示すが、「その依存が分布シフト後に維持されるか」を問わない。本枠組みはこの隙間を不変性の評価によって補完する。
+
+**MoET エキスパート木の可視化。** 実験2（$p=0.0$, $K=4$, $d=5$, seed=42）の MoET を再蒸留し、エキスパートの決定木構造を抽出した。特徴量は agent\_x, agent\_y $\in [0,1]$（正規化済み位置）と $c \in \{0,1\}$（スプリアス特徴）の 3 次元、行動は 0=上, 1=下, 2=左, 3=右 の 4 値である。
+
+    |--- c <= 0.50             # root: スプリアス特徴で最初に分岐
+    |   |--- agent_y <= 0.12
+    |   |   |--- class: 2     # 左移動（ゴール (0,0) 左上 へ向かう）
+    |   |--- agent_y >  0.12
+    |   |   |--- agent_x <= 0.38
+    |   |   |   |--- class: 0 # 上移動
+    |   |   |--- agent_x >  0.38
+    |   |   |   |--- ...      # 位置に応じた左・上移動
+    |--- c >  0.50             # c=1: ゴール (4,4) 右下 へ向かう
+    |   |--- agent_y <= 0.88
+    |   |   |--- agent_x <= 0.62
+    |   |   |   |--- ...      # 位置に応じた右・下移動
+    |   |   |--- agent_x >  0.62
+    |   |   |   |--- class: 1 # 下移動
+    |   |--- agent_y >  0.88
+    |   |   |--- class: 3     # 右移動
+
+根ノードの分岐条件が $c \leq 0.5$ であり、MoET がスプリアス特徴 $c$ を方策の一次的な判断基準として獲得していることが木構造から直接読み取れる。$c=0$ のサブ木はゴール $(0,0)$（左上）への誘導行動（左・上）を学習し、$c=1$ のサブ木はゴール $(4,4)$（右下）への誘導行動（右・下）を学習している。4 エキスパートはいずれも同一の木構造を学習しており（ゲートは Expert 0 に集中）、本環境では実質単一の決定木として機能する。この木構造は「なぜ reversed\_c で AA が高いまま $J$ が崩壊するか」を直接説明する：Surrogate model は Oracle policy の $c$ 依存を忠実に複製しており、$c$ が反転した分布では双方が誤ったゴールへ向かい続けるためである。
 
 ![Figure 2: GridWorld（$p=0.0$, $K=4$, $d=5$）の AA と累積報酬。reversed\_c では AA が高いまま $J$ が $-1.000$ まで崩壊する。](experiments/results/exp002_spurious_gridworld/fig2_j_shift_p0.png)
 
@@ -243,6 +287,20 @@ AA > 0.9 という閾値の恣意性に対しては、閾値を 0.85・0.90・0.
 | exp002 (GridWorld, $p=0.0$) | reversed\_c | 0.942 | ✓ | ✓ | — |
 
 閾値を 0.85・0.90・0.95 のいずれに設定しても定性的な結論は変わらない。AA > 0.9 を「高い行動一致率」の実験的目安として用いることは本データの範囲で妥当である。
+
+$\alpha=0.8$ の恣意性に対しても同様の感度確認を行った。$\alpha \in \{0.7, 0.8, 0.9\}$ で変化させたときの検出判定を Table 7 に示す。
+
+**Table 7**: $\alpha$ 感度分析（$J_S(D_\text{shift}) / J_S(D_\text{train})$ と検出判定）
+
+| 実験 | 評価条件 | $J_S / J_\text{train}$ | $\alpha=0.7$ | $\alpha=0.8$ | $\alpha=0.9$ |
+|------|----------|----------------------|-------------|-------------|-------------|
+| exp002（$p=0.0$） | reversed\_c | −1.03 | 検出 | 検出 | 検出 |
+| exp002（$p=0.0$） | random\_c | 0.06 | 検出 | 検出 | 検出 |
+| exp003（非スプリアス） | gravity\_hi | 0.83 | — | — | — |
+| exp003（非スプリアス） | pole\_short | 0.86 | — | — | — |
+| exp003（非スプリアス） | gravity\_lo | 1.02 | — | — | — |
+
+検出判定は「$\mathrm{AA}(D_\text{shift}) > \theta_{\mathrm{AA}}$ かつ $J_S(D_\text{shift}) < \alpha \times J_S(D_\text{train})$」の両条件が成立した場合。exp003 のシフト条件はいずれも $\mathrm{AA} < \theta_{\mathrm{AA}} = 0.9$ であるため、$\alpha$ の値によらず非検出となる。本データセットではスプリアス条件の $J_S$ 比（−1.03, 0.06）と非スプリアス条件（0.83–1.02 以上）の間に大きな分離があり、$\alpha \in \{0.7, 0.8, 0.9\}$ のいずれでも定性的な結論は変わらない。$\alpha=0.8$ は保守的な中間点として妥当である。
 
 スプリアス依存の検出は、その後の対処法と組み合わせてはじめて実用的な意義を持つ。本枠組みは検出に特化しており、対処そのものを提供するものではないが、検出結果は後続のデバッグ・改善サイクルの出発点となることを意図している。
 
