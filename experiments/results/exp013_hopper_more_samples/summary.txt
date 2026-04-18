@@ -1,0 +1,8 @@
+=== 予備実験（連続制御）サマリー ===
+
+【hopper】
+  RegTree  friction_hi   AA=0.309±nan
+  RegTree  friction_lo   AA=0.179±nan
+  RegTree  gravity_hi    AA=0.116±nan
+  RegTree  gravity_lo    AA=0.100±nan
+  RegTree  train         AA=0.762±nan
