@@ -1,0 +1,49 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+
+=== Hopper é¿å± (Regression Surrogate) ===
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\save_util.py:167: UserWarning: Could not deserialize object learning_rate. Consider using `custom_objects` argument to replace this object.
+Exception: code expected at least 16 arguments, got 15
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\save_util.py:167: UserWarning: Could not deserialize object lr_schedule. Consider using `custom_objects` argument to replace this object.
+Exception: code expected at least 16 arguments, got 15
+  warnings.warn(
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\stable_baselines3\common\vec_env\patch_gym.py:95: UserWarning: You loaded a model that was trained using OpenAI Gym. We strongly recommend transitioning to Gymnasium by saving that model again.
+  warnings.warn(
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+  [Hopper seed=1617] oracle_model_path Çóòóp: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\rlzoo_models\td3\Hopper-v3_1\Hopper-v3.zip (algo=td3)
+  [Hopper(Reg), RegTree   , seed=1617]  AA_eps(train)=0.698  J(train)=69.1
+  [Hopper(Reg), RegEBM    , seed=1617]  AA_eps(train)=0.169  J(train)=328.2
+  [Hopper(Reg), RegSoftTree, seed=1617]  AA_eps(train)=0.197  J(train)=2066.5
+  [Hopper(Reg), RegSymbolic, seed=1617]  AA_eps(train)=0.031  J(train)=4.0
+
+metrics.csv Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp011_hopper_surrogates\metrics_seed1617.csv
+ê}Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp011_hopper_surrogates\aa_bar_hopper.png
+
+=== ó\îıé¿å±ÅiòAë±êßå‰ÅjÉTÉ}ÉäÅ[ ===
+
+ÅyhopperÅz
+  RegEBM  friction_hi   AA=0.058Å}nan
+  RegEBM  friction_lo   AA=0.064Å}nan
+  RegEBM  gravity_hi    AA=0.014Å}nan
+  RegEBM  gravity_lo    AA=0.011Å}nan
+  RegEBM  train         AA=0.169Å}nan
+  RegSoftTree  friction_hi   AA=0.085Å}nan
+  RegSoftTree  friction_lo   AA=0.093Å}nan
+  RegSoftTree  gravity_hi    AA=0.083Å}nan
+  RegSoftTree  gravity_lo    AA=0.052Å}nan
+  RegSoftTree  train         AA=0.197Å}nan
+  RegSymbolic  friction_hi   AA=0.022Å}nan
+  RegSymbolic  friction_lo   AA=0.021Å}nan
+  RegSymbolic  gravity_hi    AA=0.008Å}nan
+  RegSymbolic  gravity_lo    AA=0.006Å}nan
+  RegSymbolic  train         AA=0.031Å}nan
+  RegTree  friction_hi   AA=0.213Å}nan
+  RegTree  friction_lo   AA=0.142Å}nan
+  RegTree  gravity_hi    AA=0.086Å}nan
+  RegTree  gravity_lo    AA=0.088Å}nan
+  RegTree  train         AA=0.698Å}nan
+

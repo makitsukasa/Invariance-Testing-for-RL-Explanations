@@ -1,23 +1,23 @@
-=== 予備実験（連続制御）サマリー ===
+=== Surrogate Comparison (Continuous Control) Summary ===
 
-【hopper】
-  RegEBM  friction_hi   AA=0.061±0.007
-  RegEBM  friction_lo   AA=0.059±0.004
-  RegEBM  gravity_hi    AA=0.011±0.002
-  RegEBM  gravity_lo    AA=0.012±0.003
-  RegEBM  train         AA=0.173±0.008
-  RegSoftTree  friction_hi   AA=0.095±0.012
-  RegSoftTree  friction_lo   AA=0.093±0.008
-  RegSoftTree  gravity_hi    AA=0.080±0.003
-  RegSoftTree  gravity_lo    AA=0.053±0.017
-  RegSoftTree  train         AA=0.214±0.016
-  RegSymbolic  friction_hi   AA=0.020±0.005
-  RegSymbolic  friction_lo   AA=0.032±0.005
-  RegSymbolic  gravity_hi    AA=0.016±0.006
-  RegSymbolic  gravity_lo    AA=0.009±0.002
-  RegSymbolic  train         AA=0.027±0.003
-  RegTree  friction_hi   AA=0.240±0.018
-  RegTree  friction_lo   AA=0.161±0.013
-  RegTree  gravity_hi    AA=0.093±0.013
-  RegTree  gravity_lo    AA=0.092±0.016
-  RegTree  train         AA=0.694±0.025
+[hopper]
+  RegEBM        friction_hi   AA=0.059+-0.008
+  RegEBM        friction_lo   AA=0.060+-0.003
+  RegEBM        gravity_hi    AA=0.011+-0.002
+  RegEBM        gravity_lo    AA=0.011+-0.002
+  RegEBM        train         AA=0.174+-0.007
+  RegSoftTree   friction_hi   AA=0.092+-0.012
+  RegSoftTree   friction_lo   AA=0.093+-0.007
+  RegSoftTree   gravity_hi    AA=0.078+-0.007
+  RegSoftTree   gravity_lo    AA=0.056+-0.015
+  RegSoftTree   train         AA=0.214+-0.017
+  RegSymbolic   friction_hi   AA=0.021+-0.004
+  RegSymbolic   friction_lo   AA=0.031+-0.007
+  RegSymbolic   gravity_hi    AA=0.014+-0.007
+  RegSymbolic   gravity_lo    AA=0.008+-0.001
+  RegSymbolic   train         AA=0.027+-0.003
+  RegTree       friction_hi   AA=0.234+-0.024
+  RegTree       friction_lo   AA=0.161+-0.015
+  RegTree       gravity_hi    AA=0.090+-0.008
+  RegTree       gravity_lo    AA=0.098+-0.018
+  RegTree       train         AA=0.703+-0.009

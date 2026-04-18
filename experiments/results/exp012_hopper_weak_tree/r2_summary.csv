@@ -1,0 +1,6 @@
+model_type,condition,r2_mean,r2_std,n_seeds
+reg_tree,friction_hi,0.379,0.057,10
+reg_tree,friction_lo,0.221,0.033,10
+reg_tree,gravity_hi,0.139,0.059,10
+reg_tree,gravity_lo,0.091,0.037,10
+reg_tree,train,0.698,0.01,10

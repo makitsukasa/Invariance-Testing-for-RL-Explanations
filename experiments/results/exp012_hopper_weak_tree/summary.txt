@@ -1,8 +1,8 @@
-=== 予備実験（連続制御）サマリー ===
+=== Surrogate Comparison (Continuous Control) Summary ===
 
-【hopper】
-  RegTree  friction_hi   AA=0.370±nan
-  RegTree  friction_lo   AA=0.355±nan
-  RegTree  gravity_hi    AA=0.198±nan
-  RegTree  gravity_lo    AA=0.299±nan
-  RegTree  train         AA=0.675±nan
+[hopper]
+  RegTree       friction_hi   AA=0.400+-0.034
+  RegTree       friction_lo   AA=0.356+-0.025
+  RegTree       gravity_hi    AA=0.211+-0.019
+  RegTree       gravity_lo    AA=0.307+-0.016
+  RegTree       train         AA=0.649+-0.016

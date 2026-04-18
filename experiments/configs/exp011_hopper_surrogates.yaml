@@ -42,7 +42,7 @@ comparison:
     random_state: 42
 
 evaluation:
-  seeds: [42, 123, 456, 789, 1011, 2024, 3141, 2718, 6553, 9001]
+  seeds: [42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526]
   n_eval_episodes: 5
 
 output_dir: experiments/results/exp011_hopper_surrogates

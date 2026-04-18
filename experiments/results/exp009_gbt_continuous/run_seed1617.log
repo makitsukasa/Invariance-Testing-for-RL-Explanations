@@ -1,0 +1,32 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+=== LunarLander ŽÀŒ± ===
+C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+  [LunarLander seed=1617] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\intuitive_lunar_seed1617.zip
+  [LunarLander, GBT   , seed=1617]  AA(train)=0.845  J(train)=201.8
+  [LunarLander, MoET  , seed=1617]  AA(train)=0.740  J(train)=-177.6
+  [LunarLander, Tree  , seed=1617]  AA(train)=0.695  J(train)=-203.3
+  [LunarLander, Linear, seed=1617]  AA(train)=0.698  J(train)=225.8
+
+metrics.csv ‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\metrics_seed1617.csv
+}‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\aa_bar_lunarlander.png
+
+=== —\”õŽÀŒ±i˜A‘±§ŒäjƒTƒ}ƒŠ[ ===
+
+ylunarlanderz
+  GBT     gravity_hi    AA=0.878}nan
+  GBT     gravity_lo    AA=0.616}nan
+  GBT     train         AA=0.845}nan
+  Linear  gravity_hi    AA=0.760}nan
+  Linear  gravity_lo    AA=0.658}nan
+  Linear  train         AA=0.698}nan
+  MoET    gravity_hi    AA=0.781}nan
+  MoET    gravity_lo    AA=0.572}nan
+  MoET    train         AA=0.740}nan
+  Tree    gravity_hi    AA=0.748}nan
+  Tree    gravity_lo    AA=0.499}nan
+  Tree    train         AA=0.695}nan
+

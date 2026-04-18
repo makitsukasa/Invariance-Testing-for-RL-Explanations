@@ -1,3 +1,7 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
 === LunarLander ŽÀŒ± ===
 C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import resource_stream, resource_exists
@@ -7,16 +11,8 @@ C:\Users\tsukasa\Documents\oh-my-claudecode\.venv\Lib\site-packages\pygame\pkgda
   [LunarLander, Tree  , seed=42]  AA(train)=0.730  J(train)=-214.2
   [LunarLander, Linear, seed=42]  AA(train)=0.773  J(train)=211.1
 
-=== Hopper ŽÀŒ± ===
-  [Hopper seed=42] Šù‘¶ƒ‚ƒfƒ‹‚ðÄ—˜—p: experiments\results\exp007_mujoco_v2\intuitive_hopper_seed42.zip
-  [Hopper,      GBT   , seed=42]  AA(train)=0.126  J(train)=5.9
-  [Hopper,      MoET  , seed=42]  AA(train)=0.713  J(train)=175.8
-  [Hopper,      Tree  , seed=42]  AA(train)=0.614  J(train)=231.1
-  [Hopper,      Linear, seed=42]  AA(train)=0.558  J(train)=191.0
-
-metrics.csv ‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\metrics.csv
+metrics.csv ‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\metrics_seed42.csv
 }‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\aa_bar_lunarlander.png
-}‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp009_gbt_continuous\aa_bar_hopper.png
 
 === —\”õŽÀŒ±i˜A‘±§ŒäjƒTƒ}ƒŠ[ ===
 
@@ -33,18 +29,4 @@ metrics.csv ‚ð•Û‘¶: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\resu
   Tree    gravity_hi    AA=0.776}nan
   Tree    gravity_lo    AA=0.546}nan
   Tree    train         AA=0.730}nan
-
-yhopperz
-  GBT     gravity_hi    AA=0.134}nan
-  GBT     gravity_lo    AA=0.188}nan
-  GBT     train         AA=0.126}nan
-  Linear  gravity_hi    AA=0.109}nan
-  Linear  gravity_lo    AA=0.390}nan
-  Linear  train         AA=0.558}nan
-  MoET    gravity_hi    AA=0.194}nan
-  MoET    gravity_lo    AA=0.345}nan
-  MoET    train         AA=0.713}nan
-  Tree    gravity_hi    AA=0.072}nan
-  Tree    gravity_lo    AA=0.258}nan
-  Tree    train         AA=0.614}nan
 
