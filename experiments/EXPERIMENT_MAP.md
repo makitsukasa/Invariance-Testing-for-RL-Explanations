@@ -3,7 +3,7 @@
 論文の実験番号と実験ディレクトリの対応表。
 数値の出典・事後計算項目・既知の不整合・未使用ディレクトリを記録する。
 
-最終更新: 2026-04-18（exp009/exp011 を標準10シードで再実行、exp012 summary.txt 修正済み）
+最終更新: 2026-04-19（exp013/exp014 追加：Hopper DAgger 実験）
 
 ---
 
@@ -89,14 +89,18 @@ exp001 系ディレクトリはすべて**未使用**（後述 §未使用ディ
 
 | 項目 | 詳細 |
 |------|------|
-| 対応ディレクトリ（d=12）| `results/exp011_hopper_surrogates/` |
-| 対応ディレクトリ（d=5） | `results/exp012_hopper_weak_tree/` |
-| config（d=12）| `configs/exp011_hopper_surrogates.yaml`（標準 10 シードに更新済み） |
-| config（d=5） | `configs/exp012_hopper_weak_tree.yaml`（標準 10 シード） |
-| シード（exp011）| 42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526（標準 10 シード。2026-04-18 に再実行・再集計済み） |
-| シード（exp012）| 42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526（標準 10 シード） |
-| キー数値の出典（AA）| `exp011/summary.txt`（2026-04-18 再集計）: RegTree train AA=0.703±0.009 / `exp012/summary.txt`（2026-04-18 修正）: RegTree train AA=0.649±0.016 |
-| キー数値の出典（R²）| **R² は summary.txt には記録されない。`scripts/compute_r2.py` で action_diffs/ から事後計算。** exp011 標準10シード: RegTree train R²=0.922±0.008、gravity_lo R²=−0.124±0.225。exp012: RegTree train R²=0.698±0.010。`r2_summary.csv` に保存済み |
+| 対応ディレクトリ（BC d=12）| `results/exp011_hopper_surrogates/` |
+| 対応ディレクトリ（BC d=5） | `results/exp012_hopper_weak_tree/` |
+| 対応ディレクトリ（BC 100k サンプル試験）| `results/exp013_hopper_more_samples/`（seed=42 のみ。BC の covariate shift が原因の確認実験） |
+| 対応ディレクトリ（DAgger）| `results/exp014_hopper_dagger/` |
+| config（BC d=12）| `configs/exp011_hopper_surrogates.yaml` |
+| config（BC d=5） | `configs/exp012_hopper_weak_tree.yaml` |
+| config（BC 100k）| `configs/exp013_hopper_more_samples.yaml`（seed=42 のみ） |
+| config（DAgger）| `configs/exp014_hopper_dagger.yaml`（10イテレーション×10,000サンプル、標準10シード） |
+| シード | すべて標準 10 シード（42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526）。exp013 は seed=42 のみ |
+| キー数値の出典（BC AA）| `exp011/summary.txt`: RegTree train AA=0.703±0.009 / `exp012/summary.txt`: RegTree train AA=0.649±0.016 |
+| キー数値の出典（BC R²）| **R² は summary.txt には記録されない。`scripts/compute_r2.py` で action_diffs/ から事後計算。** exp011: RegTree train R²=0.922±0.008、gravity_lo R²=−0.124±0.225。exp012: RegTree train R²=0.698±0.010。`r2_summary.csv` に保存済み |
+| キー数値の出典（DAgger）| `exp014/metrics.csv`（10シード統合）: RegTree train AA=0.420±0.016、J_S=2239±418（oracle比63%）。Table A7・A8 の出典 |
 | oracle | `results/rlzoo_models/td3/Hopper-v3_1/Hopper-v3.zip`（全シード共通の固定 TD3 モデル） |
 
 ---

@@ -464,6 +464,216 @@ def make_regression_model(model_type: str, input_dim: int, action_dim: int, comp
         raise ValueError(f"Unknown regression model_type: {model_type}")
 
 
+def _collect_dagger_iter(
+    surrogate,
+    oracle_model,
+    n_samples: int,
+    seed: int,
+    gravity: float,
+    friction_scale: float | None,
+) -> tuple[np.ndarray, np.ndarray]:
+    """DAgger 1 イテレーション: surrogate が踏む状態分布で oracle にラベルを問い合わせる。
+
+    surrogate が環境を歩き、各ステップで oracle の行動を正解ラベルとして収集する。
+    これにより BC の covariate shift（oracle 状態分布 vs surrogate 状態分布のずれ）を修正する。
+    """
+    import gymnasium as gym
+    from experiments.src.hopper_env import apply_hopper_dynamics
+
+    env = gym.make("Hopper-v5")
+    base_friction = env.unwrapped.model.geom_friction.copy()
+    apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
+    rng = np.random.default_rng(seed)
+    obs_list, act_list = [], []
+    obs, _ = env.reset(seed=int(rng.integers(1_000_000)))
+    apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
+    while len(obs_list) < n_samples:
+        # surrogate の行動で状態を遷移させる（surrogate が踏む状態分布を生成）
+        surrogate_action = surrogate.predict(obs[np.newaxis])[0]
+        # この状態に対する oracle の正解ラベルを収集
+        oracle_action, _ = oracle_model.predict(obs, deterministic=True)
+        obs_list.append(obs.copy())
+        act_list.append(oracle_action.copy())
+        obs, _, terminated, truncated, _ = env.step(surrogate_action)
+        if terminated or truncated:
+            obs, _ = env.reset(seed=int(rng.integers(1_000_000)))
+            apply_hopper_dynamics(env, gravity=gravity, friction_scale=friction_scale, base_friction=base_friction)
+    env.close()
+    return (
+        np.array(obs_list[:n_samples], dtype=np.float32),
+        np.array(act_list[:n_samples], dtype=np.float32),
+    )
+
+
+def run_hopper_regression_dagger(cfg: dict, output_dir: Path) -> pd.DataFrame:
+    """DAgger による Hopper 蒸留実験。
+
+    各イテレーションで surrogate が踏む状態分布を oracle にラベリングさせ、
+    BC の covariate shift 問題を iterative に修正する。
+    """
+    from experiments.src.hopper_env import (
+        collect_transitions_continuous,
+        evaluate_intuitive as eval_hopper_intuitive,
+        evaluate_reasoned_continuous,
+    )
+    import gymnasium as gym
+
+    seeds: list[int] = cfg["evaluation"]["seeds"]
+    n_eval: int = cfg["evaluation"]["n_eval_episodes"]
+    comp_cfg: dict = cfg["comparison"]
+    distill_n: int = comp_cfg["distill_n_samples"]
+    eval_n: int = comp_cfg["eval_n_samples"]
+    dagger_cfg: dict = cfg.get("dagger", {})
+    n_iters: int = dagger_cfg.get("iterations", 10)
+    samples_per_iter: int = dagger_cfg.get("samples_per_iter", 10000)
+
+    dynamics_conds: list[dict] = cfg["hopper"].get("dynamics_conditions") or cfg["hopper"].get("gravity_conditions", [])
+    if not dynamics_conds:
+        raise ValueError("hopper.dynamics_conditions か hopper.gravity_conditions を設定してください。")
+    train_cond = dynamics_conds[0]
+    train_gravity: float = train_cond.get("gravity", -9.81)
+    train_friction_scale: float | None = train_cond.get("friction_scale", None)
+    aa_eps: float = cfg["hopper"].get("aa_epsilon", 0.2)
+    n_obs = 11
+    action_dim = 3
+
+    records = []
+    action_diff_dir = output_dir / "action_diffs"
+    action_diff_dir.mkdir(parents=True, exist_ok=True)
+    oracle_model_path = cfg["hopper"].get("oracle_model_path", None)
+    oracle_algo = cfg["hopper"].get("oracle_algo", "sac").lower()
+
+    for seed in seeds:
+        # oracle ロード
+        if oracle_model_path:
+            raw_env = gym.make("Hopper-v5")
+            load_path = str((ROOT / oracle_model_path) if not Path(oracle_model_path).is_absolute() else Path(oracle_model_path))
+            if oracle_algo == "td3":
+                oracle = TD3.load(load_path, env=raw_env)
+            elif oracle_algo == "ppo":
+                oracle = PPO.load(load_path, env=raw_env)
+            else:
+                oracle = SAC.load(load_path, env=raw_env)
+            raw_env.close()
+        else:
+            raise ValueError("hopper.oracle_model_path が必要です。")
+
+        eval_seed = seed + 10000
+
+        # AA 評価用の oracle 状態を一度だけ収集してイテレーション全体で共有
+        obs_oracle_eval, act_oracle_eval = collect_transitions_continuous(
+            oracle, eval_n, eval_seed,
+            gravity=train_gravity, friction_scale=train_friction_scale,
+        )
+
+        for model_type in comp_cfg["model_types"]:
+            try:
+                rm = make_regression_model(model_type, n_obs, action_dim, comp_cfg)
+            except Exception as e:
+                print(f"  [DAgger, {model_type}] モデル生成スキップ: {e}", flush=True)
+                continue
+
+            # --- イテレーション 0: 通常 BC（oracle 状態分布） ---
+            obs_all, act_all = collect_transitions_continuous(
+                oracle, distill_n, seed,
+                gravity=train_gravity, friction_scale=train_friction_scale,
+            )
+            rm.fit(obs_all, act_all)
+
+            j_train = evaluate_reasoned_continuous(
+                rm, train_gravity, n_eval, eval_seed, friction_scale=train_friction_scale,
+            )
+            rm_aa0 = rm.predict(obs_oracle_eval)
+            aa_train = float(np.mean(np.linalg.norm(act_oracle_eval - rm_aa0, axis=1) < aa_eps))
+            print(
+                f"  [DAgger iter=0, {MODEL_LABEL.get(model_type, model_type)}, seed={seed}]"
+                f"  n_total={len(obs_all)}  AA={aa_train:.3f}  J(train)={j_train:.1f}",
+                flush=True,
+            )
+
+            # --- DAgger イテレーション ---
+            for it in range(1, n_iters + 1):
+                iter_seed = seed * 1000 + it  # イテレーションごとに異なるシードで収集
+                new_obs, new_act = _collect_dagger_iter(
+                    rm, oracle, samples_per_iter,
+                    seed=iter_seed,
+                    gravity=train_gravity,
+                    friction_scale=train_friction_scale,
+                )
+                obs_all = np.concatenate([obs_all, new_obs], axis=0)
+                act_all = np.concatenate([act_all, new_act], axis=0)
+                rm.fit(obs_all, act_all)
+
+                j_train = evaluate_reasoned_continuous(
+                    rm, train_gravity, n_eval, eval_seed, friction_scale=train_friction_scale,
+                )
+                rm_aa_it = rm.predict(obs_oracle_eval)
+                aa_train = float(np.mean(np.linalg.norm(act_oracle_eval - rm_aa_it, axis=1) < aa_eps))
+                print(
+                    f"  [DAgger iter={it}, {MODEL_LABEL.get(model_type, model_type)}, seed={seed}]"
+                    f"  n_total={len(obs_all)}  AA={aa_train:.3f}  J(train)={j_train:.1f}",
+                    flush=True,
+                )
+
+            # --- 最終モデルで全条件評価（run_hopper_regression と同一フォーマット） ---
+            for gc in dynamics_conds:
+                cname = gc["name"]
+                gravity = gc.get("gravity", train_gravity)
+                friction_scale = gc.get("friction_scale", None)
+
+                obs_eval, act_eval = collect_transitions_continuous(
+                    oracle, eval_n, eval_seed,
+                    gravity=gravity, friction_scale=friction_scale,
+                )
+                rm_actions = rm.predict(obs_eval)
+                l2_diffs = np.linalg.norm(act_eval - rm_actions, axis=1)
+                aa_cond = float(np.mean(l2_diffs < aa_eps))
+                diff_path = action_diff_dir / f"seed{seed}_{model_type}_{cname}.npz"
+                np.savez_compressed(
+                    diff_path,
+                    l2_diffs=l2_diffs.astype(np.float32),
+                    oracle_actions=act_eval.astype(np.float32),
+                    surrogate_actions=rm_actions.astype(np.float32),
+                )
+
+                j_intuitive = eval_hopper_intuitive(
+                    oracle, gravity, n_eval, eval_seed, friction_scale=friction_scale,
+                )
+                j_reasoned = evaluate_reasoned_continuous(
+                    rm, gravity, n_eval, eval_seed, friction_scale=friction_scale,
+                )
+                rpd = relative_perf_drop(j_intuitive, j_reasoned)
+
+                records.append({
+                    "env": "hopper",
+                    "model_type": model_type,
+                    "eval_condition": cname,
+                    "gravity": gravity,
+                    "friction_scale": friction_scale if friction_scale is not None else 1.0,
+                    "seed": seed,
+                    "j_intuitive": j_intuitive,
+                    "j_reasoned": j_reasoned,
+                    "action_agreement": aa_cond,
+                    "action_l2_mean": float(np.mean(l2_diffs)),
+                    "action_l2_p90": float(np.quantile(l2_diffs, 0.9)),
+                    "action_l2_p95": float(np.quantile(l2_diffs, 0.95)),
+                    "relative_perf_drop": rpd,
+                })
+
+            train_rec = next(
+                r for r in reversed(records)
+                if r["eval_condition"] == "train" and r["seed"] == seed and r["model_type"] == model_type
+            )
+            print(
+                f"  [DAgger FINAL, {MODEL_LABEL.get(model_type, model_type):10s}, seed={seed}]"
+                f"  AA_eps(train)={train_rec['action_agreement']:.3f}"
+                f"  J(train)={train_rec['j_reasoned']:.1f}",
+                flush=True,
+            )
+
+    return pd.DataFrame(records)
+
+
 def run_hopper_regression(cfg: dict, output_dir: Path) -> pd.DataFrame:
     """回帰型 Surrogate による Hopper 実験。
 
@@ -682,7 +892,10 @@ def run_experiment(cfg: dict) -> None:
         all_records.append(lunar_df)
 
     if cfg.get("hopper"):
-        if cfg["hopper"].get("regression_mode", False):
+        if cfg["hopper"].get("dagger_mode", False):
+            print("\n=== Hopper 実験 (DAgger Regression Surrogate) ===", flush=True)
+            hopper_df = run_hopper_regression_dagger(cfg, output_dir)
+        elif cfg["hopper"].get("regression_mode", False):
             print("\n=== Hopper 実験 (Regression Surrogate) ===", flush=True)
             hopper_df = run_hopper_regression(cfg, output_dir)
         else:
