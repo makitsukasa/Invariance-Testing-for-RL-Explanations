@@ -17,7 +17,7 @@ exp004,N=8: moet vs tree (AA),action_agreement,10,10,0.852400,0.050024,0.812120,
 exp004,N=16: linear vs moet (AA),action_agreement,10,10,0.829840,0.036703,0.820260,0.031932,0.622712,0.541431,1.000000,0.278485,False
 exp004,N=16: linear vs tree (AA),action_agreement,10,10,0.829840,0.036703,0.767620,0.045798,3.352421,0.003732,0.037319,1.499248,True
 exp004,N=16: moet vs tree (AA),action_agreement,10,10,0.820260,0.031932,0.767620,0.045798,2.981532,0.008776,0.078987,1.333382,False
-exp009,GBT train vs gravity_hi (action_agreement),action_agreement,5,5,0.876160,0.026487,0.885920,0.019383,-0.664934,0.526455,0.526455,-0.420541,False
-exp009,GBT train vs gravity_hi (j_reasoned),j_reasoned,5,5,240.248884,13.375239,221.911324,11.729286,2.304932,0.050619,0.101237,1.457767,False
-exp009,GBT train vs gravity_lo (action_agreement),action_agreement,5,5,0.876160,0.026487,0.706400,0.048629,6.855057,0.000417,0.001669,4.335519,True
-exp009,GBT train vs gravity_lo (j_reasoned),j_reasoned,5,5,240.248884,13.375239,123.396497,41.046678,6.052454,0.001988,0.005964,3.827908,True
+exp009,GBT train vs gravity_hi (action_agreement),action_agreement,10,10,0.870040,0.021110,0.878220,0.017520,-0.942930,0.358619,0.358619,-0.421691,False
+exp009,GBT train vs gravity_hi (j_reasoned),j_reasoned,10,10,236.848923,18.834998,205.948985,25.277247,3.099779,0.006637,0.013274,1.386263,True
+exp009,GBT train vs gravity_lo (action_agreement),action_agreement,10,10,0.870040,0.021110,0.711860,0.063097,7.517970,0.000012,0.000035,3.362138,True
+exp009,GBT train vs gravity_lo (j_reasoned),j_reasoned,10,10,236.848923,18.834998,137.765976,39.123193,7.216046,0.000007,0.000028,3.227114,True
