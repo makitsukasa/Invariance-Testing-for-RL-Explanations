@@ -434,7 +434,7 @@ Under gravity\_lo, the surrogate's mean performance numerically exceeds the orac
 
 ### Appendix 6. Comparison with Comprehensiveness Faithfulness (Experiment 9)
 
-**Purpose.** In response to the concern that the framework lacks comparison with existing XAI evaluation methods (W-B2), we apply Comprehensiveness faithfulness---a widely used training-distribution fidelity evaluation metric---to the same experiments and demonstrate its complementarity with the proposed invariance evaluation.
+**Purpose.** We apply Comprehensiveness faithfulness---a widely used training-distribution fidelity evaluation metric---to the same experiments and demonstrate its complementarity with the proposed invariance evaluation.
 
 **Definition of Comprehensiveness.** Following DeYoung et al. (2020), we define the Comprehensiveness of feature $i$ as:
 

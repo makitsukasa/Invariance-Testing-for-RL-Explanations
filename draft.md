@@ -434,7 +434,7 @@ gravity\_lo では surrogate の平均性能が oracle を上回り（$J_S = 493
 
 ### 付録6. Comprehensiveness Faithfulness との比較（実験9）
 
-**目的。** 本枠組みが「評価手法」としての既存手法との比較を欠くという指摘（W-B2）に対し、訓練分布内の忠実性評価手法として広く用いられる Comprehensiveness faithfulness（以下 comp）を同一実験に適用し、本枠組みとの相補性を示す。
+**目的。** 訓練分布内の忠実性評価手法として広く用いられる Comprehensiveness faithfulness（以下 comp）を同一実験に適用し、本枠組みとの相補性を示す。
 
 **Comprehensiveness の定義。** 特徴 $i$ の Comprehensiveness を次式で定義する（DeYoung et al., 2020 に準じる）：
 
