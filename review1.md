@@ -1,7 +1,7 @@
-# Peer Review — Explainability Evaluation Framework for RL Policies Based on Structural Constraint Bottlenecks
+# Peer Review: Explainability Evaluation Framework for Reinforcement Learning Policies Based on Structural Constraint Bottlenecks
 
 **対象**: draft_en.md（英語版・全文）  
-**実施日**: 2026-04-19（再実施）
+**実施日**: 2026-04-20
 
 ---
 
@@ -9,155 +9,125 @@
 
 ### Strengths
 
-1. **Clear decoupling design.** The separation of Oracle and Surrogate training avoids the explainability-performance trade-off cleanly, and the two-stage evaluation (fidelity then invariance) is logically well-structured.
+1. The decoupling design (Oracle fixed, Surrogate evaluated post-hoc) is clean and well-motivated. It correctly identifies that maximizing AA alone is insufficient for evaluating explanation quality.
 
-2. **Systematic experimental design.** The paper includes a deliberate progression from baseline (Exp 1) to direct evidence (Exp 2) to contrastive evidence (Exp 3), with supplementary experiments addressing alternative explanations (data volume, model type). The claim-to-experiment mapping in Section 5.1 is commendable.
+2. The two-stage evaluation (fidelity then invariance) is a logically sound diagnostic framework. The experimental demonstration that high AA can coexist with complete performance collapse (Experiment 2, p=0.0 reversed_c: AA=0.942 yet J=-1.000) is the strongest empirical result.
 
-3. **Honest statistical reporting.** Holm-Bonferroni correction is applied, non-significant results are reported as such, and the paper repeatedly notes when differences fail to reach significance.
+3. Statistical methodology is above-average for the field: 10 seeds, Welch's t-tests with Holm-Bonferroni correction, explicit reporting of non-significant results (e.g., Experiment 3 gravity conditions). The paper does not cherry-pick.
 
-4. **Sensitivity analyses (Tables 6 and 7).** Testing the robustness of threshold parameters is valuable for a framework paper.
+4. The contrastive experimental design (Experiment 2 vs Experiment 3) is effective pedagogy and methodologically appropriate.
 
 ### Weaknesses
 
-**[MAJOR] W-A1: Data discrepancy in Experiment 1.**
+1. **MAJOR: The framework detects a problem but does not evaluate explanations.** The title says "Explainability Evaluation Framework" but the framework actually detects spurious dependency replication. There is no evaluation of explanation quality in any human-meaningful sense (no user studies, no ground-truth explanation comparison, no evaluation of whether the Surrogate's structure actually helps a practitioner understand the policy). The gap between "detecting that a Surrogate copied a spurious feature" and "evaluating explainability" is substantial. The Discussion acknowledges this partly (`"Detection of spurious dependencies becomes practically meaningful only when combined with subsequent remedial actions"`) but the title and abstract still overclaim.
 
-Section 6.1 reports `N=0, K=4, d=5: AA=0.915±0.028`. The raw data in `exp001_cartpole_noise/summary.txt` shows `AA=0.910±0.016` for that configuration. The 0.915±0.028 value comes from `exp004_cartpole_comparison/summary.txt`, which is labeled Experiment 4. The standard deviations differ substantially (0.016 vs 0.028), indicating results from different experiment runs are being conflated.
+2. **MAJOR: Circularity in Experiment 2.** The Spurious GridWorld is explicitly designed so that p=0.0 makes c a perfect predictor of the goal. Any reasonable learner will use c. Then the paper demonstrates that a Surrogate that copies this dependency fails when c is reversed. This is tautological by construction: the experiment demonstrates what the environment was designed to produce. The paper should acknowledge this more directly and explain why this demonstration is still useful (e.g., as a controlled validation that the diagnostic criteria work).
 
-> **Fix:** Explicitly document that `exp004` is the canonical source for both Experiment 1 and Experiment 4, and explain why (e.g., unified seed set). The current EXPERIMENT_MAP.md notes this but the paper text does not.
+3. **MAJOR: Arbitrary threshold problem is underaddressed.** The thresholds theta_AA=0.9 and alpha=0.8 are acknowledged as empirical guidelines, but the paper does not provide sensitivity analysis results in the main text (only references Tables 6 and 7 which appear to be in appendices not shown). For a framework paper, the robustness of the diagnostic criteria to threshold choice is central, not supplementary.
 
-**[MAJOR] W-A2: P-value misreporting in Experiment 3.**
+4. **MINOR: Distribution shift selection is acknowledged as arbitrary but no heuristics are provided.** The paper says "what to shift" is a practical challenge and defers to future work. For a framework paper, at minimum a taxonomy of shift types (feature manipulation vs. physical parameter change vs. domain shift) with guidance on when each is appropriate would strengthen the contribution.
 
-Section 7 states: "Other shift conditions (gravity_lo, gravity_hi, pole_short) were not significant after Holm–Bonferroni correction (p_adj>0.18)." The actual values in `pvalue_summary.csv` are: gravity_hi p_adj=0.087, gravity_lo p_adj=0.186, pole_short p_adj=0.186. The claim "p_adj>0.18" is false for gravity_hi (0.087 < 0.18).
+### Actionable Revisions
 
-> **Fix:** Correct to "p_adj>0.08" or report the exact values.
-
-**[MINOR] W-A3: "Decoupling" framing overstates novelty.**
-
-Training a surrogate from a fixed policy and evaluating it is standard practice in policy distillation (Bastani et al., 2018; Vasic et al., 2019). The actual novelty is the invariance evaluation axis, not decoupling per se. Foregrounding "decoupling" as Contribution 1 dilutes the message.
-
-> **Fix:** Reframe Contribution 1 to emphasize the invariance evaluation methodology as the primary contribution.
+- Revise the title to reflect what the framework actually does: detection of spurious dependency replication, not evaluation of explainability in general. Consider: "Detecting Spurious Dependencies in Surrogate Explanations of RL Policies via Invariance Testing."
+- Add explicit acknowledgment that Experiment 2's result is by construction, then argue why this controlled validation matters.
+- Move threshold sensitivity analysis into the main text or at minimum summarize the key finding (qualitative conclusions unchanged).
 
 ---
 
-## Reviewer B (Domain Expert — XAI/RL)
+## Reviewer B (Domain Expert -- XRL / Interpretable RL)
 
 ### Strengths
 
-1. **Central insight is sound.** The observation that high AA is necessary but not sufficient, and that invariance under distribution shift provides a complementary axis, addresses a genuine gap in XRL evaluation.
+1. The positioning relative to prior work is comprehensive and honest. The paper correctly identifies that policy distillation work (Bastani et al., 2018; Vasic et al., 2019) treats AA maximization as the goal, and that SHAP/LIME reveal feature dependencies without evaluating their validity under shift.
 
-2. **SHAP comparison (Section 6.2, Figure 4).** Demonstrating that SHAP feature importance is nearly identical between train and reversed_c while the policy collapses is an effective illustration of the framework's added value.
+2. The MoET tree visualization (Section 6.2) showing the root split on the spurious feature c is a compelling structural demonstration. The claim that this was reproduced across all 10 seeds is strong.
 
-3. **MoET tree visualization.** Showing the actual tree structure with the root split on the spurious feature is compelling qualitative evidence.
+3. The paper avoids the common trap of claiming to solve the explainability problem. The Discussion explicitly states the framework is a diagnostic tool, not an explanation method.
 
-4. **Good positioning vs. IRM.** The distinction between invariant learning (training-time) and invariance evaluation (post-hoc diagnosis) is handled correctly.
+4. The Comprehensiveness faithfulness comparison (Experiment 9) adds genuine value by concretely showing what the proposed invariance axis captures that within-distribution metrics miss.
 
 ### Weaknesses
 
-**[MAJOR] W-B1: The Spurious GridWorld is trivially engineered.**
+1. **MAJOR: Scalability evidence is weak despite claims.** The paper's Contribution 3 claims the framework works "across multiple RL environments" but the main experiments use CartPole (4D state, 2 actions) and a custom 5x5 GridWorld (3D state, 4 actions). These are among the simplest RL benchmarks. LunarLander and Hopper are relegated to appendices with the caveat "full validation in continuous control remains future work." The claim of generality is not supported by the main-body evidence.
 
-When p=0.0, the spurious feature c deterministically indicates the goal. Any distribution shift that reverses it will cause failure. This is not subtle. The claim that the framework provides novel diagnostic capability is harder to justify in this setting. The p=0.2 and p=0.5 conditions are more realistic but receive less analytical attention.
+2. **MAJOR: The Hopper experiment (Experiment 8) does not support the framework's claims.** RegTree achieves R^2=0.922 on train but drops to R^2=-0.001 under gravity_hi and R^2=-0.124 under gravity_lo. These are not interpretable as "high fidelity" in any meaningful sense. The epsilon-agreement values on train (AA=0.703 at d=12) are also below the 0.9 threshold, meaning Stage 1 fidelity verification fails. When Stage 1 fails, Stage 2 invariance testing is not meaningful. The paper should be more explicit that the framework's applicability to continuous control is unvalidated rather than partially validated.
 
-> **Fix:** Move p=0.2/0.5 analysis to the main body as the primary demonstration, treating p=0.0 as a limiting case illustration.
+3. **MINOR: MoET is the primary Surrogate model but is not widely used.** The paper acknowledges that the framework is agnostic to model structure, but the experiments rely heavily on MoET. The model comparison experiments (4-5) show MoET and Tree produce nearly identical AA in GridWorld, raising the question of whether the MoET gating mechanism adds value over a simpler tree in these small environments.
 
-**[MAJOR] W-B2: No comparison with existing XAI evaluation methods.**
+4. **MINOR: No comparison with IRM or concept bottleneck baselines.** The related work extensively discusses IRM and concept bottleneck models, but there is no experimental comparison. Even a simple baseline (retrain the oracle with IRM penalty, then distill) would contextualize the framework's practical value.
 
-The paper positions itself as an "evaluation framework" but only compares against SHAP (an explanation method, not an evaluation method). There is no comparison with faithfulness metrics (Alvarez-Melis & Jaakkola, 2018) or any other evaluation methodology.
+### Actionable Revisions
 
-> **Fix:** Apply at least one existing evaluation method to the same experiments and show what it would or would not detect.
-
-**[MAJOR] W-B3: Experiment 8 logical gap — DAgger fails Stage 1, yet Stage 2 is applied.**
-
-The framework's Stage 1 criterion is AA > 0.9 (or R² > 0.9). The DAgger surrogate achieves AA_ε=0.420, which is well below 0.9. The paper does not address whether a surrogate that fails Stage 1 should be used for Stage 2 invariance evaluation. This is a logical inconsistency in the framework.
-
-> **Fix:** Clarify the framework's behavior when Stage 1 is not met for continuous action spaces. Either revise the Stage 1 criterion for continuous spaces (where R² governs, not AA_ε), or explain why Stage 2 is applied despite Stage 1 non-compliance.
-
-**[MINOR] W-B4: Experiment 7 reveals MoET/Tree fail in continuous control.**
-
-MoET achieves J_S=−264 and Tree J_S=−294 in LunarLander despite AA≈0.72. Only GBT (a non-interpretable ensemble) works. This tension between the framework's preferred surrogate models (interpretable ones) and their viability in continuous environments is not adequately addressed.
-
-**[MINOR] W-B5: Mindlin et al. (2025) connection is not developed.**
-
-The "preliminary evaluation" framing in Section 2.4 is hand-waved. No concrete integration scenario is provided.
+- Downscope Contribution 3. Replace "tendency for the evaluation axes to function consistently across multiple RL environments" with a more honest claim about the two toy environments in the main text.
+- Be explicit in Section 5.5 that the Hopper experiment fails Stage 1 fidelity for all Surrogate models tested (best R^2=0.922, best epsilon-agreement=0.703), making Stage 2 invariance diagnosis inapplicable under the paper's own criteria.
+- Add at minimum a qualitative discussion of how the framework would need to be adapted for high-dimensional observations (images, point clouds).
 
 ---
 
-## Reviewer C (Statistics/Rigor Expert)
+## Reviewer C (Statistics / Rigor Expert)
 
 ### Strengths
 
-1. **Proper use of Holm-Bonferroni correction** with Cohen's d effect sizes.
-2. **10 seeds with mean and standard deviation** is reasonable for RL.
-3. **Independent distillation and evaluation seeds** prevent overfitting artifacts.
+1. The statistical reporting is methodologically sound. All main comparisons use Welch's t-test (appropriate given potential variance heterogeneity across conditions) with Holm-Bonferroni correction for multiple comparisons. Effect sizes (Cohen's d) are reported alongside p-values.
+
+2. The paper explicitly reports non-significant results and does not spin them. For example, Experiment 3 gravity_lo and gravity_hi AA declines are correctly reported as non-significant after correction, and Experiment 4 most N>0 comparisons are non-significant.
+
+3. The use of 10 seeds with independent distillation/evaluation splits is appropriate for the environments tested.
+
+4. Confidence intervals (reported as mean +/- SD) are provided for all key metrics. The paper correctly notes high variance in DQN (2 of 10 seeds failing to converge) and reports both all-seed and converged-seed statistics.
 
 ### Weaknesses
 
-**[MAJOR] W-C1: Massive variance in key metrics undermines threshold-based claims.**
+1. **MAJOR: The central claim rests on a single significant comparison with marginal p-value.** The core claim (Experiment 2, "high AA but wrong explanation") is supported by p_adj=0.030 for the AA comparison (train vs reversed_c). While statistically significant, this is close to the 0.05 threshold, and with n=10, power is limited. The J_S comparison (p_adj<0.001, d>1000) is overwhelming, but the AA comparison -- which is the one that matters for the "high AA" claim -- has d=1.14, a medium-to-large effect. The paper should report a power analysis or at minimum acknowledge the marginal nature of this result.
 
-Several conditions show standard deviations comparable to or exceeding the effect sizes:
-- Experiment 2, p=0.2, reversed_c, K=4,d=5: AA=0.922±0.200. This means individual seeds range from near 0.5 to near 1.0. Reporting a mean of 0.922 as "passing" AA > 0.9 is misleading.
-- Experiment 2, p=0.5, reversed_c: AA=0.940±0.132.
-- Experiment 3, pole_short: AA=0.846±0.115 (all 10 seeds).
+2. **MAJOR: Reporting mean +/- SD rather than mean +/- SE or 95% CI is misleading for inference.** The paper reports AA=0.942+/-0.056 for reversed_c, but this is standard deviation, not standard error. For n=10, SE=0.018, so the 95% CI would be approximately [0.902, 0.982]. This is relevant because the diagnostic threshold is 0.9: the lower bound of the CI barely exceeds it, meaning under some reasonable samples, the "high AA" condition would not hold.
 
-When variance is this large, the diagnostic threshold's reliability for individual deployments is unclear.
+3. **MINOR: The non-parametric nature of the data is not addressed.** AA is bounded in [0,1], and J_S values cluster at -1.000 for the collapse condition (zero variance). Welch's t-test assumes approximate normality. For the J_S comparison where all 10 values are exactly -1.000 (variance=0), the t-test is degenerate (d>1000 is an artifact of zero-variance denominator). A non-parametric test (Mann-Whitney U) would be more appropriate for this specific comparison.
 
-> **Fix:** Report median and IQR alongside mean and SD for high-variance conditions. Report per-seed detection rates and bootstrap confidence intervals on the detection rate.
+4. **MINOR: Multiple testing correction is applied within each experiment but not across experiments.** The paper tests multiple hypotheses across Experiments 2, 3, 4, 5, and 7. Family-wise error rate control within each experiment is appropriate, but there is no discussion of how the overall false positive rate is managed across the full study.
 
-**[MAJOR] W-C2: Selective converged-seed reporting.**
+### Actionable Revisions
 
-Experiment 3 reports both all-10 and converged-8 statistics. However, it is not stated whether all other experiments (2, 7, 8) had full convergence. If any seeds failed in those experiments and were silently excluded, this should be disclosed.
-
-> **Fix:** Explicitly state convergence status for all experiments. If some seeds were excluded from any experiment, report this uniformly.
-
-**[MINOR] W-C3: No statistical testing for BC vs. DAgger comparison.**
-
-Table A7 reports means and standard deviations for BC vs. DAgger but no significance tests. Given the key claim that "AA_ε and J_S measure different aspects," this should be formally tested.
-
-**[MINOR] W-C4: Appendix-reliant primary claims.**
-
-Claims in the abstract, introduction, and conclusion (Contribution 3, Hopper DAgger results) are supported only by appendix material. For NeurIPS format, appendix material should be supplementary, not primary evidence.
+- Report 95% confidence intervals for the key comparisons (at minimum Experiment 2 train vs reversed_c AA, and the diagnostic threshold evaluation).
+- Add a sentence acknowledging that the AA significance in Experiment 2 is marginal (p=0.030) and interpret accordingly.
+- For the J_S comparison where variance is zero, either use a non-parametric test or note that the t-test is degenerate and the result is trivially obvious (all values identical).
 
 ---
 
 ## Cross-Reviewer Summary
 
-### Major Issues
+### Consensus Findings
 
-| # | Issue | Reviewer |
-|---|-------|----------|
-| M1 | Data discrepancy: Exp 1 reports AA=0.915 from exp004, not exp001 | A |
-| M2 | P-value misreporting: "p_adj>0.18" but gravity_hi p_adj=0.087 | A |
-| M3 | High variance undermines threshold-based diagnostics (AA=0.922±0.200) | C |
-| M4 | No comparison with existing XAI evaluation methods | B |
-| M5 | Exp 8 logical gap: DAgger fails Stage 1 (AA=0.42) but Stage 2 applied | B |
-| M6 | Primary claims (Contribution 3) rely on appendix-only experiments | C |
+All three reviewers agree on:
+- The paper addresses a real gap (AA alone is insufficient for evaluating surrogate explanations)
+- The experimental methodology is above average for reproducibility (10 seeds, independent splits, statistical tests)
+- The main empirical demonstration (Experiment 2) is convincing in showing the phenomenon exists
+- The scalability evidence is insufficient to support generality claims
+- The title overclaims relative to what the framework actually delivers
 
-### Minor Issues
+### Critical Issues Requiring Revision
 
-| # | Issue |
-|---|-------|
-| m1 | "Surrogate model" overloads an existing ML term |
-| m2 | MoET tree visualization in code-block format rather than figure |
-| m3 | Bullet-point lists in Sections 4.3 and 5.1 |
-| m4 | Excessive hedging in Section 3.3 ("does not provide definitive judgments") |
-| m5 | Mindlin connection hand-waved |
-| m6 | "Decoupling" framing overstates novelty as Contribution 1 |
+| # | Issue | Severity | Reviewers |
+|---|-------|----------|-----------|
+| 1 | Title/framing overclaims "explainability evaluation" when the framework detects spurious dependency replication | MAJOR | A, B |
+| 2 | Scalability/generality claims unsupported by main-body evidence (toy envs only) | MAJOR | B |
+| 3 | Hopper experiment fails the framework's own Stage 1 criteria; should not be cited as validation | MAJOR | B |
+| 4 | Central AA significance is marginal (p=0.030, n=10); CI analysis needed | MAJOR | C |
+| 5 | Experiment 2 is tautological by design (acknowledged but insufficiently) | MAJOR | A |
+| 6 | Threshold sensitivity analysis absent from main text | MAJOR | A |
 
-### What's Missing
+### Missing Elements
 
-- No ablation on distillation quality's effect on invariance evaluation outcomes.
-- No analysis of false positive rate (non-spurious features flagged as spurious).
-- No analysis of false negative rate (shift chosen does not break the dependency).
-- No engagement with causal inference literature despite repeated causal disclaimers.
-- No guidance on how many distribution shifts are needed for reliable diagnosis.
+- No user study or human evaluation of explanation quality
+- No comparison with IRM or concept bottleneck baselines
+- No power analysis
+- No guidance on distribution shift selection beyond "it's hard"
+- Bullet-point lists appear in Section 4.3 (metric definitions) and Section 5.1 (experimental objectives numbered list). While the Section 5.1 list is functional, the Section 4.3 bullet list should be converted to prose for a NeurIPS submission.
+- Word count of the main body appears to be in the 5,000-6,000 range based on section lengths, which is within NeurIPS limits.
+- Four figures are referenced and verified to exist (Figures 1-4). This exceeds the minimum of 2.
+- Citations are distributed across Intro, Related Work, Method, Experiments, and Discussion. No section is citation-free.
 
-### What's Good
+### Verdict
 
-- Core idea addresses a genuine gap and is clearly articulated.
-- All reported numerical values verified against raw experiment files and found consistent (with the exception of M1 and M2 above).
-- Statistical methodology (Welch's t, Holm-Bonferroni, Cohen's d) is appropriate.
-- Contrastive design (Exp 2 vs Exp 3) is the paper's strongest evidence.
-- English writing quality is natural and technically precise.
-
-### Recommendation
-
-**Revise and Resubmit.** The core idea and experimental design are solid. Data discrepancy M1 and p-value misreporting M2 are correctable. The logical gap in continuous-space evaluation (M5) and missing comparisons with evaluation baselines (M4) are the most substantive issues requiring new work.
+**REVISE.** The core idea is sound and the experiments are competently executed, but the framing significantly overclaims. The paper presents a diagnostic tool for detecting spurious dependency replication in surrogate models and frames it as a general "explainability evaluation framework." Tightening the claims to match the evidence, moving threshold sensitivity into the main text, adding CI-based statistical reporting, and being honest about the Hopper experiment's failure under the framework's own criteria would bring this to an acceptable standard. The experimental infrastructure is solid; the problem is positioning, not execution.
