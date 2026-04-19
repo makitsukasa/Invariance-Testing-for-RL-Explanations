@@ -1,9 +1,7 @@
 # Peer Review — Explainability Evaluation Framework for RL Policies Based on Structural Constraint Bottlenecks
 
-**対象**: draft_en.md（英語版）  
-**実施日**: 2026-04-19
-
-> **注**: 本レビューは要約版のドラフトに基づいて実施されたため、一部の指摘（Critical A1: placeholder sections、Critical A2: zero figures、Major A3: threshold sensitivity not shown、Major B1: SHAP without evidence）は実際の draft_en.md には該当しない（本文はフル記述済み、Figure 1〜5 存在、Table 6/7 存在、Figure 4 = SHAP 比較）。これらはメモへの転記対象外とする。
+**対象**: draft_en.md（英語版・全文）  
+**実施日**: 2026-04-19（再実施）
 
 ---
 
@@ -11,19 +9,33 @@
 
 ### Strengths
 
-1. **Sound decoupling architecture.** The two-stage framework (fidelity → invariance) is methodologically clean. Separating Oracle from Surrogate avoids the performance-interpretability trade-off. The insight that high AA is necessary but not sufficient is well-motivated.
+1. **Clear decoupling design.** The separation of Oracle and Surrogate training avoids the explainability-performance trade-off cleanly, and the two-stage evaluation (fidelity then invariance) is logically well-structured.
 
-2. **Verified numerical claims.** All key numbers independently verified against raw data (exp002 summary, exp003 metrics.csv, exp004 summary, exp009 metrics.csv, exp011 r2_summary.csv, exp014 metrics.csv). All match: Exp 2 train AA=0.988±0.011, reversed_c AA=0.942±0.056, J_S=−1.000; Exp 3 pole_long p_adj=0.0004; LunarLander GBT J_S=236.8; Hopper DAgger J_S=2239 with gravity_lo reversal at 127%.
+2. **Systematic experimental design.** The paper includes a deliberate progression from baseline (Exp 1) to direct evidence (Exp 2) to contrastive evidence (Exp 3), with supplementary experiments addressing alternative explanations (data volume, model type). The claim-to-experiment mapping in Section 5.1 is commendable.
 
-3. **Contrastive experimental design.** Experiment 2 (spurious → collapse) paired with Experiment 3 (non-spurious → no collapse) is a strong design for the core claim.
+3. **Honest statistical reporting.** Holm-Bonferroni correction is applied, non-significant results are reported as such, and the paper repeatedly notes when differences fail to reach significance.
+
+4. **Sensitivity analyses (Tables 6 and 7).** Testing the robustness of threshold parameters is valuable for a framework paper.
 
 ### Weaknesses
 
-**[MINOR] W-A4: The "agnostic to internal structure" claim is underspecified.**
+**[MAJOR] W-A1: Data discrepancy in Experiment 1.**
 
-Contribution 1 claims the framework works for "arbitrary interpretable models" but experiments test only three model families (linear, tree, MoET) plus GBT. There is no formal statement of what properties a Surrogate model must have for the framework to apply (e.g., deterministic action output, finite action space, etc.).
+Section 6.1 reports `N=0, K=4, d=5: AA=0.915±0.028`. The raw data in `exp001_cartpole_noise/summary.txt` shows `AA=0.910±0.016` for that configuration. The 0.915±0.028 value comes from `exp004_cartpole_comparison/summary.txt`, which is labeled Experiment 4. The standard deviations differ substantially (0.016 vs 0.028), indicating results from different experiment runs are being conflated.
 
-> **Fix:** State explicitly what properties are required or note this as a limitation.
+> **Fix:** Explicitly document that `exp004` is the canonical source for both Experiment 1 and Experiment 4, and explain why (e.g., unified seed set). The current EXPERIMENT_MAP.md notes this but the paper text does not.
+
+**[MAJOR] W-A2: P-value misreporting in Experiment 3.**
+
+Section 7 states: "Other shift conditions (gravity_lo, gravity_hi, pole_short) were not significant after Holm–Bonferroni correction (p_adj>0.18)." The actual values in `pvalue_summary.csv` are: gravity_hi p_adj=0.087, gravity_lo p_adj=0.186, pole_short p_adj=0.186. The claim "p_adj>0.18" is false for gravity_hi (0.087 < 0.18).
+
+> **Fix:** Correct to "p_adj>0.08" or report the exact values.
+
+**[MINOR] W-A3: "Decoupling" framing overstates novelty.**
+
+Training a surrogate from a fixed policy and evaluating it is standard practice in policy distillation (Bastani et al., 2018; Vasic et al., 2019). The actual novelty is the invariance evaluation axis, not decoupling per se. Foregrounding "decoupling" as Contribution 1 dilutes the message.
+
+> **Fix:** Reframe Contribution 1 to emphasize the invariance evaluation methodology as the primary contribution.
 
 ---
 
@@ -31,29 +43,41 @@ Contribution 1 claims the framework works for "arbitrary interpretable models" b
 
 ### Strengths
 
-1. **Addresses a real gap.** Bastani (2018) and Vasic (2019) optimize AA without checking for spurious dependency replication. The paper correctly identifies this blind spot.
+1. **Central insight is sound.** The observation that high AA is necessary but not sufficient, and that invariance under distribution shift provides a complementary axis, addresses a genuine gap in XRL evaluation.
 
-2. **Good positioning relative to IRM and OOD robustness.** Section 2.3 carefully distinguishes post-hoc diagnosis from IRM's training objective.
+2. **SHAP comparison (Section 6.2, Figure 4).** Demonstrating that SHAP feature importance is nearly identical between train and reversed_c while the policy collapses is an effective illustration of the framework's added value.
 
-3. **Extension to continuous control.** The BC vs DAgger contrast (AA_ε=0.703 + J_S=4.5% vs AA_ε=0.420 + J_S=63%) is a genuinely interesting result showing the two metrics capture different aspects.
+3. **MoET tree visualization.** Showing the actual tree structure with the root split on the spurious feature is compelling qualitative evidence.
+
+4. **Good positioning vs. IRM.** The distinction between invariant learning (training-time) and invariance evaluation (post-hoc diagnosis) is handled correctly.
 
 ### Weaknesses
 
-**[MAJOR] W-B2: Hopper fidelity criterion ambiguity in continuous action spaces.**
+**[MAJOR] W-B1: The Spurious GridWorld is trivially engineered.**
 
-Section 3.3 defines Stage 1 as "AA > 0.9 or R² > 0.9." For Hopper (continuous), RegTree d=12 achieves R²=0.922 (passes) but AA_ε=0.703 (fails). It is not clear from the text which metric governs in continuous action spaces. A reader could reasonably interpret the surrogate as failing Stage 1 fidelity.
+When p=0.0, the spurious feature c deterministically indicates the goal. Any distribution shift that reverses it will cause failure. This is not subtle. The claim that the framework provides novel diagnostic capability is harder to justify in this setting. The p=0.2 and p=0.5 conditions are more realistic but receive less analytical attention.
 
-> **Fix:** Clarify explicitly in Section 3.3 that for continuous action spaces, R² (or ε-agreement) replaces AA as the Stage 1 criterion, not as an addition to it.
+> **Fix:** Move p=0.2/0.5 analysis to the main body as the primary demonstration, treating p=0.0 as a limiting case illustration.
 
-**[MAJOR] W-B3: The framework lacks a formal decision procedure.**
+**[MAJOR] W-B2: No comparison with existing XAI evaluation methods.**
 
-The paper proposes two-stage evaluation but provides no algorithm or flowchart that a practitioner could follow: when exactly does a surrogate pass/fail Stage 1? What if AA passes but invariance is borderline? The framework is conceptual rather than operational.
+The paper positions itself as an "evaluation framework" but only compares against SHAP (an explanation method, not an evaluation method). There is no comparison with faithfulness metrics (Alvarez-Melis & Jaakkola, 2018) or any other evaluation methodology.
 
-> **Fix:** Add Algorithm 1 (or a decision flowchart) specifying inputs, thresholds, and output (pass/investigate/reject).
+> **Fix:** Apply at least one existing evaluation method to the same experiments and show what it would or would not detect.
 
-**[MINOR] W-B4: Mindlin et al. (2025) connection remains hand-waved.**
+**[MAJOR] W-B3: Experiment 8 logical gap — DAgger fails Stage 1, yet Stage 2 is applied.**
 
-Section 2.4 suggests the framework could serve as a "preliminary evaluation" before human interaction, but no concrete integration path is given.
+The framework's Stage 1 criterion is AA > 0.9 (or R² > 0.9). The DAgger surrogate achieves AA_ε=0.420, which is well below 0.9. The paper does not address whether a surrogate that fails Stage 1 should be used for Stage 2 invariance evaluation. This is a logical inconsistency in the framework.
+
+> **Fix:** Clarify the framework's behavior when Stage 1 is not met for continuous action spaces. Either revise the Stage 1 criterion for continuous spaces (where R² governs, not AA_ε), or explain why Stage 2 is applied despite Stage 1 non-compliance.
+
+**[MINOR] W-B4: Experiment 7 reveals MoET/Tree fail in continuous control.**
+
+MoET achieves J_S=−264 and Tree J_S=−294 in LunarLander despite AA≈0.72. Only GBT (a non-interpretable ensemble) works. This tension between the framework's preferred surrogate models (interpretable ones) and their viability in continuous environments is not adequately addressed.
+
+**[MINOR] W-B5: Mindlin et al. (2025) connection is not developed.**
+
+The "preliminary evaluation" framing in Section 2.4 is hand-waved. No concrete integration scenario is provided.
 
 ---
 
@@ -61,66 +85,79 @@ Section 2.4 suggests the framework could serve as a "preliminary evaluation" bef
 
 ### Strengths
 
-1. **Appropriate statistical methodology.** Welch's t-test with Holm-Bonferroni correction and Cohen's d is better than most papers. 10 seeds is adequate.
-
-2. **Transparent seed filtering.** Reporting both all-10 and converged-8 statistics for Experiment 3 is methodologically transparent.
-
-3. **Verified p-values.** All statistical claims confirmed against pvalue_summary.csv.
+1. **Proper use of Holm-Bonferroni correction** with Cohen's d effect sizes.
+2. **10 seeds with mean and standard deviation** is reasonable for RL.
+3. **Independent distillation and evaluation seeds** prevent overfitting artifacts.
 
 ### Weaknesses
 
-**[MAJOR] W-C1: Experiment 3 non-significant results may be presented without sufficient context.**
+**[MAJOR] W-C1: Massive variance in key metrics undermines threshold-based claims.**
 
-The paper states "other shifts not significant (p_adj>0.18)." However, the gravity_hi raw p-value (before Holm correction) may have been ≈0.03–0.09. Readers should know whether gravity_hi crossed raw significance before correction, as this affects the interpretation of "invariance."
+Several conditions show standard deviations comparable to or exceeding the effect sizes:
+- Experiment 2, p=0.2, reversed_c, K=4,d=5: AA=0.922±0.200. This means individual seeds range from near 0.5 to near 1.0. Reporting a mean of 0.922 as "passing" AA > 0.9 is misleading.
+- Experiment 2, p=0.5, reversed_c: AA=0.940±0.132.
+- Experiment 3, pole_short: AA=0.846±0.115 (all 10 seeds).
 
-> **Fix:** Report raw and adjusted p-values for all Experiment 3 contrasts, or add a sentence noting which conditions were nominally significant before correction.
+When variance is this large, the diagnostic threshold's reliability for individual deployments is unclear.
 
-**[MAJOR] W-C2: Hopper gravity_lo reversal claim is not robust to CI.**
+> **Fix:** Report median and IQR alongside mean and SD for high-variance conditions. Report per-seed detection rates and bootstrap confidence intervals on the detection rate.
 
-The paper highlights "J_S=493 > J_oracle=389 (127% reversal)" under gravity_lo for the DAgger surrogate. However, J_S standard deviation is 483, meaning the 95% CI for J_S almost certainly includes values below J_oracle. The headline "reversal" is not statistically supported.
+**[MAJOR] W-C2: Selective converged-seed reporting.**
 
-> **Fix:** Either report a CI for the J_S/J_oracle ratio and note the reversal is not significant, or soften the framing to "a tendency toward reversal, consistent with CartPole pole_long."
+Experiment 3 reports both all-10 and converged-8 statistics. However, it is not stated whether all other experiments (2, 7, 8) had full convergence. If any seeds failed in those experiments and were silently excluded, this should be disclosed.
 
-**[MINOR] W-C3: Converged-seed exclusion criterion (J ≥ 450) is post-hoc.**
+> **Fix:** Explicitly state convergence status for all experiments. If some seeds were excluded from any experiment, report this uniformly.
 
-The criterion is reasonable, but it was not pre-registered. Clarify whether statistical tests used 8 or 10 seeds, and note the post-hoc nature of the filter.
+**[MINOR] W-C3: No statistical testing for BC vs. DAgger comparison.**
 
-**[MINOR] W-C4: Experiment 4 multiple comparisons family not globally controlled.**
+Table A7 reports means and standard deviations for BC vs. DAgger but no significance tests. Given the key claim that "AA_ε and J_S measure different aspects," this should be formally tested.
 
-Holm-Bonferroni is applied within each noise level (3 comparisons per N), but not across all N levels jointly. The family-wise error rate across all 12 Experiment 4 comparisons is not controlled.
+**[MINOR] W-C4: Appendix-reliant primary claims.**
+
+Claims in the abstract, introduction, and conclusion (Contribution 3, Hopper DAgger results) are supported only by appendix material. For NeurIPS format, appendix material should be supplementary, not primary evidence.
 
 ---
 
 ## Cross-Reviewer Summary
 
-| Issue | ID | Severity |
-|-------|-----|----------|
-| "Arbitrary" models claim needs formal conditions | W-A4 | Minor |
-| Hopper fidelity criterion (R² vs AA) ambiguous for continuous | W-B2 | Major |
-| No formal decision procedure / Algorithm 1 | W-B3 | Major |
-| Mindlin connection still hand-waved | W-B4 | Minor (re-flag) |
-| Exp 3: raw vs adjusted p-values not reported | W-C1 | Major |
-| Hopper gravity_lo reversal CI not robust | W-C2 | Major |
-| Converged-seed filter is post-hoc, stat test seed set unclear | W-C3 | Minor |
-| Exp 4 family-wise error rate not globally controlled | W-C4 | Minor |
-| Citations sparse in Section 4 (Methods) and Section 5 (Experiments) | Cross | Minor |
+### Major Issues
 
-### What Is Good
+| # | Issue | Reviewer |
+|---|-------|----------|
+| M1 | Data discrepancy: Exp 1 reports AA=0.915 from exp004, not exp001 | A |
+| M2 | P-value misreporting: "p_adj>0.18" but gravity_hi p_adj=0.087 | A |
+| M3 | High variance undermines threshold-based diagnostics (AA=0.922±0.200) | C |
+| M4 | No comparison with existing XAI evaluation methods | B |
+| M5 | Exp 8 logical gap: DAgger fails Stage 1 (AA=0.42) but Stage 2 applied | B |
+| M6 | Primary claims (Contribution 3) rely on appendix-only experiments | C |
 
-- Core idea is sound, addresses a genuine gap.
-- All experimental data verified and reproducible (10 seeds, scripts present).
-- Statistical methodology mostly appropriate.
-- Contrastive experimental design (Exp 2 vs Exp 3) is effective.
-- Related work positioning is careful and accurate.
-- English writing quality is natural and technical.
+### Minor Issues
 
-### Verdict
+| # | Issue |
+|---|-------|
+| m1 | "Surrogate model" overloads an existing ML term |
+| m2 | MoET tree visualization in code-block format rather than figure |
+| m3 | Bullet-point lists in Sections 4.3 and 5.1 |
+| m4 | Excessive hedging in Section 3.3 ("does not provide definitive judgments") |
+| m5 | Mindlin connection hand-waved |
+| m6 | "Decoupling" framing overstates novelty as Contribution 1 |
 
-The experimental evidence and core idea are solid. The paper is completable as-is from a content standpoint. The remaining issues are mostly about presentation clarity (algorithm, continuous-action criterion, CI reporting) rather than fundamental problems with the experimental design or conclusions.
+### What's Missing
 
-**Suggested priority for revision:**
-1. Clarify continuous-action Stage 1 criterion (W-B2)
-2. Add Algorithm 1 or decision flowchart (W-B3)
-3. Report raw+adjusted p-values for Exp 3 (W-C1)
-4. Qualify Hopper gravity_lo reversal with CI (W-C2)
-5. Address "arbitrary" models scope (W-A4)
+- No ablation on distillation quality's effect on invariance evaluation outcomes.
+- No analysis of false positive rate (non-spurious features flagged as spurious).
+- No analysis of false negative rate (shift chosen does not break the dependency).
+- No engagement with causal inference literature despite repeated causal disclaimers.
+- No guidance on how many distribution shifts are needed for reliable diagnosis.
+
+### What's Good
+
+- Core idea addresses a genuine gap and is clearly articulated.
+- All reported numerical values verified against raw experiment files and found consistent (with the exception of M1 and M2 above).
+- Statistical methodology (Welch's t, Holm-Bonferroni, Cohen's d) is appropriate.
+- Contrastive design (Exp 2 vs Exp 3) is the paper's strongest evidence.
+- English writing quality is natural and technically precise.
+
+### Recommendation
+
+**Revise and Resubmit.** The core idea and experimental design are solid. Data discrepancy M1 and p-value misreporting M2 are correctable. The logical gap in continuous-space evaluation (M5) and missing comparisons with evaluation baselines (M4) are the most substantive issues requiring new work.
