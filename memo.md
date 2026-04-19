@@ -3,8 +3,9 @@ draft.mdには入らないがメモしておきたい事柄を本ファイルに
 # 残対応項目
 指摘番号の形式 : [重大度]-[レビュー回数]-[レビュワー]-[指摘連番]
 重大度 : C=Critical, M=Major, m=Minor
-レビュー回数 : 01=review1.md, 02=reviews.md（ARC #1）, 03=reviews2.md（第2レビュワー）
-レビュワー : A/B/C=各レビュワー, X=複数レビュワー共通指摘
+レビュー回数 : review1/2/3.md を同時更新した1セット＝1回。01=第1回, 02=第2回, 03=第3回…
+              ※ 例: review1.md revision2・review2.md revision2・review3.md revision2 → 02
+レビュワー : A/B/C=review1.md内（PEER_REVIEW 3名）, D=review2.md, E=review3.md, X=複数共通
 各フィールドの役割:
 - [指摘]    : レビュアーの指摘内容。Claudeが追加・更新する。指摘の中で対応案が示されていたら本フィールド内に「対応案:xx」と書く。
 - [方針]    : ユーザが記入する対応方針。Claudeは上書きしない。空欄なら「要確認」と書いておく。
