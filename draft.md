@@ -407,7 +407,7 @@ GBT は AA = 0.870 ± 0.021 を達成し、MoET（0.732）・Tree（0.711）・L
 
 分布シフト下では、高再現性を達成した RegTree（$d=12$）が重力シフト（gravity_lo）において $R^2 = -0.124$ と壊滅的に崩壊し、訓練分布への過学習による不変性の欠如をフレームワークが鋭敏に検出した（主張3の再現）。対照的に、RegEBM は訓練時の $R^2$ は 0.717 と Tree に劣るものの、同シフト下で $R^2 = 0.150$ と正の値を維持し、摩擦シフト（friction_hi）では $R^2$ で Tree を逆転した。この結果は、モデル構造（木構造 vs. 加法モデル）が分布シフト下での「説明の有効範囲（不変性）」に質的な差を与えることを示している（主張4の再現）。ただし、BC 蒸留では方策性能 $J_S$ は Oracle の 5 % 程度（$J_S = 160 \pm 58$、oracle 比 4.5 %）に留まった。これは行動複製（behavioral cloning）特有の covariate shift——oracle が踏む状態分布と surrogate が踏む状態分布のずれ——に起因し、1000 ステップの長いホライズンで誤差が累積することで制御が崩壊する。
 
-**DAgger による改善と AA・$J_S$ の比較。** BC の covariate shift を iterative に修正するため、DAgger（Dataset Aggregation）を適用した。各イテレーションで surrogate が踏む状態分布を oracle にラベリングさせ直す操作を 10 回繰り返す（初期 10,000 サンプル＋各イテレーション 10,000 サンプル追加、計 110,000 サンプル）。Table A7 に BC と DAgger の比較を示す。
+**DAgger による改善と AA・$J_S$ の比較。** 連続行動空間では、解釈可能な Surrogate model（木・加法モデル）で BC 蒸留のみにより $R^2 > 0.9$ を安定して達成できる手法が現時点では存在しない。このため DAgger を適用したが、DAgger は surrogate 自身の状態分布で訓練されるため、oracle 状態上の $R^2$ は忠実性の代理指標として適切でなくなる。したがって本実験では補助指標である $\varepsilon$-agreement（L2ノルムベース）を用いる。より高性能な解釈可能モデルが BC だけで十分な再現性を達成できるようになれば、実験8も $R^2$ のみを指標として評価できる。BC の covariate shift を iterative に修正するため、DAgger（Dataset Aggregation）を適用した。各イテレーションで surrogate が踏む状態分布を oracle にラベリングさせ直す操作を 10 回繰り返す（初期 10,000 サンプル＋各イテレーション 10,000 サンプル追加、計 110,000 サンプル）。Table A7 に BC と DAgger の比較を示す。
 
 **Table A7**: BC と DAgger の比較（Hopper-v5, RegTree $d=12$, train 条件, 10シード平均±標準偏差）
 
