@@ -429,3 +429,31 @@ BC achieves high action agreement on oracle states ($\mathrm{AA}_\varepsilon = 0
 | friction\_lo ($f=0.7$) | 0.133 ± 0.017 | 658 ± 195 | 1121 | 59 % |
 
 Under gravity\_lo, the surrogate's mean performance numerically exceeds the oracle ($J_S = 493 \pm 483$, $J_\text{oracle} = 389$; 95% CI approximately [194, 792]), suggesting a tendency toward reversal consistent with the $J_\text{surrogate} > J_\text{oracle}$ phenomenon observed in the pole\_long condition of CartPole Experiment 3. However, the large standard deviation means this reversal is not statistically conclusive and should be interpreted as a directional tendency rather than a definitive finding. Under reduced gravity, the oracle's trained policy is not necessarily optimal, and a structurally simpler surrogate may behave more adaptively. This experiment demonstrates that the evaluation logic obtained in discrete control---two-axis evaluation of fidelity and invariance---remains consistently effective for post-hoc diagnosis in continuous action spaces.
+
+---
+
+### Appendix 6. Comparison with Comprehensiveness Faithfulness (Experiment 9)
+
+**Purpose.** In response to the concern that the framework lacks comparison with existing XAI evaluation methods (W-B2), we apply Comprehensiveness faithfulness---a widely used training-distribution fidelity evaluation metric---to the same experiments and demonstrate its complementarity with the proposed invariance evaluation.
+
+**Definition of Comprehensiveness.** Following DeYoung et al. (2020), we define the Comprehensiveness of feature $i$ as:
+
+$$\mathrm{comp}_i = \mathrm{AA}(\text{all features}) - \mathrm{AA}(\text{feature } i \text{ masked to mean})$$
+
+A larger $\mathrm{comp}_i$ indicates that the Surrogate model more strongly depends on feature $i$ within the training distribution.
+
+**Experimental setup.** We reuse the exp002 oracle models (all $p$ values, all seeds) and re-distill Surrogate models under identical settings (MoET $K=4, d=5$, 10,000 distillation samples) to compute $\mathrm{comp}_c$ for the spurious feature $c$. Results are placed alongside the existing invariance evaluation (reversed\_c condition from exp002).
+
+**Table A9**: Comprehensiveness vs. Invariance Evaluation (Spurious GridWorld, MoET $K=4,d=5$, mean±SD across 10 seeds)
+
+| $p$ | $\mathrm{comp}_c$ | $\mathrm{comp}_x$ | $\mathrm{comp}_y$ | $\mathrm{AA}_\text{train}$ | $\mathrm{AA}_\text{rev\_c}$ | $J_S^\text{rev\_c}$ |
+|-----|-------------------|-------------------|-------------------|----------------------------|-----------------------------|--------------------|
+| 0.0 | **0.484±0.013** | 0.316±0.070 | 0.324±0.069 | 0.985±0.014 | 0.942±0.056 | **−1.00±0.00** |
+| 0.2 | 0.303±0.098 | 0.582±0.228 | 0.593±0.154 | 0.996±0.003 | 0.929±0.201 | **−1.00±0.00** |
+| 0.5 | 0.103±0.099 | 0.600±0.249 | 0.392±0.178 | 0.999±0.001 | 0.940±0.132 | −0.30±0.31 |
+
+**Interpretation.** $\mathrm{comp}_c$ decreases monotonically with $p$, correctly reflecting the oracle's degree of $c$-dependence on the training distribution. At $p=0.0$, $\mathrm{comp}_c = 0.484$ substantially exceeds the position features ($\mathrm{comp}_x = 0.316$, $\mathrm{comp}_y = 0.324$), confirming that the surrogate depends most strongly on $c$.
+
+However, because Comprehensiveness is a training-distribution metric, it has no means of determining whether this dependency is spurious or causal. At $p=0.0$, despite the high $\mathrm{comp}_c$, policy performance under reversed\_c collapses to $J_S = -1.00$ uniformly across all 10 seeds. Comprehensiveness informs us that "the surrogate depends on $c$" but cannot warn that "this dependency will fail catastrophically under distribution shift." The invariance evaluation proposed in this framework---$\mathrm{AA}_\text{rev\_c}$ and $J_S^\text{rev\_c}$---directly measures this gap and empirically demonstrates the consequences of spurious dependency.
+
+**Conclusion on complementarity.** Comprehensiveness and invariance evaluation are not competing but complementary. Comprehensiveness quantifies *what* the surrogate uses and *how strongly* on the training distribution; invariance evaluation diagnoses *whether* that usage remains valid after distribution shift. Combining both axes enables more complete assessment of surrogate explanation quality.

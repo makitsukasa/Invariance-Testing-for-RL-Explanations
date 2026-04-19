@@ -3,7 +3,7 @@
 論文の実験番号と実験ディレクトリの対応表。
 数値の出典・事後計算項目・既知の不整合・未使用ディレクトリを記録する。
 
-最終更新: 2026-04-19（exp013/exp014 追加：Hopper DAgger 実験）
+最終更新: 2026-04-19（exp015 追加：Faithfulness vs. Invariance 比較）
 
 ---
 
@@ -105,30 +105,19 @@ exp001 系ディレクトリはすべて**未使用**（後述 §未使用ディ
 
 ---
 
-## 既知の数値不整合
+### 実験9（仮称）：Faithfulness vs. Invariance 比較（付録6）
 
-### [不整合1] 実験1テキスト数値の出典（対応済み）
-
-- 実験1・実験4 ともに `exp004_cartpole_comparison/` を正規ソースとして採用
-- exp001_cartpole_noise は未使用と整理（後述 §未使用ディレクトリ 参照）
-- draft.md の N=16 値を exp004 に合わせて 0.819±0.033 → **0.820±0.032** に修正済み
-
-### [不整合2] exp012 summary.txt の ±nan（対応済み）
-
-- 原因: 旧 summary.txt が 1 シードのみで生成されたバグ
-- 対応: 2026-04-18 に全 10 シードから再集計し修正済み（train AA=0.649±0.016）
-
-### [不整合3] exp011 非標準シードセット（対応済み）
-
-- 旧シード: 42, 123, 456, 789, 1011, 2024, 2718, 3141, 6553, 9001
-- 2026-04-18 に標準シード（42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526）で再実行・再集計。config も更新済み
-- 論旨への影響なし（R² 値は旧来とほぼ同値）
-
-### [不整合4] 実験7（LunarLander）の 5 シード（対応済み）
-
-- 旧: 5 シードのみ（42, 123, 456, 789, 1011）
-- 2026-04-18 に標準 10 シードで再実行。config も更新済み
-- 結果は exp009_gbt_continuous に統一
+| 項目 | 詳細 |
+|------|------|
+| 対応ディレクトリ | `results/exp015_faithfulness_comparison/` |
+| oracle 再利用元 | `results/exp002_spurious_gridworld/`（intuitive_p{p}_seed{s}、eval_states_p{p}_seed{s}.npy） |
+| surrogate 設定 | MoET K=4, d=5（論文主実験と同一）、BC 蒸留 100 epochs / 10,000 samples |
+| シード | 42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526（10シード） |
+| 対象条件 | spurious_p ∈ {0.0, 0.2, 0.5} |
+| 指標 | Comprehensiveness faithfulness（feature c マスク時の AA 低下量）＋ exp002 の reversed_c 不変性結果 |
+| スクリプト | `scripts/compute_faithfulness.py` |
+| キー数値の出典 | `exp015/faithfulness_results.csv`、`exp015/summary.txt` |
+| 目的 | Comprehensiveness は訓練分布内評価のみ → スプリアス依存を検出できない。不変性評価が補完することを実証 |
 
 ---
 
@@ -138,6 +127,7 @@ exp001 系ディレクトリはすべて**未使用**（後述 §未使用ディ
 |------|--------|-----------|
 | R²（Hopper exp011/exp012）| `action_diffs/*.npz` | `scripts/compute_r2.py` |
 | Welch t 検定・p 値 | 各実験の `metrics.csv` | `scripts/compute_pvalues.py` |
+| Comprehensiveness faithfulness（exp015）| exp002 oracle + 再蒸留 | `scripts/compute_faithfulness.py` |
 
 ---
 

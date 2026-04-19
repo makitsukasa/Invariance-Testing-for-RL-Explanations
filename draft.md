@@ -429,3 +429,31 @@ BC は oracle 状態での行動一致率（$\mathrm{AA}_\varepsilon = 0.703$）
 | friction\_lo（$f=0.7$） | 0.133 ± 0.017 | 658 ± 195 | 1121 | 59 % |
 
 gravity\_lo では surrogate の平均性能が oracle を上回り（$J_S = 493 \pm 483$, $J_\text{oracle} = 389$；95% CI 約 [194, 792]）、CartPole 実験3（pole\_long 条件）で観察された $J_\text{surrogate} > J_\text{oracle}$ 現象と方向性が一致する逆転傾向が認められる。ただし標準偏差が非常に大きく、この逆転は統計的に確定的でないため、確定的な知見としてではなく方向的な傾向として解釈すべきである。重力が軽い条件では Oracle の学習済み方策が最適とは限らず、構造的に単純な surrogate の方が適応的に振る舞うケースが生じうる。本実験により、離散制御で得られた評価の論理——再現性と不変性の二軸評価——が、連続行動空間の事後診断においても一貫して有効であることが実証された。
+
+---
+
+### 付録6. Comprehensiveness Faithfulness との比較（実験9）
+
+**目的。** 本枠組みが「評価手法」としての既存手法との比較を欠くという指摘（W-B2）に対し、訓練分布内の忠実性評価手法として広く用いられる Comprehensiveness faithfulness（以下 comp）を同一実験に適用し、本枠組みとの相補性を示す。
+
+**Comprehensiveness の定義。** 特徴 $i$ の Comprehensiveness を次式で定義する（DeYoung et al., 2020 に準じる）：
+
+$$\mathrm{comp}_i = \mathrm{AA}(\text{all features}) - \mathrm{AA}(\text{feature } i \text{ masked to mean})$$
+
+$\mathrm{comp}_i$ が大きいほど、Surrogate model が特徴 $i$ に強く依存していることを訓練分布上で示す。
+
+**実験設定。** Spurious GridWorld の exp002 oracle（各 $p$・各シード）を再利用し、同一設定（MoET $K=4, d=5$、蒸留 10,000 サンプル）で Surrogate model を再蒸留して $\mathrm{comp}_c$（スプリアス特徴 $c$）を計算した。既存の不変性評価結果（exp002 の reversed\_c 条件）と並置する。
+
+**Table A9**: Comprehensiveness vs. 不変性評価（Spurious GridWorld, MoET $K=4,d=5$, 10シード平均±標準偏差）
+
+| $p$ | $\mathrm{comp}_c$ | $\mathrm{comp}_x$ | $\mathrm{comp}_y$ | $\mathrm{AA}_\text{train}$ | $\mathrm{AA}_\text{rev\_c}$ | $J_S^\text{rev\_c}$ |
+|-----|-------------------|-------------------|-------------------|----------------------------|-----------------------------|--------------------|
+| 0.0 | **0.484±0.013** | 0.316±0.070 | 0.324±0.069 | 0.985±0.014 | 0.942±0.056 | **−1.00±0.00** |
+| 0.2 | 0.303±0.098 | 0.582±0.228 | 0.593±0.154 | 0.996±0.003 | 0.929±0.201 | **−1.00±0.00** |
+| 0.5 | 0.103±0.099 | 0.600±0.249 | 0.392±0.178 | 0.999±0.001 | 0.940±0.132 | −0.30±0.31 |
+
+**結果の解釈。** $\mathrm{comp}_c$ は $p$ の増加とともに単調に低下しており、Comprehensiveness は Oracle の $c$ 依存度を訓練分布上で正しく反映している。$p=0.0$ では $\mathrm{comp}_c = 0.484$ と位置特徴（$\mathrm{comp}_x = 0.316, \mathrm{comp}_y = 0.324$）を大きく上回り、Surrogate が $c$ に最も強く依存していることが確認できる。
+
+しかし Comprehensiveness は訓練分布内評価であるため、この依存がスプリアスか因果的かを判定する手段を持たない。実際、$p=0.0$ では $\mathrm{comp}_c$ が高いにもかかわらず、reversed\_c 下で $J_S = -1.00$（全シード一様に壊滅的失敗）となる。Comprehensiveness は「Surrogate が $c$ に依存している」ことは教えるが、「その依存が分布シフト下で破綻する」ことは教えない。本枠組みの不変性評価（$\mathrm{AA}_\text{rev\_c}$・$J_S^\text{rev\_c}$）はこの gap を直接測定し、スプリアス依存の実害を実証する。
+
+**相補性の結論。** Comprehensiveness と不変性評価は競合するものではなく相補的である。Comprehensiveness は「Surrogate が何をどれだけ使っているか」を訓練分布上で定量化し、不変性評価は「その利用がシフト後も有効か」を診断する。両軸を組み合わせることで、Surrogate model の説明品質をより完全に評価できる。
