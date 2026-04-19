@@ -1,27 +1,13 @@
-見ました。今の draft-3 は、かなりよくなっています。前に私が言った「主張が散っている」はまだ少し残るけれど、少なくとも『この論文は説明法の提案ではなく、説明品質の評価法だ』という芯は、もう本文中に明確にあります。[^1]
+英語版、かなり良くなっています。前よりも「これは何をする論文か」が一読で分かりますし、冒頭の主張もちゃんと立っています。特に、post hoc に surrogate を置いて、Oracle policy を変えずに説明品質を診断する、という軸は明快です。[^1]
 
-なので、ここでの添削は「書けていない」ではなく「**誰がどう得をするのか** を前に出すと、さらに通る」という話です。あなたの原稿だと、受益者はかなり自然に **RL 方策を説明したい研究者・実務者** です。彼らは、AA が高い surrogate を見て安心しがちですが、その surrogate が分布シフトで壊れるなら、説明としては危ない。あなたの枠組みは、その危ない説明を早めに見分けるための道具として読めます。[^1]
+直すなら、もう「内容」より「英語としての通り」と「主張の締まり」です。気になるのは主に3点です。
 
-要旨・序論でその視点を入れるなら、こんな書き方が自然です。
+- 1つ目は、beneficiary をもっと前に出せることです。今でも十分伝わりますが、冒頭に「誰のための枠組みか」を入れるとさらに強くなります。たとえば “For researchers and practitioners who need to interpret reinforcement-learning policies...” のように始めると、枠組みの用途が先に立ちます。
+- 2つ目は、少し不自然な言い回しです。たとえば “the state of \"high AA but incorrect\" can be identified from numerical indicators” は意味は通るものの、英語としては少し硬いので、 “the regime where AA is high but the surrogate is wrong” か “the high-AA-but-wrong case” の方が自然です。[^1]
+- 3つ目は、用語の並びです。 “fidelity (AA) and invariance (AA and under distribution shift)” は英語として引っかかるので、 “fidelity (AA) and invariance under distribution shift (AA and policy performance)” のようにすると通りがよくなります。今のままでも読めますが、査読者はこういうところで少し止まります。[^1]
 
-> 強化学習方策を説明したい研究者・実務者は、訓練分布でよく当たる surrogate model をそのまま信用してしまうと、分布が少し変わっただけで説明が崩れる危険がある。本研究は、Oracle policy を変更せずに構造制約付き surrogate model を後付けし、再現性と分布シフト下での不変性を併せて測ることで、信用してよい説明候補を選別するための評価基盤を提供する。[^1]
+なので、要旨の主文はこんな形がかなりきれいです。
 
-この1段落のよい点は、
-- **誰が**: RL 方策を説明したい研究者・実務者
-- **どう困るか**: AA だけ見て surrogate を信用すると危ない
-- **どう救うか**: 再現性＋不変性で選別できる
-が一気に入ることです。
+> For researchers and practitioners who need to interpret reinforcement-learning policies, this framework provides a post-hoc way to screen surrogate explanations without modifying the Oracle policy. We deploy a structurally constrained surrogate alongside the black-box policy and evaluate explanation quality along two axes: action agreement on the training distribution and invariance under distribution shift.
 
-もう少し論文っぽく、少しだけ抽象度を上げるなら、次もありです。
-
-> 本研究は、学習済み RL 方策に対して事後的に surrogate model を配置し、訓練分布での行動一致だけでは見えない脆い説明を、分布シフト下の不変性まで含めて診断する枠組みを提案する。これにより、解釈可能モデルの候補を「見た目の一致」ではなく「検証した範囲でどれだけ信用できるか」で比較できる。[^1]
-
-私は、要旨の主文は前者、序論の導入は後者が合うと思います。
-
-あなたの原稿では、すでに
-- 「説明品質の評価方法論」
-- 「再現性と分布シフト下での不変性」
-- 「任意の解釈可能モデルを共通の土台で比較」
-が入っています。[^1] だから、次に足すべきなのは新しい概念ではなく、**利用者の利益の一文**です。
-
-一番大事なのは、ここでも「回避する」「保証する」より、**選別する・診断する・見極める** を使うことです。そうすると、あなたの実験結果の強さにきれいに釣り合います。
+このあとに、あなたの今の “The central claims of this work are threefold.” を続ければ十分通ります。要するに、英語版はもう土台ができていて、次は「自然な英語に磨く」段階です。

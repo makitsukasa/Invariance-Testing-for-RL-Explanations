@@ -1,27 +1,32 @@
-# **このバージョンはかなり完成度が高く，「出せる原稿」レベル**
+# **English Draft of the Structural Constraint Bottleneck Paper: Overall Assessment**
 
-現行ドラフトは，問題設定・関連研究・枠組み・実験・限界が一通りそろい，論文としての流れも明快で，中堅〜上位国際会議を十分狙える密度になっている  (, 2026)。
+The English version clearly communicates the core idea: using **decoupling** plus **fidelity + invariance** as a general evaluation framework for RL explanations, not as yet another specific XAI method. This comes through consistently from abstract to conclusion  (, 2026).
 
-## 良い点（かなり強い）
+## Clarity and Structure
 
-- **分離(decoupling)＋AA＋不変性**という枠組みが要旨と序論で一貫して打ち出されている
-   (, 2026)- 関連研究が充実しており，自分が「評価方法論」であることをはっきり書けている
-   (, 2026)- 実験の目的と主張の対応が明示されていて親切
-   (, 2026)## 「もう一段だけ」削れる／整理できるところ
+- The **central claims are crisp** and front‑loaded:
+  high AA is only necessary, invariance detects “high AA but wrong,” and the framework is agnostic to surrogate structure  (, 2026).
+- Related work is **well-positioned**: you clearly separate distillation, post‑hoc attributions, IRM/concept bottlenecks, OOD robustness, and RL‑XAI, and state your different goal as *evaluation*  (, 2026).
+- Definitions of Oracle/Surrogate, AA, invariance, and thresholds are precise and operational, with an honest note that thresholds are empirical  (, 2026).
 
-1. **要旨の情報量をさらに整理**
-   - 実験 7・8 まですべて要旨に入っており少し重いです。
-   - 要旨では「CartPole＋GridWorld で core を示し，LunarLander/Hopper で拡張可能性を確認」という程度に圧縮すると読みやすいです
-    (, 2026)2. **Oracle / Surrogate / decoupling の定義の重複**
-   - 要旨と序論と 3.1–3.2 にほぼ同じ定義が3回出ています。
-   - 序論の該当段落の末尾に「厳密な定義は Section 3」と明示しているので，序論側の定義文を1–2文短くするとコンパクトになります
-    (, 2026)3. **「二段階評価」の説明の一本化**
-   - 3.3 と 5.1 で，再現性→不変性の二段階説明がやや重複しています。
-   - 3.3 を定義だけにし，5.1 は「どの実験がどの象限か」の対応表に専念させるとスッキリします
-    (, 2026)4. **追加実験 4–8 の本文記述量**
-   - 4–8 はすでに「補強的」「付録参照」と書いてあるので，本文の説明をもう数行削っても主張は揺れません。
-   - 5.5 で「詳細は付録」になっているので，結果紹介を1–2文／実験に圧縮する余地があります
-    (, 2026)## 逆に残した方がよいところ
+## Style and Possible Tightening (within the English draft)
 
-- 限界セクションは具体的で誠実さが出ているので，このままがよいです
-   (, 2026)**まとめると**：「増やす」より「同じことを言っている箇所を数か所圧縮する」段階に入っていて，もう一息は主に要旨・序論・定義・実験4–8の冗長部分の削り込みです。
+- The **abstract is dense** but logically ordered. You could slightly shorten the final sentence (CartPole + GridWorld examples) without losing content, but it is already acceptable for a full paper  (, 2026).
+- Section 3.3 is very clear conceptually but long. The key diagnostic condition is nicely spelled out and might be emphasized once, then referred to briefly later <paper_cite paper_id="u:1f9e8cf3-ba9c-423d-b83a-57a33320557e" quote="A strong suspicion of spurious dependency arises when AA( Dshift ) > θAA and JS(Dshift) < α × JS(Dtrain) hold simultaneously."/>.
+- The experiment section is extensive but you successfully **signpost which experiment supports which claim** at 5.1, which helps navigation  (, 2026).
+
+## English Quality
+
+- The English is **natural, technical, and consistent**. Terminology (fidelity, invariance, spurious dependency, structural constraint bottleneck, decoupling) is used in a stable way and defined when first introduced  (, 2026).
+- Only very minor copy‑editing remains (e.g., occasional run‑on sentences or repeated phrases), not conceptual rewriting.
+
+## Conclusion
+
+In English, the paper reads as a **mature full‑length research article**: strong conceptual framing, solid experimental backing across discrete and continuous RL, carefully discussed limitations, and clear separation from prior work. Further changes would mainly be micro‑editing for brevity and flow, not fixing major weaknesses.
+
+_These search results were found and analyzed using Consensus, an AI-powered search engine for research. Try it at https://consensus.app. © 2026 Consensus NLP, Inc. Personal, non-commercial use only; redistribution requires copyright holders’ consent._
+
+## References
+
+ (2026). Explainability Evaluation Framework for Reinforcement Learning Policies Based on Structural Constraint Bottlenecks. *none*.
+

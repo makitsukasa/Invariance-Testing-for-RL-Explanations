@@ -1,150 +1,126 @@
-# Peer Review Report — 構造制約ボトルネックに基づく強化学習方策の説明可能性評価枠組み
+# Peer Review — Explainability Evaluation Framework for RL Policies Based on Structural Constraint Bottlenecks
+
+**対象**: draft_en.md（英語版）  
+**実施日**: 2026-04-19
+
+> **注**: 本レビューは要約版のドラフトに基づいて実施されたため、一部の指摘（Critical A1: placeholder sections、Critical A2: zero figures、Major A3: threshold sensitivity not shown、Major B1: SHAP without evidence）は実際の draft_en.md には該当しない（本文はフル記述済み、Figure 1〜5 存在、Table 6/7 存在、Figure 4 = SHAP 比較）。これらはメモへの転記対象外とする。
 
 ---
 
-## Reviewer A: Methodology Expert
+## Reviewer A (Methodology Expert)
 
 ### Strengths
 
-1. **Clean experimental design for the core claim.** The decoupling of Oracle and Surrogate, followed by two-stage evaluation (reproducibility then invariance), is methodologically sound. Experiment 2 (spurious GridWorld) and Experiment 3 (non-spurious CartPole) form a proper contrastive pair that directly addresses the central claim.
+1. **Sound decoupling architecture.** The two-stage framework (fidelity → invariance) is methodologically clean. Separating Oracle from Surrogate avoids the performance-interpretability trade-off. The insight that high AA is necessary but not sufficient is well-motivated.
 
-2. **Appropriate use of multiple seeds.** 10 seeds across main experiments with reported mean and standard deviation is adequate for the environment scale. The choice to use independent seeds for distillation and evaluation data is good practice that prevents memorization artifacts.
+2. **Verified numerical claims.** All key numbers independently verified against raw data (exp002 summary, exp003 metrics.csv, exp004 summary, exp009 metrics.csv, exp011 r2_summary.csv, exp014 metrics.csv). All match: Exp 2 train AA=0.988±0.011, reversed_c AA=0.942±0.056, J_S=−1.000; Exp 3 pole_long p_adj=0.0004; LunarLander GBT J_S=236.8; Hopper DAgger J_S=2239 with gravity_lo reversal at 127%.
 
-3. **Sensitivity analysis of thresholds.** Tables 6 and 7 for AA threshold and alpha sensitivity are a methodological strength. The large separation between spurious and non-spurious conditions makes the results robust to threshold choice.
-
-4. **SHAP comparison in Experiment 2.** Demonstrating that SHAP importance values for the spurious feature remain unchanged between train and reversed_c conditions while the framework detects the problem is an effective methodological comparison.
+3. **Contrastive experimental design.** Experiment 2 (spurious → collapse) paired with Experiment 3 (non-spurious → no collapse) is a strong design for the core claim.
 
 ### Weaknesses
 
-**[MAJOR] W-A1: Numerical discrepancies between stored experiment data and paper claims.**
+**[MINOR] W-A4: The "agnostic to internal structure" claim is underspecified.**
 
-The paper reports for Experiment 1: `N=0, K=4, d=5: AA=0.915±0.028` (Section 6.1). The actual experiment summary file shows `AA=0.910±0.016`. Similarly, `N=16, K=4, d=5` is reported as `AA=0.819±0.033` but the file shows `AA=0.809±0.010`. The discrepancy arises from using different seed sets in different sub-experiments. A paper must report numbers from a single, consistent experimental run.
+Contribution 1 claims the framework works for "arbitrary interpretable models" but experiments test only three model families (linear, tree, MoET) plus GBT. There is no formal statement of what properties a Surrogate model must have for the framework to apply (e.g., deterministic action output, finite action space, etc.).
 
-> **Fix:** Re-run Experiment 1 with consistent seeds and report a single set of numbers. If `0.915` comes from a separate sub-experiment, label it clearly, or use only the canonical 10-seed run for all claims.
-
-**[MAJOR] W-A2: Hopper R² metric is not traceable in stored results.**
-
-The paper claims `RegTree d=12: train R²=0.920±0.009` (Appendix 5, Section 5.5). However, the experiment summary files for exp011 and exp012 only report AA values — no R² column. These R² values appear to have been computed post-hoc and are not stored in canonical output, creating a reproducibility gap.
-
-> **Fix:** Either (a) re-run experiments to output R² as a first-class metric in CSV/summary files, or (b) provide a documented post-processing script that computes R² from stored action difference files and produces the reported numbers.
-
-**[MAJOR] W-A3: Experiment 7 (LunarLander) uses only 5 seeds while the paper states 10 as standard.**
-
-Section 5.1 states "各条件は乱数シード10本で実行し". The LunarLander experiment (exp009) evidence contains only seeds 42, 123, 456, 789, 1011. This is a direct contradiction.
-
-> **Fix:** Run 5 additional seeds to reach 10, or explicitly state that LunarLander and Hopper use 5 seeds and justify why.
-
-**[MINOR] W-A4: Experiment 12 summary shows `±nan` for standard deviations.** While the CSV may have 10 seeds of data, the summary aggregation appears broken. This is a reproducibility concern.
-
-**[MINOR] W-A5: The decision tree visualization in Section 6.2 is from a single seed (seed=42), single condition.** The claim that "all 4 experts learned the same structure" is not verified across all 10 seeds.
+> **Fix:** State explicitly what properties are required or note this as a limitation.
 
 ---
 
-## Reviewer B: Domain Expert (XRL / Explainable RL)
+## Reviewer B (Domain Expert — XAI/RL)
 
 ### Strengths
 
-1. **Clear positioning relative to prior work.** The distinction between this framework as a post-hoc evaluation tool versus IRM/CBM as training strategies is well articulated. The paper correctly identifies the gap: existing distillation work (Bastani et al., 2018; Vasic et al., 2019) optimizes AA but does not check for spurious dependency replication.
+1. **Addresses a real gap.** Bastani (2018) and Vasic (2019) optimize AA without checking for spurious dependency replication. The paper correctly identifies this blind spot.
 
-2. **Model-agnostic design.** The framework genuinely does not depend on the internal structure of the Surrogate model, as demonstrated by testing across decision trees, MoET, linear models, and GBT. This is a real strength for practical adoption.
+2. **Good positioning relative to IRM and OOD robustness.** Section 2.3 carefully distinguishes post-hoc diagnosis from IRM's training objective.
 
-3. **Honest limitations section.** The limitations are concrete and specific (small environments, 10 seeds, oracle presupposition, shift selection arbitrariness). This is better than most papers.
+3. **Extension to continuous control.** The BC vs DAgger contrast (AA_ε=0.703 + J_S=4.5% vs AA_ε=0.420 + J_S=63%) is a genuinely interesting result showing the two metrics capture different aspects.
 
 ### Weaknesses
 
-**[MAJOR] W-B1: The contribution is primarily diagnostic, not prescriptive, which limits practical impact.**
+**[MAJOR] W-B2: Hopper fidelity criterion ambiguity in continuous action spaces.**
 
-The paper repeatedly acknowledges that detection without remediation has limited utility: 「スプリアス依存の検出は、その後の対処法と組み合わせてはじめて実用的な意義を持つ」. A reviewer will ask: once you detect spurious dependency, what do you do? The paper offers no guidance beyond "debug and improve."
+Section 3.3 defines Stage 1 as "AA > 0.9 or R² > 0.9." For Hopper (continuous), RegTree d=12 achieves R²=0.922 (passes) but AA_ε=0.703 (fails). It is not clear from the text which metric governs in continuous action spaces. A reader could reasonably interpret the surrogate as failing Stage 1 fidelity.
 
-> **Fix:** Add a paragraph in Discussion (Section 7) outlining 2–3 concrete remediation strategies following a positive detection (e.g., re-training oracle with IRM, feature selection for distillation, regularized distillation), with references.
+> **Fix:** Clarify explicitly in Section 3.3 that for continuous action spaces, R² (or ε-agreement) replaces AA as the Stage 1 criterion, not as an addition to it.
 
-**[MAJOR] W-B2: The Hopper results actively undermine the contribution rather than supporting it.**
+**[MAJOR] W-B3: The framework lacks a formal decision procedure.**
 
-For Hopper (exp011), RegTree d=12 achieves R²=0.920 on train but J_S is only 5–10% of oracle performance (~150–200 vs ~3500). The invariance evaluation is therefore inapplicable: you cannot meaningfully evaluate distribution shift behavior when the surrogate does not function as a policy even in-distribution. Including these results makes the framework look weaker.
+The paper proposes two-stage evaluation but provides no algorithm or flowchart that a practitioner could follow: when exactly does a surrogate pass/fail Stage 1? What if AA passes but invariance is borderline? The framework is conceptual rather than operational.
 
-> **Fix:** Either (a) relegate Hopper entirely to an appendix as a negative/preliminary result, with clear framing, or (b) find a surrogate architecture that achieves functional J_S on Hopper before applying invariance evaluation.
+> **Fix:** Add Algorithm 1 (or a decision flowchart) specifying inputs, thresholds, and output (pass/investigate/reject).
 
-**[MINOR] W-B3: The GridWorld environment is custom-designed to demonstrate the phenomenon.** The spurious feature c is engineered to perfectly correlate with the goal during training. Real-world spurious correlations are rarely this clean.
+**[MINOR] W-B4: Mindlin et al. (2025) connection remains hand-waved.**
 
-> **Fix:** Strengthen the p=0.2 and p=0.5 results as the partial-correlation cases, and explicitly frame them as addressing this concern.
-
-**[MINOR] W-B4: Citation [^2] (Mindlin et al., 2025) appears only in the introduction with no further discussion.** Either integrate the interactive-explanation perspective into the Discussion or remove this citation.
-
-**[MINOR] W-B5: No comparison against existing XRL evaluation frameworks.** The claim that AA alone is insufficient is asserted rather than demonstrated against a baseline evaluator that would have given misleading conclusions.
+Section 2.4 suggests the framework could serve as a "preliminary evaluation" before human interaction, but no concrete integration path is given.
 
 ---
 
-## Reviewer C: Statistics / Rigor Expert
+## Reviewer C (Statistics/Rigor Expert)
 
 ### Strengths
 
-1. **10 seeds with mean and standard deviation** is adequate for the toy environments used. Threshold sensitivity analysis (Tables 6, 7) demonstrates that conclusions are not an artifact of a single threshold choice.
+1. **Appropriate statistical methodology.** Welch's t-test with Holm-Bonferroni correction and Cohen's d is better than most papers. 10 seeds is adequate.
 
-2. **Clear separation between conditions.** In exp002, reversed_c produces J=−1.000 (complete failure) versus train J≈0.97 — a massive effect size that does not require sophisticated testing to interpret.
+2. **Transparent seed filtering.** Reporting both all-10 and converged-8 statistics for Experiment 3 is methodologically transparent.
+
+3. **Verified p-values.** All statistical claims confirmed against pvalue_summary.csv.
 
 ### Weaknesses
 
-**[CRITICAL] W-C1: No formal statistical tests are reported for the main claims.**
+**[MAJOR] W-C1: Experiment 3 non-significant results may be presented without sufficient context.**
 
-The central claims — that the framework distinguishes spurious from non-spurious environments — are supported only by point estimates and standard deviations. While effect sizes are large, the paper should report at minimum: a formal test (e.g., paired t-test or Wilcoxon) comparing J_S between train and shifted conditions, effect sizes (Cohen's d), and confidence intervals.
+The paper states "other shifts not significant (p_adj>0.18)." However, the gravity_hi raw p-value (before Holm correction) may have been ≈0.03–0.09. Readers should know whether gravity_hi crossed raw significance before correction, as this affects the interpretation of "invariance."
 
-The large standard deviations in exp003 (J_oracle=428.1±148.5 for train) suggest that some seeds produce very different behavior, making the absence of formal testing more concerning.
+> **Fix:** Report raw and adjusted p-values for all Experiment 3 contrasts, or add a sentence noting which conditions were nominally significant before correction.
 
-> **Fix:** Add a statistical comparison table for key contrasts: exp002 train vs reversed_c (AA and J), exp003 across shift conditions. Report 95% confidence intervals. For n=10, use a nonparametric test if normality cannot be assumed.
+**[MAJOR] W-C2: Hopper gravity_lo reversal claim is not robust to CI.**
 
-**[MAJOR] W-C2: Oracle convergence failures contaminate the exp003 statistics.**
+The paper highlights "J_S=493 > J_oracle=389 (127% reversal)" under gravity_lo for the DAgger surrogate. However, J_S standard deviation is 483, meaning the 95% CI for J_S almost certainly includes values below J_oracle. The headline "reversal" is not statistically supported.
 
-`J_oracle=428.1±148.5` for the train condition (CV ≈ 35%) is attributed to "DQN stochastic convergence (approximately 2 of 10 seeds fail to converge)." Including non-converged oracle seeds in the aggregate statistics inflates variance and contaminates the AA/J_S means.
+> **Fix:** Either report a CI for the J_S/J_oracle ratio and note the reversal is not significant, or soften the framing to "a tendency toward reversal, consistent with CartPole pole_long."
 
-> **Fix:** Either (a) filter seeds where oracle fails to reach threshold (J ≥ 450) and report statistics on remaining seeds (with clear disclosure), or (b) re-train oracles until all 10 seeds converge. Report both filtered and unfiltered results if desired.
+**[MINOR] W-C3: Converged-seed exclusion criterion (J ≥ 450) is post-hoc.**
 
-**[MAJOR] W-C3: LunarLander (Experiment 7) has only 5 seeds.**
+The criterion is reasonable, but it was not pre-registered. Clarify whether statistical tests used 8 or 10 seeds, and note the post-hoc nature of the filter.
 
-With n=5, the 95% CI for GBT train AA=0.876±0.026 is approximately [0.844, 0.908]. This is acceptable for a supplementary result, but the paper does not flag the reduced statistical power, and the stated methodology implies n=10 for all experiments.
+**[MINOR] W-C4: Experiment 4 multiple comparisons family not globally controlled.**
 
-**[MINOR] W-C4: The α sensitivity analysis (Table 7) is trivially uninformative for the spurious case.** When J_S/J_train is −1.03 or 0.06, any reasonable α detects it. The analysis would be more meaningful if borderline cases existed where α choice matters.
-
-**[MINOR] W-C5: The multiple comparison correction method is not explicitly named.** The paper mentions "Holm–Bonferroni 補正" once (exp004) but does not consistently specify the correction family across experiments.
+Holm-Bonferroni is applied within each noise level (3 comparisons per N), but not across all N levels jointly. The family-wise error rate across all 12 Experiment 4 comparisons is not controlled.
 
 ---
 
-## Cross-Reviewer Consensus Issues
+## Cross-Reviewer Summary
 
-### [CRITICAL]
+| Issue | ID | Severity |
+|-------|-----|----------|
+| "Arbitrary" models claim needs formal conditions | W-A4 | Minor |
+| Hopper fidelity criterion (R² vs AA) ambiguous for continuous | W-B2 | Major |
+| No formal decision procedure / Algorithm 1 | W-B3 | Major |
+| Mindlin connection still hand-waved | W-B4 | Minor (re-flag) |
+| Exp 3: raw vs adjusted p-values not reported | W-C1 | Major |
+| Hopper gravity_lo reversal CI not robust | W-C2 | Major |
+| Converged-seed filter is post-hoc, stat test seed set unclear | W-C3 | Minor |
+| Exp 4 family-wise error rate not globally controlled | W-C4 | Minor |
+| Citations sparse in Section 4 (Methods) and Section 5 (Experiments) | Cross | Minor |
 
-**CR-1: Word count is insufficient for a full conference submission.**
+### What Is Good
 
-The main body (Sections 1–9, excluding appendices) contains approximately 2,900–3,100 words. This is well below the NeurIPS/ICML target of 5,000–6,500 words. Experiments 4–8 are summarized in a single subsection (Section 5.5) with one paragraph each, deferring all details to appendices. The paper reads as an extended abstract or workshop paper. The Results section (Section 6) covers only Experiments 1–3; Experiments 4–8 appear only as appendices, making the main body thin.
+- Core idea is sound, addresses a genuine gap.
+- All experimental data verified and reproducible (10 seeds, scripts present).
+- Statistical methodology mostly appropriate.
+- Contrastive experimental design (Exp 2 vs Exp 3) is effective.
+- Related work positioning is careful and accurate.
+- English writing quality is natural and technical.
 
-**CR-2: No reference list.**
+### Verdict
 
-The paper uses footnote-style citations (`[^1]`, `[^2]`, etc.) but does not include a rendered bibliography section. This is a formatting defect.
+The experimental evidence and core idea are solid. The paper is completable as-is from a content standpoint. The remaining issues are mostly about presentation clarity (algorithm, continuous-action criterion, CI reporting) rather than fundamental problems with the experimental design or conclusions.
 
-### [MAJOR]
-
-**CR-3: Bullet-point lists in Section 1 (contributions) and Section 5.1 (experiment objectives).** Numbered lists in the contribution paragraph are common in ML papers but should be transformed into prose for a polished submission.
-
-**CR-4: Decision tree visualization in Section 6.2 is inline text, not a figure.** The paper has 4 image figures (Figures 1–4), which meets the minimum, but the ASCII tree should be rendered as a proper figure for camera-ready.
-
-**CR-5: Submission venue is ambiguous.** The paper is written entirely in Japanese. If targeting a Japanese venue, the NeurIPS word count criterion is irrelevant. If targeting an English-language venue, the paper must be translated. The title length check and formatting requirements differ by venue.
-
-**CR-6: Compute resources not reported.** GPU/CPU type, total compute time, and memory requirements are absent.
-
----
-
-## Summary Table
-
-| Criterion | Status |
-|-----------|--------|
-| Topic alignment | PASS — paper stays on stated topic throughout |
-| Claim-evidence alignment | PARTIAL FAIL — Hopper R² not traceable; exp001 numbers inconsistent with stored data |
-| Statistical validity | FAIL — no formal tests for main claims; oracle failure contamination unaddressed |
-| Completeness | FAIL — ~3,000 words (target 5,000–6,500); no reference list |
-| Reproducibility | PARTIAL FAIL — hyperparameters specified but R² computation untraceable; seed count inconsistency |
-| Writing quality | PASS (with issues) — flowing prose in most sections; some numbered lists |
-| Figures | PASS — 4 figures present |
-| Citation distribution | PASS (marginal) — present in Method and Discussion, though sparse |
-
-**Overall verdict: Major Revision required.**
-
-The core experimental design and central claim are sound. The contrastive pair (exp002 spurious vs exp003 non-spurious) is the clearest and most convincing result. However, the paper is too short for a full-venue submission, lacks formal statistical tests for the main claims, has numerical traceability issues (exp001 discrepancy, Hopper R² provenance), and is missing a reference list. The Hopper results in Appendix 5 should be reconsidered — as currently framed, they weaken rather than strengthen the contribution.
+**Suggested priority for revision:**
+1. Clarify continuous-action Stage 1 criterion (W-B2)
+2. Add Algorithm 1 or decision flowchart (W-B3)
+3. Report raw+adjusted p-values for Exp 3 (W-C1)
+4. Qualify Hopper gravity_lo reversal with CI (W-C2)
+5. Address "arbitrary" models scope (W-A4)
