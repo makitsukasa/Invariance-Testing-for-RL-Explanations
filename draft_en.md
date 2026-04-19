@@ -24,7 +24,7 @@ Research on approximating black-box policies with interpretable models has been 
 
 ### 2.2 Post-hoc Explanation Methods and Faithfulness
 
-LIME (Ribeiro et al., 2016[^8]) and SHAP (Lundberg & Lee, 2017[^4]) are widely used methods for computing local feature attributions for individual predictions. These methods reveal "which features the policy currently depends on" but do not address whether those dependencies remain valid under distributional changes. Research on faithfulness (Alvarez-Melis & Jaakkola, 2018[^9]; Samek et al., 2017[^10]) attempts to evaluate the fidelity of explanations within the training distribution but does not address the maintenance of fidelity outside it. The concept of invariance in this work complements these approaches by directly evaluating whether faithfulness is maintained out of distribution.
+LIME (Ribeiro et al., 2016[^8]) and SHAP (Lundberg & Lee, 2017[^4]) are widely used methods for computing local feature attributions for individual predictions. These methods reveal "which features the policy currently depends on" but do not address whether those dependencies remain valid under distributional changes. Research on faithfulness (Alvarez-Melis & Jaakkola, 2018[^9]; Samek et al., 2017[^10]) attempts to evaluate the fidelity of explanations within the training distribution but does not address the maintenance of fidelity outside it. The concept of invariance in this work complements these approaches by directly evaluating whether faithfulness is maintained out of distribution. A comparative experiment applying Comprehensiveness faithfulness (DeYoung et al., 2020[^20]) to the same experiments (Appendix 6) quantitatively demonstrates this complementarity.
 
 ### 2.3 Invariance and Interpretability under Distribution Shift
 
@@ -81,13 +81,14 @@ To compare the strength of structural constraints, we position three candidates:
 
 ### 5.1 Experimental Objectives and Correspondence to Claims
 
-Experiments were designed to empirically validate the following four points. We make explicit which claim each experiment provides evidence for.
+Experiments were designed to empirically validate the following six points. We make explicit which claim each experiment provides evidence for.
 
 1. **Structural constraint strength imposes a structural upper bound on fidelity** (Experiment 1: as a baseline experiment, confirming the relationship between structural constraints and AA).
 2. **The state of "high fidelity, low invariance" can be detected in a spurious environment** (Experiment 2: direct evidence for the central claim).
 3. **Relatively high invariance can be observed in a spurious-free environment** (Experiment 3: contrastive evidence against Experiment 2).
 4. **The type of structure affects fidelity under distribution shift** (Experiments 4 and 5: supplementary evidence. Experiment 6: confirmation that model structure differences originate from structure rather than data volume).
 5. **Verifying extensibility to continuous dynamical systems and complex environments** (Experiments 7 and 8: application to LunarLander-v3 and MuJoCo Hopper-v5 and validation of evaluation axis adequacy).
+6. **Spurious dependencies that training-distribution faithfulness evaluation (Comprehensiveness faithfulness) cannot detect can be complementarily diagnosed by the proposed framework** (Experiment 9: see Appendix 6).
 
 Each condition was run with 10 random seeds (42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526), and we report mean $\pm$ standard deviation. Distillation data and evaluation data were collected with independent seeds. The type of distribution shift (physical parameter modification vs. reversal of spurious features) was selected based on the nature of the phenomenon to be detected. Formalization of distribution shift selection criteria is left for future work.
 
@@ -105,9 +106,9 @@ We design a GridWorld environment where the agent's position $(x, y)$ on a 5$\ti
 
 Using a CartPole without spurious features ($N=0$), distribution shift is applied by changing the physical parameters after training. Gravity $g \in \{9.8, 5.0, 20.0\}$ and pole half-length $\ell \in \{0.5, 0.25, 1.0\}$ are varied independently across 5 conditions (train, gravity\_lo, gravity\_hi, pole\_short, pole\_long). The Oracle policy reuses the trained model from Experiment 1 with $N=0$, and the Surrogate model uses the best MoET configuration ($K=4$, $d=5$). The pole\_long condition ($\ell=1.0$) represents a pole length twice that of training, treated as an extreme condition where the Oracle policy itself may cease to function OOD.
 
-### 5.5 Additional Experiments (Experiments 4--8)
+### 5.5 Additional Experiments (Experiments 4--9)
 
-Experiments 4--8 were conducted as supplementary validation to reinforce the generality of the evaluation framework established in Experiments 1--3. Detailed settings and results for each experiment are provided in the appendices.
+Experiments 4--9 were conducted as supplementary validation to reinforce the generality of the evaluation framework established in Experiments 1--3. Detailed settings and results for each experiment are provided in the appendices.
 
 **Experiment 4 (CartPole model comparison; see Appendix 1).** Using the same CartPole noise-augmented environment as Experiment 1 ($N \in \{0, 4, 8, 16\}$), three model types---MoET ($K=4$, $d=5$), single decision tree ($d=5$), and logistic regression---are compared to examine the effect of structural type on AA. 10 seeds, 10,000 distillation samples. At $N=0$, MoET achieved the highest AA (0.915), and the difference from Linear (0.842) was statistically significant ($p_\text{adj}<0.001$).
 
@@ -118,6 +119,8 @@ Experiments 4--8 were conducted as supplementary validation to reinforce the gen
 **Experiment 7 (Extension to LunarLander-v3; see Appendix 4).** We verify whether the framework from the main experiments is applicable to continuous dynamical systems using LunarLander-v3. Against a PPO oracle ($J_\text{oracle}=260\pm13$), distillation is performed with four model types by adding GBT to the three from the main experiments. All 10 seeds converged ($J_\text{oracle}$ range: 238--281; no seeds excluded). Gravity coefficients $g \in \{-10.0, -3.0, -11.5\}$ serve as distribution shift conditions, and evaluation uses AA and $J_S$. GBT achieved AA=0.870$\pm$0.021 and was the only model to exhibit functional policy performance ($J_S=236.8\pm18.8$).
 
 **Experiment 8 (Extension to MuJoCo Hopper-v5; see Appendix 5).** We verify the adequacy of the evaluation axes for continuous action spaces using MuJoCo Hopper-v5. Against a TD3 oracle ($J_\text{oracle}\approx3500$), regression-type Surrogate models (RegTree, RegEBM, RegSDT) are applied, using $R^2$ and $\varepsilon$-agreement as fidelity metrics with 10 seeds. The Oracle policy is a fixed pretrained TD3 model (RL Zoo); oracle convergence is not applicable, and all 10 distillation seeds completed without failure. Comparing RegTree at depths $d \in \{5, 12\}$ confirms the existence of structural constraint bottlenecks in continuous spaces. Gravity coefficients and friction coefficient scales were used as distribution shift conditions.
+
+**Experiment 9 (Comparison with Comprehensiveness Faithfulness; see Appendix 6).** Comprehensiveness faithfulness (DeYoung et al., 2020[^20])---a widely used training-distribution fidelity evaluation metric---is applied to the same conditions as Experiment 2 (Spurious GridWorld, MoET $K=4,d=5$, 10 seeds) and compared with the invariance evaluation of the proposed framework. Comprehensiveness correctly reflects Oracle's $c$-dependence on the training distribution ($p=0.0$: 0.484; $p=0.5$: 0.103), but cannot predict that $J_S$ collapses catastrophically ($-1.00 \pm 0.00$) under reversed\_c at $p=0.0$. This demonstrates that the invariance evaluation complements the gap left by training-distribution-only evaluation.
 
 ### 5.6 Implementation Details and Hyperparameters
 
@@ -215,7 +218,7 @@ Formal statistical testing via Welch's $t$-test (Holm--Bonferroni correction) wa
 
 The model comparisons in Experiments 4 and 5 (see Appendices 1 and 2) showed a tendency for tree-structured models to maintain fidelity under distribution shift more stably than linear models. However, since statistically significant differences after multiple testing correction were confirmed only under a subset of conditions, caution is required in generalizing this tendency. The sensitivity analysis in Experiment 6 (see Appendix 3) reinforces this tendency, showing that the AA gap between MoET and Linear in the reversed\_c condition of GridWorld $p=0.5$ was not resolved even when the distillation data was increased 20-fold. The similar behavior of Tree and MoET suggests that the branching structure of the trees themselves, rather than MoET's gating layer, may be the key to fidelity.
 
-SHAP is useful in showing "which features the current policy depends on," but cannot address whether those dependencies are maintained under environmental changes. The invariance evaluation in this work does not replace SHAP but complements it by providing information that SHAP alone cannot reveal---the validity of the dependencies.
+SHAP is useful in showing "which features the current policy depends on," but cannot address whether those dependencies are maintained under environmental changes. The invariance evaluation in this work does not replace SHAP but complements it by providing information that SHAP alone cannot reveal---the validity of the dependencies. The comparison with Comprehensiveness faithfulness (DeYoung et al., 2020[^20]) in Appendix 6 quantitatively demonstrates that while Comprehensiveness captures within-training-distribution feature reliance, the invariance evaluation proposed here provides complementary diagnosis of whether that reliance remains valid after distribution shift.
 
 The arbitrariness of the AA > 0.9 threshold is addressed through sensitivity analysis by varying the threshold to 0.85, 0.90, and 0.95. Table 6 shows the mean AA for key conditions and pass/fail judgments for each threshold.
 
@@ -315,6 +318,8 @@ Future work includes application to high-dimensional observation spaces, increas
 [^18]: Brockman, G., et al. (2016). OpenAI Gym. *arXiv:1606.01540*.
 
 [^19]: Raffin, A., et al. (2021). Stable-baselines3: Reliable reinforcement learning implementations. *Journal of Machine Learning Research*, 22(268), 1–8.
+
+[^20]: DeYoung, J., et al. (2020). ERASER: A benchmark to evaluate rationalized NLP models. *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL)*.
 
 ---
 
