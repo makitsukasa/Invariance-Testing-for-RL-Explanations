@@ -1,136 +1,154 @@
-# Peer Review: Detecting Spurious Dependencies in Surrogate Explanations of RL Policies via Invariance Testing
+# 査読報告: 不変性テストを用いた強化学習方策の代理説明におけるスプリアス依存の検出
 
-**対象**: draft_en.md（英語版・全文）  
-**実施日**: 2026-04-20
-
----
-
-## Reviewer A (Methodology Expert)
-
-### Strengths
-
-1. The decoupling design (Oracle fixed, Surrogate evaluated post-hoc) is clean and well-motivated. It correctly avoids the performance-explainability trade-off that plagues single-model approaches. The framework is genuinely model-agnostic.
-
-2. The two-stage evaluation is logically sound. Requiring fidelity as a necessary condition before invariance testing is a proper gatekeeping structure. The diagnostic criteria (AA > θ_AA AND J_S collapse) are clearly defined and testable.
-
-3. Experiment 2 now explicitly acknowledges the by-construction nature and frames its value correctly: "The value of this experiment lies not in demonstrating this consequence but in confirming that the proposed framework's diagnostic criteria function correctly in a controlled setting with a known ground truth." This is a mature framing.
-
-4. Threshold sensitivity analysis (Tables 6 and 7) is now in the main text, and qualitative conclusions are shown to be robust across θ_AA ∈ {0.85, 0.90, 0.95} and α ∈ {0.7, 0.8, 0.9}.
-
-### Weaknesses
-
-1. **MAJOR: The framework is a necessary-condition detector, not a sufficient-condition evaluator.** The paper correctly notes that "high invariance does not guarantee the causal validity of the dependencies." However, the abstract says "identify states where AA is high but the explanation is wrong" without noting the converse does not hold (no detection ≠ explanation is correct). This asymmetry should be explicit in the abstract and conclusion.
-
-2. **MAJOR: Distribution shift selection remains entirely manual and unguided.** Without knowing what to shift, the framework cannot be applied. The suggestion to use SHAP importance to prioritize shift candidates (Section 8) is a two-sentence aside in Limitations, not a methodological contribution. For a framework paper, this is the most critical user decision; it should be elevated to the main framework description (Section 3.3 or 4).
-
-3. **MINOR: The paper conflates two different uses of "invariance."** In the IRM sense, invariance means a representation stable across environments. In this paper, it means AA and J_S are maintained after shift. Section 2.3 distinguishes them, but the term is used loosely thereafter.
-
-4. **MINOR: The detection-remediation gap is not bridged.** Section 7 lists possible remedial actions but none are demonstrated.
-
-### Actionable Revisions
-
-- Add a sentence to the abstract: the framework detects spurious dependencies but cannot confirm their absence.
-- Elevate the SHAP-guided shift selection heuristic from Limitations to Section 3.3 or 4.
-- Add a brief terminological note in Section 3.3 distinguishing "invariance" as used here from IRM's concept.
+**対象**: draft.md（日本語版・全文）
+**実施日**: 2026-04-25
+**査読ラウンド**: 第5回（前回対応済み項目の反映確認含む）
 
 ---
 
-## Reviewer B (Domain Expert -- XRL / Interpretable RL)
+## Reviewer A（方法論専門家）
 
-### Strengths
+### 総合評価: Minor Revision
 
-1. The related work section is comprehensive. The distinction from IRM (training-time vs. post-hoc) and from SHAP/LIME (revealing vs. evaluating dependencies) is clearly drawn.
+**根拠**: 枠組みの論理構成は成熟しており、前回指摘の非対称性開示（Abstract）や閾値感度分析も適切に反映されている。主要な方法論的懸念は解消されつつあるが、本文中の学習ステップ数の矛盾と、分布シフト選択の指針不在という未解決の構造的問題が残る。
 
-2. Experiment 9 (Comprehensiveness comparison) adds substantial value. comp_c correctly reflects c-dependence on training distribution (p=0.0: 0.484) but cannot predict J_S collapse under reversed_c. This is a concrete, quantitative illustration of what the invariance axis adds.
+### 強み
 
-3. The paper honestly reports negative/weak results: Hopper BC achieves only 4.5% of oracle performance, gravity conditions in Experiment 3 are not significant after correction, most model comparisons in Experiment 5 lack significance.
+1. **分離設計の明快さ**: Oracle policy を固定し Surrogate model を事後的に評価するという設計は、性能と説明可能性のトレードオフを回避する正当な方法であり、枠組みとして健全。
 
-4. The title "Detecting Spurious Dependencies in Surrogate Explanations of RL Policies via Invariance Testing" is precisely scoped ("detecting," not "evaluating" or "eliminating").
+2. **二段階評価の論理的妥当性**: 再現性を必要条件、不変性を追加の診断軸とする構造は、「高 AA だが誤っている」状態の検出という問題を適切に定式化している。Section 3.3 の判定基準は明確かつ検証可能。
 
-### Weaknesses
+3. **非対称性の明示的開示**: 要旨末尾に「本枠組みはスプリアス依存を検出するが、その不在を確認する機能は持たない」が追記されており、前回指摘への対応として適切。
 
-1. **MAJOR: Scalability evidence remains insufficient.** The main experiments use CartPole (4D, 2 actions) and 5×5 GridWorld (3D, 4 actions). Contribution 3 claims "a tendency for the evaluation axes to function consistently across multiple RL environments." LunarLander (Experiment 7) is in an appendix and only GBT produces functional policies. Hopper (Experiment 8) fails Stage 1 fidelity for all BC surrogates (best AA_ε = 0.703, below 0.9); DAgger reaches J_S = 63% but AA_ε = 0.420 also fails Stage 1. The paper correctly notes "preliminary," but Contribution 3 in the Introduction does not sufficiently hedge.
+4. **感度分析の充実**: Table 6・7 による閾値感度分析は、θ_AA と α の恣意性に対する robustness を定量的に示しており、方法論的な信頼性を高めている。
 
-2. **MAJOR: Hopper experiment's Stage 1 failure undermines claims about continuous spaces.** RegTree d=12 achieves R²=0.922 on training, but BC policy performance is 4.5% of oracle. DAgger's AA_ε = 0.420 on oracle states is not "high fidelity." The paper should be explicit: no interpretable surrogate achieves both high fidelity and functional policy performance in Hopper under the framework's criteria.
+5. **Comprehensiveness faithfulness との比較（実験9）**: 訓練分布内評価手法との相補関係を定量的に実証した点は、枠組みの位置づけを明確にする良い追加。
 
-3. **MINOR: MoET selection rationale is circular for Experiment 2.** Section 7 states MoET was selected because Tree's reversed_c AA=0.887 falls below θ_AA=0.9. This means the primary model was chosen because it produces the result needed to demonstrate the framework. Transparent, but raises whether the diagnostic criteria are too narrowly tuned to MoET's behavior.
+### 主要な懸念
 
-4. **MINOR: No real-world environment tested.** In real-world RL, spurious features are unknown a priori and distribution shifts are not cleanly controllable. A discussion of how the framework operates under these constraints would strengthen practical motivation.
+1. **[MAJOR] Section 5.2 と Table A1 の学習ステップ数の矛盾**
+   - Section 5.2 では CartPole DQN の学習を「200,000 ステップ」と記述しているが、Table A1 では同じ CartPole-v1 DQN に対して「500k steps」と記載されている。実験設定ファイル（exp001_cartpole_noise.yaml）を確認したところ `n_steps: 500000` であり、Table A1 が正しい可能性が高い。
+   - **影響**: 再現性に直結する重大な不整合。読者が Section 5.2 に従って 200,000 ステップで再現を試みた場合、Oracle policy の品質が異なり結果が再現できない可能性がある。
+   - **修正案**: Section 5.2 の「200,000 ステップ」を「500,000 ステップ」に修正するか、実際のステップ数を確認して統一する。なお、Section 5.3（GridWorld）の「200,000 ステップ」は Table A1 の「200k steps」と整合しており問題ない。
 
-### Actionable Revisions
+2. **[MAJOR] 分布シフト選択の方法論が枠組み本体に含まれていない**（前回指摘 M-03-A-02 の継続）
+   - 枠組みを適用するには「何をシフトするか」を決定する必要があるが、この決定手順は Section 8（限界）の記述に留まっている。Section 3.3 または Section 4 にシフト候補選択の推奨実践（例: SHAP 重要度に基づく優先順位付け）を組み込むべき。
+   - ユーザーの方針として「却下」とされているが、枠組み論文として最も実践的に重要な判断がフレームワーク記述から欠落している点は、方法論的な完成度に影響する。
 
-- Soften Contribution 3: replace "demonstrating a tendency for the evaluation axes to function consistently across multiple RL environments" with "providing initial evidence that the two-axis evaluation logic applies beyond the primary experimental environments."
-- Add to Limitations: in Hopper, no interpretable surrogate achieves both high fidelity and functional policy performance simultaneously under BC; DAgger's low AA_ε means Stage 1 is not satisfied in the standard sense.
-- Add brief discussion of real-world applicability constraints.
+3. **[MINOR] SHAP 値の微小な数値不整合**
+   - Section 6.2 では reversed_c の SHAP 値を 0.0178 と報告しているが、shap_summary.txt では train・reversed_c とも 0.0181 で同一。定性的結論（「ほぼ同値」）には影響しないが、正確性のため確認・修正が望ましい。
 
----
+### 軽微なコメント
 
-## Reviewer C (Statistics / Rigor Expert)
-
-### Strengths
-
-1. Statistical methodology is above average: Welch's t-tests with Holm-Bonferroni correction, Cohen's d reported, 10 independent seeds with separate distillation/evaluation splits, honest reporting of non-significant results.
-
-2. 95% CI is now reported for the key comparison. Experiment 2 reversed_c AA is "0.942 (95% CI: [0.902, 0.982])," directly addressing the relationship to θ_AA = 0.9.
-
-3. Zero-variance J_S result is handled appropriately: "trivially obvious" and does not require statistical testing, with the t-test degeneracy noted.
-
-4. Table 2 reports both all-seed and converged-seed statistics for Experiment 3, preventing cherry-picking concerns.
-
-### Weaknesses
-
-1. **MAJOR: The 95% CI lower bound for reversed_c AA barely exceeds the diagnostic threshold.** CI = [0.902, 0.982], threshold = 0.9. Lower bound exceeds threshold by only 0.002. The paper should explicitly acknowledge this near-boundary nature and discuss robustness. A one-sided or bootstrap CI might provide a more precise bound.
-
-2. **MAJOR: No power analysis for the central comparison.** p_adj = 0.030 with n=10 is acknowledged as marginal, but no power analysis is provided. At n=10 and d=1.14, power for a two-sided t-test at α=0.05 is approximately 0.55--0.65, meaning a 35--45% chance of missing the effect. This should be stated.
-
-3. **MINOR: mean ± SD vs. SE ambiguity.** The key comparison now reports 95% CI, but most results are still mean ± SD. A brief note at first use clarifying ± = SD (not SE) would prevent misinterpretation.
-
-4. **MINOR: Multiple testing across experiments not addressed.** Holm-Bonferroni correction within each experiment, but no correction across experiments 2, 3, 4, 5, 7. Family-wise error rate not discussed. Standard practice but should be acknowledged.
-
-5. **MINOR: Degenerate J_S t-test still referenced.** The paper notes J_S collapse is "trivially obvious," but p_adj < 0.001 for J_S is referenced elsewhere. The p-value should be omitted or explicitly labeled as degenerate where variance is zero.
-
-### Actionable Revisions
-
-- Add a sentence noting the near-boundary CI lower bound (0.902 vs. threshold 0.9) and its implications.
-- Report approximate power for Experiment 2 AA comparison (n=10, d=1.14, α=0.05, power ≈ 0.55--0.65).
-- Add a brief note clarifying ± represents SD, not SE.
-- Omit or explicitly label as degenerate the J_S p-value where variance is zero.
+- Section 7 の検出から対処へのギャップは引き続き未実証だが、検出枠組みの論文としてはこの点を future work に留める判断は許容範囲。
+- 「不変性」の用語注記（Section 3.3 末尾）は適切に追加されており、IRM との混同リスクは低減されている。
 
 ---
 
-## Cross-Reviewer Summary
+## Reviewer B（ドメイン専門家: XAI/RL）
 
-### Consensus Findings
+### 総合評価: Minor Revision
 
-All three reviewers agree on:
-- The paper addresses a real gap and the invariance axis adds genuine diagnostic value
-- Experimental methodology is well above average for reproducibility and statistical transparency
-- Experiment 2 vs. 3 contrastive design is effective and well-framed
-- Comprehensiveness faithfulness comparison (Experiment 9) is a strong addition
-- Title is now appropriately scoped
-- Scalability evidence remains the weakest aspect
+**根拠**: XAI/RL における位置づけは明確で、decoupling による事後的評価という着眼点は実用的に有意義。Hopper 実験の大幅改善（GBT+DAgger で R²=0.968、J_S=oracle 比 99.7%）により、連続制御への拡張可能性が説得力を持つようになった。Contribution 3 の表現も適切に格下げされている。残る懸念は実験環境のスケーラビリティと MoET 選択の循環性に集中する。
 
-### Critical Issues Requiring Revision
+### 強み
 
-| # | Issue | Severity | Reviewers |
-|---|-------|----------|-----------|
-| 1 | Framework cannot confirm absence of spurious dependencies; asymmetry not stated in abstract | MAJOR | A |
-| 2 | Distribution shift selection unguided; SHAP heuristic buried in Limitations, not in framework | MAJOR | A |
-| 3 | Contribution 3 scalability claims still overscoped relative to two toy environments | MAJOR | B |
-| 4 | Hopper: no surrogate achieves both high fidelity + functional performance; "preliminary" framing too generous | MAJOR | B |
-| 5 | CI lower bound for reversed_c AA barely exceeds θ_AA (0.902 vs 0.9); robustness not addressed | MAJOR | C |
-| 6 | No power analysis for the central comparison (n=10, d=1.14, power ≈ 0.55--0.65) | MAJOR | C |
+1. **Oracle 非侵襲の設計**: 既存の学習済み方策に手を加えずに説明品質を診断できる点は、実運用環境での適用可能性が高い。RL Zoo の事前学習済みモデルを利用した実験8はこの利点を実証している。
 
-### What Passed This Round
+2. **Hopper 実験の大幅改善**: GBT+DAgger による蒸留（R²=0.968±0.004、J_S/J_oracle=99.7%）は、前回の「両基準同時未達成」問題を完全に解消している。分布シフト下での R² 低下（gravity_hi: 0.326、gravity_lo: 0.056）も枠組みの診断能力を示す好例。
 
-- Title: 13 words, accurately scoped. ✓
-- Figures: 5 figures referenced (Figures 1--5). ✓
-- Citation distribution: citations appear in all sections. ✓
-- Writing quality: flowing prose throughout; Section 5.1 numbered list and Section 4.3 bullet list are functionally appropriate. ✓
-- Threshold sensitivity (Tables 6, 7): now in main text. ✓
-- Experiment 2 "by construction" acknowledgment: properly framed. ✓
-- Statistical methodology: Welch's t-test, Holm-Bonferroni, Cohen's d, n=10, independent splits. ✓
+3. **実験2 の位置づけの成熟**: 「グラウンドトゥルースが明確な制御された環境における診断基準の動作検証」という framing は、トートロジー批判に対する適切な応答。
 
-### Verdict
+4. **モデル横断比較の提供**: 実験4・5で MoET/Tree/Linear の3種を同一条件で比較し、構造の違いが再現性に与える影響を定量的に示している。実験6でデータ量ではなく構造に起因することを確認した点も堅実。
 
-**REVISE.** Substantial improvement from the prior version: title correctly scoped, Experiment 2's by-construction nature acknowledged, threshold sensitivity in main text, 95% CI reported. The core contribution is sound and Experiment 9 concretely demonstrates the invariance axis's value. Six MAJOR issues remain: the framework's asymmetry (cannot confirm absence) is not stated in the abstract; shift selection is unguided; scalability claims still exceed evidence; Hopper framing is generous; CI lower bound barely exceeds the threshold; and no power analysis is provided. All are addressable in a revision cycle.
+5. **Contribution 3 の表現修正**: 「主実験環境を超えて評価ロジックが適用できるという初期的な証拠」への修正は適切で、2環境のみの main body 実験に対して過大な主張を避けている。
+
+### 主要な懸念
+
+1. **[MAJOR] 主実験環境のスケーラビリティ不足**
+   - 本文の主実験は CartPole（4+N 次元状態、2行動）と 5x5 GridWorld（3次元状態、4行動）に限定されている。これらは XAI/RL 研究としては非常に小規模。LunarLander と Hopper は付録レベルの予備的検証と明記されているが、枠組みの汎用性を主張するには main body でより複雑な環境での検証が望ましい。
+   - ただし著者が明確にこれを限界として記述しており（Section 8 第一段落）、かつ Hopper 実験で連続行動空間への適用を示している点は評価する。
+   - **修正案**: 現状の限界記述で十分だが、Section 9（結論）で「高次元観測空間への適用」を today's limitation ではなく具体的な次ステップとして記述すると、将来の発展方向がより明確になる。
+
+2. **[MINOR] MoET 選択の循環性**（前回指摘 m-02-B-01 の継続確認）
+   - θ_AA=0.85 で Tree も基準を満たす旨の追記は適切。ただし「診断デモに θ_AA=0.9 を使い、その閾値で MoET のみが適格」という論理構造は依然として循環的な印象を与える。感度分析（Table 6）でこの問題は実質的に緩和されているが、Section 7 での記述をもう少し中立的にすると読者の印象が改善する。
+
+3. **[MINOR] 実世界環境への適用可能性の議論不足**（前回指摘 m-03-B-02 の継続）
+   - 全実験がシミュレータ環境であり、スプリアス特徴が事前に既知かつ分布シフトが制御可能な設定。実世界 RL では spurious feature が未知で分布シフトも制御不能な場合が多い。Section 8 にこの制約への短い言及があると実用面での誠実さが向上する。
+
+### 軽微なコメント
+
+- MoET エキスパート木の可視化（Section 6.2）はコードブロック形式だが、内容として木構造の依存関係を明確に伝えており、機能的には十分。camera-ready ではプロパーな図にするのが望ましいが、現段階では許容。
+- GBT が LunarLander で唯一機能的な方策性能を示した（Table A6）ことは興味深く、モデル選択の指針として有用。MoET/Tree が LunarLander で著しく低い J_S を示す理由についての考察があるとより深みが増す。
+
+---
+
+## Reviewer C（統計専門家）
+
+### 総合評価: Minor Revision
+
+**根拠**: 統計的報告は前回査読から大幅に改善された。95% CI の追記、検出力の開示、分散ゼロケースの適切な処理など、中心的な統計的懸念は解消されている。残る問題はサンプルサイズの本質的制約に起因するものであり、著者も認識している。閾値感度分析は統計的厳密さと実験的目安のバランスを適切にとっている。
+
+### 強み
+
+1. **検出力の明示的開示**: Section 6.2 に n=10, d=1.14, α=0.05 での検出力（≈0.55〜0.65）を追記した点は、中心的な統計的主張の脆弱性を正直に報告するものとして高く評価する。「検出」をタイトルに掲げる論文として、検出力の報告は必須であった。
+
+2. **95% CI の適切な使用**: reversed_c AA=0.942 の 95% CI [0.902, 0.982] の報告と、CI 下限が θ_AA=0.9 をわずか 0.002 上回るに過ぎないことの注記は、推論的文脈での適切な統計的報告。
+
+3. **J_S 分散ゼロの適切な処理**: 全10シードで J_S=-1.000（分散ゼロ）であることを「統計検定によらず自明」と記述し、退化した t 検定の d>1000 を削除した対応は正しい。
+
+4. **多重比較の一貫した処理**: Holm-Bonferroni 補正を各実験内で適用し、補正ファミリーの定義（例: 12比較一括）を明記している点は透明性が高い。より保守的な一括補正を選択した理由も述べられている。
+
+5. **±表記の明記**: Section 5.1 で「平均±標準偏差」と明記した点は、前回指摘への適切な対応。
+
+### 主要な懸念
+
+1. **[MAJOR] n=10 の統計的限界が複数の比較で顕在化**
+   - 実験3で gravity_hi（p_adj=0.087）、gravity_lo（p_adj=0.186）、pole_short（p_adj=0.186）がいずれも補正後に有意差未確認。これは n=10 の検出力不足による可能性が高い。
+   - 実験5で 27比較中、有意だったのは p=0.0 条件の MoET vs Linear 2件のみ。
+   - 著者はこれらを「解釈に慎重さが必要」と記述しているが、論文全体として n=10 で報告される有意差の多くが marginal であり、再現研究での確認が重要であることをより明確に述べるべき。
+   - **修正案**: Section 8（限界）の統計的信頼性の段落に「本研究の主要な比較の多くは n=10 の限界から補正後に有意差を確認できておらず、今後のシード数増加による追試で確認する必要がある」という趣旨の文を追加する。現行の記述はこの方向だが、影響範囲がより広い（実験3のみならず実験4・5にも及ぶ）ことを明示すべき。
+
+2. **[MINOR] p=0.2 reversed_c の大きな標準偏差（MoET: 0.200）の扱い**
+   - 付録2で中央値ベースの判断（10シード中9シードが AA>0.9）を補足しているのは良い対応。ただし、標準偏差が平均の約22%に達する条件で平均ベースの閾値判定を行うことの限界を、本文でもう少し明確に認めるとよい。
+   - IQR の報告は適切だが、外れ値シードの具体的な AA 値（どの程度低かったか）があると読者の理解が深まる。
+
+3. **[MINOR] 効果量の解釈基準が未記載**
+   - Cohen's d を報告しているが、d=1.14 を「中〜大効果」と記述する根拠（Cohen の基準 0.2/0.5/0.8）が論文中に明示されていない。慣例として共有知識ではあるが、一文の注記で読者に親切になる。
+
+### 軽微なコメント
+
+- Table 7 の注記「実験3・7のシフト条件はいずれも AA < θ_AA = 0.9 であるため α の値によらず非検出」は統計的に正確かつ読者に有用な情報。
+- Hopper 実験（Table A8）の gravity_lo で J_S/J_oracle=174%（J_S=678±479）について「統計的に確定的でない」と注記しているのは誠実。標準偏差 479 は平均 678 の約71%であり、この条件での結論を避ける判断は適切。
+- pvalue_summary.csv で J_S の p_adj<0.001 への参照が論文本文に残っていないことを確認した（grep 確認済みとの著者記述と整合）。
+
+---
+
+## 総括
+
+### 3名の評価一覧
+
+| Reviewer | 総合評価 | MAJOR 指摘数 | MINOR 指摘数 |
+|----------|----------|-------------|-------------|
+| A（方法論） | Minor Revision | 2 | 1 |
+| B（XAI/RL） | Minor Revision | 1 | 2 |
+| C（統計） | Minor Revision | 1 | 2 |
+
+### 合意事項
+
+3名全員が Minor Revision と判定。論文の核心的な貢献——再現性と不変性の二軸評価による説明品質の事後的診断——は方法論的に健全であり、前回査読からの改善（非対称性開示、検出力報告、Hopper GBT+DAgger、Contribution 3 格下げ）は適切に反映されている。
+
+### 優先度の高い修正事項
+
+1. **[CRITICAL] Section 5.2 の学習ステップ数を修正**: 200,000 → 500,000（Table A1 および config ファイルとの整合）。再現性に直結する。
+2. **[MAJOR] n=10 の統計的限界の影響範囲を明示**: 実験3だけでなく実験4・5にも及ぶことを Section 8 で明記。
+3. **[MINOR] SHAP 値の微小な数値修正**: reversed_c の SHAP 値を確認・統一。
+
+### 残る構造的議論点（修正必須ではないが改善推奨）
+
+- 分布シフト選択の方法論をフレームワーク本体に組み込む件は著者が「却下」としているが、枠組みの実用性に関わる本質的な問題として今後の版で検討されることを推奨する。
+- 主実験環境のスケーラビリティは限界として適切に記述されている。Hopper 実験の成功により連続制御への拡張の見通しは改善された。
+
+### 全体所感
+
+本論文は、RL 方策の説明品質を評価する方法論として明確な貢献を持つ。特に「高 AA はスプリアス依存を含みうる」という洞察を、操作可能な診断基準として定式化した点は価値がある。統計的報告の透明性（検出力開示、CI 境界値の注記、分散ゼロケースの適切処理）は、この分野の水準として模範的である。上記の minor revision 対応後、採録に値する水準に達すると判断する。

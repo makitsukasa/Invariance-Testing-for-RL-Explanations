@@ -64,8 +64,8 @@
     │   ├── exp004_cartpole_comparison.yaml
     │   ├── exp005_gridworld_comparison.yaml
     │   ├── exp006_distill_sensitivity.yaml
-    │   ├── exp007_lunarlander.yaml
-    │   ├── exp008_hopper.yaml
+    │   ├── exp009_gbt_continuous.yaml  # LunarLander-v3（実験7）
+    │   ├── exp016_hopper_gbt_dagger.yaml  # Hopper GBT+DAgger（実験8）
     │   └── ...
     │
     ├── src/
@@ -134,6 +134,20 @@ AA=0.942 を維持したまま方策性能が完全崩壊。Surrogate model が 
 ### 実験3（CartPole 重力シフト）：対照実験
 
 非スプリアス環境では重力変化後も $J_S$ の壊滅的崩壊は観測されず、AA の低下のみ（pole\_long 条件で有意、$p_\text{adj}=0.0004$, $d=2.65$）。実験2との対照が枠組みの有効性を支持する。
+
+### 実験8（MuJoCo Hopper-v5）：連続制御タスクへの拡張
+
+GBT+DAgger（10 イテレーション × 10,000 サンプル）による蒸留で Stage 1 通過と機能的方策性能を同時達成：
+
+| 条件 | R² | AA_ε (ε=0.2) | J_S | J_oracle | J_S / J_oracle |
+|------|-----|-------------|-----|----------|---------------|
+| train | 0.968 ± 0.004 | 0.808 ± 0.019 | 3527 ± 25 | 3536 | 99.7% |
+| gravity\_hi（g=−20） | 0.326 ± 0.084 | 0.069 ± 0.019 | 299 ± 19 | 308 | 97.1% |
+| gravity\_lo（g=−5） | 0.056 ± 0.097 | 0.056 ± 0.011 | 678 ± 479 | 389 | 174%* |
+
+*gravity\_lo の J_S > J_oracle 逆転は標準偏差が大きく統計的に確定的でない。
+
+分布シフト下での R² 大幅低下（gravity\_hi: 0.326、gravity\_lo: 0.056）をフレームワークが検出。
 
 ### SHAP との比較（実験9）
 
