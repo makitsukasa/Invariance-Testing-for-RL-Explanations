@@ -17,7 +17,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
-from sklearn.ensemble import HistGradientBoostingClassifier
+from sklearn.ensemble import HistGradientBoostingClassifier, HistGradientBoostingRegressor
 from sklearn.preprocessing import StandardScaler
 
 try:
@@ -435,6 +435,45 @@ class SymbolicReasonedModel:
 
     def predict(self, obs: np.ndarray) -> np.ndarray:
         return self.predict_proba(obs).argmax(axis=1)
+
+
+class GBTRegressionReasonedModel:
+    """勾配ブースティング木による回帰 Reasoned model（連続行動空間用）。
+
+    action 次元ごとに独立した HistGradientBoostingRegressor を学習する。
+    DAgger と組み合わせて Hopper 等の連続制御タスクに適用する。
+    """
+
+    def __init__(
+        self,
+        input_dim: int,
+        action_dim: int,
+        max_iter: int = 300,
+        max_depth: int | None = None,
+        learning_rate: float = 0.1,
+    ):
+        self.input_dim = input_dim
+        self.action_dim = action_dim
+        self.models = [
+            HistGradientBoostingRegressor(
+                max_iter=max_iter,
+                max_depth=max_depth,
+                learning_rate=learning_rate,
+            )
+            for _ in range(action_dim)
+        ]
+        self._fitted = False
+
+    def fit(self, X: np.ndarray, y: np.ndarray) -> "GBTRegressionReasonedModel":
+        for i, m in enumerate(self.models):
+            m.fit(X, y[:, i] if y.ndim > 1 else y)
+        self._fitted = True
+        return self
+
+    def predict(self, obs: np.ndarray) -> np.ndarray:
+        """shape: (n_samples, action_dim)"""
+        preds = np.stack([m.predict(obs) for m in self.models], axis=1)
+        return np.clip(preds, -1.0, 1.0).astype(np.float32)
 
 
 class EBMRegressionReasonedModel:

@@ -1,0 +1,29 @@
+
+=== Hopper é¿å± (DAgger Regression Surrogate) ===
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+  [DAgger iter=0, RegGBT, seed=123]  n_total=10000  AA=0.856  J(train)=2908.6
+  [DAgger iter=1, RegGBT, seed=123]  n_total=20000  AA=0.794  J(train)=3129.8
+  [DAgger iter=2, RegGBT, seed=123]  n_total=30000  AA=0.790  J(train)=3534.1
+  [DAgger iter=3, RegGBT, seed=123]  n_total=40000  AA=0.778  J(train)=3531.2
+  [DAgger iter=4, RegGBT, seed=123]  n_total=50000  AA=0.791  J(train)=3534.2
+  [DAgger iter=5, RegGBT, seed=123]  n_total=60000  AA=0.794  J(train)=3531.2
+  [DAgger iter=6, RegGBT, seed=123]  n_total=70000  AA=0.801  J(train)=3535.0
+  [DAgger iter=7, RegGBT, seed=123]  n_total=80000  AA=0.806  J(train)=3542.6
+  [DAgger iter=8, RegGBT, seed=123]  n_total=90000  AA=0.806  J(train)=3532.8
+  [DAgger iter=9, RegGBT, seed=123]  n_total=100000  AA=0.814  J(train)=3540.2
+  [DAgger iter=10, RegGBT, seed=123]  n_total=110000  AA=0.809  J(train)=3536.8
+  [DAgger FINAL, RegGBT    , seed=123]  AA_eps(train)=0.809  J(train)=3536.8
+
+metrics.csv Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp016_hopper_gbt_dagger\metrics_seed123.csv
+ê}Çï€ë∂: C:\Users\tsukasa\Documents\oh-my-claudecode\experiments\results\exp016_hopper_gbt_dagger\aa_bar_hopper.png
+
+=== ó\îıé¿å±ÅiòAë±êßå‰ÅjÉTÉ}ÉäÅ[ ===
+
+ÅyhopperÅz
+  RegGBT  friction_hi   AA=0.290Å}nan
+  RegGBT  friction_lo   AA=0.202Å}nan
+  RegGBT  gravity_hi    AA=0.058Å}nan
+  RegGBT  gravity_lo    AA=0.043Å}nan
+  RegGBT  train         AA=0.809Å}nan
+

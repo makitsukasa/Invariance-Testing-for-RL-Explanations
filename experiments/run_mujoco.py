@@ -28,7 +28,7 @@ from experiments.src.baselines import (
     LinearReasonedModel, SingleTreeReasonedModel, GBTReasonedModel,
     EBMReasonedModel, SoftDecisionTreeReasonedModel, SymbolicReasonedModel,
     EBMRegressionReasonedModel, SoftDecisionTreeRegressionReasonedModel, SymbolicRegressionReasonedModel,
-    RegressionTreeModel, RegressionLinearModel,
+    RegressionTreeModel, RegressionLinearModel, GBTRegressionReasonedModel,
 )
 from experiments.src.moet import SoftMoET
 from experiments.src.distill import distill
@@ -37,13 +37,13 @@ MODEL_LABEL = {
     "moet": "MoET", "linear": "Linear", "tree": "Tree", "gbt": "GBT",
     "dt_viper": "DT-VIPER", "ebm": "EBM", "sdt": "SoftTree", "symbolic": "Symbolic",
     "reg_tree": "RegTree", "reg_linear": "RegLinear", "reg_ebm": "RegEBM",
-    "reg_sdt": "RegSoftTree", "reg_symbolic": "RegSymbolic",
+    "reg_sdt": "RegSoftTree", "reg_symbolic": "RegSymbolic", "reg_gbt": "RegGBT",
 }
 COLORS = {
     "moet": "steelblue", "linear": "tomato", "tree": "seagreen", "gbt": "darkorange",
     "dt_viper": "forestgreen", "ebm": "royalblue", "sdt": "mediumpurple", "symbolic": "sienna",
     "reg_tree": "darkgreen", "reg_linear": "darkorchid", "reg_ebm": "cornflowerblue",
-    "reg_sdt": "plum", "reg_symbolic": "peru",
+    "reg_sdt": "plum", "reg_symbolic": "peru", "reg_gbt": "darkorange",
 }
 
 
@@ -459,6 +459,14 @@ def make_regression_model(model_type: str, input_dim: int, action_dim: int, comp
             tournament_size=sym_cfg.get("tournament_size", 20),
             parsimony_coefficient=sym_cfg.get("parsimony_coefficient", 0.001),
             random_state=sym_cfg.get("random_state", 42),
+        )
+    elif model_type == "reg_gbt":
+        gbt_cfg = comp_cfg.get("reg_gbt", {})
+        return GBTRegressionReasonedModel(
+            input_dim, action_dim,
+            max_iter=gbt_cfg.get("max_iter", 300),
+            max_depth=gbt_cfg.get("max_depth", None),
+            learning_rate=gbt_cfg.get("learning_rate", 0.1),
         )
     else:
         raise ValueError(f"Unknown regression model_type: {model_type}")

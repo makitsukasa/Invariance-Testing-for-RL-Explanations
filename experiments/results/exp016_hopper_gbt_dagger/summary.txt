@@ -1,0 +1,8 @@
+=== 予備実験（連続制御）サマリー ===
+
+【hopper】
+  RegGBT  friction_hi   AA=0.284±nan
+  RegGBT  friction_lo   AA=0.188±nan
+  RegGBT  gravity_hi    AA=0.094±nan
+  RegGBT  gravity_lo    AA=0.048±nan
+  RegGBT  train         AA=0.827±nan

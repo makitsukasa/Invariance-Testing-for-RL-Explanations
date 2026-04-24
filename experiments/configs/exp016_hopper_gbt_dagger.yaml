@@ -1,0 +1,39 @@
+name: exp016_hopper_gbt_dagger
+description: >
+  GBT（勾配ブースティング木）+ DAgger による Hopper 蒸留実験。
+  RegTree+DAgger（exp014）の後継として、GBT の表現力で J_S の改善を狙う。
+  LunarLander（exp010）では GBT が GBT+離散分類で高 AA・高 J_S を達成した実績あり。
+  回帰版 GBT（HistGradientBoostingRegressor, 行動次元ごと独立）を連続行動空間に適用。
+
+hopper:
+  n_steps: 50000
+  oracle_model_path: experiments/results/rlzoo_models/td3/Hopper-v3_1/Hopper-v3.zip
+  oracle_algo: td3
+  dynamics_conditions:
+    - {name: train,       gravity: -9.81}
+    - {name: gravity_lo,  gravity: -5.0}
+    - {name: gravity_hi,  gravity: -20.0}
+    - {name: friction_lo, gravity: -9.81, friction_scale: 0.7}
+    - {name: friction_hi, gravity: -9.81, friction_scale: 1.3}
+  regression_mode: true
+  dagger_mode: true
+  aa_epsilon: 0.2
+
+comparison:
+  model_types: [reg_gbt]
+  distill_n_samples: 10000
+  eval_n_samples: 3000
+  reg_gbt:
+    max_iter: 300
+    max_depth: null
+    learning_rate: 0.1
+
+dagger:
+  iterations: 10
+  samples_per_iter: 10000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 1011, 1314, 1617, 1920, 2223, 2526]
+  n_eval_episodes: 5
+
+output_dir: experiments/results/exp016_hopper_gbt_dagger
