@@ -1,5 +1,5 @@
 === exp002_intervention_gridworld ===
-SpuriousGridWorld (p=0.0) でper-feature介入テストによる自動シフト候補選択。各特徴をロールアウト中に摂動し、J_S降下量が最大の特徴をスプリアス候補として選択する。SHAPの60%と比較する。
+SpuriousGridWorld (p=0.0) でper-feature介入テストによる自動シフト候補選択。全特徴を同一方法（uniform random）で摂動し、J_S降下量が最大の特徴をスプリアス候補として選択する。特徴型の事前知識なし。SHAPの60%と比較する。
 
 Seeds  : [0, 42, 123, 456, 789]
 Oracle : DQN 50000 steps
@@ -11,16 +11,16 @@ Q1. Intervention correctly selected c: 100% (5/5)
     Mean Δ(J_S_train - J_S_perturbed):
       x=-0.215+-0.326
       y=-0.091+-0.177
-      c=1.720+-0.327
+      c=0.511+-0.209
 
     J_S_train  = 0.720+-0.327
     J_S_x_pert = 0.935+-0.016
     J_S_y_pert = 0.811+-0.287
-    J_S_c_pert = -1.000+-0.000
+    J_S_c_pert = 0.208+-0.259
 
 Per-seed:
-  seed=0: selected=c (spurious), correct=True, AA=0.992, J_S_train=0.550, Δx=-0.361, Δy=-0.401, Δc=1.550
-  seed=42: selected=c (spurious), correct=True, AA=0.957, J_S_train=0.930, Δx=-0.021, Δy=-0.003, Δc=1.930
-  seed=123: selected=c (spurious), correct=True, AA=0.975, J_S_train=0.932, Δx=-0.007, Δy=0.005, Δc=1.932
-  seed=456: selected=c (spurious), correct=True, AA=0.988, J_S_train=0.967, Δx=0.038, Δy=0.022, Δc=1.967
-  seed=789: selected=c (spurious), correct=True, AA=0.996, J_S_train=0.220, Δx=-0.724, Δy=-0.078, Δc=1.221
+  seed=0: selected=c (spurious), correct=True, AA=0.992, J_S_train=0.550, Δx=-0.361, Δy=-0.401, Δc=0.196
+  seed=42: selected=c (spurious), correct=True, AA=0.957, J_S_train=0.930, Δx=-0.021, Δy=-0.003, Δc=0.742
+  seed=123: selected=c (spurious), correct=True, AA=0.975, J_S_train=0.932, Δx=-0.007, Δy=0.005, Δc=0.642
+  seed=456: selected=c (spurious), correct=True, AA=0.988, J_S_train=0.967, Δx=0.038, Δy=0.022, Δc=0.530
+  seed=789: selected=c (spurious), correct=True, AA=0.996, J_S_train=0.220, Δx=-0.724, Δy=-0.078, Δc=0.447

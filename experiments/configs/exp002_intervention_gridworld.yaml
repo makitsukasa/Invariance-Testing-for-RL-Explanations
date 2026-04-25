@@ -1,5 +1,5 @@
 name: exp002_intervention_gridworld
-description: "SpuriousGridWorld (p=0.0) でper-feature介入テストによる自動シフト候補選択。各特徴をロールアウト中に摂動し、J_S降下量が最大の特徴をスプリアス候補として選択する。SHAPの60%と比較する。"
+description: "SpuriousGridWorld (p=0.0) でper-feature介入テストによる自動シフト候補選択。全特徴を同一方法（uniform random）で摂動し、J_S降下量が最大の特徴をスプリアス候補として選択する。特徴型の事前知識なし。SHAPの60%と比較する。"
 
 env:
   spurious_p: 0.0

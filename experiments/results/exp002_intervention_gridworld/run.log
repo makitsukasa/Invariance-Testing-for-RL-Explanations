@@ -17,8 +17,8 @@ Seed 0
   [4/4] Per-feature intervention test...
     agent_x: J_S_perturbed=0.911
     agent_y: J_S_perturbed=0.951
-    c (spurious): J_S_perturbed=-1.000
-    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.361, agent_y=-0.401, c (spurious)=1.550
+    c (spurious): J_S_perturbed=0.354
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.361, agent_y=-0.401, c (spurious)=0.196
     Auto-selected: c (spurious) -> CORRECT (c)
 
 ============================================================
@@ -31,8 +31,8 @@ Seed 42
   [4/4] Per-feature intervention test...
     agent_x: J_S_perturbed=0.950
     agent_y: J_S_perturbed=0.933
-    c (spurious): J_S_perturbed=-1.000
-    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.021, agent_y=-0.003, c (spurious)=1.930
+    c (spurious): J_S_perturbed=0.188
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.021, agent_y=-0.003, c (spurious)=0.742
     Auto-selected: c (spurious) -> CORRECT (c)
 
 ============================================================
@@ -45,8 +45,8 @@ Seed 123
   [4/4] Per-feature intervention test...
     agent_x: J_S_perturbed=0.939
     agent_y: J_S_perturbed=0.927
-    c (spurious): J_S_perturbed=-1.000
-    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.007, agent_y=0.005, c (spurious)=1.932
+    c (spurious): J_S_perturbed=0.290
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.007, agent_y=0.005, c (spurious)=0.642
     Auto-selected: c (spurious) -> CORRECT (c)
 
 ============================================================
@@ -59,8 +59,8 @@ Seed 456
   [4/4] Per-feature intervention test...
     agent_x: J_S_perturbed=0.929
     agent_y: J_S_perturbed=0.945
-    c (spurious): J_S_perturbed=-1.000
-    ƒ¢(J_S_train - J_S_perturbed): agent_x=0.038, agent_y=0.022, c (spurious)=1.967
+    c (spurious): J_S_perturbed=0.436
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=0.038, agent_y=0.022, c (spurious)=0.530
     Auto-selected: c (spurious) -> CORRECT (c)
 
 ============================================================
@@ -73,8 +73,8 @@ Seed 789
   [4/4] Per-feature intervention test...
     agent_x: J_S_perturbed=0.945
     agent_y: J_S_perturbed=0.298
-    c (spurious): J_S_perturbed=-1.000
-    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.724, agent_y=-0.078, c (spurious)=1.221
+    c (spurious): J_S_perturbed=-0.226
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.724, agent_y=-0.078, c (spurious)=0.447
     Auto-selected: c (spurious) -> CORRECT (c)
 
 ============================================================
@@ -82,8 +82,8 @@ SUMMARY
 ============================================================
 Stage 1 pass (AA >= 0.9): 100%  (5/5 seeds)
 Q1. Intervention correctly selected c: 100%  (5/5 seeds)
-    Mean ƒ¢: x=-0.215, y=-0.091, c=1.720
-    J_S_train=0.720, J_S_x=0.935, J_S_y=0.811, J_S_c=-1.000
+    Mean ƒ¢: x=-0.215, y=-0.091, c=0.511
+    J_S_train=0.720, J_S_x=0.935, J_S_y=0.811, J_S_c=0.208
 summary.txt -> C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp002_intervention_gridworld\summary.txt
 
 Results: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp002_intervention_gridworld

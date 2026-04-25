@@ -34,11 +34,11 @@ from experiments.src.evaluate import action_agreement, evaluate_rollout
 FEATURE_NAMES = ["agent_x", "agent_y", "c (spurious)"]
 SPURIOUS_IDX = 2
 
-# 摂動方法: 連続特徴はランダム、バイナリ特徴(c)は反転
+# 全特徴を同一方法（uniform random）で摂動する。特徴の型に関する事前知識を使わない。
 FEATURE_INFO = [
-    {"name": "agent_x",      "mode": "random",   "range": (0.0, 1.0)},
-    {"name": "agent_y",      "mode": "random",   "range": (0.0, 1.0)},
-    {"name": "c (spurious)", "mode": "reversed", "range": (0.0, 1.0)},
+    {"name": "agent_x",      "mode": "random", "range": (0.0, 1.0)},
+    {"name": "agent_y",      "mode": "random", "range": (0.0, 1.0)},
+    {"name": "c (spurious)", "mode": "random", "range": (0.0, 1.0)},
 ]
 
 # ---------------------------------------------------------------------------
