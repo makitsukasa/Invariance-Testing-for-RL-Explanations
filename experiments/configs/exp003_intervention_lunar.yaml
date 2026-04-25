@@ -1,0 +1,24 @@
+name: exp003_intervention_lunar
+description: "SpuriousLunarLander (2ゾーン着地) で per-feature 介入テスト自動選択。特徴数9（LunarLander 8次元 + c）。exp002 と同アルゴリズムで、より多くの特徴数でも c が自動選択できるかを確認する。"
+
+env:
+  spurious_p: 0.0
+  # zone_bonus は廃止: differential shaping correction に変更 (spurious_lunar_env.py)
+
+oracle:
+  n_steps: 2000000
+  learning_starts: 50000
+
+surrogate:
+  n_experts: 4
+  max_depth: 5
+  distill_epochs: 100
+  n_distill_samples: 10000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 0]
+  n_eval_samples: 2000
+  n_eval_episodes: 100
+
+n_workers: 4
+output_dir: experiments/results/exp003_intervention_lunar

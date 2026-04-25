@@ -52,6 +52,40 @@
 
 ---
 
+### exp003 — LunarLander per-feature 介入テスト（SpuriousLunarLander）**[失敗・中止]**
+
+| 項目 | 詳細 |
+|------|------|
+| config | `experiments/configs/exp003_intervention_lunar.yaml` |
+| script | `experiments/run_lunar_pilot.py` |
+| results | `experiments/results/exp003_intervention_lunar/` |
+| seeds | 42, 123, 456, 789, 0（5 seeds） |
+| surrogate | MoET K=4, d=5, epochs=100, n=10000 |
+| oracle | DQN 2M steps, 差分シェーピング補正 |
+
+**目的:** exp002（GridWorld 3特徴）と同一アルゴリズムを9特徴の LunarLander に適用する。
+
+**結果:** 検出率 0%（0/5 seeds）。DQN oracle が 2M steps でもゾーン依存方策を学習できず（J_oracle ≈ -10〜+104、AA ≈ 0.59〜0.71）。
+
+**失敗原因:** ゾーン信号のディスカウント問題。LunarLander のエピソード長（300〜500 steps）と γ=0.99 の組み合わせで、終端ゾーンボーナス（±100）の episode 開始時有効値が 0.99^400 × 100 ≈ 0.018 まで減衰する。差分シェーピング補正（累積 ~33/episode）もフライト制御報酬（毎ステップ ±10〜50）に埋もれ、DQN がゾーン依存性を学習できなかった。→ exp004 に移行。
+
+---
+
+### exp004 — GridWorld + ノイズ特徴 10 次元（スケール確認）
+
+| 項目 | 詳細 |
+|------|------|
+| config | `experiments/configs/exp004_noise_gridworld.yaml` |
+| script | `experiments/run_gridworld_noise.py` |
+| results | `experiments/results/exp004_noise_gridworld/` |
+| seeds | 42, 123, 456, 789, 0（5 seeds） |
+| surrogate | MoET K=4, d=5, epochs=100, n=10000 |
+| oracle | DQN 50k steps, spurious_p=0.0 |
+
+**目的:** exp002（3特徴）と同一アルゴリズムを obs=(x, y, c, noise×7) の10次元に拡張し、特徴数を増やしても c を正しく選択できるかを確認する。ノイズ特徴は毎ステップ i.i.d. uniform [0,1] で再サンプリング。
+
+---
+
 ## 命名規則
 
 - `expNNN_<説明>` の連番で管理する
@@ -64,3 +98,4 @@
 |--------|-------------------|
 | `run_shap_pilot.py`         | `exp001_shap_gridworld`         |
 | `run_intervention_pilot.py` | `exp002_intervention_gridworld` |
+| `run_lunar_pilot.py`        | `exp003_intervention_lunar`     |
