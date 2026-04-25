@@ -100,24 +100,28 @@ def compute_shap_ranking(model: DQN, obs: np.ndarray) -> tuple[list[int], np.nda
         with torch.no_grad():
             return model.q_net(torch.FloatTensor(x)).numpy()
 
+    n_features = obs.shape[1]
     bg = obs[:SHAP_BG]
     test = obs[:SHAP_EVAL]
     explainer = shap.KernelExplainer(q_fn, bg)
     shap_vals = explainer.shap_values(test, nsamples=100, silent=True)
 
     if isinstance(shap_vals, list):
-        # list of (n_samples, n_features) per action
+        # list of arrays, one per output: each (n_samples, n_features)
         stacked = np.stack([np.abs(np.array(sv, dtype=float)) for sv in shap_vals])
-        mean_abs = stacked.mean(axis=0).mean(axis=0)  # (n_features,)
+        mean_abs = stacked.mean(axis=(0, 1))  # (n_features,)
     else:
         arr = np.abs(np.array(shap_vals, dtype=float))
-        # handle (n_actions, n_samples, n_features) or (n_samples, n_features, n_actions)
-        if arr.ndim == 3:
-            mean_abs = arr.mean(axis=0).mean(axis=0) if arr.shape[0] != SHAP_BG else arr.mean(axis=-1).mean(axis=0)
+        # 特徴次元（== n_features）を探して、それ以外の軸で平均する
+        feat_axes = [i for i, s in enumerate(arr.shape) if s == n_features]
+        if feat_axes:
+            feat_axis = feat_axes[-1]  # 複数マッチする場合は末尾を使う
+            other_axes = tuple(i for i in range(arr.ndim) if i != feat_axis)
+            mean_abs = arr.mean(axis=other_axes)
         else:
-            mean_abs = arr.mean(axis=0)
+            mean_abs = arr.reshape(-1, n_features).mean(axis=0)
 
-    mean_abs = mean_abs.flatten()
+    mean_abs = mean_abs.flatten()[:n_features]
     ranking = list(np.argsort(mean_abs)[::-1])
     return ranking, mean_abs
 
