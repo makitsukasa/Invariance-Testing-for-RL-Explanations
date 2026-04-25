@@ -45,16 +45,19 @@ class SpuriousGridWorld(gym.Env):
         grid_size: int = 5,
         max_steps: int = 100,
         eval_mode: str | None = None,
+        n_noise: int = 0,
     ):
         super().__init__()
         self.spurious_p = spurious_p
         self.grid_size = grid_size
         self.max_steps = max_steps
         self.eval_mode = eval_mode
+        self.n_noise = n_noise
 
+        n_obs = 3 + n_noise
         self.observation_space = spaces.Box(
-            low=np.array([0.0, 0.0, 0.0], dtype=np.float32),
-            high=np.array([1.0, 1.0, 1.0], dtype=np.float32),
+            low=np.zeros(n_obs, dtype=np.float32),
+            high=np.ones(n_obs, dtype=np.float32),
         )
         self.action_space = spaces.Discrete(4)
 
@@ -75,10 +78,9 @@ class SpuriousGridWorld(gym.Env):
 
     def _obs(self) -> np.ndarray:
         ax, ay = self._agent_pos
-        return np.array(
-            [ax / (self.grid_size - 1), ay / (self.grid_size - 1), float(self._c)],
-            dtype=np.float32,
-        )
+        base = [ax / (self.grid_size - 1), ay / (self.grid_size - 1), float(self._c)]
+        noise = list(np.random.uniform(0.0, 1.0, self.n_noise)) if self.n_noise > 0 else []
+        return np.array(base + noise, dtype=np.float32)
 
     def reset(self, *, seed=None, options=None):
         super().reset(seed=seed)
