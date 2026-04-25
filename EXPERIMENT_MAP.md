@@ -12,6 +12,7 @@
 | exp002 | 介入テスト自動選択（GridWorld 3特徴） | 完了 100% | [→](experiments/results/exp002_intervention_gridworld/) |
 | exp003 | 介入テスト（LunarLander 9特徴） | 失敗・中止 | [→](experiments/results/exp003_intervention_lunar/) |
 | exp004 | 介入テスト（GridWorld + noise 10特徴） | 完了 100% | [→](experiments/results/exp004_noise_gridworld/) |
+| exp005 | spurious_p sweep + end-to-end（介入→Stage2） | 完了 p≤0.2で100% | [→](experiments/results/exp005_psweep_gridworld/) |
 
 ---
 
@@ -29,3 +30,4 @@
 | `run_intervention_pilot.py` | `exp002_intervention_gridworld` |
 | `run_lunar_pilot.py`        | `exp003_intervention_lunar`     |
 | `run_gridworld_noise.py`    | `exp004_noise_gridworld`        |
+| `run_gridworld_psweep.py`   | `exp005_psweep_gridworld`       |

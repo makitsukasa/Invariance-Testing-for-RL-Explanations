@@ -1,0 +1,23 @@
+name: exp005_psweep_gridworld
+description: "spurious_p を 0.0〜0.3 で sweep し、介入テスト（候補選択）と Stage 2（崩壊確認）を両方測定する end-to-end パイプライン実証。obs=(x, y, c, noise×7) の10次元。"
+
+env:
+  p_values: [0.0, 0.1, 0.2, 0.3]
+  n_noise: 7
+
+oracle:
+  n_steps: 50000
+
+surrogate:
+  n_experts: 4
+  max_depth: 5
+  distill_epochs: 100
+  n_distill_samples: 10000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 0]
+  n_eval_samples: 2000
+  n_eval_episodes: 200
+
+n_workers: 4
+output_dir: experiments/results/exp005_psweep_gridworld
