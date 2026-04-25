@@ -1,0 +1,89 @@
+Experiment : exp002_intervention_gridworld
+Seeds      : [42, 123, 456, 789, 0]
+Workers    : 4
+[DONE] seed=456: selected=c (spurious), correct=True, AA=0.988, Stage1=PASS
+[DONE] seed=123: selected=c (spurious), correct=True, AA=0.975, Stage1=PASS
+[DONE] seed=42: selected=c (spurious), correct=True, AA=0.957, Stage1=PASS
+[DONE] seed=789: selected=c (spurious), correct=True, AA=0.996, Stage1=PASS
+[DONE] seed=0: selected=c (spurious), correct=True, AA=0.992, Stage1=PASS
+
+============================================================
+Seed 0
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.992 (PASS), J_S_train=0.550
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.911
+    agent_y: J_S_perturbed=0.951
+    c (spurious): J_S_perturbed=-1.000
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.361, agent_y=-0.401, c (spurious)=1.550
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+Seed 42
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.957 (PASS), J_S_train=0.930
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.950
+    agent_y: J_S_perturbed=0.933
+    c (spurious): J_S_perturbed=-1.000
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.021, agent_y=-0.003, c (spurious)=1.930
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+Seed 123
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.975 (PASS), J_S_train=0.932
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.939
+    agent_y: J_S_perturbed=0.927
+    c (spurious): J_S_perturbed=-1.000
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.007, agent_y=0.005, c (spurious)=1.932
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+Seed 456
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.988 (PASS), J_S_train=0.967
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.929
+    agent_y: J_S_perturbed=0.945
+    c (spurious): J_S_perturbed=-1.000
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=0.038, agent_y=0.022, c (spurious)=1.967
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+Seed 789
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.996 (PASS), J_S_train=0.220
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.945
+    agent_y: J_S_perturbed=0.298
+    c (spurious): J_S_perturbed=-1.000
+    ƒ¢(J_S_train - J_S_perturbed): agent_x=-0.724, agent_y=-0.078, c (spurious)=1.221
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+SUMMARY
+============================================================
+Stage 1 pass (AA >= 0.9): 100%  (5/5 seeds)
+Q1. Intervention correctly selected c: 100%  (5/5 seeds)
+    Mean ƒ¢: x=-0.215, y=-0.091, c=1.720
+    J_S_train=0.720, J_S_x=0.935, J_S_y=0.811, J_S_c=-1.000
+summary.txt -> C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp002_intervention_gridworld\summary.txt
+
+Results: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp002_intervention_gridworld

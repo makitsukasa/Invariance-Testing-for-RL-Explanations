@@ -28,6 +28,30 @@
 
 ---
 
+### exp002 — Per-feature 介入テスト 自動選択パイロット（SpuriousGridWorld）
+
+| 項目 | 詳細 |
+|------|------|
+| config | `experiments/configs/exp002_intervention_gridworld.yaml` |
+| script | `experiments/run_intervention_pilot.py` |
+| results | `experiments/results/exp002_intervention_gridworld/` |
+| seeds | 42, 123, 456, 789, 0（5 seeds） |
+| surrogate | MoET K=4, d=5, epochs=100, n=10000 |
+| oracle | DQN 50k steps, spurious_p=0.0 |
+
+**目的:** SHAP（exp001: 60%）の代替として、各特徴を摂動したロールアウトで J_S 降下量を直接測定し、最大降下特徴をスプリアス候補として自動選択する。検出率が SHAP を上回るかを確認する。
+
+**アルゴリズム:**
+1. 各特徴 f を摂動しながらサロゲートをロールアウト（x/y: ランダム、c: 反転）
+2. Δ_f = J_S_train - J_S_f_perturbed を計算
+3. Δ が最大の特徴をスプリアス候補として選択
+
+**確認する問い:**
+- Q1. 介入テストは c（スプリアス特徴）を正しく選択できるか（SHAP の 60% と比較）
+- Q2. 各特徴の J_S 降下量 Δ_x, Δ_y, Δ_c はどの程度か
+
+---
+
 ## 命名規則
 
 - `expNNN_<説明>` の連番で管理する
@@ -38,4 +62,5 @@
 
 | script | 対応 config prefix |
 |--------|-------------------|
-| `run_shap_pilot.py` | `exp001_shap_gridworld` |
+| `run_shap_pilot.py`         | `exp001_shap_gridworld`         |
+| `run_intervention_pilot.py` | `exp002_intervention_gridworld` |
