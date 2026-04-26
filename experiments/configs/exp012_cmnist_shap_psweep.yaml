@@ -1,0 +1,28 @@
+name: exp012_cmnist_shap_psweep
+description: "ColoredMNIST IRM 設定での SHAP vs 介入テスト Δ 比較。exp010 と同条件で両手法を同一 oracle・seed で評価。"
+
+data:
+  root: data/mnist
+  p_values: [0.0, 0.1, 0.2, 0.3]
+  label_noise_p: 0.25
+  stage2_p: 1.0
+
+oracle:
+  epochs: 20
+  batch_size: 64
+  lr: 0.001
+
+surrogate:
+  epochs: 20
+  batch_size: 64
+  lr: 0.001
+
+shap:
+  n_background: 100
+  n_eval: 200
+
+evaluation:
+  seeds: [42, 123, 456, 789, 0]
+  collapse_threshold: 0.6
+
+output_dir: experiments/results/exp012_cmnist_shap_psweep
