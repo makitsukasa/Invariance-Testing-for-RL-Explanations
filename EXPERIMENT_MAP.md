@@ -18,6 +18,7 @@
 | exp008 | ColoredMNIST + CNN surrogate 基本動作確認（spurious_p=0.0） | 完了 5/5 | 不明（未実測） | [→](experiments/results/exp008_colored_mnist/) |
 | exp009 | ColoredMNIST p sweep（ラベルノイズなし） | 失敗・p=0.0 のみ成功 | **約45分**（20 runs） | [→](experiments/results/exp009_cmnist_psweep/) |
 | exp010 | ColoredMNIST IRM 設定 p sweep（label_noise_p=0.25） | 完了 p≤0.1で5/5、p=0.2で4/5、p=0.3で3/5 | **約45分**（20 runs） | [→](experiments/results/exp010_cmnist_irm_psweep/) |
+| exp011 | SHAP vs Δ p sweep（GridWorld 10次元、同一 oracle・seed） | 完了 Δ p≤0.2で15/15、SHAP 2/15 | **実測未記録** | [→](experiments/results/exp011_shap_psweep/) |
 
 ---
 
@@ -52,3 +53,4 @@
 | `run_lunar_ablation.py`     | `exp007_ablation_lunar`         |
 | `run_colored_mnist.py`      | `exp008_colored_mnist`          |
 | `run_cmnist_psweep.py`      | `exp009_cmnist_psweep` / `exp010_cmnist_irm_psweep`（引数で切り替え） |
+| `run_shap_psweep.py`        | `exp011_shap_psweep`                                                  |
