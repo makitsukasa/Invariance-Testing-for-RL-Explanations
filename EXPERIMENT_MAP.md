@@ -13,6 +13,8 @@
 | exp003 | 介入テスト（LunarLander 9特徴） | 失敗・中止 | [→](experiments/results/exp003_intervention_lunar/) |
 | exp004 | 介入テスト（GridWorld + noise 10特徴） | 完了 100% | [→](experiments/results/exp004_noise_gridworld/) |
 | exp005 | spurious_p sweep + end-to-end（介入→Stage2） | 完了 p≤0.2で100% | [→](experiments/results/exp005_psweep_gridworld/) |
+| exp006 | LunarLander PPO + gamma=0.999（差分 shaping あり） | 失敗・中止（Stage2 collapse なし）| [→](experiments/results/exp006_ppo_lunar/) |
+| exp007 | LunarLander アブレーション v2（差分 shaping 除去 + zone_bonus sweep） | 実行中 | [→](experiments/results/exp007_ablation_lunar/) |
 
 ---
 
@@ -31,3 +33,5 @@
 | `run_lunar_pilot.py`        | `exp003_intervention_lunar`     |
 | `run_gridworld_noise.py`    | `exp004_noise_gridworld`        |
 | `run_gridworld_psweep.py`   | `exp005_psweep_gridworld`       |
+| `run_lunar_ppo.py`          | `exp006_ppo_lunar`              |
+| `run_lunar_ablation.py`     | `exp007_ablation_lunar`         |

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 import gymnasium as gym
-from stable_baselines3 import DQN
+from stable_baselines3.common.base_class import BaseAlgorithm
 
 from .moet import SoftMoET
 
@@ -25,7 +25,7 @@ def evaluate_rollout(agent, env: gym.Env, n_episodes: int, seed: int) -> float:
         obs, _ = env.reset(seed=seed + ep)
         done = False
         while not done:
-            if isinstance(agent, DQN):
+            if isinstance(agent, BaseAlgorithm):
                 action, _ = agent.predict(obs, deterministic=True)
                 action = int(action)
             else:
