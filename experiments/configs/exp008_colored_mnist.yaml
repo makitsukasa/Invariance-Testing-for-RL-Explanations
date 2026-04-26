@@ -1,0 +1,23 @@
+name: exp008_colored_mnist
+description: "ColoredMNIST + CNN surrogate で介入テストを実証。hue_shuffle vs structure_noise の 2 介入で color (spurious) を選択できるかを検証。"
+
+data:
+  root: data/
+  spurious_p: 0.0   # training: color perfectly correlates with class
+  stage2_p: 1.0     # Stage 2 test: color perfectly anti-correlates
+
+oracle:
+  epochs: 10
+  lr: 0.001
+  batch_size: 256
+
+surrogate:
+  epochs: 10
+  lr: 0.001
+  batch_size: 256
+
+evaluation:
+  seeds: [42, 123, 456, 789, 0]
+  collapse_threshold: 0.6   # j_s_anti < this → collapse
+
+output_dir: experiments/results/exp008_colored_mnist

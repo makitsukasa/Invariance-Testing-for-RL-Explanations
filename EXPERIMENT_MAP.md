@@ -15,6 +15,9 @@
 | exp005 | spurious_p sweep + end-to-end（介入→Stage2） | 完了 p≤0.2で100% | 不明 | [→](experiments/results/exp005_psweep_gridworld/) |
 | exp006 | LunarLander PPO + gamma=0.999（差分 shaping あり） | 失敗・中止（Stage2 collapse なし） | 不明 | [→](experiments/results/exp006_ppo_lunar/) |
 | exp007 | LunarLander アブレーション v2（差分 shaping 除去 + zone_bonus sweep） | 失敗・中止（oracle が c を使わない） | **4時間10分**（21分/batch、4並列、torch.set_num_threads(2)） | [→](experiments/results/exp007_ablation_lunar/) |
+| exp008 | ColoredMNIST + CNN surrogate 基本動作確認（spurious_p=0.0） | 完了 5/5 | 不明（未実測） | [→](experiments/results/exp008_colored_mnist/) |
+| exp009 | ColoredMNIST p sweep（ラベルノイズなし） | 失敗・p=0.0 のみ成功 | **約45分**（20 runs） | [→](experiments/results/exp009_cmnist_psweep/) |
+| exp010 | ColoredMNIST IRM 設定 p sweep（label_noise_p=0.25） | 完了 p≤0.1で5/5、p=0.2で4/5、p=0.3で3/5 | **約45分**（20 runs） | [→](experiments/results/exp010_cmnist_irm_psweep/) |
 
 ---
 
@@ -47,3 +50,5 @@
 | `run_gridworld_psweep.py`   | `exp005_psweep_gridworld`       |
 | `run_lunar_ppo.py`          | `exp006_ppo_lunar`              |
 | `run_lunar_ablation.py`     | `exp007_ablation_lunar`         |
+| `run_colored_mnist.py`      | `exp008_colored_mnist`          |
+| `run_cmnist_psweep.py`      | `exp009_cmnist_psweep` / `exp010_cmnist_irm_psweep`（引数で切り替え） |

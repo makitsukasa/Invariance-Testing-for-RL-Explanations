@@ -1,0 +1,16 @@
+=== exp008_colored_mnist ===
+spurious_p=0.0 (train), stage2_p=1.0
+
+Stage 1 pass (AA>=0.9): 5/5
+Intervention correct  : 5/5
+Stage 2 collapse      : 5/5
+mean AA       : 1.000
+mean J_oracle : 1.000
+mean ƒ¢_hue    : 0.500
+mean ƒ¢_struct : 0.000
+
+  seed=42: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.504, ƒ¢_struct=0.000, selected=hue, correct=True, collapse=True
+  seed=123: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.502, ƒ¢_struct=0.000, selected=hue, correct=True, collapse=True
+  seed=456: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.498, ƒ¢_struct=0.001, selected=hue, correct=True, collapse=True
+  seed=789: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.499, ƒ¢_struct=0.000, selected=hue, correct=True, collapse=True
+  seed=0: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.495, ƒ¢_struct=0.000, selected=hue, correct=True, collapse=True
