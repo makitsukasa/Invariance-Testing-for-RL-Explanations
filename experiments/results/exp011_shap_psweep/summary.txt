@@ -1,0 +1,30 @@
+=== exp011_shap_psweep ===
+
+   p  Δ detect  SHAP detect
+------------------------------
+ 0.0  5/5 (100%)  0/5 (0%)
+ 0.1  5/5 (100%)  1/5 (20%)
+ 0.2  5/5 (100%)  1/5 (20%)
+ 0.3  1/5 (20%)  0/5 (0%)
+
+Per-seed:
+  p=0.0 seed=0: Δ=c (spurious)(OK)  Δ_c=0.522  SHAP=agent_y(NG)  SHAP_c=0.0207
+  p=0.0 seed=42: Δ=c (spurious)(OK)  Δ_c=0.520  SHAP=agent_y(NG)  SHAP_c=0.0222
+  p=0.0 seed=123: Δ=c (spurious)(OK)  Δ_c=0.483  SHAP=agent_y(NG)  SHAP_c=0.0166
+  p=0.0 seed=456: Δ=c (spurious)(OK)  Δ_c=0.545  SHAP=agent_y(NG)  SHAP_c=0.0206
+  p=0.0 seed=789: Δ=c (spurious)(OK)  Δ_c=0.573  SHAP=agent_y(NG)  SHAP_c=0.0210
+  p=0.1 seed=0: Δ=c (spurious)(OK)  Δ_c=0.295  SHAP=agent_y(NG)  SHAP_c=0.0083
+  p=0.1 seed=42: Δ=c (spurious)(OK)  Δ_c=0.219  SHAP=agent_x(NG)  SHAP_c=0.0116
+  p=0.1 seed=123: Δ=c (spurious)(OK)  Δ_c=0.201  SHAP=c (spurious)(OK)  SHAP_c=0.0188
+  p=0.1 seed=456: Δ=c (spurious)(OK)  Δ_c=0.145  SHAP=agent_x(NG)  SHAP_c=0.0139
+  p=0.1 seed=789: Δ=c (spurious)(OK)  Δ_c=0.220  SHAP=noise_0(NG)  SHAP_c=0.0070
+  p=0.2 seed=0: Δ=c (spurious)(OK)  Δ_c=0.314  SHAP=noise_1(NG)  SHAP_c=0.0054
+  p=0.2 seed=42: Δ=c (spurious)(OK)  Δ_c=0.236  SHAP=agent_y(NG)  SHAP_c=0.0074
+  p=0.2 seed=123: Δ=c (spurious)(OK)  Δ_c=0.273  SHAP=noise_2(NG)  SHAP_c=0.0083
+  p=0.2 seed=456: Δ=c (spurious)(OK)  Δ_c=0.312  SHAP=c (spurious)(OK)  SHAP_c=0.0120
+  p=0.2 seed=789: Δ=c (spurious)(OK)  Δ_c=0.221  SHAP=agent_x(NG)  SHAP_c=0.0084
+  p=0.3 seed=0: Δ=noise_2(NG)  Δ_c=0.142  SHAP=noise_1(NG)  SHAP_c=0.0045
+  p=0.3 seed=42: Δ=agent_x(NG)  Δ_c=-0.034  SHAP=noise_2(NG)  SHAP_c=0.0022
+  p=0.3 seed=123: Δ=c (spurious)(OK)  Δ_c=0.348  SHAP=noise_2(NG)  SHAP_c=0.0084
+  p=0.3 seed=456: Δ=agent_y(NG)  Δ_c=0.034  SHAP=noise_2(NG)  SHAP_c=0.0043
+  p=0.3 seed=789: Δ=noise_6(NG)  Δ_c=0.052  SHAP=agent_y(NG)  SHAP_c=0.0028
