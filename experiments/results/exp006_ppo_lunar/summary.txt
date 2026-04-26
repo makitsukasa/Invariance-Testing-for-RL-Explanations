@@ -1,0 +1,30 @@
+=== exp006_ppo_lunar ===
+SpuriousLunarLander で PPO oracle + gamma=0.999。exp003（DQN gamma=0.99）の失敗原因（終端報酬の減衰: 0.99^400≈0.018）を PPO + 高 gamma で解消する試み。
+
+Seeds  : [0, 42, 123, 456, 789]
+Oracle : PPO 1000000 steps, gamma=0.999, gae_lambda=0.98
+Surrogate: MoET K=4, d=5, epochs=100, n=10000
+
+Stage 1 pass (AA>=0.9): 0% (0/5)
+Stage 2 collapse (c rev): 0% (0/5)
+  J_oracle=269.0+-52.4
+  J_S_train=-387.7+-142.3
+  J_S_rev  =-390.7+-112.5
+
+Q1. Intervention correctly selected c: 0% (0/5)
+  Δ_x=-65.52+-114.06
+  Δ_y=-53.04+-121.15
+  Δ_vx=-67.26+-107.19
+  Δ_vy=-119.90+-201.77
+  Δ_angle=-16.32+-90.76
+  Δ_ang_vel=55.24+-147.29
+  Δ_leg_L=-45.79+-112.94
+  Δ_leg_R=-86.32+-225.22
+  Δ_c (spurious)=-30.31+-98.85
+
+Per-seed:
+  seed=0: selected=ang_vel, correct=False, AA=0.671, J_oracle=262.1, J_S_train=-417.4, collapse=False
+  seed=42: selected=vy, correct=False, AA=0.594, J_oracle=183.0, J_S_train=-569.1, collapse=False
+  seed=123: selected=ang_vel, correct=False, AA=0.710, J_oracle=302.0, J_S_train=-190.3, collapse=False
+  seed=456: selected=leg_R, correct=False, AA=0.744, J_oracle=317.2, J_S_train=-444.9, collapse=False
+  seed=789: selected=ang_vel, correct=False, AA=0.779, J_oracle=280.6, J_S_train=-316.9, collapse=False

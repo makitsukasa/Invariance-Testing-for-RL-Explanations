@@ -110,6 +110,9 @@ def run_one_seed(
     weak_signal: str,
     cfg: dict,
 ) -> tuple[dict, list[str]]:
+    import torch
+    torch.set_num_threads(2)  # 4 workers × 2 threads = 8 threads on 16 logical cores
+
     cname = condition["name"]
     logs = [f"\n{'='*60}", f"Seed {seed} | cond={cname} | zone_bonus={zone_bonus}", "="*60]
 
@@ -250,8 +253,10 @@ def main() -> None:
                     rec, logs = future.result()
                     all_records.append(rec)
                     all_logs.append((seed, cname, zone_bonus, logs))
+                    delta_c = rec.get("delta_c (spurious)", float("nan"))
                     print(f"[DONE] seed={seed}: AA={rec['aa_train']:.3f}, "
                           f"J_oracle={rec['j_oracle_train']:.1f}, "
+                          f"Δ_c={delta_c:.1f}, "
                           f"selected={rec['intervention_selected']}, "
                           f"correct={rec['intervention_correct']}, "
                           f"collapse={rec['c_collapse']}")

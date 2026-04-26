@@ -6,15 +6,27 @@
 
 ## 実験一覧
 
-| ID | 概要 | ステータス | results |
-|----|------|-----------|---------|
-| exp001 | SHAP 自動選択（GridWorld 3特徴） | 完了 60% | [→](experiments/results/exp001_shap_gridworld/) |
-| exp002 | 介入テスト自動選択（GridWorld 3特徴） | 完了 100% | [→](experiments/results/exp002_intervention_gridworld/) |
-| exp003 | 介入テスト（LunarLander 9特徴） | 失敗・中止 | [→](experiments/results/exp003_intervention_lunar/) |
-| exp004 | 介入テスト（GridWorld + noise 10特徴） | 完了 100% | [→](experiments/results/exp004_noise_gridworld/) |
-| exp005 | spurious_p sweep + end-to-end（介入→Stage2） | 完了 p≤0.2で100% | [→](experiments/results/exp005_psweep_gridworld/) |
-| exp006 | LunarLander PPO + gamma=0.999（差分 shaping あり） | 失敗・中止（Stage2 collapse なし）| [→](experiments/results/exp006_ppo_lunar/) |
-| exp007 | LunarLander アブレーション v2（差分 shaping 除去 + zone_bonus sweep） | 実行中 | [→](experiments/results/exp007_ablation_lunar/) |
+| ID | 概要 | ステータス | 実行時間 | results |
+|----|------|-----------|---------|---------|
+| exp001 | SHAP 自動選択（GridWorld 3特徴） | 完了 60% | 不明 | [→](experiments/results/exp001_shap_gridworld/) |
+| exp002 | 介入テスト自動選択（GridWorld 3特徴） | 完了 100% | 不明 | [→](experiments/results/exp002_intervention_gridworld/) |
+| exp003 | 介入テスト（LunarLander 9特徴） | 失敗・中止 | 不明 | [→](experiments/results/exp003_intervention_lunar/) |
+| exp004 | 介入テスト（GridWorld + noise 10特徴） | 完了 100% | 不明 | [→](experiments/results/exp004_noise_gridworld/) |
+| exp005 | spurious_p sweep + end-to-end（介入→Stage2） | 完了 p≤0.2で100% | 不明 | [→](experiments/results/exp005_psweep_gridworld/) |
+| exp006 | LunarLander PPO + gamma=0.999（差分 shaping あり） | 失敗・中止（Stage2 collapse なし） | 不明 | [→](experiments/results/exp006_ppo_lunar/) |
+| exp007 | LunarLander アブレーション v2（差分 shaping 除去 + zone_bonus sweep） | 失敗・中止（oracle が c を使わない） | **4時間10分**（21分/batch、4並列、torch.set_num_threads(2)） | [→](experiments/results/exp007_ablation_lunar/) |
+
+---
+
+## 実験完了後の更新チェックリスト
+
+新しい実験を追加・完了させるたびに以下を更新する。
+
+| ドキュメント | 更新内容 |
+|-------------|---------|
+| `EXPERIMENT_MAP.md`（このファイル） | 実験一覧の行を追加・ステータス更新・実行時間記入、スクリプト対応表に追記 |
+| `experiments/results/expNNN_*/README.md` | 設定・結果・失敗原因を記録（実験開始前に雛形作成、完了後に結果を埋める） |
+| `memo.md` | `## 実験結果まとめ` に概要を追記（詳細は README に逃がす） |
 
 ---
 

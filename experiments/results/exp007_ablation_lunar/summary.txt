@@ -1,0 +1,31 @@
+=== exp007_ablation_lunar ===
+LunarLander アブレーション (v2 env)。 差分 shaping 除去 + 終端 zone_bonus のみ。vx_nudge で zone をベース obs から弱く推定可能にする。 事前固定採用基準:
+  Stage1: AA >= 0.9 AND J_oracle > 200
+  Ablation: J_oracle(correlated) > J_oracle(no_c) > 50
+  Stage2: c_collapse のみ c_correlated で起きる (no_c/c_random は collapse しない)
+  Intervention: c_correlated のみ "c (spurious)" を自動選択
+
+
+Pre-fixed adoption criteria:
+  Stage1: AA >= 0.9 AND J_oracle > 200
+  Stage2: J_S_rev < 0.5 * J_S_train  (only c_correlated)
+  Ablation: J_oracle(corr) > J_oracle(no_c) > 50
+  Intervention: selected == 'c (spurious)'  (c_correlated only)
+
+zone_bonus=100
+  no_c: AA=0.816+-0.067, J_oracle=221.7+-36.0, J_S=-232.5, collapse=0%, correct=0% (0/4)
+  c_random: AA=0.768+-0.065, J_oracle=214.1+-38.5, J_S=-205.7, collapse=0%, correct=0% (0/4)
+  c_correlated_p00: AA=0.773+-0.059, J_oracle=226.1+-48.4, J_S=-305.1, collapse=0%, correct=0% (0/4)
+  c_correlated_p01: AA=0.684+-0.062, J_oracle=187.3+-46.2, J_S=-189.0, collapse=0%, correct=0% (0/4)
+
+zone_bonus=200
+  no_c: AA=0.749+-0.057, J_oracle=215.4+-29.9, J_S=-164.5, collapse=0%, correct=0% (0/4)
+  c_random: AA=0.735+-0.028, J_oracle=244.5+-44.9, J_S=-229.9, collapse=0%, correct=0% (0/4)
+  c_correlated_p00: AA=0.737+-0.077, J_oracle=172.3+-40.8, J_S=-175.8, collapse=0%, correct=0% (0/4)
+  c_correlated_p01: AA=0.733+-0.013, J_oracle=211.6+-48.4, J_S=-112.0, collapse=0%, correct=0% (0/4)
+
+zone_bonus=300
+  no_c: AA=0.806+-0.051, J_oracle=239.0+-42.1, J_S=-260.6, collapse=0%, correct=0% (0/4)
+  c_random: AA=0.740+-0.052, J_oracle=220.0+-62.8, J_S=-229.5, collapse=0%, correct=0% (0/4)
+  c_correlated_p00: AA=0.691+-0.046, J_oracle=188.5+-73.6, J_S=-106.0, collapse=0%, correct=0% (0/4)
+  c_correlated_p01: AA=0.779+-0.019, J_oracle=216.3+-61.5, J_S=-227.8, collapse=0%, correct=0% (0/4)
