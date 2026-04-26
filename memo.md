@@ -9,6 +9,7 @@ vision.md に書いた長期ビジョン・RQ の補足として、直近の動�
 - **GridWorld**: SHAP は検出率 60%（exp001）。介入テストは 100%（exp002）。10次元ノイズありでも 100%（exp004）。end-to-end は p≤0.2 で完全動作（exp005）。
 - **SHAP vs Δ 直接比較（GridWorld 10次元）**: 同一 oracle・seed で比較。p≤0.2 で Δ 15/15（100%）、SHAP 2/15（13%）（exp011）。
 - **ColoredMNIST（IRM設定）**: 非RL・画像分類でも同じパイプラインが動作。p≤0.1 で 5/5、p=0.2 で 4/5、p=0.3 で 3/5（exp008–010）。
+- **SHAP vs Δ 直接比較（ColoredMNIST IRM）**: p≤0.2 で両者とも 15/15（100%）。p=0.3 で Δ 2/5、SHAP 5/5。ただし SHAP の p=0.3「正解」は R-G 集約の構造的バイアスによるもので、oracle が色依存から構造依存に切り替わった事実を検出できていない（exp012）。
 - **LunarLander**: oracle が c に依存する条件を設計できず中止（exp006–007）。
 
 詳細は各 `experiments/results/expNNN_*/README.md` を参照。
@@ -19,10 +20,10 @@ vision.md に書いた長期ビジョン・RQ の補足として、直近の動�
 
 - ColoredMNIST で SHAP 比較（「Δ > SHAP」を非 RL 環境でも示す）
 - Waterbirds 等の実世界データ（デザインされた spuriousness ではなく、自然発生の spurious correlation で動くかを示す）
-- seed 数が少ない（n=5）。前論文でn=10でもちょっと少ないと言われたので30で
 - baseline が SHAP だけ。 permutation importance 、 LIME と差別化の説明か比較実験が必要
 - Δ プロファイル（argmax に潰す前）の使い方を示す。今は「何番目が一番 Δ が大きいか」で終わっていますが、main claim が「プロファイルとして依存度を定量化する」なら、全特徴の Δ をランキングとして提示する実験が要る
 - SHAP 絞り込み後介入のハイブリッド案の議論 特徴数が多いとき全探索が重いという問題への対策
+- (最後に、なんなら論文書き始めてから)seed 数が少ない（n=5）。前論文でn=10でもちょっと少ないと言われたので30で。実行時間が長くなるのでなるべく中断できる形で実装し直す。
 
 ## 保留中の問い
 

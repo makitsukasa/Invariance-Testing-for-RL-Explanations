@@ -19,6 +19,7 @@
 | exp009 | ColoredMNIST p sweep（ラベルノイズなし） | 失敗・p=0.0 のみ成功 | **約45分**（20 runs） | [→](experiments/results/exp009_cmnist_psweep/) |
 | exp010 | ColoredMNIST IRM 設定 p sweep（label_noise_p=0.25） | 完了 p≤0.1で5/5、p=0.2で4/5、p=0.3で3/5 | **約45分**（20 runs） | [→](experiments/results/exp010_cmnist_irm_psweep/) |
 | exp011 | SHAP vs Δ p sweep（GridWorld 10次元、同一 oracle・seed） | 完了 Δ p≤0.2で15/15、SHAP 2/15 | **実測未記録** | [→](experiments/results/exp011_shap_psweep/) |
+| exp012 | SHAP vs Δ p sweep（ColoredMNIST IRM、同一 oracle・seed） | 完了 p≤0.2で両者15/15、p=0.3でΔ 2/5・SHAP 5/5（バイアスによる） | **約66分**（20 runs、2並列） | [→](experiments/results/exp012_cmnist_shap_psweep/) |
 
 ---
 
