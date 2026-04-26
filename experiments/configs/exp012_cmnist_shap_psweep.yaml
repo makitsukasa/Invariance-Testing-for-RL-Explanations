@@ -25,4 +25,7 @@ evaluation:
   seeds: [42, 123, 456, 789, 0]
   collapse_threshold: 0.6
 
+n_workers: 2
+threads_per_worker: 4
+
 output_dir: experiments/results/exp012_cmnist_shap_psweep

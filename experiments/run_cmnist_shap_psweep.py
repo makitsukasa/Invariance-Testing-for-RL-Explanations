@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -105,6 +106,12 @@ def _compute_shap(oracle: CNN, bg: torch.Tensor, test: torch.Tensor) -> dict:
         "shap_struct_attr": struct_attr,
         "shap_correct": color_attr > struct_attr,
     }
+
+
+def run_one_seed_worker(args):
+    seed, spurious_p, cfg = args
+    torch.set_num_threads(cfg.get("threads_per_worker", 4))
+    return run_one_seed(seed, spurious_p, cfg)
 
 
 def run_one_seed(seed: int, spurious_p: float, cfg: dict) -> tuple[dict, list[str]]:
@@ -197,25 +204,34 @@ def main() -> None:
     output_dir = ROOT / cfg["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    seeds    = cfg["evaluation"]["seeds"]
-    p_values = cfg["data"]["p_values"]
+    seeds     = cfg["evaluation"]["seeds"]
+    p_values  = cfg["data"]["p_values"]
+    n_workers = cfg.get("n_workers", 1)
 
     print(f"Experiment : {cfg['name']}")
     print(f"Seeds      : {seeds}")
     print(f"p_values   : {p_values}")
+    print(f"n_workers  : {n_workers}")
 
+    tasks = [(s, p, cfg) for p in p_values for s in seeds]
     records: list[dict] = []
+    seed_logs: dict = {}
 
-    for p in p_values:
-        print(f"\n{'='*60}\nspurious_p = {p}\n{'='*60}")
-        for seed in seeds:
-            rec, logs = run_one_seed(seed, p, cfg)
+    with ProcessPoolExecutor(max_workers=n_workers) as executor:
+        futures = {executor.submit(run_one_seed_worker, t): (t[0], t[1]) for t in tasks}
+        for future in as_completed(futures):
+            key = futures[future]
+            rec, logs = future.result()
             records.append(rec)
-            for line in logs:
-                print(line)
-            print(f"[DONE] p={p}, seed={seed}: "
+            seed_logs[key] = logs
+            print(f"[DONE] p={rec['spurious_p']}, seed={rec['seed']}: "
                   f"delta={'OK' if rec['delta_correct'] else 'NG'}, "
                   f"shap={'OK' if rec['shap_correct'] else 'NG'}")
+
+    for p in p_values:
+        for s in seeds:
+            for line in seed_logs.get((s, p), []):
+                print(line)
 
     df = pd.DataFrame(records).sort_values(["spurious_p", "seed"]).reset_index(drop=True)
     df.to_csv(output_dir / "results.csv", index=False)

@@ -2,7 +2,7 @@ name: exp009_cmnist_psweep
 description: "ColoredMNIST で spurious_p を sweep し、検出率・Stage2 崩壊の p 依存性を測定。exp005 (GridWorld) の非 RL 版。"
 
 data:
-  root: data/
+  root: data/mnist
   p_values: [0.0, 0.1, 0.2, 0.3]
   stage2_p: 1.0   # Stage 2 test: color perfectly anti-correlates
 
