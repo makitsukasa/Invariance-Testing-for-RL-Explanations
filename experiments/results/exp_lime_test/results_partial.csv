@@ -1,0 +1,2 @@
+seed,spurious_p,j_oracle,aa,j_s_train,delta_hue,delta_struct,delta_correct,j_s_anti,collapse,shap_color_attr,shap_struct_attr,shap_correct,lime_color_attr,lime_struct_attr,lime_correct,lime_ok
+0,0.2,0.796500027179718,0.9750999808311462,0.798799991607666,0.26660001277923584,0.03659999370574951,True,0.08089999854564667,True,0.002304208280133154,0.0012462516069728993,True,0.26810604333877563,0.1342412829399109,True,True

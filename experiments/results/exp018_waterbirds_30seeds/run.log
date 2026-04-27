@@ -1,0 +1,101 @@
+Experiment : exp013_waterbirds
+Seeds      : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+n_workers  : 2
+
+============================================================
+Seed 1
+============================================================
+
+============================================================
+Seed 0
+============================================================
+  [1/4] Building oracle...
+  [1/4] Building oracle...
+    val_acc=0.745
+  [2/4] Delta intervention test...
+    val_acc=0.822
+  [2/4] Delta intervention test...
+    delta_bg=0.069, delta_fg=0.103 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.106, delta_fg=0.091 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8927, shap_fg=0.1073 -> CORRECT
+
+============================================================
+Seed 2
+============================================================
+  [1/4] Building oracle...
+    shap_bg=0.8598, shap_fg=0.1402 -> CORRECT
+
+============================================================
+Seed 3
+============================================================
+  [1/4] Building oracle...
+    val_acc=0.732
+  [2/4] Delta intervention test...
+    val_acc=0.813
+  [2/4] Delta intervention test...
+    delta_bg=0.059, delta_fg=0.075 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.122, delta_fg=0.062 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8814, shap_fg=0.1186 -> CORRECT
+
+============================================================
+Seed 4
+============================================================
+  [1/4] Building oracle...
+    shap_bg=0.8651, shap_fg=0.1349 -> CORRECT
+
+============================================================
+Seed 5
+============================================================
+  [1/4] Building oracle...
+    val_acc=0.758
+  [2/4] Delta intervention test...
+    val_acc=0.751
+  [2/4] Delta intervention test...
+    delta_bg=0.069, delta_fg=0.100 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.041, delta_fg=0.072 -> WRONG
+  [3/4] SHAP...
+    shap_bg=0.8660, shap_fg=0.1340 -> CORRECT
+
+============================================================
+Seed 6
+============================================================
+  [1/4] Building oracle...
+    shap_bg=0.8429, shap_fg=0.1571 -> CORRECT
+
+============================================================
+Seed 7
+============================================================
+  [1/4] Building oracle...
+    val_acc=0.754
+  [2/4] Delta intervention test...
+    val_acc=0.820
+  [2/4] Delta intervention test...
+    delta_bg=0.109, delta_fg=0.100 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.113, delta_fg=0.084 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8922, shap_fg=0.1078 -> CORRECT
+
+============================================================
+Seed 8
+============================================================
+  [1/4] Building oracle...
+    shap_bg=0.8486, shap_fg=0.1514 -> CORRECT
+
+============================================================
+Seed 9
+============================================================
+  [1/4] Building oracle...
+    val_acc=0.751
+  [2/4] Delta intervention test...
+    val_acc=0.769
+  [2/4] Delta intervention test...
+    delta_bg=0.131, delta_fg=0.103 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.069, delta_fg=0.069 -> WRONG
+  [3/4] SHAP...
