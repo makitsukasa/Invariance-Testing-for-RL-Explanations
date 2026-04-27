@@ -1,0 +1,2 @@
+﻿session_id,started_at,ended_at,elapsed_sec,elapsed_hms,status,remaining_tasks_at_start,total_tasks,note
+estimated-exp018-pre-resume-1,2026-04-27 15:47:46,2026-04-27 23:22:52,27306,07:35:06,estimated,30,30,Backfilled from process start and run.log last-write.
