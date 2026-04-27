@@ -1,0 +1,58 @@
+Experiment : exp013_waterbirds
+Seeds      : [42, 123, 456, 789, 0]
+n_workers  : 2
+
+============================================================
+Seed 42
+============================================================
+  [1/4] Building oracle...
+
+============================================================
+Seed 123
+============================================================
+  [1/4] Building oracle...
+    val_acc=0.759
+  [2/4] Delta intervention test...
+    val_acc=0.786
+  [2/4] Delta intervention test...
+    delta_bg=0.122, delta_fg=0.094 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.094, delta_fg=0.084 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8604, shap_fg=0.1396 -> CORRECT
+
+============================================================
+Seed 456
+============================================================
+  [1/4] Building oracle...
+    shap_bg=0.8562, shap_fg=0.1438 -> CORRECT
+
+============================================================
+Seed 789
+============================================================
+  [1/4] Building oracle...
+    val_acc=0.796
+  [2/4] Delta intervention test...
+    val_acc=0.776
+  [2/4] Delta intervention test...
+    delta_bg=0.116, delta_fg=0.091 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.122, delta_fg=0.075 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8620, shap_fg=0.1380 -> CORRECT
+
+============================================================
+Seed 0
+============================================================
+  [1/4] Building oracle...
+    shap_bg=0.8709, shap_fg=0.1291 -> CORRECT
+    val_acc=0.822
+  [2/4] Delta intervention test...
+    delta_bg=0.100, delta_fg=0.078 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8942, shap_fg=0.1058 -> CORRECT
+
+============================================================
+delta detect: 5/5 (100%)
+SHAP  detect: 5/5  (100%)
+Elapsed: 181.1 min
