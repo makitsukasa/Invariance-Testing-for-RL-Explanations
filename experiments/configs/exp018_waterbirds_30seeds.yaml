@@ -1,0 +1,23 @@
+data:
+  root: data/waterbirds/waterbird_complete95_forest2water2
+  n_bg_pool: 200
+
+oracle:
+  epochs: 10
+  batch_size: 32
+  lr: 1.0e-3
+  backbone: resnet18
+
+intervention:
+  fg_noise_std: 0.3
+  n_eval: 300
+
+shap:
+  n_background: 50
+  n_eval: 100
+
+evaluation:
+  seeds: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29]
+
+n_workers: 2
+threads_per_worker: 4
