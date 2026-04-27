@@ -20,7 +20,10 @@ from __future__ import annotations
 import argparse
 import sys
 from concurrent.futures import ProcessPoolExecutor, as_completed
+from datetime import datetime
 from pathlib import Path
+import time
+import uuid
 
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
@@ -203,6 +206,12 @@ def main() -> None:
 
     output_dir = ROOT / cfg["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
+    partial_path = output_dir / "results_partial.csv"
+    runtime_path = output_dir / "runtime_sessions.csv"
+    session_start_dt = datetime.now()
+    session_start_ts = time.time()
+    session_status = "running"
+    session_id = uuid.uuid4().hex
 
     seeds     = cfg["evaluation"]["seeds"]
     p_values  = cfg["data"]["p_values"]
@@ -214,61 +223,177 @@ def main() -> None:
     print(f"n_workers  : {n_workers}")
 
     tasks = [(s, p, cfg) for p in p_values for s in seeds]
+    total_tasks = len(tasks)
     records: list[dict] = []
+    done_keys: set[tuple[int, float]] = set()
     seed_logs: dict = {}
 
-    with ProcessPoolExecutor(max_workers=n_workers) as executor:
-        futures = {executor.submit(run_one_seed_worker, t): (t[0], t[1]) for t in tasks}
-        for future in as_completed(futures):
-            key = futures[future]
-            rec, logs = future.result()
-            records.append(rec)
-            seed_logs[key] = logs
-            print(f"[DONE] p={rec['spurious_p']}, seed={rec['seed']}: "
-                  f"delta={'OK' if rec['delta_correct'] else 'NG'}, "
-                  f"shap={'OK' if rec['shap_correct'] else 'NG'}")
-            # 中間保存
-            pd.DataFrame(records).sort_values(["spurious_p", "seed"]).to_csv(
-                output_dir / "results_partial.csv", index=False)
+    if partial_path.exists():
+        try:
+            partial_df = pd.read_csv(partial_path)
+            if not partial_df.empty:
+                records = partial_df.to_dict("records")
+                done_keys = {
+                    (int(r["seed"]), float(r["spurious_p"]))
+                    for r in records
+                }
+                print(f"[RESUME] loaded {len(records)} rows from {partial_path}")
+        except Exception as e:
+            print(f"[RESUME] failed to read partial file: {e}")
 
-    for p in p_values:
-        for s in seeds:
-            for line in seed_logs.get((s, p), []):
-                print(line)
+    tasks = [t for t in tasks if (int(t[0]), float(t[1])) not in done_keys]
+    remaining_tasks = len(tasks)
+    print(f"[RESUME] remaining tasks: {remaining_tasks} / {total_tasks}")
 
-    df = pd.DataFrame(records).sort_values(["spurious_p", "seed"]).reset_index(drop=True)
-    df.to_csv(output_dir / "results.csv", index=False)
+    # Persist session start immediately so interrupted runs are still traceable.
+    start_row = pd.DataFrame([{
+        "session_id": session_id,
+        "started_at": session_start_dt.strftime("%Y-%m-%d %H:%M:%S"),
+        "ended_at": "",
+        "elapsed_sec": "",
+        "elapsed_hms": "",
+        "status": "running",
+        "remaining_tasks_at_start": remaining_tasks,
+        "total_tasks": total_tasks,
+    }])
+    if runtime_path.exists():
+        hist0 = pd.read_csv(runtime_path)
+        hist0 = pd.concat([hist0, start_row], ignore_index=True)
+    else:
+        hist0 = start_row
+    hist0.to_csv(runtime_path, index=False)
 
-    # Summary
-    print("\n" + "=" * 60)
-    print(f"{'p':>4}  {'delta detect':>12}  {'SHAP detect':>11}")
-    print("-" * 35)
-    lines = [f"=== {cfg['name']} ===", "",
-             f"{'p':>4}  {'delta detect':>12}  {'SHAP detect':>11}", "-" * 35]
-    for p in p_values:
-        sub = df[df["spurious_p"] == p]
-        n         = len(sub)
-        d_rate    = sub["delta_correct"].mean()
-        sh_rate   = sub["shap_correct"].mean()
-        row = f"{p:>4}  {d_rate*n:.0f}/{n} ({d_rate:.0%})  {sh_rate*n:.0f}/{n} ({sh_rate:.0%})"
-        print(row)
-        lines.append(row)
+    try:
+        if tasks:
+            if n_workers <= 1:
+                for t in tasks:
+                    rec, logs = run_one_seed_worker(t)
+                    key = (t[0], t[1])
+                    records.append(rec)
+                    seed_logs[key] = logs
+                    print(f"[DONE] p={rec['spurious_p']}, seed={rec['seed']}: "
+                          f"delta={'OK' if rec['delta_correct'] else 'NG'}, "
+                          f"shap={'OK' if rec['shap_correct'] else 'NG'}")
+                    pd.DataFrame(records).drop_duplicates(
+                        subset=["seed", "spurious_p"], keep="last"
+                    ).sort_values(["spurious_p", "seed"]).to_csv(
+                        partial_path, index=False
+                    )
+            else:
+                with ProcessPoolExecutor(max_workers=n_workers) as executor:
+                    futures = {executor.submit(run_one_seed_worker, t): (t[0], t[1]) for t in tasks}
+                    for future in as_completed(futures):
+                        key = futures[future]
+                        rec, logs = future.result()
+                        records.append(rec)
+                        seed_logs[key] = logs
+                        print(f"[DONE] p={rec['spurious_p']}, seed={rec['seed']}: "
+                              f"delta={'OK' if rec['delta_correct'] else 'NG'}, "
+                              f"shap={'OK' if rec['shap_correct'] else 'NG'}")
+                        # 中間保存
+                        pd.DataFrame(records).drop_duplicates(
+                            subset=["seed", "spurious_p"], keep="last"
+                        ).sort_values(["spurious_p", "seed"]).to_csv(
+                            partial_path, index=False
+                        )
 
-    lines += ["", "Per-seed:"]
-    for p in p_values:
-        for _, r in df[df["spurious_p"] == p].iterrows():
-            lines.append(
-                f"  p={p} seed={int(r['seed'])}: "
-                f"delta={'OK' if r['delta_correct'] else 'NG'} "
-                f"(hue={r['delta_hue']:.3f}, struct={r['delta_struct']:.3f})  "
-                f"shap={'OK' if r['shap_correct'] else 'NG'} "
-                f"(color_attr={r['shap_color_attr']:.4f}, struct_attr={r['shap_struct_attr']:.4f})"
-            )
+        for p in p_values:
+            for s in seeds:
+                for line in seed_logs.get((s, p), []):
+                    print(line)
 
-    (output_dir / "summary.txt").write_text("\n".join(lines), encoding="utf-8")
+        df = pd.DataFrame(records).drop_duplicates(
+            subset=["seed", "spurious_p"], keep="last"
+        ).sort_values(["spurious_p", "seed"]).reset_index(drop=True)
+        df.to_csv(output_dir / "results.csv", index=False)
 
-    _plot(df, output_dir, p_values)
-    print(f"\nResults: {output_dir}")
+        # Summary
+        print("\n" + "=" * 60)
+        print(f"{'p':>4}  {'delta detect':>12}  {'SHAP detect':>11}")
+        print("-" * 35)
+        lines = [f"=== {cfg['name']} ===", "",
+                 f"{'p':>4}  {'delta detect':>12}  {'SHAP detect':>11}", "-" * 35]
+        for p in p_values:
+            sub = df[df["spurious_p"] == p]
+            n         = len(sub)
+            d_rate    = sub["delta_correct"].mean()
+            sh_rate   = sub["shap_correct"].mean()
+            row = f"{p:>4}  {d_rate*n:.0f}/{n} ({d_rate:.0%})  {sh_rate*n:.0f}/{n} ({sh_rate:.0%})"
+            print(row)
+            lines.append(row)
+
+        lines += ["", "Per-seed:"]
+        for p in p_values:
+            for _, r in df[df["spurious_p"] == p].iterrows():
+                lines.append(
+                    f"  p={p} seed={int(r['seed'])}: "
+                    f"delta={'OK' if r['delta_correct'] else 'NG'} "
+                    f"(hue={r['delta_hue']:.3f}, struct={r['delta_struct']:.3f})  "
+                    f"shap={'OK' if r['shap_correct'] else 'NG'} "
+                    f"(color_attr={r['shap_color_attr']:.4f}, struct_attr={r['shap_struct_attr']:.4f})"
+                )
+
+        (output_dir / "summary.txt").write_text("\n".join(lines), encoding="utf-8")
+
+        _plot(df, output_dir, p_values)
+        print(f"\nResults: {output_dir}")
+        session_status = "ok"
+    except Exception:
+        session_status = "error"
+        raise
+    finally:
+        session_end_dt = datetime.now()
+        elapsed_sec = int(time.time() - session_start_ts)
+        elapsed_h = elapsed_sec // 3600
+        elapsed_m = (elapsed_sec % 3600) // 60
+        elapsed_s = elapsed_sec % 60
+        elapsed_hms = f"{elapsed_h:02d}:{elapsed_m:02d}:{elapsed_s:02d}"
+
+        if runtime_path.exists():
+            hist = pd.read_csv(runtime_path)
+        else:
+            # Fallback: runtime file was removed while running.
+            hist = pd.DataFrame([{
+                "session_id": session_id,
+                "started_at": session_start_dt.strftime("%Y-%m-%d %H:%M:%S"),
+                "ended_at": "",
+                "elapsed_sec": "",
+                "elapsed_hms": "",
+                "status": "running",
+                "remaining_tasks_at_start": remaining_tasks,
+                "total_tasks": total_tasks,
+            }])
+
+        mask = hist.get("session_id", pd.Series(dtype=str)) == session_id
+        if mask.any():
+            hist.loc[mask, "ended_at"] = session_end_dt.strftime("%Y-%m-%d %H:%M:%S")
+            hist.loc[mask, "elapsed_sec"] = elapsed_sec
+            hist.loc[mask, "elapsed_hms"] = elapsed_hms
+            hist.loc[mask, "status"] = session_status
+            hist.loc[mask, "remaining_tasks_at_start"] = remaining_tasks
+            hist.loc[mask, "total_tasks"] = total_tasks
+        else:
+            hist = pd.concat([hist, pd.DataFrame([{
+                "session_id": session_id,
+                "started_at": session_start_dt.strftime("%Y-%m-%d %H:%M:%S"),
+                "ended_at": session_end_dt.strftime("%Y-%m-%d %H:%M:%S"),
+                "elapsed_sec": elapsed_sec,
+                "elapsed_hms": elapsed_hms,
+                "status": session_status,
+                "remaining_tasks_at_start": remaining_tasks,
+                "total_tasks": total_tasks,
+            }])], ignore_index=True)
+        hist.to_csv(runtime_path, index=False)
+
+        ok_elapsed = pd.to_numeric(
+            hist.loc[hist["status"] == "ok", "elapsed_sec"], errors="coerce"
+        ).fillna(0).sum()
+        ok_elapsed = int(ok_elapsed)
+        ok_h = ok_elapsed // 3600
+        ok_m = (ok_elapsed % 3600) // 60
+        ok_s = ok_elapsed % 60
+        print(f"[TIME] session={elapsed_hms} status={session_status}")
+        print(f"[TIME] cumulative_ok={ok_h:02d}:{ok_m:02d}:{ok_s:02d} ({runtime_path.name})")
 
 
 def _plot(df: pd.DataFrame, output_dir: Path, p_values: list[float]) -> None:

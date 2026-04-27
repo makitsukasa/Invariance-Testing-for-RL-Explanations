@@ -254,6 +254,7 @@ def main():
     n_workers = cfg.get("n_workers", 1)
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
+    partial_path = outdir / "results_partial.csv"
 
     print(f"Experiment : {outdir.name}")
     print(f"Seeds      : {seeds}")
@@ -261,20 +262,39 @@ def main():
 
     t0 = time.time()
     results = []
+    done_seeds: set[int] = set()
+    if partial_path.exists():
+        try:
+            partial_df = pd.read_csv(partial_path)
+            if not partial_df.empty:
+                results = partial_df.to_dict("records")
+                done_seeds = {int(r["seed"]) for r in results}
+                print(f"[RESUME] loaded {len(results)} rows from {partial_path}", flush=True)
+        except Exception as e:
+            print(f"[RESUME] failed to read partial file: {e}", flush=True)
+
+    pending_seeds = [s for s in seeds if int(s) not in done_seeds]
+    print(f"[RESUME] remaining seeds: {len(pending_seeds)} / {len(seeds)}", flush=True)
+
     if n_workers <= 1:
-        for seed in seeds:
+        for seed in pending_seeds:
             results.append(run_one_seed(seed, cfg))
-            pd.DataFrame(results).sort_values("seed").to_csv(
-                outdir / "results_partial.csv", index=False)
+            pd.DataFrame(results).drop_duplicates(
+                subset=["seed"], keep="last"
+            ).sort_values("seed").to_csv(partial_path, index=False)
     else:
         with ProcessPoolExecutor(max_workers=n_workers) as pool:
-            futures = {pool.submit(_worker, (s, cfg)): s for s in seeds}
+            futures = {pool.submit(_worker, (s, cfg)): s for s in pending_seeds}
             for fut in as_completed(futures):
                 results.append(fut.result())
-                pd.DataFrame(results).sort_values("seed").to_csv(
-                    outdir / "results_partial.csv", index=False)
+                pd.DataFrame(results).drop_duplicates(
+                    subset=["seed"], keep="last"
+                ).sort_values("seed").to_csv(partial_path, index=False)
 
-    results.sort(key=lambda r: r["seed"])
+    results = sorted(
+        pd.DataFrame(results).drop_duplicates(subset=["seed"], keep="last").to_dict("records"),
+        key=lambda r: r["seed"]
+    )
 
     pd.DataFrame(results).sort_values("seed").reset_index(drop=True).to_csv(
         outdir / "results.csv", index=False)
