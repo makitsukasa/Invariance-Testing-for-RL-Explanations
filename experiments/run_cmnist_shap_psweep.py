@@ -167,7 +167,7 @@ def run_one_seed(seed: int, spurious_p: float, cfg: dict) -> tuple[dict, list[st
     logs.append(f"    delta_hue={delta_hue:.3f}, delta_struct={delta_struct:.3f} -> {'CORRECT' if delta_correct else 'WRONG'}")
 
     # [5/5] SHAP
-    logs.append("  [5/5] SHAP (DeepExplainer)...")
+    logs.append("  [5/5] SHAP (GradientExplainer)...")
     n_bg   = shap_cfg["n_background"]
     n_eval = shap_cfg["n_eval"]
     bg_images   = train_ds.images[:n_bg]
@@ -227,6 +227,9 @@ def main() -> None:
             print(f"[DONE] p={rec['spurious_p']}, seed={rec['seed']}: "
                   f"delta={'OK' if rec['delta_correct'] else 'NG'}, "
                   f"shap={'OK' if rec['shap_correct'] else 'NG'}")
+            # 中間保存
+            pd.DataFrame(records).sort_values(["spurious_p", "seed"]).to_csv(
+                output_dir / "results_partial.csv", index=False)
 
     for p in p_values:
         for s in seeds:
@@ -269,6 +272,7 @@ def main() -> None:
 
 
 def _plot(df: pd.DataFrame, output_dir: Path, p_values: list[float]) -> None:
+    has_lime = "lime_ok" in df.columns
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
     # Detection rate comparison
@@ -276,18 +280,29 @@ def _plot(df: pd.DataFrame, output_dir: Path, p_values: list[float]) -> None:
     delta_rates = [df[df["spurious_p"] == p]["delta_correct"].mean() for p in p_values]
     shap_rates  = [df[df["spurious_p"] == p]["shap_correct"].mean()  for p in p_values]
     x = np.arange(len(p_values))
-    w = 0.35
-    ax.bar(x - w/2, delta_rates, w, label="delta (intervention)", color="steelblue")
-    ax.bar(x + w/2, shap_rates,  w, label="SHAP (DK-aggregation)",  color="tomato")
+    if has_lime:
+        lime_rates = [df[df["spurious_p"] == p]["lime_ok"].mean() for p in p_values]
+        w = 0.25
+        ax.bar(x - w, delta_rates, w, label="Δ (intervention)", color="steelblue")
+        ax.bar(x,     shap_rates,  w, label="SHAP",             color="tomato")
+        ax.bar(x + w, lime_rates,  w, label="LIME (channel)",   color="seagreen")
+        for xi, (d, s, li) in enumerate(zip(delta_rates, shap_rates, lime_rates)):
+            ax.text(xi - w, d + 0.03, f"{d:.0%}", ha="center", fontsize=7)
+            ax.text(xi,     s + 0.03, f"{s:.0%}", ha="center", fontsize=7)
+            ax.text(xi + w, li + 0.03, f"{li:.0%}", ha="center", fontsize=7)
+    else:
+        w = 0.35
+        ax.bar(x - w/2, delta_rates, w, label="delta (intervention)", color="steelblue")
+        ax.bar(x + w/2, shap_rates,  w, label="SHAP (DK-aggregation)", color="tomato")
+        for xi, (d, s) in enumerate(zip(delta_rates, shap_rates)):
+            ax.text(xi - w/2, d + 0.03, f"{d:.0%}", ha="center", fontsize=8)
+            ax.text(xi + w/2, s + 0.03, f"{s:.0%}", ha="center", fontsize=8)
     ax.set_xticks(x)
     ax.set_xticklabels([f"p={p}" for p in p_values])
     ax.set_ylim(0, 1.15)
     ax.set_ylabel("Detection rate (hue = spurious)")
-    ax.set_title("ColoredMNIST: delta vs SHAP spurious feature detection")
+    ax.set_title("ColoredMNIST: Δ vs SHAP vs LIME detection")
     ax.legend()
-    for xi, (d, s) in enumerate(zip(delta_rates, shap_rates)):
-        ax.text(xi - w/2, d + 0.03, f"{d:.0%}", ha="center", fontsize=8)
-        ax.text(xi + w/2, s + 0.03, f"{s:.0%}", ha="center", fontsize=8)
 
     # delta_hue and delta_struct means by p
     ax = axes[1]

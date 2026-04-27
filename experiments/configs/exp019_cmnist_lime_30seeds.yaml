@@ -1,0 +1,35 @@
+name: exp019_cmnist_lime_30seeds
+description: "ColoredMNIST Δ / SHAP / LIME p-sweep 30シード版（exp017 + LIME baseline）"
+
+data:
+  root: data/mnist
+  p_values: [0.0, 0.1, 0.2, 0.3]
+  label_noise_p: 0.25
+  stage2_p: 1.0
+
+oracle:
+  epochs: 20
+  batch_size: 64
+  lr: 0.001
+
+surrogate:
+  epochs: 20
+  batch_size: 64
+  lr: 0.001
+
+shap:
+  n_background: 100
+  n_eval: 200
+
+lime:
+  n_eval: 100      # images per seed (< SHAP n_eval; fast enough)
+  n_samples: 128   # perturbation samples per image for Ridge regression
+
+evaluation:
+  seeds: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29]
+  collapse_threshold: 0.6
+
+n_workers: 2
+threads_per_worker: 4
+
+output_dir: experiments/results/exp019_cmnist_lime_30seeds
