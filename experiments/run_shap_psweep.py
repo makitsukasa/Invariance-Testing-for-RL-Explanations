@@ -198,7 +198,7 @@ def main() -> None:
     print(f"Seeds      : {seeds}")
     print(f"p_values   : {p_values}")
 
-    records: list[dict] = {}
+    records: dict = {}
     seed_logs: dict = {}
 
     tasks = [(s, p) for p in p_values for s in seeds]
@@ -212,6 +212,9 @@ def main() -> None:
             print(f"[DONE] p={rec['spurious_p']}, seed={rec['seed']}: "
                   f"Δ={rec['delta_selected']}({'OK' if rec['delta_correct'] else 'NG'}), "
                   f"SHAP={rec['shap_selected']}({'OK' if rec['shap_correct'] else 'NG'})")
+            # 中間保存
+            pd.DataFrame(list(records.values())).sort_values(["spurious_p", "seed"]).to_csv(
+                output_dir / "results_partial.csv", index=False)
 
     for p in p_values:
         for s in seeds:

@@ -255,7 +255,7 @@ def main():
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
 
-    print(f"Experiment : exp013_waterbirds")
+    print(f"Experiment : {outdir.name}")
     print(f"Seeds      : {seeds}")
     print(f"n_workers  : {n_workers}", flush=True)
 
@@ -291,7 +291,7 @@ def main():
 
     # Save summary
     with open(outdir / "summary.txt", "w", encoding="utf-8") as f:
-        f.write("=== exp013_waterbirds ===\n\n")
+        f.write(f"=== {outdir.name} ===\n\n")
         f.write(f"delta detect: {delta_ok}/{n} ({100*delta_ok//n}%)\n")
         f.write(f"SHAP  detect: {shap_ok}/{n}  ({100*shap_ok//n}%)\n\n")
         f.write("Per-seed:\n")
