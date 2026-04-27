@@ -16,6 +16,7 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
 import yaml
@@ -263,13 +264,20 @@ def main():
     if n_workers <= 1:
         for seed in seeds:
             results.append(run_one_seed(seed, cfg))
+            pd.DataFrame(results).sort_values("seed").to_csv(
+                outdir / "results_partial.csv", index=False)
     else:
         with ProcessPoolExecutor(max_workers=n_workers) as pool:
             futures = {pool.submit(_worker, (s, cfg)): s for s in seeds}
             for fut in as_completed(futures):
                 results.append(fut.result())
+                pd.DataFrame(results).sort_values("seed").to_csv(
+                    outdir / "results_partial.csv", index=False)
 
     results.sort(key=lambda r: r["seed"])
+
+    pd.DataFrame(results).sort_values("seed").reset_index(drop=True).to_csv(
+        outdir / "results.csv", index=False)
 
     # Summary
     delta_ok = sum(r["delta_ok"] for r in results)
