@@ -33,7 +33,7 @@
 |-------------|---------|
 | `EXPERIMENT_MAP.md`（このファイル） | 実験一覧の行を追加・ステータス更新・実行時間記入、スクリプト対応表に追記 |
 | `experiments/results/expNNN_*/README.md` | 設定・結果・失敗原因を記録（実験開始前に雛形作成、完了後に結果を埋める） |
-| `memo.md` | `## 実験結果まとめ` に概要を追記（詳細は README に逃がす） |
+| `review_log.md` | 査読コメントに対応する進捗（未着手/進行中/完了）を更新 |
 
 ---
 
@@ -59,3 +59,21 @@
 | `run_shap_psweep.py`        | `exp011_shap_psweep` / `exp016_shap_psweep_30seeds`                  |
 | `run_cmnist_shap_psweep.py` | `exp012_cmnist_shap_psweep`                                           |
 | `run_waterbirds.py`         | `exp013_waterbirds`                                                   |
+
+---
+
+## 実験と論文章の対応
+
+| 論文章 | 目的 | 対応実験 |
+|-------|------|---------|
+| Abstract / 1. Introduction | 主結果の要約（Δ と SHAP の比較、適用範囲） | exp016, exp017, exp018（完了後） |
+| 2. Related Work | 直接対応実験なし（文献整理） | なし |
+| 3. Method | 介入演算子の定義・設計の妥当性、判定規則 | exp002, exp004, exp016, exp017, exp018 |
+| 4. Experimental Setup | 各ベンチマーク設定、シード、実装条件 | exp016, exp017, exp018 |
+| 5. Results: GridWorld | Δ vs SHAP の主要比較（p-sweep, top-k） | exp016（+比較参照 exp011） |
+| 5. Results: ColoredMNIST | IRM設定での比較、構造的アーティファクト分析 | exp017（+既存参照 exp012） |
+| 5. Results: Waterbirds | 実世界スプリアス相関での比較（scatter / group） | exp018（+既存参照 exp013） |
+| 6. Discussion | 相補性・適用条件・一般化可能性 | exp016, exp017, exp018 |
+| 7. Limitations | 介入質依存、候補特徴前提、LunarLander負例 | exp006, exp007 |
+| Appendix: Negative Results | LunarLanderの失敗例詳細 | exp003, exp006, exp007 |
+| Appendix: Statistical Tests | Wilson CI, McNemar,補助表 | exp016, exp017, exp018 |
