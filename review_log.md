@@ -20,10 +20,10 @@
     [対応] 未
 [#001-C-001] 信頼区間・誤差棒・統計検定の完全欠落
     [方針] 全検出率に Wilson 95% CI を併記し、Δ vs SHAP に対して McNemar 検定を実施する。
-    [対応] スクリプト作成済み。未計算。
+    [対応] 完了。`compute_stats.py` で exp016/017/018 の Wilson CI + McNemar を算出し `stats.txt` を保存。
 [#001-C-002] n=5 の正当化が不足（領域標準は n=20 以上）
     [方針] n=30 で再実験中。
-    [対応] 実行中
+    [対応] 完了。exp017（CMNIST）120/120、exp018（Waterbirds）30/30 で完走。
 [#001-C-003] exp005 と exp011 のシード独立性が不明（同一オラクルの使い回しかどうか）
     [方針] exp005 と exp011 のシード独立性 を Experiments 節冒頭で明示
     [対応] 未
@@ -47,7 +47,7 @@
     [対応] 未
 [#001-X-007] Figure ゼロ → Desk Reject
     [方針] 追記。
-    [対応] スクリプト作成済み。図は未作成。
+    [対応] 完了。`plot_results.py` で fig_psweep / fig_crosstab / fig_scatter / fig_delta_dist を生成。
 [#001-X-008] Method/Experiments/Discussion での引用が不十分（Janzing, Adebayo等）
     [方針] 増強。特に Janzing と Adebayo を介入定義箇所で引用。
     [対応] 未

@@ -22,6 +22,8 @@
 | exp012 | SHAP vs Δ p sweep（ColoredMNIST IRM、同一 oracle・seed） | 完了 p≤0.2で両者15/15、p=0.3でΔ 2/5・SHAP 5/5（バイアスによる） | **約66分**（20 runs、2並列） | [→](experiments/results/exp012_cmnist_shap_psweep/) |
 | exp013 | Waterbirds（実世界スプリアス相関、ResNet-18 + GrabCut） | 完了 Δ 5/5・SHAP 5/5（両者100%） | **約2.5時間**（5 seeds、2並列） | [→](experiments/results/exp013_waterbirds/) |
 | exp016 | SHAP vs Δ p sweep 30シード版（GridWorld 10次元、同一 oracle・seed） | 完了（30シード再実験） | **不明（未記録）** | [→](experiments/results/exp016_shap_psweep_30seeds/) |
+| exp017 | SHAP vs Δ p sweep（ColoredMNIST IRM、30シード版） | 完了 Δ=102/120（85%）, SHAP=120/120（100%）, McNemar p=0.0001 | **推定 20時間49分**（推定6:52:59 + 実測13:56:41） | [→](experiments/results/exp017_cmnist_shap_psweep_30seeds/) |
+| exp018 | Waterbirds（実世界スプリアス相関、30シード版） | 完了 Δ=16/30（53%）, SHAP=30/30（100%）, McNemar p=0.0005 | **推定 7時間35分**（バックフィル） | [→](experiments/results/exp018_waterbirds_30seeds/) |
 
 ---
 
@@ -57,8 +59,8 @@
 | `run_colored_mnist.py`      | `exp008_colored_mnist`          |
 | `run_cmnist_psweep.py`      | `exp009_cmnist_psweep` / `exp010_cmnist_irm_psweep`（引数で切り替え） |
 | `run_shap_psweep.py`        | `exp011_shap_psweep` / `exp016_shap_psweep_30seeds`                  |
-| `run_cmnist_shap_psweep.py` | `exp012_cmnist_shap_psweep`                                           |
-| `run_waterbirds.py`         | `exp013_waterbirds`                                                   |
+| `run_cmnist_shap_psweep.py` | `exp012_cmnist_shap_psweep` / `exp017_cmnist_shap_psweep_30seeds`    |
+| `run_waterbirds.py`         | `exp013_waterbirds` / `exp018_waterbirds_30seeds`                    |
 
 ---
 
