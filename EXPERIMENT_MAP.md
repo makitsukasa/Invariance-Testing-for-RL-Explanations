@@ -24,18 +24,10 @@
 | exp016 | SHAP vs Δ p sweep 30シード版（GridWorld 10次元、同一 oracle・seed） | 完了（30シード再実験） | **不明（未記録）** | [→](experiments/results/exp016_shap_psweep_30seeds/) |
 | exp017 | SHAP vs Δ p sweep（ColoredMNIST IRM、30シード版） | 完了 Δ=102/120（85%）, SHAP=120/120（100%）, McNemar p=0.0001 | **推定 20時間49分**（推定6:52:59 + 実測13:56:41） | [→](experiments/results/exp017_cmnist_shap_psweep_30seeds/) |
 | exp018 | Waterbirds（実世界スプリアス相関、30シード版） | 完了 Δ=16/30（53%）, SHAP=30/30（100%）, McNemar p=0.0005 | **推定 7時間35分**（バックフィル） | [→](experiments/results/exp018_waterbirds_30seeds/) |
-
----
-
-## 実験完了後の更新チェックリスト
-
-新しい実験を追加・完了させるたびに以下を更新する。
-
-| ドキュメント | 更新内容 |
-|-------------|---------|
-| `EXPERIMENT_MAP.md`（このファイル） | 実験一覧の行を追加・ステータス更新・実行時間記入、スクリプト対応表に追記 |
-| `experiments/results/expNNN_*/README.md` | 設定・結果・失敗原因を記録（実験開始前に雛形作成、完了後に結果を埋める） |
-| `review_log.md` | 査読コメントに対応する進捗（未着手/進行中/完了）を更新 |
+| exp019 | Waterbirds後処理（WGA再算出; exp018結果を入力に再集計） | 完了（mean worst_group_acc=0.3424, std=0.0804） | 開始 2026-04-29 17:50:11 / 休止・時刻ジャンプ 21,697,814ms + 29,922,804ms / 完了 2026-04-30 13:34:50（3並列） | [→](experiments/results/exp019_waterbirds_wga/) |
+| exp020 | Waterbirds 後処理強化（完全ログ化・再集計パイプライン整備） | planned | 未実行 | （作成予定） |
+| exp021 | Waterbirds マスク摂動 sensitivity（膨張/縮小で Δ の頑健性評価） | planned | 未実行 | （作成予定） |
+| exp022 | Waterbirds 追加ベースライン（Spurious Score または Salient ImageNet） | planned | 未実行 | （作成予定） |
 
 ---
 
@@ -75,7 +67,7 @@
 | 5. Results: GridWorld | Δ vs SHAP の主要比較（p-sweep, top-k） | exp016（+比較参照 exp011） |
 | 5. Results: ColoredMNIST | IRM設定での比較、構造的アーティファクト分析 | exp017（+既存参照 exp012） |
 | 5. Results: Waterbirds | 実世界スプリアス相関での比較（scatter / group） | exp018（+既存参照 exp013） |
-| 6. Discussion | 相補性・適用条件・一般化可能性 | exp016, exp017, exp018 |
-| 7. Limitations | 介入質依存、候補特徴前提、LunarLander負例 | exp006, exp007 |
+| 6. Discussion | 相補性・適用条件・一般化可能性 | exp016, exp017, exp018, exp022（planned） |
+| 7. Limitations | 介入質依存、候補特徴前提、LunarLander負例 | exp006, exp007, exp021（planned） |
 | Appendix: Negative Results | LunarLanderの失敗例詳細 | exp003, exp006, exp007 |
-| Appendix: Statistical Tests | Wilson CI, McNemar,補助表 | exp016, exp017, exp018 |
+| Appendix: Statistical Tests | Wilson CI, McNemar,補助表 | exp016, exp017, exp018, exp019, exp020（planned） |

@@ -7,14 +7,21 @@
     [方針] 二候補の直接比較を補助に下げ、全候補の Δ ランキング提示を主判定にする。本文では top-k 判定を明示し、表示は top-5 を標準化する。
     [対応] 完了。Method の検出判定基準を ranking ベース（top-5）へ更新。
 [#001-A-003] 介入質の sensitivity analysis がない
-    [方針] 検討中
+    [方針]
+        Waterbirds でマスク摂動 sensitivity を系統実施（1 seed固定）。
+        具体的には前景マスクの膨張/縮小（例: -3, -1, 0, +1, +3 px）ごとに `Δ_bg`, `Δ_fg`, 判定（bg>fg）を記録し、判定反転の有無と変動幅を図示する。
+        対応実験: exp021（planned）
     [対応] 未
 [#001-B-001] 領域の主要ベースラインが欠落（Spurious Score, Salient ImageNet等）
-    [方針] Spurious Score または Salient ImageNet から最低 1 つを Waterbirds で追加比較する。
+    [方針]
+        Spurious Score（Neuhaus et al., 2023）または Salient ImageNet（Singla et al., 2022）を Waterbirds で最低1手法追加する。
+        主張は「勝敗」ではなく、専用手法の検出結果と Δ の操作的必要性測定の差分を示す。
+        対応実験: exp022（planned）
     [対応] 未
 [#001-B-002] Waterbirds の worst-group accuracy が未記載
     [方針] `compute_waterbirds_wga.py` で group-wise accuracy を算出し、worst-group を本文・表に追記。
-    [対応] 未（`worst_group_results.csv` は途中生成。30シード完了後に再算出して確定値を反映する）
+    [対応] 完了。`exp019` で30シード分の `worst_group_results.csv` / `worst_group_summary.txt` を確定し、mean worst_group_acc=0.3424（std=0.0804）を取得。
+    [証拠ファイル] `experiments/results/exp019_waterbirds_wga/worst_group_results.csv`, `experiments/results/exp019_waterbirds_wga/worst_group_summary.txt`
 [#001-B-003] LunarLander の分析が環境設計の問題（報酬減衰）と適用境界の問題と混同されている
     [方針] 本文から削除し Appendix へ移動。言及は Limitations のみに集約する。
     [対応] 完了。本文主張から切り離し、Appendix 中心の扱いに修正。
@@ -64,7 +71,10 @@
     [方針] 主張「SHAPは信頼できない」と少し矛盾。「全探索Δは中規模特徴数では現実的、ハイブリッドはSHAPの信頼性が期待できる設定に限定される。」とか1行書くだけかも。
     [対応] 完了。Discussion に「full Δ scan を基本、絞り込みは計算近似」として限定記述を追加。
 [#000-X-005] baseline が SHAP だけ。 permutation importance 、 LIME と差別化の説明か比較実験が必要
-    [方針] piはΔと似てる、limeはshapと似てる。実験しても主張できることは少ない。
+    [方針]
+        SHAP/LIMEに加えて Waterbirds で専用手法ベースラインを追加（exp022）。
+        あわせて「何を測っているか」の軸で比較表を作成（検出率、判定安定性、計算コスト、介入整合性）。
+        LIME は準備中実装を活かして補助比較、主比較は専用手法 vs Δ に置く。
     [対応] 未
 [#000-X-006] 連続大規模環境で介入テストをスケールさせる方法
     [方針] SHAP 絞り込み後介入の条件付き利用を Discussion で限定記述。
