@@ -1,0 +1,31 @@
+method:
+  # Waterbirds-adapted, spurious-score style proxy on exp018 checkpoints.
+  name: "Spurious Score (Waterbirds proxy)"
+
+data:
+  root: data/waterbirds/waterbird_complete95_forest2water2
+
+input:
+  # exp018 output used for sanity checks / alignment
+  exp018_results_csv: experiments/results/exp018_waterbirds_30seeds/results.csv
+  # exp018 checkpoints saved by run_waterbirds.py
+  checkpoint_dir: experiments/results/exp018_waterbirds_30seeds/checkpoints
+  # original exp018 training config for checkpoint hash validation
+  exp018_config: experiments/configs/exp018_waterbirds_30seeds.yaml
+  # output consumed by exp021 comparison
+  specialized_scores_csv: experiments/results/exp021_waterbirds_specialized_baseline/specialized_scores.csv
+
+specialized:
+  # Fraction threshold used by the spurious-score style proxy.
+  epsilon: 0.1
+  n_eval: 300
+  bg_pool_n: 200
+  fg_pool_n: 200
+  batch_size: 32
+  est_min_per_seed: 10.0
+
+evaluation:
+  seeds: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29]
+
+n_workers: 3
+threads_per_worker: 4

@@ -9,6 +9,8 @@ SHAP: GradientExplainer on FC; aggregate shap values by GrabCut mask.
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import os
 import sys
 import time
@@ -69,6 +71,63 @@ def train_oracle(model: nn.Module, root: str, epochs: int, batch_size: int,
             total += len(y)
     acc = correct / total if total > 0 else 0.0
     return acc
+
+
+def save_oracle_checkpoint(
+    model: nn.Module,
+    outdir: Path,
+    seed: int,
+    val_acc: float,
+    cfg: dict,
+) -> Path:
+    ckpt_dir = outdir / "checkpoints"
+    ckpt_dir.mkdir(parents=True, exist_ok=True)
+    ckpt_path = ckpt_dir / f"seed_{seed}.pt"
+    payload = {
+        "checkpoint_version": 2,
+        "seed": int(seed),
+        "val_acc": float(val_acc),
+        "config_hash": _config_hash(cfg),
+        "git_commit": _git_commit_short(),
+        "state_dict": model.state_dict(),
+        "config": {
+            "oracle": cfg.get("oracle", {}),
+            "data": cfg.get("data", {}),
+            "intervention": cfg.get("intervention", {}),
+        },
+    }
+    torch.save(payload, ckpt_path)
+    return ckpt_path
+
+
+def _config_hash(cfg: dict) -> str:
+    payload = json.dumps(cfg, sort_keys=True, ensure_ascii=False, default=str)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _git_commit_short() -> str:
+    import subprocess
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+    except Exception:
+        return "unknown"
+
+
+def load_oracle_checkpoint(model: nn.Module, ckpt_path: Path, cfg: dict) -> float:
+    ckpt = torch.load(ckpt_path, map_location="cpu")
+    expected_hash = _config_hash(cfg)
+    ckpt_hash = ckpt.get("config_hash")
+    if ckpt_hash != expected_hash:
+        raise ValueError(
+            f"checkpoint config hash mismatch for {ckpt_path}: "
+            f"expected={expected_hash[:12]} got={str(ckpt_hash)[:12]}"
+        )
+    model.load_state_dict(ckpt["state_dict"])
+    return float(ckpt["val_acc"])
 
 
 # ---------------------------------------------------------------------------
@@ -181,21 +240,43 @@ def compute_delta(model: nn.Module, root: str, n_eval: int,
 # Single seed worker
 # ---------------------------------------------------------------------------
 
-def run_one_seed(seed: int, cfg: dict) -> dict:
+def run_one_seed(seed: int, cfg: dict, outdir: Path) -> dict:
     torch.set_num_threads(cfg.get("threads_per_worker", 4))
     root = cfg["data"]["root"]
 
     print(f"\n{'='*60}\nSeed {seed}\n{'='*60}", flush=True)
 
-    print("  [1/4] Building oracle...", flush=True)
+    ckpt_path = outdir / "checkpoints" / f"seed_{seed}.pt"
     model = build_oracle(seed)
-    val_acc = train_oracle(
-        model, root,
-        epochs=cfg["oracle"]["epochs"],
-        batch_size=cfg["oracle"]["batch_size"],
-        lr=cfg["oracle"]["lr"],
-        seed=seed,
-    )
+
+    if ckpt_path.exists():
+        print(f"  [1/4] Loading existing oracle from {ckpt_path}...", flush=True)
+        try:
+            val_acc = load_oracle_checkpoint(model, ckpt_path, cfg)
+        except Exception as e:
+            print(f"    checkpoint invalid ({e}); retraining...", flush=True)
+            ckpt_path.unlink(missing_ok=True)
+            val_acc = train_oracle(
+                model, root,
+                epochs=cfg["oracle"]["epochs"],
+                batch_size=cfg["oracle"]["batch_size"],
+                lr=cfg["oracle"]["lr"],
+                seed=seed,
+            )
+            ckpt_path = save_oracle_checkpoint(model, outdir=outdir, seed=seed, val_acc=val_acc, cfg=cfg)
+            print(f"    Saved checkpoint to {ckpt_path}", flush=True)
+    else:
+        print("  [1/4] Building and training oracle...", flush=True)
+        val_acc = train_oracle(
+            model, root,
+            epochs=cfg["oracle"]["epochs"],
+            batch_size=cfg["oracle"]["batch_size"],
+            lr=cfg["oracle"]["lr"],
+            seed=seed,
+        )
+        ckpt_path = save_oracle_checkpoint(model, outdir=outdir, seed=seed, val_acc=val_acc, cfg=cfg)
+        print(f"    Saved checkpoint to {ckpt_path}", flush=True)
+
     print(f"    val_acc={val_acc:.3f}", flush=True)
 
     print("  [2/4] Delta intervention test...", flush=True)
@@ -225,6 +306,7 @@ def run_one_seed(seed: int, cfg: dict) -> dict:
     return {
         "seed": seed,
         "val_acc": val_acc,
+        "checkpoint_path": str(ckpt_path).replace("\\", "/"),
         **delta_res,
         **shap_res,
         "delta_ok": delta_res["delta_correct"],
@@ -233,8 +315,8 @@ def run_one_seed(seed: int, cfg: dict) -> dict:
 
 
 def _worker(args):
-    seed, cfg = args
-    return run_one_seed(seed, cfg)
+    seed, cfg, outdir = args
+    return run_one_seed(seed, cfg, outdir)
 
 
 # ---------------------------------------------------------------------------
@@ -245,6 +327,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="experiments/configs/exp013_waterbirds.yaml")
     parser.add_argument("--outdir", default="experiments/results/exp013_waterbirds")
+    parser.add_argument(
+        "--no-resume",
+        action="store_true",
+        help="Ignore results_partial.csv and recompute every seed from scratch.",
+    )
     args = parser.parse_args()
 
     with open(args.config) as f:
@@ -263,7 +350,7 @@ def main():
     t0 = time.time()
     results = []
     done_seeds: set[int] = set()
-    if partial_path.exists():
+    if partial_path.exists() and not args.no_resume:
         try:
             partial_df = pd.read_csv(partial_path)
             if not partial_df.empty:
@@ -272,19 +359,30 @@ def main():
                 print(f"[RESUME] loaded {len(results)} rows from {partial_path}", flush=True)
         except Exception as e:
             print(f"[RESUME] failed to read partial file: {e}", flush=True)
+    elif args.no_resume and partial_path.exists():
+        print(f"[NO-RESUME] ignoring existing {partial_path}", flush=True)
+        results = []
+        done_seeds = set()
 
     pending_seeds = [s for s in seeds if int(s) not in done_seeds]
-    print(f"[RESUME] remaining seeds: {len(pending_seeds)} / {len(seeds)}", flush=True)
+    n_pending = len(pending_seeds)
+    print(f"[RESUME] remaining seeds: {n_pending} / {len(seeds)}", flush=True)
+
+    # Estimate runtime
+    if n_pending > 0:
+        est_min_per_seed = 46  # base estimate
+        est_total_min = (n_pending * est_min_per_seed) / n_workers
+        print(f"Estimated remaining runtime: {est_total_min:.1f} minutes", flush=True)
 
     if n_workers <= 1:
         for seed in pending_seeds:
-            results.append(run_one_seed(seed, cfg))
+            results.append(run_one_seed(seed, cfg, outdir))
             pd.DataFrame(results).drop_duplicates(
                 subset=["seed"], keep="last"
             ).sort_values("seed").to_csv(partial_path, index=False)
     else:
         with ProcessPoolExecutor(max_workers=n_workers) as pool:
-            futures = {pool.submit(_worker, (s, cfg)): s for s in pending_seeds}
+            futures = {pool.submit(_worker, (s, cfg, outdir)): s for s in pending_seeds}
             for fut in as_completed(futures):
                 results.append(fut.result())
                 pd.DataFrame(results).drop_duplicates(
@@ -314,6 +412,8 @@ def main():
         f.write(f"=== {outdir.name} ===\n\n")
         f.write(f"delta detect: {delta_ok}/{n} ({100*delta_ok//n}%)\n")
         f.write(f"SHAP  detect: {shap_ok}/{n}  ({100*shap_ok//n}%)\n\n")
+        f.write("Checkpoints:\n")
+        f.write(f"  dir: {outdir / 'checkpoints'}\n\n")
         f.write("Per-seed:\n")
         for r in results:
             ds = "OK" if r["delta_ok"] else "NG"
@@ -321,6 +421,7 @@ def main():
             f.write(
                 f"  seed={r['seed']}: "
                 f"val_acc={r['val_acc']:.3f}  "
+                f"ckpt={r.get('checkpoint_path', 'n/a')}  "
                 f"delta={ds} (bg={r['delta_bg']:.3f}, fg={r['delta_fg']:.3f})  "
                 f"shap={ss} (bg={r['shap_bg']:.4f}, fg={r['shap_fg']:.4f})\n"
             )
