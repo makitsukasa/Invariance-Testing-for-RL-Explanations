@@ -1,3 +1,31 @@
+﻿[#002-A-001] 統計的な可視化
+    [方針]
+        [#000-X-002]の再指摘。
+        主要表に Wilson CI を併記し、 error bar 付き図と p 値を本文に直接示す。
+        Delta vs SHAP の分布と Waterbirds の seed 別挙動を可視化する。
+        図の個数が足りない問題もついでに解決。
+    [対応] 未
+[#002-A-002] 介入演算子の妥当条件と top-5 判定の書き分けが曖昧
+    [方針]
+        1. 介入の正当性（Admissibility）の定式化:
+           以下の二条件を満たす介入 T_i を「妥当」と定義し、Method節に数式的に追記する。
+           - 条件(a) 情報破壊: I(X_i; T_i(X)) ≈ 0 （ターゲット特徴の情報を完全に遮断する）
+           - 条件(b) 分布保持: P(X_{-i} | T_i(X)) ≈ P(X_{-i}) （他特徴の周辺分布を壊さず、OODによる困惑を防ぐ）
+        2. 判定ルールの統一:
+           「Top-5ランキング内の順位」を主指標とし、全ての実験で一貫した Recall@k 形式で評価を記述する。
+    [対応] 未
+[#002-B-001] Waterbirds の主文比較に専用ベースラインがない
+    [方針]
+        [#001-B-001](数値実験実行中)の再指摘。改めて下の方針とする。
+        1. 比較の軸を「属性推定 vs 操作的検証」として固定:
+           - 既存手法 (Spurious Score等): 特徴空間の統計からスプリアス「性」を推定。
+           - Delta (提案): 実際に破壊して性能を測り、モデルの「操作的必要性」を実証。
+        2. 主張のゴール:
+           「専用手法が『背景はスプリアスだ』と言っても、Deltaが『でもモデルは背景を無視している』と示せば、モデル診断としてはDeltaの方が真実に近い」というロジックで配置する。
+           検出率の勝敗だけでなく、不一致ケース（Discordant pairs）の定性分析を主眼に置く。
+    [対応] 未
+[#002-C-001] 主張が図に裏付けられていない
+    [方針] [#002-A-001]で対応する。
 [#001-A-001] 介入演算子 T_i の理論的正当化が不足
     [方針]
         「do-calculusに基づく」と断言せず、do演算に着想を得た実用的介入近似として記述。
@@ -14,10 +42,12 @@
     [対応] 進行中（`run_waterbirds_mask_sensitivity.py` と `exp020_waterbirds_mask_sensitivity.yaml` を実装済。実行待ち）
 [#001-B-001] 領域の主要ベースラインが欠落（Spurious Score, Salient ImageNet等）
     [方針]
-        Spurious Score（Neuhaus et al., 2023）または Salient ImageNet（Singla et al., 2022）を Waterbirds で最低1手法追加する。
+        Spurious Score（Neuhaus et al., 2023）または Salient ImageNet（Singla et al., 2022）を Waterbirds で最低1手法(良かった方もしくは両方)追加する。
         主張は「勝敗」ではなく、専用手法の検出結果と Δ の操作的必要性測定の差分を示す。
         対応実験: exp021（planned）
-    [対応] 進行中（`run_waterbirds_specialized_scores.py` と共有 `exp021_waterbirds_specialized_scores.yaml` を実装済。exp018再実行の後、 checkpoint から seed別スコアを生成する段階）
+    [対応]
+        進行中。[#002-B-001] の方針で対応。
+        `run_waterbirds_specialized_scores.py` と共有 `exp021_waterbirds_specialized_scores.yaml` の実装は済。exp018再実行の後、 checkpoint から seed別スコアを生成する。
 [#001-B-002] Waterbirds の worst-group accuracy が未記載
     [方針] `compute_waterbirds_wga.py` で group-wise accuracy を算出し、worst-group を本文・表に追記。
     [対応] 完了。`exp019` で30シード分の `worst_group_results.csv` / `worst_group_summary.txt` を確定し、mean worst_group_acc=0.3424（std=0.0804）を取得。

@@ -23,7 +23,7 @@
 | exp013 | Waterbirds（実世界スプリアス相関、ResNet-18 + GrabCut） | 完了 Δ 5/5・SHAP 5/5（両者100%） | **約2.5時間**（5 seeds、2並列） | [→](experiments/results/exp013_waterbirds/) |
 | exp016 | SHAP vs Δ p sweep 30シード版（GridWorld 10次元、同一 oracle・seed） | 完了（30シード再実験） | **不明（未記録）** | [→](experiments/results/exp016_shap_psweep_30seeds/) |
 | exp017 | SHAP vs Δ p sweep（ColoredMNIST IRM、30シード版） | 完了 Δ=102/120（85%）, SHAP=120/120（100%）, McNemar p=0.0001 | **推定 20時間49分**（推定6:52:59 + 実測13:56:41） | [→](experiments/results/exp017_cmnist_shap_psweep_30seeds/) |
-| exp018 | Waterbirds（実世界スプリアス相関、30シード版） | 完了 Δ=16/30（53%）, SHAP=30/30（100%）, McNemar p=0.0005 | **推定 7時間35分**（バックフィル） | [→](experiments/results/exp018_waterbirds_30seeds/) |
+| exp018 | Waterbirds（実世界スプリアス相関、30シード版） | 完了 Δ=16/30（53%）, SHAP=30/30（100%）, McNemar p=0.0005 → 再実行中 | **推定 7時間35分**（バックフィル） → 再実行中 | [→](experiments/results/exp018_waterbirds_30seeds/) |
 | exp019 | Waterbirds後処理（WGA再算出; exp018結果を入力に再集計） | 完了（mean worst_group_acc=0.3424, std=0.0804） | 5時間20分（30 seeds、3並列） | [→](experiments/results/exp019_waterbirds_wga/) |
 | exp020 | Waterbirds マスク摂動 sensitivity（膨張/縮小で Δ の頑健性評価） | 実装済・未実行 | 未実行 | （作成予定） |
 | exp021 | Waterbirds 追加ベースライン（Spurious Score または Salient ImageNet） | 実装済・スコア生成待ち | 未実行 | （作成予定） |
