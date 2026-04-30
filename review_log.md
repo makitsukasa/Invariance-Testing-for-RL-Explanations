@@ -10,14 +10,14 @@
     [方針]
         Waterbirds でマスク摂動 sensitivity を系統実施（1 seed固定）。
         具体的には前景マスクの膨張/縮小（例: -3, -1, 0, +1, +3 px）ごとに `Δ_bg`, `Δ_fg`, 判定（bg>fg）を記録し、判定反転の有無と変動幅を図示する。
-        対応実験: exp021（planned）
-    [対応] 未
+        対応実験: exp020（planned）
+    [対応] 進行中（`run_waterbirds_mask_sensitivity.py` と `exp020_waterbirds_mask_sensitivity.yaml` を実装済。実行待ち）
 [#001-B-001] 領域の主要ベースラインが欠落（Spurious Score, Salient ImageNet等）
     [方針]
         Spurious Score（Neuhaus et al., 2023）または Salient ImageNet（Singla et al., 2022）を Waterbirds で最低1手法追加する。
         主張は「勝敗」ではなく、専用手法の検出結果と Δ の操作的必要性測定の差分を示す。
-        対応実験: exp022（planned）
-    [対応] 未
+        対応実験: exp021（planned）
+    [対応] 進行中（`run_waterbirds_specialized_scores.py` と共有 `exp021_waterbirds_specialized_scores.yaml` を実装済。exp018再実行の後、 checkpoint から seed別スコアを生成する段階）
 [#001-B-002] Waterbirds の worst-group accuracy が未記載
     [方針] `compute_waterbirds_wga.py` で group-wise accuracy を算出し、worst-group を本文・表に追記。
     [対応] 完了。`exp019` で30シード分の `worst_group_results.csv` / `worst_group_summary.txt` を確定し、mean worst_group_acc=0.3424（std=0.0804）を取得。
@@ -72,10 +72,10 @@
     [対応] 完了。Discussion に「full Δ scan を基本、絞り込みは計算近似」として限定記述を追加。
 [#000-X-005] baseline が SHAP だけ。 permutation importance 、 LIME と差別化の説明か比較実験が必要
     [方針]
-        SHAP/LIMEに加えて Waterbirds で専用手法ベースラインを追加（exp022）。
+        SHAP/LIMEに加えて Waterbirds で専用手法ベースラインを追加（exp021）。
         あわせて「何を測っているか」の軸で比較表を作成（検出率、判定安定性、計算コスト、介入整合性）。
         LIME は準備中実装を活かして補助比較、主比較は専用手法 vs Δ に置く。
-    [対応] 未
+    [対応] 進行中（exp021の比較基盤とスコア生成スクリプトを実装済。専用手法の実行結果投入後に確定）
 [#000-X-006] 連続大規模環境で介入テストをスケールさせる方法
     [方針] SHAP 絞り込み後介入の条件付き利用を Discussion で限定記述。
     [対応] 完了。Discussion でスケール時の近似運用方針を追記。
