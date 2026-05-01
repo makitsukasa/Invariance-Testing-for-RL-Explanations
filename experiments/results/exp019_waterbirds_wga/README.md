@@ -10,6 +10,8 @@ Posthoc recomputation of Waterbirds worst-group accuracy from the exp018 trainin
 ## Outputs
 - `worst_group_results.csv`
 - `worst_group_summary.txt`
+- `fig_wga.png`
+- `fig_wga.pdf`
 
 ## Main result
 - mean worst_group_acc: 0.3424
@@ -21,3 +23,4 @@ Posthoc recomputation of Waterbirds worst-group accuracy from the exp018 trainin
 
 ## Notes
 - This directory is intentionally separate from exp018 so the WGA posthoc result stays reproducible and easy to cite.
+- `plot_wga.py` is a small helper that turns `worst_group_results.csv` into a seed-wise figure for the manuscript.
