@@ -18,7 +18,7 @@ Waterbirds spurious-feature detection experiment comparing Delta vs SHAP.
 - `exp018_run.log`, `exp018_run.err`
 
 ## Main result
-- Delta detect: 16/30 (53%)
+- Delta detect: 18/30 (60%)
 - SHAP detect: 30/30 (100%)
 
 ## Notes

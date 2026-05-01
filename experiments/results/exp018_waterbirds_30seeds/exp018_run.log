@@ -1,0 +1,341 @@
+Experiment : exp018_waterbirds_30seeds
+Seeds      : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+n_workers  : 3
+[NO-RESUME] ignoring existing experiments\results\exp018_waterbirds_30seeds\results_partial.csv
+[RESUME] remaining seeds: 30 / 30
+Estimated remaining runtime: 460.0 minutes
+
+============================================================
+Seed 0
+============================================================
+
+============================================================
+Seed 1
+============================================================
+
+============================================================
+Seed 2
+============================================================
+  [1/4] Building and training oracle...
+  [1/4] Building and training oracle...
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_0.pt
+    val_acc=0.822
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_1.pt
+    val_acc=0.745
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_2.pt
+    val_acc=0.813
+  [2/4] Delta intervention test...
+    delta_bg=0.069, delta_fg=0.103 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.106, delta_fg=0.091 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.125, delta_fg=0.069 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8933, shap_fg=0.1067 -> CORRECT
+
+============================================================
+Seed 3
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8604, shap_fg=0.1396 -> CORRECT
+
+============================================================
+Seed 4
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8672, shap_fg=0.1328 -> CORRECT
+
+============================================================
+Seed 5
+============================================================
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_4.pt
+    val_acc=0.758
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_3.pt  [2/4] Delta intervention test...
+
+    val_acc=0.732    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_5.pt
+
+  [2/4] Delta intervention test...    val_acc=0.751
+
+  [2/4] Delta intervention test...
+    delta_bg=0.066, delta_fg=0.109 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.059, delta_fg=0.075 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.047, delta_fg=0.066 -> WRONG
+  [3/4] SHAP...
+    shap_bg=0.8803, shap_fg=0.1197 -> CORRECT
+
+============================================================
+Seed 6
+============================================================
+    shap_bg=0.8386, shap_fg=0.1614 -> CORRECT
+
+============================================================
+Seed 7
+============================================================
+  [1/4] Building and training oracle...  [1/4] Building and training oracle...
+
+    shap_bg=0.8541, shap_fg=0.1459 -> CORRECT
+
+============================================================
+Seed 8
+============================================================
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_7.pt    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_6.pt    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_8.pt
+
+
+    val_acc=0.820    val_acc=0.754    val_acc=0.751
+
+
+  [2/4] Delta intervention test...  [2/4] Delta intervention test...  [2/4] Delta intervention test...
+
+
+    delta_bg=0.109, delta_fg=0.078 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.138, delta_fg=0.094 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.119, delta_fg=0.097 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8539, shap_fg=0.1461 -> CORRECT
+
+============================================================
+Seed 9
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8446, shap_fg=0.1554 -> CORRECT
+
+============================================================
+Seed 10
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8879, shap_fg=0.1121 -> CORRECT
+
+============================================================
+Seed 11
+============================================================
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_10.pt    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_9.pt
+
+    val_acc=0.750    val_acc=0.769
+
+  [2/4] Delta intervention test...
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_11.pt
+    val_acc=0.767
+  [2/4] Delta intervention test...
+    delta_bg=0.037, delta_fg=0.094 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.084, delta_fg=0.081 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.119, delta_fg=0.094 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8514, shap_fg=0.1486 -> CORRECT
+
+============================================================
+Seed 12
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8611, shap_fg=0.1389 -> CORRECT
+
+============================================================
+Seed 13
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8737, shap_fg=0.1263 -> CORRECT
+
+============================================================
+Seed 14
+============================================================
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_12.pt
+    val_acc=0.794
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_13.pt
+    val_acc=0.825
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_14.pt
+    val_acc=0.751
+  [2/4] Delta intervention test...
+    delta_bg=0.125, delta_fg=0.100 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.044, delta_fg=0.094 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.078, delta_fg=0.097 -> WRONG
+  [3/4] SHAP...
+    shap_bg=0.8875, shap_fg=0.1125 -> CORRECT
+
+============================================================
+Seed 15
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8694, shap_fg=0.1306 -> CORRECT
+
+============================================================
+Seed 16
+============================================================
+    shap_bg=0.8545, shap_fg=0.1455 -> CORRECT
+
+============================================================
+Seed 17
+============================================================
+  [1/4] Building and training oracle...
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_15.pt
+    val_acc=0.776
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_16.pt
+    val_acc=0.797
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_17.pt
+    val_acc=0.776
+  [2/4] Delta intervention test...
+    delta_bg=0.103, delta_fg=0.091 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.088, delta_fg=0.084 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.097, delta_fg=0.088 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8425, shap_fg=0.1575 -> CORRECT
+
+============================================================
+Seed 18
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8615, shap_fg=0.1385 -> CORRECT
+
+============================================================
+Seed 19
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8534, shap_fg=0.1466 -> CORRECT
+
+============================================================
+Seed 20
+============================================================
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_18.pt
+    val_acc=0.756
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_19.pt
+    val_acc=0.815
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_20.pt
+    val_acc=0.814
+  [2/4] Delta intervention test...
+    delta_bg=0.066, delta_fg=0.100 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.078, delta_fg=0.088 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.075, delta_fg=0.053 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8676, shap_fg=0.1324 -> CORRECT
+
+============================================================
+Seed 21
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8582, shap_fg=0.1418 -> CORRECT
+
+============================================================
+Seed 22
+============================================================
+    shap_bg=0.8488, shap_fg=0.1512 -> CORRECT
+
+============================================================
+Seed 23
+============================================================
+  [1/4] Building and training oracle...
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_23.pt
+    val_acc=0.746
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_21.pt
+    val_acc=0.794
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_22.pt
+    val_acc=0.787
+  [2/4] Delta intervention test...
+    delta_bg=0.084, delta_fg=0.069 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.125, delta_fg=0.081 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.113, delta_fg=0.091 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.8615, shap_fg=0.1385 -> CORRECT
+
+============================================================
+Seed 24
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8544, shap_fg=0.1456 -> CORRECT
+
+============================================================
+Seed 25
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8169, shap_fg=0.1831 -> CORRECT
+
+============================================================
+Seed 26
+============================================================
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_24.pt
+    val_acc=0.772    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_26.pt
+
+  [2/4] Delta intervention test...    val_acc=0.762
+
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_25.pt
+    val_acc=0.758
+  [2/4] Delta intervention test...
+    delta_bg=0.103, delta_fg=0.084 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.097, delta_fg=0.081 -> CORRECT
+  [3/4] SHAP...
+    delta_bg=0.066, delta_fg=0.088 -> WRONG
+  [3/4] SHAP...
+    shap_bg=0.8760, shap_fg=0.1240 -> CORRECT
+
+============================================================
+Seed 27
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8665, shap_fg=0.1335 -> CORRECT
+
+============================================================
+Seed 28
+============================================================
+  [1/4] Building and training oracle...
+    shap_bg=0.8463, shap_fg=0.1537 -> CORRECT
+
+============================================================
+Seed 29
+============================================================
+  [1/4] Building and training oracle...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_27.pt
+    val_acc=0.719
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_28.pt
+    val_acc=0.748
+  [2/4] Delta intervention test...
+    Saved checkpoint to experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_29.pt
+    val_acc=0.737
+  [2/4] Delta intervention test...
+    delta_bg=0.066, delta_fg=0.091 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.075, delta_fg=0.106 -> WRONG
+  [3/4] SHAP...
+    delta_bg=0.125, delta_fg=0.097 -> CORRECT
+  [3/4] SHAP...
+    shap_bg=0.9037, shap_fg=0.0963 -> CORRECT
+    shap_bg=0.8654, shap_fg=0.1346 -> CORRECT
+    shap_bg=0.8568, shap_fg=0.1432 -> CORRECT
+
+============================================================
+delta detect: 18/30 (60%)
+SHAP  detect: 30/30  (100%)
+Elapsed: 1366.0 min

@@ -39,7 +39,8 @@
         Waterbirds でマスク摂動 sensitivity を系統実施（1 seed固定）。
         具体的には前景マスクの膨張/縮小（例: -3, -1, 0, +1, +3 px）ごとに `Δ_bg`, `Δ_fg`, 判定（bg>fg）を記録し、判定反転の有無と変動幅を図示する。
         対応実験: exp020（planned）
-    [対応] 進行中（`run_waterbirds_mask_sensitivity.py` と `exp020_waterbirds_mask_sensitivity.yaml` を実装済。実行待ち）
+    [対応] 完了。`exp020` で seed=0、mask_radii=[-3, -1, 0, 1, 3] を評価し、decision flips は 0/5。全条件で `delta_bg > delta_fg` を確認。
+    [証拠ファイル] `experiments/results/exp020_waterbirds_mask_sensitivity/results.csv`, `experiments/results/exp020_waterbirds_mask_sensitivity/summary.txt`, `experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png`
 [#001-B-001] 領域の主要ベースラインが欠落（Spurious Score, Salient ImageNet等）
     [方針]
         Spurious Score（Neuhaus et al., 2023）または Salient ImageNet（Singla et al., 2022）を Waterbirds で最低1手法(良かった方もしくは両方)追加する。
