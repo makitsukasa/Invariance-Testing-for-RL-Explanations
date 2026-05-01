@@ -26,7 +26,7 @@ import json
 import os
 import sys
 import time
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import cv2
@@ -392,7 +392,7 @@ def main() -> None:
             results.append(_score_seed(seed, cfg, oracle_cfg, outdir))
             pd.DataFrame(results).drop_duplicates(subset=["seed"], keep="last").sort_values("seed").to_csv(partial_csv, index=False)
     else:
-        with ProcessPoolExecutor(max_workers=n_workers) as pool:
+        with ThreadPoolExecutor(max_workers=n_workers) as pool:
             futures = {
                 pool.submit(_worker, (seed, cfg, oracle_cfg, outdir)): seed
                 for seed in pending
