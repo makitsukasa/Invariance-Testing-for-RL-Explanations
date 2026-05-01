@@ -1,41 +1,41 @@
-# Peer Review 2: Detecting Spurious Features via Intervention-Based Performance Sensitivity
+# Peer Review 4: PerformanceCheck - Detecting Spurious Features
 
-## Overall Verdict: Borderline Accept / Weak Accept
+## Overall Verdict: Weak Accept / Accept
 
-The current manuscript has significantly improved. The inclusion of n=30 seeds, Wilson Confidence Intervals, and a comprehensive comparison with specialized baselines addresses the major technical gaps from the previous round. The paper now presents a compelling case for the role of intervention-based performance sensitivity in diagnosing model robustness.
+The manuscript has reached a high level of technical maturity. The introduction of the "PerformanceCheck" branding, the systematic inclusion of Wilson Confidence Intervals, and the sophisticated analysis of discordant pairs significantly elevate the work. The paper now moves beyond a simple empirical report to a structured diagnostic framework.
 
 ---
 
 ## Reviewer D: Methodology Expert
-**Score: 6/10 (Borderline Accept)**
+**Score: 7/10 (Weak Accept)**
 
 **Strengths:**
-- Formalization of the "Admissibility of Intervention" provides a much-needed theoretical anchor.
-- The shift from binary detection to ranking (Top-k) reflects a more realistic use case for model auditing.
+- The **PerformanceCheck** branding provides a clear identity and aligns well with the "functional necessity" logic.
+- The formalization of Admissibility (Conditions a and b) is excellent and addresses previous concerns about OOD artifacts.
 
 **Weaknesses:**
-- **Identity Crisis:** The paper lacks a distinct name for the proposed method. Referring to it as "Δ test" or "proposed method" throughout makes it less memorable. A catchy acronym (e.g., **IPS**: Intervention-based Performance Sensitivity, or **D-Check**) would help branding.
-- **External Dependency Risk:** The methodology section effectively uses GrabCut for Waterbirds, but the impact of GrabCut's failure cases on the final Δ score is not quantified.
+- **Mathematical Coupling:** While the admissibility conditions are defined, the transition from "ideal I=0" to "practical class-consistent replacement" could be more explicit in the Method section.
+- **Robustness Evidence:** The claim of stability against mask perturbation (exp020) is currently limited to a single seed. (Note: exp022 is expected to address this).
 
 **Actionable Revisions:**
-- [ ] **Rename the Method:** Introduce a clear name/acronym in the Abstract and use it consistently.
-- [ ] **Quantify Mask Reliability:** Add a brief mention of the GrabCut failure rate or how a domain expert might verify masks before running the test.
+- [ ] **Bridge the Gap:** Add a sentence in Method explicitly linking the `class-consistent` replacement in exp021 to the satisfaction of the "Peripheral Distribution Preservation" (Condition b).
+- [ ] **Finalize Robustness:** Once exp022 results are in, replace the single-seed claim with the 30-seed aggregate stability score.
 
 ---
 
 ## Reviewer E: Domain Expert
-**Score: 7/10 (Weak Accept)**
+**Score: 8/10 (Accept)**
 
 **Strengths:**
-- The analysis of "Discordant Pairs" (12 seeds where Delta disagreed with PCA/SpecScore) is the highlight of the paper. It successfully frames Delta as a functional diagnostic rather than a mere feature-spuriousness detector.
-- Inclusion of specialized baselines (Neuhaus PCA style) demonstrates a serious engagement with current SOTA.
+- The **Discordant Pairs analysis** (12 seeds in Waterbirds) is the "gold mine" of this paper. It provides clear evidence that PerformanceCheck can identify cases where a model has achieved functional invariance despite the presence of spurious signals in the representation space.
+- The **Human-in-the-loop Remediation workflow** provides the "So What?" that was missing. It frames the tool as a practical guide for engineers.
 
 **Weaknesses:**
-- **Operational Workflow:** While the "Confirmation-over-Discovery" pipeline is mentioned, the paper doesn't describe the *remediation* step. If Delta identifies a spurious dependency, what is the recommended fix? (e.g., data augmentation, re-training with IRM).
+- **Boldness of Claims:** The paper could be even bolder in framing these discordant pairs. Instead of saying "Delta is more conservative," say "PerformanceCheck identifies functional robustness that attribution methods hallucinate as vulnerabilities."
 
 **Actionable Revisions:**
-- [ ] **Practical Workflow Diagram:** Add a small flowchart showing how a practitioner moves from a spurious candidate to Delta-confirmation to potential remediation.
-- [ ] **Strengthen the "Functional" Argument:** In the Discussion, explicitly state that "Delta measures the model's actual vulnerability, not just the data's bias."
+- [ ] **Refine the "Hallucination" Logic:** In the Discussion, use the term "attribution hallucination" to describe cases where SHAP/SpecScore flag dependencies that don't actually harm performance.
+- [ ] **Remediation Detail:** Briefly specify which augmentation (e.g., Mixup, CutMix) would be prioritized for a high-PerformanceCheck-score feature.
 
 ---
 
@@ -43,13 +43,13 @@ The current manuscript has significantly improved. The inclusion of n=30 seeds, 
 **Score: 7/10 (Weak Accept)**
 
 **Strengths:**
-- Outstanding improvement in statistical reporting. Wilson CI and McNemar tests provide the rigor required for a top-tier venue.
-- Embedding figures near text descriptions significantly improves readability.
+- Statistical reporting (Wilson CI, McNemar) is now exemplary and follows the highest standards.
+- Positioning figures near relevant text has dramatically improved the narrative flow.
 
 **Weaknesses:**
-- **Caption Depth:** Most figure captions are too brief. A self-contained caption should explain the "what," the "so what," and the "key takeaway" without requiring the reader to hunt through the prose.
-- **Table Redundancy:** Some inline prose repeats exact numbers from the tables. To comply with the "Anti-Repetition Rule" in the README, ensure exact numbers (e.g., 0.3424) are used qualitatively in the text.
+- **Anti-Repetition Rule:** There are still instances where the exact values from Table 1 are repeated in the prose of the Results section.
+- **Caption Self-Containment:** Captions (especially Figure 7) should explicitly state the takeaway: "Note that PerformanceCheck scores remain low for seeds 15-17, correctly identifying background invariance."
 
 **Actionable Revisions:**
-- [ ] **Enrich Captions:** Rewrite captions for Figures 1, 3, and 7 to include the key takeaway (e.g., "Note the divergence between Delta and SHAP at p=0.2...").
-- [ ] **Statistical Polish:** Ensure McNemar p-values are reported consistently (e.g., p < 0.001 vs exact values).
+- [ ] **Audit Exact Numbers:** Replace redundant inline numbers with qualitative descriptions (e.g., "approximately two-thirds" instead of "0.667").
+- [ ] **Analytical Captions:** Expand all captions to include a "Key Takeaway" sentence.
