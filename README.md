@@ -8,11 +8,15 @@
 
 ## PEER_REVIEW の実施手順
 
-1. `tmp_peer_review_prompt.txt` を実行する
-2. 出力結果で `review.md` を上書きする（追記しない）
-3. `review_log.md`へ追記する
+1. `tmp_peer_review_prompt.txt` を実行する。コンテキストを共有していない個別のエージェントが望ましい。
+2. 出力結果で `review.md` を上書き。`review.md` は常に「最新1回分のみ」を保持。
+3. `review_log.md`へ追記。
 
-`review.md` は常に「最新1回分のみ」を保持します。
+`review_log.md`の形式
+[#001-A-001] 信頼区間・誤差棒・統計検定の欠落
+    [修正案] 全検出率に Wilson 95% CI を併記し、Δ vs SHAP に対して McNemar 検定を実施する。
+    [方針] 実験結果からグラフ化しdraftへ挿入
+    [対応] 未
 
 ---
 
