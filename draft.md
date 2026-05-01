@@ -137,7 +137,7 @@ ColoredMNIST IRM での比較（n=30 シード）は、見かけ上は SHAP に�
 SHAP は同じ 3 シードで、本稿で採用した集約規則の下で color_attr = 2 × struct_attr の比例関係を機械的に充足するため、構造依存への切り替えを追従できず一律に色依存と報告する。
 判定基準上は SHAP が「正解」と見えても、これはオラクルの依存先と判定結果が一致したのではなく、データ符号化が SHAP 集約の比例関係を強制した結果である。
 
-Waterbirds では Δ と SHAP の間に有意な差があり、paired な McNemar 検定でも不一致が確認された。
+Waterbirds では、30 seed のすべてで `Δ_bg - Δ_fg` が正となり、背景介入の方が前景ノイズより一貫して大きな性能低下をもたらした。paired な両側符号検定でもこの差は有意であり (`p = 1.86 × 10^-9`)、背景依存の傾向が少数の seed による見かけではないことが確認された。
 
 ![Figure 3: Waterbirds detection results. The left panel plots Δ_bg against Δ_fg for all 30 seeds, and the right panel shows the distribution of Δ_bg − Δ_fg. A positive gap means that background intervention harms performance more strongly than foreground noise, which is the signature of functional background reliance. この図は、実画像に対する介入設定でも PerformanceCheck が情報量のある順位を返せることを示す。](experiments/results/exp018_waterbirds_30seeds/fig_scatter.png)
 ![Figure 4: Distribution of Δ gaps across seeds. Positive values indicate that background interventions are more damaging than foreground perturbations, while values near zero indicate weak or no background dependence. この図からは、Waterbirds に明確な背景依存シードと境界的なシードの両方が含まれることが読み取れる。](experiments/results/exp018_waterbirds_30seeds/fig_delta_dist.png)
@@ -146,7 +146,7 @@ worst-group accuracy の再集計では、平均精度だけでは見えにく�
 
 ![Figure 5: Waterbirds worst-group accuracy. The gap between average and worst-group performance exposes subgroup fragility that is hidden by aggregate accuracy alone. This motivates why confirmation at the feature level matters even when average accuracy looks acceptable.](experiments/results/exp019_waterbirds_wga/fig_wga.png)
 
-さらに 1 seed 固定の感度分析では、軽微なマスク摂動に対して結論が安定することを確認した。これは、GrabCut の小さなズレが結論を反転させないことを示している。加えて 30 シードの半径スイープでも、平均 Δ_bg と平均 Δ_fg はマスク半径に対して連続的に変化し、少なくとも基準半径近傍では急激な崩壊は見られなかった。したがって、マスク品質は結果の大きさには影響するものの、結論を不連続に変える唯一の要因としては振る舞っていない。
+この傾向が介入実装の細部だけで決まっていないかを確かめるため、補助アブレーションとしてマスク感度も評価した。1 seed 固定の感度分析では、軽微なマスク摂動に対して結論が安定し、GrabCut の小さなズレがただちに結論を反転させないことが確認された。加えて 30 シードの半径スイープでも、平均 Δ_bg と平均 Δ_fg はマスク半径に対して連続的に変化し、少なくとも基準半径近傍では急激な崩壊は見られなかった。したがって、マスク品質は結果の大きさには影響するものの、主結論は恣意的な単一設定にのみ依存しているわけではない。
 
 ![Figure 6: Waterbirds mask sensitivity. Minor erosions and dilations of the GrabCut mask leave the background-versus-foreground ordering unchanged, indicating that the conclusion is robust to small segmentation perturbations. 30 シードの半径スイープと合わせると、マスク品質への依存は恣意的というより連続的に変化するものとして現れる。](experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png)
 
@@ -223,7 +223,7 @@ PerformanceCheck は、訓練後のモデルに対するスプリアス依存の
 
 # 結論
 
-訓練済みオラクルに対する破壊的介入と性能差分のみで特徴依存の機能的必要性を近似測定する PerformanceCheck を提案し、GridWorld、ColoredMNIST IRM、Waterbirds の三つの設定で評価した。主張の中心は、候補発見の代替ではなく、その後段で「本当に性能に効いているか」を確認する確認手続きを与える点にある。PerformanceCheck は GridWorld で top-1 85/120 (71%)、top-2 101/120 (84%)、ColoredMNIST IRM で 102/120 (85%)、Waterbirds で 18/30 (60%) の検出率を示した。同一オラクルでの SHAP 比較では、GridWorld で top-1 14/120 (12%)、top-2 21/120 (18%) とPerformanceCheck を大幅に下回り、ColoredMNIST IRM では SHAP が 120/120 を示したが、これは本稿で採用した集約規則の下でデータ符号化に由来する構造的アーティファクトであった。Waterbirds では SHAP が 30/30、Δ が 18/30 で有意差が確認された（McNemar p=0.0005）。LunarLander では適用前提が成立せず、有効なテストケースを得られなかった。これらの結果は、tested benchmarks における intervention-based diagnosis では、特徴相関や符号化制約が強い条件ほど性能観点での依存検出において Δ が有利に働きうることを示す。
+訓練済みオラクルに対する破壊的介入と性能差分のみで特徴依存の機能的必要性を近似測定する PerformanceCheck を提案し、GridWorld、ColoredMNIST IRM、Waterbirds の三つの設定で評価した。主張の中心は、候補発見の代替ではなく、その後段で「本当に性能に効いているか」を確認する確認手続きを与える点にある。PerformanceCheck は GridWorld で top-1 85/120 (71%)、top-2 101/120 (84%)、ColoredMNIST IRM で 102/120 (85%)、Waterbirds で 18/30 (60%) の検出率を示した。同一オラクルでの SHAP 比較では、GridWorld で top-1 14/120 (12%)、top-2 21/120 (18%) と PerformanceCheck を大幅に下回り、ColoredMNIST IRM では SHAP が 120/120 を示したが、これは本稿で採用した集約規則の下でデータ符号化に由来する構造的アーティファクトであった。Waterbirds では SHAP が 30/30、PerformanceCheck が 18/30 であり、さらに `Δ_bg - Δ_fg` は 30 seed のすべてで正だった（両側符号検定 `p = 1.86 × 10^-9`）。補助アブレーションとして行った GrabCut mask 半径スイープでも、平均 Δ は連続的に変化し、基準半径近傍での不連続な崩壊は見られなかった。LunarLander では適用前提が成立せず、有効なテストケースを得られなかった。これらの結果は、tested benchmarks における intervention-based diagnosis では、特徴相関や符号化制約が強い条件ほど性能観点での依存検出において Δ が有利に働きうることを示す。
 
 # 付録
 
