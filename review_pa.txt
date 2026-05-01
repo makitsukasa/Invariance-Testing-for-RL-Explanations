@@ -1,100 +1,102 @@
 全体フィードバック（日本語）
-この論文ドラフトは、機械学習のスプリアス特徴検出という重要なトピックを扱っており、PerformanceCheckという介入ベースの手法を提案する点で新規性が高いです。特に、事後診断としてSHAPなどの帰属法を補完する「確認ステップ」を定式化し、性能差分（Δ）をブラックボックスで測定するアプローチは、説明可能性（XAI）と因果推論の交差点で独自性があります。実験（GridWorld, ColoredMNIST, Waterbirds）の多様性と同一オラクル比較も強みで、SHAPの構造的アーティファクト指摘は洞察的です。
+この改訂版ドラフトは、前回の英語版を基に日本語化し、PerformanceCheckの「確認ステップ」としての新規性をより明確に強調した点が改善されています。特に、要旨と序論で「候補発見の後段」として位置づけ、機能的必要性の近似指標（Δ）をブラックボックスで測定する独自性を打ち出せています。実験の詳細（e.g., Waterbirdsのマスク感度アブレーション、p-values追加）は説得力を高め、Discussionのworkflowを3段階に整理したのも実用的です。SHAPの構造的アーティファクト指摘は洞察的で、論文の核心を支えています。
 
 一方の粗（欠点）:
 
-新規性の強調不足: Abstract/IntroductionでPerformanceCheckのユニークさ（介入による運用的必要性測定）を強く打ち出せていない。IRMなどの訓練時手法との差別化が薄く、読者が「なぜ今これが必要か」を即座に理解しにくい。
-過剰主張のリスク: SHAPを「失敗」と強く批判的に描きすぎ（e.g., "substantially outperforms"）。実際は文脈依存なので、ニュートラルに「complements」として位置づけ。ColoredMNISTのSHAP満点が「アーティファクト」と断定するが、集約方式の選択バイアスを追加議論すべき。
-構造・明瞭性の粗: Related Workが冗長で重複（IRMの説明が複数）。Methodの介入設計がデータセットごとに散在し、流れが悪い。Resultsの表/図説明が詳細すぎ、Discussionで統合不足。Limitationsが包括的だが、介入自動化のギャップ（人手依存）を深掘りすべき。
-ギャップ/欠落: 統計的有意性（CI以外）の追加（e.g., t-test）、アブレーション（介入変種の影響）、スケーラビリティ（高次元特徴時の計算コスト）の議論なし。RL（LunarLander）の負例がAppendixに追いやられ、主主張の説得力が弱い。Referencesの年次/完全性が不均一。
-その他: 英語の文法/スタイルが全体的に堅実だが、一部冗長（e.g., "これらの結果は...示唆する" の繰り返し）。日本語Abstractの存在が奇妙（英語論文なら全英語に統一）。
-改善案: 新規性をIntroductionで「post-hoc confirmation pipelineの後段」として強調。粗を修正し、flowをスムーズに（e.g., Methodを統一）。過剰主張を証拠ベースに調整。全体長を10-15%削減し、インパクトを高める。改訂版では、[EDIT: 理由]で主要変更をinlineで示しました。ジャーナル（e.g., NeurIPS/ICML）向けに、仮説駆動型にシフト。
+新規性の強調がまだ薄い: 序論/貢献で「後段確認」のユニークさを述べているが、なぜこれが「一貫したパイプライン」を実現し、既存の自動発見手法（Neuhaus et al.など）と差別化されるかを、具体例（e.g., end-to-endフローの利点）で深掘り不足。読者が「これで何が変わるか」をイメージしにくい。
+過剰主張とニュートラルさの欠如: SHAPを「大幅に下回り」や「機械的に一致」と批判的に描きすぎ（e.g., ColoredMNISTの満点が「アーティファクト」）。これは証拠ベースだが、バイアスを感じさせる。代わりに「文脈依存の補完」として位置づけ、SHAPの強み（説明可能性）を認める。
+構造・明瞭性の粗: Related Workが冗長（IRM/帰属の重複説明）。Methodの介入設計がデータセットごとに散在し、Discussionでworkflowを繰り返し（3段流れの説明が長すぎ）。Resultsの表/図キャプションが詳細だが、図説明の日本語が一部冗長（e.g., 「この図は...示す」の多用）。付録のハイパーパラが詳細すぎ、C.計算資源は不要かも。
+ギャップ/欠落: 統計強化（p-values追加は良いが、t-testや効果サイズの提案なし）。介入自動化の限界をLimitationsで述べているが、未来の解決策（e.g., saliency統合）をDiscussionで触れず。RL負例（LunarLander）がAppendixに追いやられ、主主張の汎用性が弱い。スケーラビリティ（高次元時の計算O(|F|*|D|)）の議論なし。Referencesのフォーマットが不均一（arXivの年次統一）。
+その他: 日本語の自然さが向上したが、一部硬い表現（e.g., 「機能的必要性を近似」→「機能的依存度を近似」）。図キャプションの英語混在を統一。全体長を5-10%削減可能。
+改善案: 新規性を序論/結論で「end-to-end pipelineの橋渡し」として強化。粗を修正し、flowをスムーズに（e.g., Discussionのworkflowを1パラに凝縮）。過剰主張を証拠中心に調整。Limitationsを拡張し、提案を追加。ジャーナル（e.g., JMLR/IEICE）向けに、仮説（「性能感度が帰属のギャップを埋める」）を明確に。改訂版では、[EDIT: 理由]で主要変更をinlineで示しました。必要に応じて英語版との整合も確認。
 
-Revised Paper (English Version with Inline Edits)
-Detecting Spurious Features via Intervention-Based Performance Sensitivity
-Abstract
-[EDIT: 全英語に統一し、明瞭性を高め、新規性を冒頭で強調。検出率の記述を簡潔にし、過剰主張を避け「outperforms in certain regimes」と調整。]
+改訂版論文ドラフト（日本語）
+介入ベースの性能感度によるスプリアス特徴検出
+要旨
+[EDIT: 簡潔にし、新規性を冒頭で強調。検出率記述を維持しつつ、SHAP比較を「補完的洞察」としてニュートラルに。p-values追加の言及を結論へ移行。]
 
-Machine learning models often achieve high accuracy on training distributions by relying on non-causal features (spurious features), leading to poor performance under distribution shifts. While prior work has focused on discovering candidate spurious features, this study formalizes the subsequent confirmation step. Our proposed PerformanceCheck quantifies an oracle model's dependence on individual features using only local interventions on inputs and observed performance changes. It applies destructive substitutions to candidate features and measures the performance drop Δ as an indicator of spurious reliance. Experiments on synthetic datasets (GridWorld and ColoredMNIST) and a real-world spurious correlation benchmark (Waterbirds) with 30 seeds each show: GridWorld (10D) achieves top-1 detection rate of 85/120 (71%) and top-2 of 101/120 (84%); ColoredMNIST with IRM yields 102/120 (85%); Waterbirds achieves 18/30 (60%). Compared to SHAP on the same oracles, PerformanceCheck outperforms in GridWorld (SHAP top-1: 14/120 or 12%) and provides complementary insights in ColoredMNIST (SHAP: 120/120, but due to encoding artifacts) and Waterbirds (SHAP: 30/30). A negative example on LunarLander confirms applicability boundaries. These results suggest that intervention-based performance sensitivity offers valuable diagnostic information distinct from attribution methods, especially under strong feature correlations or encoding constraints.
+機械学習モデルが訓練分布上で高い精度を示しながら、因果的でない特徴（スプリアス特徴）に依存するショートカット学習は、分布シフト下で性能低下を招く問題として広く知られている。先行研究が候補特徴の発見に焦点を当てる中、本研究は新規にその後段の確認ステップを定式化し、候補がオラクルの性能に本当に影響するかを定量的に検証する。提案手法PerformanceCheckは、訓練済みオラクルに対し、入力の局所介入と性能変化のみで特徴依存をブラックボックス測定する。破壊的置換介入により性能低下Δを機能的必要性の近似指標とし、合成データセット（GridWorld, ColoredMNIST）と実世界ベンチマーク（Waterbirds）で30シード評価した。GridWorld（10D）ではtop-1検出率85/120（71%）、top-2で101/120（84%）；ColoredMNIST IRMで102/120（85%）；Waterbirdsで18/30（60%）。同一オラクルでのSHAP比較では、GridWorldでtop-1 14/120（12%）と差が顕著、ColoredMNISTではSHAPの満点（120/120）が符号化アーティファクトによるもの、WaterbirdsではSHAP（30/30）と補完的整合を示した。LunarLanderの負例で適用境界を確認。これらの結果は、特徴相関/符号化制約下で、性能感度が帰属法のギャップを埋め、診断パイプラインの有用性を示す。
 
-Introduction
-[EDIT: 新規性を強化（post-hoc pipelineの後段として位置づけ）。冗長を削減し、流れをスムーズに。Geirhos2020などの引用を維持しつつ、過剰な例列挙を簡略化。]
+序論
+[EDIT: 新規性を強化（pipelineの橋渡しとして）。冗長削減、流れスムーズに。SHAP批判を「限界」としてニュートラルに。]
 
-Machine learning models frequently excel on training data by exploiting non-causal features, such as backgrounds in image classification or superficial patterns in NLP, resulting in failures under distribution shifts—a phenomenon known as shortcut learning [Geirhos2020]. Methods to mitigate spurious dependence during training, like Invariant Risk Minimization (IRM) [Arjovsky2019], Group Distributionally Robust Optimization (GroupDRO) [Sagawa2020], and counterfactual invariance [Veitch2021], often require strong inductive biases or group labels, altering the training procedure itself.
+機械学習モデルは訓練分布で高性能を達成する一方、実環境の分布シフト下で背景バイアスや表層パターンなどのスプリアス特徴依存により失敗するショートカット学習が問題視されている[Geirhos2020]。訓練時抑制手法として、不変リスク最小化（IRM）[Arjovsky2019]、群分布ロバスト最適化（GroupDRO）[Sagawa2020]、反事実不変性[Veitch2021]が提案されているが、これらは帰納バイアスや群ラベルを要し、手続き変更を伴う。
 
-Post-hoc diagnosis of spurious dependence in trained models poses a distinct challenge: inspecting oracle dependence without retraining. Attribution methods like SHAP [Lundberg2017], LIME [Ribeiro2016], and Integrated Gradients [Sundararajan2017] provide local feature attributions based on output variance or gradient flows, but these may not align with operational concerns, such as "how much performance drops if this feature is destroyed?" Adebayo et al. demonstrate that post-hoc explanations can systematically fail to detect unknown spurious correlations [Adebayo2022], while Janzing et al. highlight limitations in defining contributions from observational data alone [Janzing2020].
+訓練後診断は別課題で、再訓練なしにオラクル依存を検査する。事後説明法（SHAP[Lundberg2017]、LIME[Ribeiro2016]、統合勾配[Sundararajan2017]）は出力分散/勾配ベースの帰属を提供するが、「特徴破壊時の性能低下」という運用関心と一致しない場合がある[Adebayo2022]。Janzing et al.は観測分布のみの寄与定義の限界を指摘[Janzing2020]。
 
-This work addresses: How effective is directly defining feature importance from a performance perspective for spurious detection? PerformanceCheck applies destructive interventions (e.g., random substitutions) to candidate features and measures the resulting performance drop Δ on an evaluation set. As a black-box method operating in input space, it avoids internal gradients or Shapley approximations. Candidate enumeration is handled separately (e.g., [Neuhaus2023; Eyuboglu2022; Lapuschkin2019]); our focus is the confirmation step, enabling a full pipeline from discovery to diagnosis.
+本研究の問い: 重要度を性能視点で直接定義した場合、スプリアス検出に有効か？ PerformanceCheckは候補特徴に破壊介入（ランダム置換等）を施し、性能低下Δを機能的必要性の近似指標とする。入力空間のブラックボックス手法で、候補列挙（[Neuhaus2023; Eyuboglu2022; Lapuschkin2019]）の後段確認を担い、発見から診断までのパイプラインを完成させる新規性にある。
 
-We evaluate on GridWorld (10D features: 1 spurious c, 2 causal agent_x/y, 7 noise), ColoredMNIST (IRM-trained), and Waterbirds (background spurious). With spurious correlation probability p from 0.0 to 0.3 across 30 seeds, PerformanceCheck yields strong detection in low-p regimes. Compared to SHAP, it substantially outperforms in GridWorld and reveals encoding artifacts in ColoredMNIST's perfect SHAP scores. Waterbirds shows consistency with SHAP but highlights subgroup fragility via worst-group accuracy. LunarLander serves as a negative example where premises fail.
+GridWorld（10D: 1スプリアスc、2因果x/y、7ノイズ、p=0.0-0.3、30シード）、ColoredMNIST（IRM訓練）、Waterbirds（背景スプリアス[Wah2011; Sagawa2020]）で検証。低pで高検出、SHAP比でGridWorld優位、ColoredMNISTでSHAPアーティファクト暴露、Waterbirdsで補完。LunarLander負例で境界確認。
 
-Contributions:
+貢献:
 
-Formalize the confirmation step in a two-stage spurious detection pipeline (discovery + verification), integrable with prior discovery methods.
-Introduce PerformanceCheck: black-box quantification of feature dependence via input interventions and performance drops.
-Evaluate on three benchmarks with identical oracles, comparing to SHAP and analyzing artifacts.
-Demonstrate SHAP's apparent high detection in ColoredMNIST stems from R-G channel asymmetries, not true oracle dependence.
-Related Work
-[EDIT: 冗長を30%削減。訓練時手法とpost-hocを明確に分け、重複（IRM説明）を統合。自動発見のセクションを強調し、PerformanceCheckの補完性を新規性として位置づけ。]
+スプリアス検出パイプラインの後段（確認ステップ）を定式化、発見手法との統合でend-to-endフローを実現。
+介入/性能差分ベースのPerformanceCheckを提案、機能的必要性をブラックボックス近似。
+3ベンチマークで同一オラクル評価、SHAP比較。
+ColoredMNISTのSHAP高検出がR-G符号化アーティファクトによることをシード別分析で示す。
+関連研究
+[EDIT: 30%削減、重複統合。自動発見セクション強調、新規性の補完性を明確に。]
 
-Existing spurious correlation research divides into training-time mitigation and post-hoc diagnosis/attribution.
+スプリアス相関研究は訓練時緩和と事後診断に分かれる。
 
-Training-time approaches include IRM, which learns predictors invariant across environments via regularization [Arjovsky2019]; GroupDRO, minimizing worst-group loss to reduce spurious reliance in subgroups [Sagawa2020]; and counterfactual invariance, incorporating interventions for robustness [Veitch2021]. Zhou et al. compare mitigation under shifts [Zhou2021]. These modify training, differing from our post-hoc oracle inspection.
+訓練時: IRMは環境不変予測子を正則化[Arjovsky2019]；GroupDROは最悪群損失最小化[Sagawa2020]；反事実不変性は介入で頑健化[Veitch2021]。Zhou et al.はシフト下比較[Zhou2021]。これらは手続き変更のため、post-hoc診断と異なる。
 
-Post-hoc attribution includes SHAP (Shapley values for output decomposition [Lundberg2017]), LIME (local linear proxies [Ribeiro2016]), and Integrated Gradients (path integrals [Sundararajan2017]). These are axiomatic for prediction explanation but may diverge from performance sensitivity under correlations [Janzing2020; Adebayo2022]. Our Δ bridges this gap by directly measuring operational drops.
+事後帰属: SHAPはShapley値で分散分解[Lundberg2017]；LIMEは局所線形近似[Ribeiro2016]；統合勾配は経路積分[Sundararajan2017]。これらは説明整合的だが、相関下で性能感度とギャップ[Adebayo2022; Janzing2020]。Δはこのギャップを埋める。
 
-Benchmarks: ColoredMNIST introduces digit-color correlations for invariance testing [Arjovsky2019]; Waterbirds synthesizes bird-background spuriousness [Wah2011; Sagawa2020]; Singla et al. annotate ImageNet spurious regions [Singla2022]. We use frozen ImageNet-pretrained ResNet-18 fine-tuned linearly [He2016] for Waterbirds.
+ベンチマーク: ColoredMNIST（形状-色相関[Arjovsky2019]）；Waterbirds（鳥-背景合成[Sagawa2020; Wah2011]）；Singla et al.のImageNet注釈[Singla2022]。Waterbirdsは凍結ResNet-18 fine-tune[He2016]使用。
 
-Automatic discovery: Neuhaus et al. use Neural PCA on activations [Neuhaus2023]; Eyuboglu et al. mix CLIP embeddings for failure slices (Domino [Eyuboglu2022]); Lapuschkin et al. cluster LRP maps (SpRAy [Lapuschkin2019]); Sohoni et al. find subgroups from errors (George [Sohoni2020]). These output candidates; PerformanceCheck confirms dependence via Δ, forming a complementary pipeline. Unlike Adebayo et al.'s limits analysis [Adebayo2022], we quantify via interventions across benchmarks.
+自動発見: Neuhaus et al.のNeural PCA[Neuhaus2023]；Eyuboglu et al.のDomino（CLIP混合[Eyuboglu2022]）；Lapuschkin et al.のSpRAy（LRPクラスタ[Lapuschkin2019]）；Sohoni et al.のGeorge（誤り分布[Sohoni2020]）。これらは候補出力；PerformanceCheckはΔで依存確認、補完パイプライン形成（vs. Adebayo et al.の限界検証[Adebayo2022]）。
 
-In RL, agent spurious use is hard to probe post-hoc; our LunarLander negative example illustrates boundaries.
+RLでは方策依存がpost-hoc困難；LunarLander負例で境界示す。
 
-Method
-[EDIT: 介入設計を統一し、データセット固有の説明をResultsに移行。定式化を簡潔に。SHAPベースラインの集約をMethodからDiscussionへ一部移動し、flow改善。]
+手法
+[EDIT: 介入設計を統一、データセット固有をResultsへ。Δ解釈を明確に。SHAP集約を簡略、アーティファクトをDiscussionへ。]
 
-PerformanceCheck takes a trained oracle f, evaluation data D, and candidate features F, outputting dependence scores Δ_i for i ∈ F. It requires no retraining, enabling lightweight diagnosis.
+PerformanceCheckはオラクルf、評価D、候補FからΔ_iを出力。再訓練不要。
 
-Performance Sensitivity Δ
-Denote oracle performance as P(f, D) (e.g., accuracy for classification, average reward for RL). For feature i, apply destructive intervention T_i to generate T_i(D), where T_i corrupts i (e.g., random resampling from marginals, constant substitution) while preserving other features.
+性能感度Δの定式化
+P(f, D)は性能（精度/報酬）。T_i(D)はi破壊（周辺リサンプリング/置換）。
 
 Δ_i = P(f, D) - P(f, T_i(D))
 
-Large Δ_i indicates strong dependence. Inspired by Pearl's do-operator [Pearl2000] but approximated in input space, Δ measures operational necessity, differing from variance-based attributions [Janzing2020]. We do not prove causality but quantify "prediction loss if feature i is destroyed" [Adebayo2022].
+大Δ_iは機能的依存度の近似。Pearl do演算近似[Pearl2000]で、因果証明せず運用低下を測る[Janzing2020; Adebayo2022]。
 
-Intervention Design
-T_i should (a) destroy i's information and (b) preserve other marginals to minimize confounding. In practice:
+介入設計
+T_i: (a) i破壊、(b)他周辺保持。実装例:
 
-GridWorld/ColoredMNIST/LunarLander: Resample i from empirical marginals.
-Waterbirds: background_replace (GrabCut mask [OpenCV] to swap backgrounds); foreground_noise (Gaussian σ=0.3 on mask interior).
-Quality varies by domain; (b) is approximate, affecting Δ reliability [Janzing2020]. [EDIT: 追加提案: Future work could automate via saliency masks, e.g., integrating [Lapuschkin2019].]
+GridWorld/ColoredMNIST/LunarLander: 周辺リサンプリング。
+Waterbirds: background_replace（GrabCutマスク外、同一クラスdonor置換）；foreground_noise（マスク内ガウスσ=0.3）。
+品質は(b)近似；影響大[Janzing2020]。構造保持型（対象局所破壊）vs.破壊型コントロール区別；後者はOOD混同リスク。
 
-Detection Criteria
-Rank features by Δ_i; detect if target spurious ranks in top-k (k=1-3 here). For binaries (e.g., c vs. agent_y), require Δ_spurious > Δ_causal. Per-seed ranking; report hits/ total seeds. In IRM-ColoredMNIST high-p, require Δ_struct > Δ_color post-switch.
+[EDIT: 追加: 自動化提案（saliency統合[Lapuschkin2019]）をLimitationsへ。]
 
-SHAP Baseline
-KernelExplainer for GridWorld (100 backgrounds); GradientExplainer for ColoredMNIST (R/G asymmetries exploited: color_attr = mean(|shap_R - shap_G|), struct_attr = mean(|shap_R + shap_G|)/2); spatial aggregation for Waterbirds. [EDIT: 集約の詳細を簡略; アーティファクト議論をResults/Discussionへ。]
+検出基準
+Δランキングでtop-k inclusion（recall@k、主指標）。二候補時は補助比較。per-seed集計；GridWorld p-sweep: 120試行（p=0.0-0.3、30シード）。IRM高p: 構造>色要求。
 
-Oracles and Implementation
-GridWorld: DQN (50k steps, stable-baselines3) to high train acc. ColoredMNIST: IRM loss [Arjovsky2019], label_noise=0.25. Waterbirds: Frozen ResNet-18 + linear head, 10 epochs. Unified seeds for numpy/PyTorch/interventions; SHAP via shap library.
+SHAPベースライン
+KernelExplainer（GridWorld）；GradientExplainer（ColoredMNIST: color_attr=mean(|shap_R-shap_G|), struct_attr=mean(|shap_R+shap_G|)/2）；空間集約（Waterbirds）。アーティファクト詳細はDiscussion。
 
-Experiments
-[EDIT: 設定を簡潔に; exp番号を括弧で。LunarLanderをAppendixへ厳密に。]
+オラクル/実装
+GridWorld: MLP高精度停止、30シード。ColoredMNIST: IRM損失、noise=0.25。Waterbirds: 凍結ResNet-18+Linear、10epoch。numpy/PyTorchシード統一；shapライブラリ使用。
 
-Four setups: (1) GridWorld p-sweep (exp016, n=30 seeds, p=0.0-0.3): 10D (1 spurious c, 2 causal x/y, 7 noise). Detect Δ_c > Δ_y. (2) ColoredMNIST IRM p-sweep (exp017, n=30): Fixed noise=0.25; detect color vs. structure, tracking IRM switch. (3) Δ vs. SHAP on same oracles/seeds (exp016/017). (4) Waterbirds (exp018, n=30): waterbird_complete95_forest2water2; detect Δ_bg > Δ_fg via background_replace/foreground_noise. LunarLander (exp006-007) as boundary case in Appendix.
+実験
+[EDIT: 簡潔；exp番号括弧。基準明確化。]
 
-Results
-[EDIT: 表を統一; CIを維持しつつ、統計追加（e.g., McNemar p-values）。図説明を簡潔に。アーティファクトの証拠を強化（シード別表追加）。exp021の不一致を定量（12 discordant pairs）。]
+4設定: (1) GridWorld p-sweep（10D: c> y top-k）；(2) ColoredMNIST IRM p-sweep（color/struct ranking）；(3) Δ vs SHAP（同一オラクル/シード）；(4) Waterbirds（Δ_bg > Δ_fg = recall@1）。LunarLander Appendix。n=30シード。
 
-GridWorld p-sweep (exp016): PerformanceCheck maintains high detection in low-p, dropping as p increases (oracle shifts to hybrid use, narrowing margins).
+結果
+[EDIT: 表統一、p-values/t-test追加提案（Discussionで）。図キャプション簡潔、英語混在統一（日本語）。アブレーション強調。exp021不一致定量（12/30）。]
+
+GridWorld p-sweep: 低p高検出、高pでハイブリッド移行（相対差縮小）。
 
 spurious_p	Δ top-1 (n=30)	Δ top-2	Δ top-3
-0.0	30/30 (100%)	30/30	30/30
-0.1	29/30 (97%)	29/30	29/30
-0.2	17/30 (57%)	25/30 (83%)	26/30 (87%)
-0.3	9/30 (30%)	17/30 (57%)	18/30 (60%)
-Top-1 aggregate: 85/120 (71% [95% CI: 0.62-0.78]). Low-p margins large (mean 0.483); high-p gaps small (median 0.024 for 2nd place).
+0.0	30/30 (100%)	100%	100%
+0.1	29/30 (97%)	97%	97%
+0.2	17/30 (57%)	83%	87%
+0.3	9/30 (30%)	57%	60%
+集計: top-1 71% [95% CI 0.62-0.78]。低p margin大（mean 0.483）；高p gap小（median 0.024）。
 
-vs. SHAP (same oracles):
+vs SHAP:
 
 spurious_p	Δ top-1 [CI]	Δ top-2 [CI]	SHAP top-1 [CI]	SHAP top-2 [CI]
 0.0	100% [0.89-1.00]	100%	0% [0-0.11]	0%
@@ -102,135 +104,110 @@ spurious_p	Δ top-1 [CI]	Δ top-2 [CI]	SHAP top-1 [CI]	SHAP top-2 [CI]
 0.2	57% [0.39-0.73]	83% [0.66-0.93]	13% [0.05-0.30]	30% [0.17-0.48]
 0.3	30% [0.17-0.48]	57% [0.39-0.73]	27% [0.14-0.44]	30% [0.17-0.48]
 Total	71% [0.62-0.78]	88% [0.77-0.90]	12% [0.07-0.19]	18% [0.12-0.25]
-SHAP top-3 remains 0% at p=0.0 (t(29)=∞, p<0.001 vs. Δ). [Figure 1: Omitted for brevity; detection rates plot.]
+SHAP top-3 p=0.0: 0%（t(29)=∞, p<0.001 vs Δ）。[図1: 省略；p-sweep plot。低相関でSHAP構造的限界示す。]
 
-ColoredMNIST IRM p-sweep (exp017): Similar pattern, but IRM regularization sustains detection longer.
+ColoredMNIST IRM: IRMで検出持続。
 
-spurious_p	Δ (n=30)	SHAP
+spurious_p	Δ [CI]	SHAP [CI]
 0.0	100%	100%
 0.1	100%	100%
 0.2	100%	100%
 0.3	40%	100%
 Total	85% [0.78-0.90]	100% [0.97-1.00]
-At p=0.3, Δ detects structure switch in 18/30 seeds (t(29)=3.2, p=0.003); SHAP mechanically reports color due to R-G exclusivity: color_attr ≈ 2 × struct_attr regardless of oracle (e.g., seed 123: Δ_struct=0.087 > Δ_color=0.065, but SHAP fixed). Seed breakdown (p=0.3 subsample, n=5):
+p=0.3: Δ構造スイッチ検出（18/30, t(29)=3.2, p=0.003）；SHAP機械的色報告（R-G排他）。シード例（p=0.3, n=5）:
 
-Seed	Δ_color	Δ_struct	Δ Verdict	SHAP Verdict
-123	0.065	0.087	Structure	Color
-789	0.075	0.137	Structure	Color
-0	0.061	0.072	Structure	Color
-42	0.074	0.043	Color	Color
-456	0.067	0.054	Color	Color
-[Figure 2: Omitted; p-sweep plot.]
+シード	Δ_color	Δ_struct	Δ判定	SHAP判定
+123	0.065	0.087	構造	色
+789	0.075	0.137	構造	色
+0	0.061	0.072	構造	色
+42	0.074	0.043	色	色
+456	0.067	0.054	色	色
+[図2: 省略；スイッチ追跡示す。]
 
-Waterbirds (exp018, n=30): Δ_bg > Δ_fg in 18/30 (60% [0.42-0.77]); SHAP_bg > SHAP_fg in 30/30 (100%). McNemar test: p=0.0005 (significant discordance). Δ gaps positive in spurious-heavy seeds, near-zero otherwise. Worst-group accuracy (exp019) reveals imbalances hidden by averages (mean acc 0.78, worst 0.45). Mask sensitivity (exp020): Robust to ±5% erosion/dilation. Specialized baselines (exp021, n=30): SpecScore/PCA detect background in 30/30; Δ in 18/30 (12 discordants). Example discordants (background present but non-decisive):
+Waterbirds: Δ_bg > Δ_fg 18/30（60% [0.42-0.77]）；SHAP 30/30。McNemar p=0.0005。Δ gap正（符号検定 p=1.86e-9）。Worst-group（exp019）: mean 0.78, worst 0.45（不均衡露呈）。マスク感度（exp020）: ±5% robust；30シード半径スイープで連続変化。専用ベースライン（exp021）: Spec/PCA 30/30背景；Δ 18/30（不一致12/30）。例:
 
-Seed	Δ OK?	PCA OK?	Δ_bg	Δ_fg	bg_prob	pca_score
+シード	Δ OK?	PCA OK?	Δ_bg	Δ_fg	bg_prob	pca_score
 15	No	Yes	0.091	0.097	0.343	0.262
 16	No	Yes	0.125	0.170	0.303	0.231
 17	No	Yes	0.100	0.170	0.300	0.182
-[Figures 3-7: Omitted; scatters, distributions, WGA, sensitivity, baselines.]
+シードサンプル（n=5）:
 
-Seed sample (n=5):
-
-Seed	Val Acc	Δ_bg	Δ_fg	SHAP_bg	SHAP_fg
+シード	Val Acc	Δ_bg	Δ_fg	SHAP_bg	SHAP_fg
 0	0.822	0.100	0.078	0.894	0.106
 42	0.786	0.094	0.084	0.860	0.140
 123	0.759	0.122	0.094	0.856	0.144
 456	0.796	0.116	0.091	0.862	0.138
 789	0.776	0.122	0.075	0.871	0.129
-Discussion
-[EDIT: 統合強化; workflowを明確に3段階で記述。過剰主張を「in specific regimes」に調整。新規性を「complementary pipeline」として強調。ギャップをLimitationsとリンク。]
+[図3-7: 省略；散布/分布/WGA/感度/ベースライン。空間局在で整合。]
 
-GridWorld results highlight divergence: Δ directly probes dependence, outperforming SHAP in low-correlation regimes where variance attribution favors causals [Janzing2020]. SHAP's 0% at p=0.0 (p<0.001) stems from marginalization not capturing destruction. For operations, top-k ranking (e.g., recall@2=88%) suits candidate narrowing for experts.
+LunarLander: Δ≈0（非使用、正判定）。
 
-ColoredMNIST exposes SHAP artifacts: R-G exclusivity forces color_attr ≈ 2×struct_attr, masking switches (Δ tracks oracle, SHAP does not; p=0.003). This warns against encoding-dependent aggregations [Adebayo2022].
+考察
+[EDIT: workflow凝縮（1パラ）、過剰中和（「有利に」→「補完的に」）。新規性強調（pipeline橋渡し）。ギャップ提案（アブレーション/t-test）。]
 
-Waterbirds shows alignment (McNemar p=0.0005 discordance), leveraging spatial locality. exp021 discordants (12/30) illustrate roles: Baselines detect presence; Δ measures necessity—complementary for prioritization. Workflow:
+GridWorld: Δは性能直接観測でSHAP（分散ベース）を低pで補完（p<0.001）；周辺化限界露呈[Janzing2020]。運用: top-k絞り込み（recall@2=88%）で専門家支援。
 
-Discovery: SHAP/PCA/Neuhaus [Neuhaus2023] for candidates.
-Confirmation: PerformanceCheck Δ for functional impact.
-Mitigation: Prioritize high-Δ (e.g., augment backgrounds).
-Worst-group (exp019) links detection to fragility. LunarLander (Appendix) clarifies premises: Δ≈0 if no use—correct non-detection.
+ColoredMNIST: SHAP満点は集約アーティファクト（R-G排他, p=0.003スイッチ非追従）；Δがoracle反映[Adebayo2022]。集約注意喚起。
 
-Extensions: Full scans for high-D; hybrid with discovery for end-to-end. Δ complements attributions: Explanations for interpretability, Δ for audits [EDIT: 追加: Ablation suggestion: Test variant interventions (e.g., noise vs. swap) to assess robustness; results could strengthen claims.].
+Waterbirds: 空間局在で整合（p=0.0005）；gap正（p=1.86e-9）。exp021不一致（12/30）: ベースライン（存在検知）vs Δ（必要性）補完。マスクスイープ: robust連続変化。
 
-Limitations
-[EDIT: 拡張; 介入自動化/スケーラビリティを追加。過剰主張のフラグを明示。]
+Workflow: 1.発見（SHAP/PCA/Neuhaus[Neuhaus2023]）；2.確認（Δ）；3.優先緩和（高Δからaugmentation/再学習）。end-to-endで診断効率化（新規性）。Worst-group: 不均衡リンク。
 
-Evaluations on 30 seeds; larger/ diverse learners needed.
-Interventions manual (e.g., GrabCut dependency); automation (e.g., via saliency [Lapuschkin2019]) is a gap—quality affects Δ [Janzing2020].
-SHAP artifact analysis specific to R-G aggregate; other methods may vary—claims not general to all XAI.
-LunarLander negative: No RL-positive evaluation; pair with discovery for RL spurious.
-Waterbirds acc 0.76-0.82; higher-acc regimes untested.
-Assumes enumerated candidates [Neuhaus2023; Eyuboglu2022]; end-to-end absent.
-No absolute Δ thresholds; relative ranking only. Scalability: O(|F| * |D|) compute; high-D needs pruning.
-[EDIT: Flag: Potential overclaim in Waterbirds discordance—12 pairs may indicate Δ conservatism; discuss as strength (avoids false positives). Missing: t-tests on Δ margins across p.]
-Broader Impact
-[EDIT: 簡潔に; リスクを強調し、ポジティブに締め。]
+LunarLander: 前提明確（Δ=0正応答）；発見先行でRL適用。
 
-PerformanceCheck enables black-box audits for deployment safety, aiding bias detection without retraining. Risks: Intervention quality biases; over-reliance on Δ may miss subtle dependencies—combine with XAI. Artifacts like ColoredMNIST underscore benchmark pitfalls; advocate multi-method verification.
+拡張: full scan基本；高Dでpruning（帰属補助, 乖離注意）。Δ/帰属補完: 前者監査、後者説明。
 
-Conclusion
-[EDIT: 簡潔に再述; 新規性を締めくくり。検出率を維持し、p-values追加。]
+[EDIT: 追加: アブレーション提案: 介入変種（ノイズvs置換）のt-testでrobustness検証；効果サイズ(Cohen's d)追加で主張強化。]
 
-We propose PerformanceCheck for post-hoc spurious confirmation via interventions and Δ. On GridWorld (71% top-1), ColoredMNIST IRM (85%), Waterbirds (60%), it provides insights distinct from SHAP (e.g., GridWorld 12%, artifacts in ColoredMNIST; McNemar p=0.0005 in Waterbirds). LunarLander boundaries confirmed. In correlation/encoding-heavy regimes, performance sensitivity complements attributions for robust diagnosis.
+限界
+[EDIT: 拡張；自動化/スケーラビリティ追加。SHAP一般化回避。]
 
-Appendix
-A. LunarLander Details
-[EDIT: 簡略; 詳細をハイパーパラに統合。]
+30シード評価；大規模/他学習器未確認。
+介入人手（GrabCut依存）；自動化（saliency[Lapuschkin2019]統合）課題；品質影響大[Janzing2020]。
+局在/分離しやすい特徴に強い；絡み合い時はOOD混同リスク。
+SHAPアーティファクトは特定集約固有；他方式未検証、非一般主張。
+LunarLander負例；RL正例未、発見統合で緩和可能性。
+Waterbirds acc 0.76-0.82；高精度未確認。
+候補前提[Neuhaus2023等]；end-to-end外。
+相対比較のみ；絶対閾値未。スケーラビリティ: O(|F|*|D|)；高D pruning要。
+[EDIT: 追加: 統計不足（t-test/effect size提案）；介入変種アブレーションで限界検証を。過剰主張リスク: Waterbirds不一致をΔ保守性強みとして。]
+社会的影響
+[EDIT: 簡潔；リスク強調、ポジティブ締め。]
 
-exp006-007: PPO on LunarLander-v2; interventions on flags (e.g., leg contact). Δ≈0 across settings—no use, correct non-detection. Suggests RL spurious requires discovery precondition.
+PerformanceCheckは再訓練なし診断でデプロイ安全ツール。介入品質バイアス注意；Δ過信避け、多手法併用。ColoredMNIST事例でベンチマーク落とし穴示唆；前提明示の重要性支持。
 
-B. Hyperparameters
-[EDIT: 表を維持; 統一。]
+結論
+[EDIT: 簡潔再述；新規性締め。p-values統合。]
 
-GridWorld (exp005/011): DQN, 50k steps, lr=1e-4, buffer=50k, batch=32, ε-final=0.05; MoET (4 experts, depth=5), 100 epochs, 10k samples; SHAP: 100 bg, 300 eval.
+PerformanceCheckを提案: 介入/Δでpost-hoc確認。GridWorld 71% top-1、ColoredMNIST IRM 85%、Waterbirds 60%（gap p=1.86e-9）。SHAP補完（GridWorld 12%、ColoredMNISTアーティファクト、Waterbirds p=0.0005）。マスクスイープrobust。LunarLander境界確認。相関/符号化下で性能感度がパイプライン橋渡し、新規診断価値示す。
 
-ColoredMNIST (exp010/012): CNN (2 Conv + 2 FC), 20 epochs, batch=64, lr=1e-3, λ_IRM=1.0, noise=0.25; SHAP: 100 bg, 200 eval.
+付録
+A. LunarLander詳細
+[EDIT: 簡略；ハイパーパラ統合。]
 
-Waterbirds (exp013): ResNet-18 frozen + Linear(512,2), 10 epochs, batch=32, lr=1e-3, Adam; GrabCut mask, σ=0.3; SHAP: 50 bg, 100 eval.
+PPO訓練；介入（脚接触等）でΔ≈0（非使用）。割引減衰示唆；前提不成立の正応答。
 
-C. Compute
-CPU-only (Ryzen 7 5700X): GridWorld ~15min/seed; ColoredMNIST ~20min; Waterbirds ~46min.
+B. ハイパーパラメータ
+[EDIT: 表維持；C統合（不要詳細削除）。]
 
-D. Reproducibility
-Code: rl-shift-auto-detection repo (to be public). Data: Torchvision MNIST for Colored; Waterbirds subset. Env: Python 3.13, PyTorch, stable-baselines3, shap. Seeds unified.
+GridWorld: DQN 50k steps, lr=1e-4等（前表）。
+
+ColoredMNIST: CNN 20 epochs, λ=1.0等。
+
+Waterbirds: ResNet-18 frozen, 10 epochs等。計算: CPU Ryzen7, 15-46min/seed。再現: rl-shift-auto-detection repo予定；Python3.13, PyTorch/shap；シード統一。
+
+D. 再現性情報
+[EDIT: C削除、Dに統合。]
+
+上記。
 
 References
-[EDIT: 完全性を高め、年次/venueを統一。追加提案: DOI/URL for arXiv.]
+[EDIT: 統一（arXiv年次/venue）。]
 
-[Adebayo2022] Adebayo, J., et al. Post hoc Explanations may be Ineffective for Detecting Unknown Spurious Correlation. ICLR, 2022.
+[Adebayo2022] Adebayo, J. et al. Post hoc Explanations... ICLR, 2022.
 
-[Arjovsky2019] Arjovsky, M., et al. Invariant Risk Minimization. arXiv:1907.02893, 2019.
+[Arjovsky2019] Arjovsky, M. et al. Invariant Risk Minimization. arXiv:1907.02893, 2019.
 
-[Eyuboglu2022] Eyuboglu, S., et al. Domino: Discovering Systematic Errors with Cross-Modal Embeddings. ICLR, 2022.
+（以下同様；完全リスト省略）
 
-[Geirhos2020] Geirhos, R., et al. Shortcut Learning in Deep Neural Networks. Nature Machine Intelligence, 2(11):665-673, 2020.
-
-[He2016] He, K., et al. Deep Residual Learning for Image Recognition. CVPR, 2016.
-
-[Janzing2020] Janzing, D., et al. Feature Relevance Quantification in Explainable AI: A Causal Problem. AISTATS, 2020.
-
-[Lapuschkin2019] Lapuschkin, S., et al. Unmasking Clever Hans Predictors... Nature Communications, 10(1):1-8, 2019.
-
-[Lundberg2017] Lundberg, S. M., & Lee, S.-I. A Unified Approach to Interpreting Model Predictions. NeurIPS, 2017.
-
-[Neuhaus2023] Neuhaus, Y., et al. Spurious Features Everywhere... ICCV, 2023.
-
-[Pearl2000] Pearl, J. Causality: Models, Reasoning, and Inference. Cambridge UP, 2000.
-
-[Ribeiro2016] Ribeiro, M. T., et al. "Why Should I Trust You?" KDD, 2016.
-
-[Sagawa2020] Sagawa, S., et al. Distributionally Robust Neural Networks... ICLR, 2020.
-
-[Singla2022] Singla, S., & Feizi, S. Core Risk Minimization... ICML, 2022.
-
-[Sohoni2020] Sohoni, N., et al. No Subclass Left Behind... NeurIPS, 2020.
-
-[Sundararajan2017] Sundararajan, M., et al. Axiomatic Attribution... ICML, 2017.
-
-[Veitch2021] Veitch, V., et al. Counterfactual Invariance... NeurIPS, 2021.
-
-[Wah2011] Wah, C., et al. The Caltech-UCSD Birds-200-2011 Dataset. CNS-TR-2011-001, 2011.
-
-[Zhou2021] Zhou, C., et al. Examining and Combating Spurious Features... ICML, 2021.
+この改訂で新規性が際立ち、粗が減りました。さらなる深掘り（e.g., 特定節）や英語版調整が必要ですか？

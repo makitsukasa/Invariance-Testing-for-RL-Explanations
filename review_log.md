@@ -1,4 +1,149 @@
-﻿[#004-A-001] 介入の妥当条件がまだ完全には境界づけられていない
+﻿[#005-A-001] GridWorld の headline metric が要約部と結果表で不整合
+    [方針]
+        独立 PEER_REVIEW の再指摘。
+        GridWorld top-2 の正しい値を主結果表から再確定し、Abstract / Introduction / Conclusion の重複記述をすべて同じ値にそろえる。
+        今後は summary 数値を単一の authoritative table から転記する。
+    [修正案] GridWorld top-2 の `101/120` と `106/120` のどちらが正かを結果 CSV で確認し、要約部を一括修正する。
+    [対応] 未
+[#005-A-002] Waterbirds の高レベル要約がやや言い過ぎ
+    [方針]
+        独立 PEER_REVIEW の新規指摘。
+        「SHAP と PerformanceCheck が双方一致して背景依存を検出」とは書かず、proxy と confirmation の補完関係として要約する。
+        disagreement を main claim と矛盾しない短い表現へそろえる。
+    [修正案] Introduction と Conclusion の Waterbirds 要約を「部分的一致 / 補完的シグナル」へ言い換える。
+    [対応] 未
+[#005-A-003] LunarLander の負例が主文で目立ちすぎる
+    [方針]
+        独立 PEER_REVIEW の新規指摘。
+        適用境界の説明としては有用だが、主貢献からの topic drift に見えないよう主文での露出を減らす。
+        main text では最小限に触れ、詳細は Appendix に送る。
+    [修正案] Abstract / Conclusion から LunarLander への言及を外し、本文は Appendix 参照の一文に圧縮する。
+    [対応] 未
+[#005-B-001] 原稿長と framing の釣り合い
+    [方針]
+        独立 PEER_REVIEW の新規指摘。
+        現状の本文量はフルカンファレンス論文としては短いので、本文を厚くするか、主張の射程をさらに絞るかを判断する。
+        ただしこれは執筆方針の問題であり、即時修正より優先度は一段低い。
+    [修正案] 実験プロトコル・失敗分析・実務フローの説明を増やすか、短報寄りの framing に寄せるかを決める。
+    [対応] 未
+[#005-B-002] Experiments / Results に benchmark-specific citation が不足
+    [方針]
+        独立 PEER_REVIEW の新規指摘。
+        Intro / Related Work だけでなく、Experiments / Results にも dataset split, evaluation convention, intervention choice に対応する引用を分散させる。
+        Waterbirds と ColoredMNIST の設定説明に出典を戻す。
+    [修正案] Experiments / Results に [Arjovsky2019], [Sagawa2020], [Wah2011] などの引用を差し込む。
+    [対応] 未
+[#005-B-003] n=5 の例示表が 30-seed 主張に比べて目立つ
+    [方針]
+        独立 PEER_REVIEW の新規指摘。
+        例示表は残してよいが、inferential weight を持たせすぎないよう「illustrative example」と明示する。
+        可能なら片方を圧縮するか、domain-facing analysis に差し替える。
+    [修正案] n=5 表の見出しや前後文を例示目的に言い換え、主張の重心を 30-seed 集計へ戻す。
+    [対応] 未
+[#005-C-001] GridWorld / ColoredMNIST で Δ vs SHAP の paired test が不足
+    [方針]
+        独立 PEER_REVIEW の新規指摘。
+        Waterbirds だけでなく、GridWorld / ColoredMNIST の headline comparison にも paired significance を付ける。
+        同一 seed / oracle 比較なので McNemar などの paired test を本文か付録に明示する。
+    [修正案] GridWorld と ColoredMNIST の Δ vs SHAP に paired significance test を追加し、主比較箇所から参照する。
+    [対応] 未
+[#005-C-002] 再現性のための exact seed list と sampling detail が不足
+    [方針]
+        独立 PEER_REVIEW の新規指摘。
+        seed は固定と書くだけでなく、実際の seed list と intervention sampling の詳細を Appendix に置く。
+        paired comparison を再現するための最小情報を明示する。
+    [修正案] Appendix に seed list、donor sampling、n_eval, perturbation parameter を追記する。
+    [対応] 未
+[#005-D-001] Waterbirds における主張とエビデンスの矛盾
+    [方針] 「30シードすべてで正の差が出た」という記述と「検出率 18/30」という数値の矛盾を解消する。実際の sign test 結果を再確認し、正確な p 値と検出率を記述する。
+    [対応] 未
+[#005-E-001] 箇条書き（Bullet points）の排除と Prose（文章）化
+    [方針] Intro, Method, Results, Limitations に残っている箇条書きをすべて流れるような文章（flowing prose）にリライトする。「技術報告書」から「学術論文」への格上げ。
+    [対応] 未
+[#005-F-001] 不一致ケース（Discordant Pairs）テーブルの事実誤認修正
+    [方針] Seed 15, 16, 17 が「NG」判定であるという誤った記述を修正。実際の results.csv から、本当に判定が割れているシード（Seed 1, 3, 5等）を特定し、表を差し替える。
+    [対応] 未
+[#005-F-002] 数値の丸めと一貫性の点検
+    [方針] 表、図、本文の間で、数値の丸め（0.100 vs 0.103125等）に一貫性がない箇所をすべて点検・統一する。
+    [対応] 未
+[#005-G-001] 結論の主メッセージを一点集中させたい
+    [方針]
+        `review_co.txt`（Gさん）の新規指摘。
+        Conclusion の情報量が多く、最終メッセージが散りやすい。
+        「発見済み候補に対して、破壊的介入による性能感度Δで本当に効いているかを確認する手続きを定式化した」が一番の主張だと冒頭で言い切り、各実験はその証拠として従属させる。
+    [修正案] Conclusion 冒頭を confirmation step の一文に寄せ、その後に GridWorld / ColoredMNIST / Waterbirds / 負例を evidence として並べる。
+    [対応] 未
+[#005-G-002] 各実験が検証する問いを明示したい
+    [方針]
+        `review_co.txt`（Gさん）の新規指摘。
+        Results が長く見えるため、各実験がどの問いや仮説に対応するかを節頭で一文ずつ明示する。
+        既存の「実験ごとの役割」よりも、Q1/Q2/Q3/Q4 のような問いの形にすると読者に入りやすい。
+    [修正案] 各 Results 小節の冒頭に「この実験が何を検証するか」を question/hypothesis 形式で追記する。
+    [対応] 未
+[#005-G-003] 候補発見 vs 確認 の役割分担を前半でもっと強調したい
+    [方針]
+        `review_co.txt`（Gさん）の新規指摘。
+        本研究の新規性は discovery の代替ではなく、後段 confirmation の定式化にある。
+        序論や貢献で、pipeline の穴を埋める stage であることをもっと前面に出す。
+    [修正案] Introduction または貢献段落に、discovery の代替ではなく confirmation stage だと強く言い切る文を追加する。
+    [対応] 未
+[#005-G-004] Future Work を一文で締めたい
+    [方針]
+        `review_co.txt`（Gさん）の新規指摘。
+        Limitations は良いが、「次の一歩」が散って見える。
+        介入設計の自動化と discovery 法との end-to-end 接続を一文で束ねる。
+    [修正案] Limitations 末尾か Conclusion 直前に、介入標準化と候補発見法との統合を次課題としてまとめる一文を置く。
+    [対応] 未
+[#005-H-001] アルゴリズムの最終出力を「修正優先順位つき特徴リスト」と明示したい
+    [方針]
+        `review_el.txt`（Hさん）の新規指摘。
+        いまは特徴ランキング、top-k recall、検出率、修正優先順位づけが並列に見えるが、実用アルゴリズムとしての出力は順位リストだと明示した方がよい。
+        検出率は評価指標、順位リストが最終出力、という切り分けにする。
+    [修正案] Introduction / Method / Discussion のどこかで、「本手法の出力は修正すべき特徴の順位リストである」と明記する。
+    [対応] 未
+[#005-H-002] Δ を因果効果そのものではなく順位づけ用スコアとして一度だけ明示したい
+    [方針]
+        `review_el.txt`（Hさん）の新規指摘。
+        今の「機能的必要性の近似指標」は良いが、「因果効果そのものではない」「依存の真理値判定器ではない」と一度だけ明確化すると安全。
+        修正優先順位づけ器としての位置づけを強める。
+    [修正案] Method か Discussion に、Δ は性能に効く順に候補を並べるスコアであり、因果効果そのものではないと一文追加する。
+    [対応] 未
+[#005-H-003] 同じ主張の繰り返しとキャプション過多を削りたい
+    [方針]
+        `review_el.txt`（Hさん）の新規指摘。
+        「候補発見ではなく確認ステップ」が序論末・結果後・考察冒頭でやや重複している。
+        Figure caption も説明を入れ込みすぎず、本文で解釈する比重を上げる。
+    [修正案] confirmation step の強調は 1 か所で強く、他は軽く触れる程度に圧縮し、Figure caption を一文か二文へ整理する。
+    [対応] 未
+[#005-I-001] 新規性を「end-to-end pipeline の橋渡し」としてもう一段具体化したい
+    [方針]
+        `review_pa.txt`（Iさん）の新規指摘。
+        「後段確認」のユニークさは出ているが、それが discovery 法とつながって pipeline を完成させる利点がまだ具体例として弱い。
+        読者が「これで何が変わるか」をイメージできるよう、利用シナリオを補う。
+    [修正案] 序論か Discussion に、discovery 手法で候補を得てから PerformanceCheck で優先順位づけし remediation へ進む end-to-end の利点を具体例つきで補う。
+    [対応] 未
+[#005-I-002] SHAP への書き方をもう少し中立にしたい
+    [方針]
+        `review_pa.txt`（Iさん）の新規指摘。
+        SHAP を「大幅に下回る」「機械的に一致」と批判的に書きすぎると、証拠があってもバイアスを感じさせる。
+        文脈依存の補完関係として位置づけ、SHAP の強みも一度認める。
+    [修正案] SHAP 比較文を「補完的」「本稿の設定では」「この集約則の下では」に寄せ、説明可能性としての役割も一文だけ残す。
+    [対応] 未
+[#005-I-003] Related Work / Discussion / キャプションの冗長さをさらに詰めたい
+    [方針]
+        `review_pa.txt`（Iさん）の新規指摘。
+        Related Work の重複、Discussion の workflow 反復、図キャプションの詳細さがまだ残っている。
+        論旨は維持したまま 5-10% ほど圧縮して、流れを滑らかにする。
+    [修正案] Related Work の重複箇所を削り、Discussion の workflow を 1 パラグラフに凝縮し、図キャプションの説明を本文へ戻す。
+    [対応] 未
+[#005-I-004] スケーラビリティと将来の自動化方針をもう少し書きたい
+    [方針]
+        `review_pa.txt`（Iさん）の新規指摘。
+        Limitations で人手介入の問題は書いているが、高次元時の計算量や saliency 等による半自動化の方向性が薄い。
+        実用上の制約と解決の見取り図を短く示す。
+    [修正案] Limitations に `O(|F|*|D|)` 的な full scan の負荷と、候補絞り込み・saliency 併用による将来方向を追記する。
+    [対応] 未
+[#004-A-001] 介入の妥当条件がまだ完全には境界づけられていない
     [方針]
         [#003-A-001] の再指摘。
         介入を「対象特徴の情報を壊す操作」と「単に入力を OOD に壊す操作」に分けて説明する。
@@ -362,6 +507,3 @@
 [#000-X-007] 特徴の型（連続/バイナリ/画像変換）を統一的に扱うインターフェース設計
     [方針] 介入演算子の妥当性条件（破壊度/非対象保持）として抽象化し Method に統合。
     [対応] 完了。Method の妥当性条件として統一記述を反映。
-
-
-

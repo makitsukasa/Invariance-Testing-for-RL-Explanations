@@ -14,7 +14,7 @@
 
 `review_log.md`の形式
 [#001-A-001] 信頼区間・誤差棒・統計検定の欠落
-    [修正案] 全検出率に Wilson 95% CI を併記し、Δ vs SHAP に対して McNemar 検定を実施する。
+    [修正案] 全検出率に Wilson 95% CI を併記し、Δ vs SHAP に対して McNemar 検定を実施する
     [方針] 実験結果からグラフ化しdraftへ挿入
     [対応] 未
 
