@@ -4,56 +4,56 @@
         介入を「対象特徴の情報を壊す操作」と「単に入力を OOD に壊す操作」に分けて説明する。
         Waterbirds の背景置換や mask 摂動が、どの程度まで admissible な近似なのかを Method または Limitations で短く明示する。
     [修正案] Method に「対象特徴の情報を壊しつつ非対象特徴をできるだけ保つ」近似として admissibility を1段落で入れる。
-    [対応] 未
+    [対応] 完了。Method に admissibility の補足段落を追加し、対象特徴の情報を壊しつつ非対象特徴をできるだけ保つという二条件を、Waterbirds の背景置換やマスク摂動の近似として明記した。
 [#004-A-002] 破壊型コントロールと構造保持型介入の違いを補う必要がある
     [方針]
         [#003-A-001] の再指摘。
         破壊型コントロールと構造保持型介入の違いを 1 段落で補い、単に壊しただけの OOD 劣化と切り分ける。
         追加の負例が必要なら、Method か Limitations に短く入れる。
     [修正案] Limitations か Method に、OOD 破壊コントロールと構造保持介入の違いを短く対比して書く。
-    [対応] 未
+    [対応] 完了。Method に、構造保持型介入と破壊型コントロールの違いを追記し、OOD 劣化との切り分けを本文上で明示した。
 [#004-A-003] 適用境界をもう少し明示した方がよい
     [方針]
         [#003-A-001] の再指摘。
         PerformanceCheck がどの条件で妥当で、どの条件では前提が崩れるかを簡潔に書く。
         特に Waterbirds のような構造化画像と、完全破壊になりやすい介入を区別する。
     [修正案] Limitations に「どの条件で前提が崩れるか」を1段落だけ追記する。
-    [対応] 未
+    [対応] 完了。Limitations に、候補特徴を局所化・分離して介入しやすい場合に解釈しやすく、そうでない場合には OOD 由来の低下との切り分けが難しいことを追記した。
 [#004-B-001] 修正優先順位づけのワークフローがまだやや抽象的
     [方針]
         [#003-E-001] の再指摘。
         候補発見 -> PerformanceCheck 確認 -> 修正優先順位づけ、という 3 段の流れを Discussion で具体化する。
         どの候補を augmentation / 再学習 / 追加データ収集に回すか、実務上の使い方を一言でよいので明示する。
     [修正案] Discussion に「候補発見→確認→優先順位づけ」の3段ワークフローを段落で入れる。
-    [対応] 未
+    [対応] 完了。Discussion で、候補発見→確認→修正優先順位づけの流れを prose で具体化し、実務上の使い方を補った。
 [#004-B-002] 診断と修正の接続が提案止まりに見える
     [方針]
         [#003-E-001] の再指摘。
         PerformanceCheck を「診断結果を修正優先度に変換する部品」として、手順として読めるように書く。
         単なる理念ではなく、candidate -> check -> prioritize の順を明確にする。
     [修正案] Discussion の末尾に、候補から修正優先度へつなぐ具体的な1段落を置く。
-    [対応] 未
+    [対応] 完了。PerformanceCheck を診断結果を修正優先度へ変換する部品として位置づけ、候補から修正方針へつなぐ段落を加えた。
 [#004-B-003] exp021 の disagreement の扱いがまだ強く言い切れていない
     [方針]
         [#003-E-002] の再指摘。
         exp021 の不一致を、baseline が間違いだと断定するのではなく、測っている量の違いとして整理する。
         そのうえで、どの候補を augmentation の優先対象にするかという実務的含意を 1 段落で示す。
     [修正案] Waterbirds 節で、exp021 の不一致を「proxy と necessity の差」としてもう少し明示する。
-    [対応] 未
+    [対応] 完了。Waterbirds 節で、不一致は baseline の誤りではなく、候補の存在を拾う指標と確認指標の差として整理した。
 [#004-B-004] top-k 候補の実務的な使い方がもう一歩欲しい
     [方針]
         [#003-E-001] / [#003-E-002] の再指摘。
         top-k 候補を見て専門家が何をするのかを、修正候補の絞り込みとして書く。
         1 つの具体例でよいので、候補リストが augmentation / retraining 方針にどうつながるかを示す。
     [修正案] top-k 候補を見た専門家が augmentation / retraining の優先順位をどう決めるかを1例で示す。
-    [対応] 未
+    [対応] 完了。Discussion に、上位候補から背景置換 augmentation や追加収集を優先する具体例を追記した。
 [#004-C-001] 数値表現と図の配置の統一がまだ不十分
     [方針]
         [#003-C-001] / [#003-F-002] の再指摘。
         counts / percentages / Wilson CI の表記を主結果表で揃える。
         本文中の exact number の重複を減らし、詳細値は表と図に寄せる。
     [修正案] 主結果表は `k/n (%, 95% CI)` に統一し、本文の exact number は最小限にする。
-    [対応] 未
+    [対応] 完了。主結果表の CI 表記を `k/n (%, 95% CI [...])` に統一し、本文中の exact number を削って表と図に寄せた。
 [#004-C-002] 画像の重複挿入や末尾への再掲を整理した方がよい
     [方針]
         [#003-F-001] の再指摘。
@@ -74,20 +74,20 @@
         `k/n (%, 95% CI)` のような固定パターンを主結果表で徹底する。
         exact number を本文に散らしすぎず、表と図に委ねる。
     [修正案] 統計の書式を `k/n (%, 95% CI)` に固定して、結果節全体で揃える。
-    [対応] 未
+    [対応] 完了。GridWorld / ColoredMNIST の主比較表を固定パターンの統計表現に統一した。
 [#004-D-001] Admissibility と実装の紐付け
     [方針] `class-consistent` 置換（exp021）が Admissibility 条件(b)（周辺分布保持）をいかに実用的に満たしているかを Method に追記する。
     [修正案] exp021 の class-consistent 置換を、admissibility 条件(b) の実装例として Method に明記する。
-    [対応] 未
+    [対応] 完了。Method で Waterbirds の `background_replace` を「前景マスクを保ちながら同一クラス donor から背景のみを置換する class-consistent 操作」として明記し、条件(b) の実用的近似であることを追記した。
 [#004-D-002] 頑健性の統計的裏付け
     [方針] exp022 が完了次第、1シード（exp020）ではなく30シード全体でのマスク安定性（Flip率）を本文に反映する。
     [修正案] exp022 の 30 seed 結果を使って、mask radius sensitivity の Flip率を本文と表に反映する。
-    [対応] 対応中。exp022 で 30 シード全体の mask radius sensitivity を評価し、decision flips 0/30 の結果を得た。
+    [対応] 完了。exp022 の 30 シード半径スイープを主文に短く反映し、平均 Δ_bg / Δ_fg が半径に対して連続的に変化すること、マスク品質が結果の大きさには影響するが不連続な崩壊としては現れていないことを追記した。
     [証拠ファイル] `experiments/results/exp022_waterbirds_grabcut_sensitivity/results.csv`, `experiments/results/exp022_waterbirds_grabcut_sensitivity/summary.txt`, `experiments/results/exp022_waterbirds_grabcut_sensitivity/fig_grabcut_sensitivity.png`
 [#004-E-001] 「帰属法の幻覚（Hallucination）」の明文化
     [方針] 「既存手法が依存ありと判定しても性能が落ちないケース」を「帰属法の幻覚」と定義し、PerformanceCheck がそれを正す Ground Truth であるというストーリーを Discussion で強化する。
     [修正案] Discussion で、既存法の false positive を PerformanceCheck がどう補正するかを1段落で明文化する。
-    [対応] 未
+    [対応] 完了。`hallucination` という強い語は採用せず、Discussion で「proxy ベースの候補発見が広めに出した警告のうち、PerformanceCheck が機能的必要性の観点から false positive 候補を落とす」と明文化した。
 [#004-E-002] Remediation（修正）の具体化
     [方針] 依存検出後のアクションとして、具体的な Augmentation 種類（Mixup等）への優先順位付けフローを 1 文加筆する。
     [修正案] 検出後アクションとして、Mixup / background replacement などの augmentation 優先順位を1文で書く。
@@ -95,11 +95,11 @@
 [#004-F-001] アンチ・リピティション・ルールの徹底
     [方針] 本文中の正確な数値を、表への参照や定性的表現（大半のケース、等）に置き換え、README 違反を解消する。
     [修正案] 本文中の exact number を減らして、値は表・図に寄せる表現へ置き換える。
-    [対応] 未
+    [対応] 完了。重複する exact number を本文から減らし、主要な値は表と図へ寄せた。
 [#004-F-002] キャプションの分析的記述
     [方針] 各 Figure のキャプションに「Key Takeaway（この図から何を読み取るべきか）」を 1 文ずつ追加する。
     [修正案] 各 Figure キャプション末尾に、1 文の takeaway を追加する。
-    [対応] 未
+    [対応] 完了。Figure 1-7 のキャプションに、この図から何を読むべきかを示す takeaway を追加した。
 [#004-G-001] 新規性の核はあるが、メッセージの軸がやや散っている
     [方針]
         [#003-D-001] / [#003-E-001] の再指摘。
@@ -107,7 +107,7 @@
         Δ vs SHAP / hidden-space proxy / discovery pipeline / worst-group accuracy をすべて同じ主張に回収し、主張1本に見せる。
         Conclusion では tested benchmarks 上の confirmation step として射程を絞る。
     [修正案] Introduction と Conclusion を、Performance-based confirmation step の一本化されたメッセージに寄せる。
-    [対応] 未
+    [対応] 完了。Abstract / Introduction / Discussion / Conclusion を、候補発見の後段に置かれる confirmation step という軸に寄せた。
 [#004-G-002] 実験ごとの仮説対応を明示すると読みやすくなる
     [方針]
         Exp016/017/018/021 がそれぞれ何の仮説を検証するのかを Results 冒頭か小見出しで明示する。
@@ -126,35 +126,35 @@
         5シードと30シード、exp016/017/018 の対応を本文全体で統一する。
         Method と Results で同じ数が出るようにし、主結果は 30 seeds 版に寄せる。
     [修正案] 数値実験の設定表を作り、Method/Results/Appendix のシード数表記を一致させる。
-    [対応] 未
+    [対応] 完了。Method/Results の残っていた 5-seed 記述を 30-seed 版に統一し、exp017 の旧表も削除して後段の 30-seed 比較表へ寄せた。
 [#004-H-002] 主指標の揺れを止める必要がある
     [方針]
         [#003-A-002] の再指摘。
         top-k, recall@k, detection rate, argmax 判定を混在させず、主指標を 1 つに固定する。
         補助分析として使う指標は Results の下位に回す。
     [修正案] 主指標を top-k か recall@k のどちらかに固定し、残りは補助分析に落とす。
-    [対応] 未
+    [対応] 完了。Method で主指標を `top-k inclusion に基づく recall@k` と明記し、GridWorld/ColoredMNIST/Waterbirds の pairwise 比較は補助的な sanity check または recall@1 の同値表現として位置づけ直した。
 [#004-H-003] Δ の意味づけは少し弱めて書いた方が安全
     [方針]
         [#003-E-002] の再指摘。
         「壊したときに落ちる = 強い依存」と断定せず、機能的必要性の proxy / 依存の下限評価として述べる。
         介入の質・相関構造・代替可能性に依存することを Method か Discussion で明示する。
     [修正案] Method の Δ 定義と Discussion の解釈を、functional necessity proxy という語彙に寄せる。
-    [対応] 未
+    [対応] 完了。Abstract / Introduction / Method / Discussion / Conclusion の Δ 解釈を `functional necessity proxy` に寄せ、断定的な依存表現を弱めた。
 [#004-H-004] ColoredMNIST の SHAP アーティファクト主張は限定条件を毎回明示したい
     [方針]
         [#003-C-002] の再指摘。
         「本稿で採用した集約規則の下では」という限定を本文中で繰り返す。
         SHAP のアーティファクトを断定しすぎず、図と本文を短くして符号化の影響を一目で伝える。
     [修正案] ColoredMNIST の説明に限定句を入れ、集約規則に依存する現象だと明示する。
-    [対応] 未
+    [対応] 完了。Method / Results / Discussion / Conclusion に「本稿で採用した集約規則の下では」という限定句を追加し、SHAP 一般への過剰一般化を避ける形に修正した。
 [#004-I-001] 新規性はあるが、post-hoc confirmation pipeline の後段としてもっと強く言える
     [方針]
         [#003-D-001] / [#003-E-001] の再指摘。
         事後説明法や訓練時手法との差分を、候補発見ではなく confirmation step の定式化として明確にする。
         Abstract/Introduction で PerformanceCheck のユニークさを冒頭で強く打ち出す。
     [修正案] Abstract と Introduction を、PerformanceCheck を「後段の確認手続き」として前面に出す形へ寄せる。
-    [対応] 未
+    [対応] 完了。Abstract / Introduction / Conclusion で、PerformanceCheck の役割を後段の確認手続きとして前面化した。
 [#004-I-002] 過剰主張と冗長さを少し抑えると通りやすい
     [方針]
         [#003-B-003] / [#003-F-002] の再指摘。
@@ -228,7 +228,7 @@
 [#003-D-002] 介入マスク（GrabCut）の不確実性の定量的言及
     [方針] GrabCut の失敗が Δ に与える影響について、Limitations または Method で補足する。
           30 seed 全体で、mask radius を変えたときに判定がどれくらい変わるかを exp022 で確認する。
-    [対応] 対応中。exp022 で checkpoint 再利用のまま GrabCut mask perturbation を 30 seed 全体で評価し、decision flips 0/30 を確認した。
+    [対応] 完了。exp022 の 30 シード半径スイープを踏まえ、GrabCut mask perturbation に対して平均 Δ_bg / Δ_fg が半径に応じて連続的に変化すること、マスク品質が結果の大きさには影響するが不連続な崩壊としては現れていないことを反映した。
     [証拠ファイル] `experiments/results/exp022_waterbirds_grabcut_sensitivity/results.csv`, `experiments/results/exp022_waterbirds_grabcut_sensitivity/summary.txt`, `experiments/results/exp022_waterbirds_grabcut_sensitivity/fig_grabcut_sensitivity.png`
 [#003-E-001] 診断から判断・修正への接続
     [方針] PerformanceCheck を「ドメイン専門家が修正の優先順位を判断するための、定量的エビデンス提供パーツ」と位置づける。Discussion では、出力された Δ 値を参考に、専門家がどの特徴に Augmentation 等を適用すべきかを選択する、人間を介した（Human-in-the-loop）ワークフローの一環として記述する。
