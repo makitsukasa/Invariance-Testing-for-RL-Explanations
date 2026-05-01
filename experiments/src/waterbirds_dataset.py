@@ -87,6 +87,7 @@ class WaterbirdsDataset(Dataset):
         fg_noise_std: float = 0.2,
         seed: int = 0,
         mask_cache: Optional[dict] = None,
+        metadata_df: Optional[pd.DataFrame] = None,
     ):
         self.root = Path(root)
         self.transform = transform or EVAL_TRANSFORM
@@ -97,7 +98,10 @@ class WaterbirdsDataset(Dataset):
         self._np_rng = np.random.default_rng(seed)
         self.mask_cache = mask_cache if mask_cache is not None else {}
 
-        meta = pd.read_csv(self.root / "metadata.csv")
+        if metadata_df is not None:
+            meta = metadata_df
+        else:
+            meta = pd.read_csv(self.root / "metadata.csv")
         split_id = {"train": 0, "val": 1, "test": 2}[split]
         self.df = meta[meta["split"] == split_id].reset_index(drop=True)
 
