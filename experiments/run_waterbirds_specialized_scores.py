@@ -1,18 +1,20 @@
 """exp021: Generate Waterbirds specialized baseline scores from exp018 checkpoints.
 
 This script produces `specialized_scores.csv` for the exp021 comparison step.
-It reuses the exp018 saved checkpoints, and computes a spurious-score style
-metric on Waterbirds:
+It reuses the exp018 saved checkpoints, and computes two specialized metrics
+on Waterbirds:
 
   bg_score = fraction of test examples whose true-class probability increases
              after class-consistent background replacement by > epsilon
   fg_score = fraction of test examples whose true-class probability increases
              after class-consistent foreground replacement by > epsilon
+  pca_score = hidden-layer PCA spuriousness proxy based on the penultimate
+              feature space of the checkpointed oracle
 
 The output CSV is intentionally minimal and matches the contract expected by
 `run_waterbirds_specialized_baseline.py`:
 
-  seed,bg_score,fg_score
+  seed,bg_score,fg_score[,pca_score,pca_bg_score,pca_fg_score]
 
 We also save a partial CSV, summary text, and metadata for reproducibility.
 """
@@ -114,6 +116,91 @@ def _predict_true_class_prob(model: torch.nn.Module, batch: torch.Tensor, labels
         logits = model(batch)
         probs = torch.softmax(logits, dim=1)
         return probs.gather(1, labels.view(-1, 1)).squeeze(1).cpu().numpy()
+
+
+def _extract_penultimate_features(model: torch.nn.Module, batch: torch.Tensor) -> np.ndarray:
+    """Return the activations immediately before the final linear layer."""
+    captured: dict[str, torch.Tensor] = {}
+
+    def _hook(_module, inputs, _output):
+        captured["features"] = inputs[0].detach()
+
+    handle = model.fc.register_forward_hook(_hook)
+    try:
+        model.eval()
+        with torch.no_grad():
+            _ = model(batch)
+        if "features" not in captured:
+            raise RuntimeError("failed to capture penultimate features")
+        return captured["features"].cpu().numpy()
+    finally:
+        handle.remove()
+
+
+def _auc_from_scores(labels: np.ndarray, scores: np.ndarray) -> float:
+    """Compute AUC via rank statistics; returns 0.5 when labels are degenerate."""
+    labels = np.asarray(labels).astype(int)
+    scores = np.asarray(scores).astype(float)
+    pos = labels == 1
+    neg = labels == 0
+    n_pos = int(pos.sum())
+    n_neg = int(neg.sum())
+    if n_pos == 0 or n_neg == 0:
+        return 0.5
+    ranks = pd.Series(scores).rank(method="average").to_numpy()
+    sum_pos = float(ranks[pos].sum())
+    auc = (sum_pos - n_pos * (n_pos + 1) / 2.0) / (n_pos * n_neg)
+    return float(auc)
+
+
+def _best_oriented_auc(labels: np.ndarray, scores: np.ndarray) -> float:
+    auc = _auc_from_scores(labels, scores)
+    return float(max(auc, 1.0 - auc))
+
+
+def _compute_pca_spuriousness(
+    model: torch.nn.Module,
+    orig_batch: torch.Tensor,
+    place_labels: np.ndarray,
+    class_labels: np.ndarray,
+    batch_size: int,
+) -> dict:
+    """Compute a lightweight PCA proxy for hidden-layer spuriousness.
+
+    We fit PCA on the penultimate features of the evaluation batch, then score
+    how well the leading principal directions separate background-place labels
+    versus class labels. The returned score is positive when the hidden space is
+    more aligned with background than with class identity.
+    """
+    feat_chunks: list[np.ndarray] = []
+    for start in range(0, len(orig_batch), batch_size):
+        sl = slice(start, min(start + batch_size, len(orig_batch)))
+        feat_chunks.append(_extract_penultimate_features(model, orig_batch[sl]))
+    feats = np.concatenate(feat_chunks, axis=0)
+    feats = feats - feats.mean(axis=0, keepdims=True)
+    if feats.shape[0] < 2:
+        return {
+            "pca_bg_score": 0.5,
+            "pca_fg_score": 0.5,
+            "pca_score": 0.0,
+            "pca_ok": False,
+        }
+
+    _, _, vt = np.linalg.svd(feats, full_matrices=False)
+    n_pcs = min(5, vt.shape[0])
+    proj = feats @ vt[:n_pcs].T
+
+    bg_scores = [_best_oriented_auc(place_labels, proj[:, j]) for j in range(n_pcs)]
+    fg_scores = [_best_oriented_auc(class_labels, proj[:, j]) for j in range(n_pcs)]
+    pca_bg_score = float(max(bg_scores))
+    pca_fg_score = float(max(fg_scores))
+    pca_score = pca_bg_score - pca_fg_score
+    return {
+        "pca_bg_score": pca_bg_score,
+        "pca_fg_score": pca_fg_score,
+        "pca_score": pca_score,
+        "pca_ok": bool(pca_score > 0),
+    }
 
 
 def _build_class_donor_pool(root: str, meta: pd.DataFrame, y: int, n_samples: int, seed: int) -> list[np.ndarray]:
@@ -221,11 +308,21 @@ def _score_seed(seed: int, cfg: dict, oracle_cfg: dict, outdir: Path) -> dict:
     fg_delta = fg_prob - orig_prob
     bg_score = float((bg_delta > epsilon).mean())
     fg_score = float((fg_delta > epsilon).mean())
+    place_labels = np.array([int(r["place"]) for r in eval_rows.to_dict("records")], dtype=int)
+    class_labels = np.array(labels, dtype=int)
+    pca_res = _compute_pca_spuriousness(
+        model=model,
+        orig_batch=orig,
+        place_labels=place_labels,
+        class_labels=class_labels,
+        batch_size=batch_size,
+    )
 
     return {
         "seed": int(seed),
         "bg_score": bg_score,
         "fg_score": fg_score,
+        **pca_res,
         "bg_mean_delta": float(bg_delta.mean()),
         "fg_mean_delta": float(fg_delta.mean()),
         "epsilon": epsilon,

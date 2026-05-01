@@ -5,7 +5,7 @@ score CSV with exp018 outputs, and optionally verifies the exp018
 checkpoints that were saved during training.
 
 The shared exp021 config points to a specialized_scores.csv with:
-  seed,bg_score,fg_score
+  seed,bg_score,fg_score[,pca_score]
 """
 from __future__ import annotations
 
@@ -62,9 +62,18 @@ def main() -> None:
     base = base.copy()
     base["seed"] = base["seed"].astype(int)
     base["spec_ok"] = base["bg_score"] > base["fg_score"]
+    if "pca_score" in base.columns:
+        base["pca_ok"] = base["pca_score"] > 0
+    elif {"pca_bg_score", "pca_fg_score"}.issubset(base.columns):
+        base["pca_ok"] = base["pca_bg_score"] > base["pca_fg_score"]
     ref["seed"] = ref["seed"].astype(int)
 
-    merged = ref.merge(base[["seed", "bg_score", "fg_score", "spec_ok"]], on="seed", how="inner")
+    keep_cols = ["seed", "bg_score", "fg_score", "spec_ok"]
+    for col in ("pca_ok", "pca_score", "pca_bg_score", "pca_fg_score"):
+        if col in base.columns:
+            keep_cols.append(col)
+
+    merged = ref.merge(base[keep_cols], on="seed", how="inner")
     if merged.empty:
         raise ValueError("No overlapping seeds between exp018 results and specialized baseline.")
 
@@ -97,6 +106,7 @@ def main() -> None:
     d_ok = int(merged["delta_ok"].sum())
     s_ok = int(merged["shap_ok"].sum())
     p_ok = int(merged["spec_ok"].sum())
+    pca_ok = int(merged["pca_ok"].sum()) if "pca_ok" in merged.columns else None
 
     d_only = int(((merged["delta_ok"] == 1) & (merged["spec_ok"] == 0)).sum())
     p_only = int(((merged["delta_ok"] == 0) & (merged["spec_ok"] == 1)).sum())
@@ -111,7 +121,19 @@ def main() -> None:
         f"Delta detect: {d_ok}/{n} ({100.0*d_ok/n:.1f}%)",
         f"SHAP  detect: {s_ok}/{n} ({100.0*s_ok/n:.1f}%)",
         f"Spec  detect: {p_ok}/{n} ({100.0*p_ok/n:.1f}%)",
-        "",
+    ]
+    if pca_ok is not None:
+        lines += [
+            f"PCA   detect: {pca_ok}/{n} ({100.0*pca_ok/n:.1f}%)",
+            "",
+            "Delta vs PCA cross-tab:",
+            f"  Delta=OK & PCA=OK : {int(((merged['delta_ok']==1)&(merged['pca_ok']==1)).sum())}",
+            f"  Delta=OK & PCA=NG : {int(((merged['delta_ok']==1)&(merged['pca_ok']==0)).sum())}",
+            f"  Delta=NG & PCA=OK : {int(((merged['delta_ok']==0)&(merged['pca_ok']==1)).sum())}",
+            f"  Delta=NG & PCA=NG : {int(((merged['delta_ok']==0)&(merged['pca_ok']==0)).sum())}",
+            "",
+        ]
+    lines += [
         "Delta vs Spec cross-tab:",
         f"  Delta=OK & Spec=OK : {int(((merged['delta_ok']==1)&(merged['spec_ok']==1)).sum())}",
         f"  Delta=OK & Spec=NG : {d_only}",

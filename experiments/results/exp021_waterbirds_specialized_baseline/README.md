@@ -11,10 +11,12 @@ Compare Delta / SHAP against a specialized spurious-feature baseline on Waterbir
 ## Generation step
 - Script: `experiments/run_waterbirds_specialized_scores.py`
 - Output: `specialized_scores.csv`
+- Extra columns: `pca_score`, `pca_bg_score`, `pca_fg_score`
 
 ## Comparison step
 - Script: `experiments/run_waterbirds_specialized_baseline.py`
 - Output: `results.csv`, `summary.txt`
+- The comparison summary reports both the background/foreground specialized baseline and the PCA spuriousness proxy when available.
 
 ## Notes
 - The baseline score file is generated first, then merged with exp018 and the checkpoint metadata.
