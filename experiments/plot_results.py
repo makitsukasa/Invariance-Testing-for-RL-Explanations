@@ -9,6 +9,7 @@ Figures produced per CSV
   GridWorld    -> fig_psweep.pdf, fig_crosstab.pdf
   ColoredMNIST -> fig_psweep.pdf
   Waterbirds   -> fig_scatter.pdf, fig_delta_dist.pdf
+  exp021 Waterbirds specialized baseline -> fig_specialized_baseline.pdf, fig_specialized_baseline_pca.pdf
 
 Usage:
     python experiments/plot_results.py PATH/results.csv [...]
@@ -339,6 +340,121 @@ def fig_waterbirds_delta_dist(df: pd.DataFrame, outdir: Path, show: bool) -> Non
 
 
 # ---------------------------------------------------------------------------
+# Figure 4: Waterbirds specialized baseline comparison (exp021)
+# ---------------------------------------------------------------------------
+
+def fig_waterbirds_specialized_compare(df: pd.DataFrame, outdir: Path, show: bool) -> None:
+    required = {"delta_ok", "shap_ok", "spec_ok"}
+    if not required.issubset(df.columns):
+        print("  [SKIP] exp021 specialized comparison requires delta_ok, shap_ok, spec_ok")
+        return
+
+    has_pca = "pca_ok" in df.columns
+    n = len(df)
+    methods = [
+        ("Δ", "delta_ok", DELTA_COLOR),
+        ("SHAP", "shap_ok", SHAP_COLOR),
+        ("Spec", "spec_ok", "#4e79a7"),
+    ]
+    if has_pca:
+        methods.append(("PCA", "pca_ok", "#9c755f"))
+
+    labels = [m[0] for m in methods]
+    rates, lo_errs, hi_errs = [], [], []
+    for _, col, _ in methods:
+        k = int(df[col].astype(bool).sum())
+        rate, lo, hi = rate_with_ci(k, n)
+        rates.append(rate)
+        lo_errs.append(lo)
+        hi_errs.append(hi)
+
+    discordant_delta_spec = {
+        "delta_only": int(((df["delta_ok"] == 1) & (df["spec_ok"] == 0)).sum()),
+        "spec_only": int(((df["delta_ok"] == 0) & (df["spec_ok"] == 1)).sum()),
+    }
+    discordant_delta_pca = None
+    if has_pca:
+        discordant_delta_pca = {
+            "delta_only": int(((df["delta_ok"] == 1) & (df["pca_ok"] == 0)).sum()),
+            "pca_only": int(((df["delta_ok"] == 0) & (df["pca_ok"] == 1)).sum()),
+        }
+
+    with plt.rc_context(STYLE):
+        fig, ax = plt.subplots(figsize=(5.5, 3.5))
+        x = np.arange(len(methods))
+        colors = [m[2] for m in methods]
+        ax.bar(x, rates, color=colors, alpha=0.85, width=0.7, zorder=2)
+        ax.errorbar(
+            x,
+            rates,
+            yerr=[lo_errs, hi_errs],
+            fmt="none",
+            ecolor="black",
+            elinewidth=1,
+            capsize=4,
+            zorder=3,
+        )
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels)
+        ax.set_ylim(0, 1.05)
+        ax.set_ylabel("Detection rate (95% Wilson CI)")
+        ax.set_title("Waterbirds exp021: specialized baseline comparison")
+        ax.text(
+            0.02,
+            0.02,
+            f"Δ vs Spec discordant: {discordant_delta_spec['delta_only']} / {discordant_delta_spec['spec_only']}",
+            transform=ax.transAxes,
+            fontsize=8,
+            va="bottom",
+        )
+        fig.tight_layout()
+        out = outdir / "fig_specialized_baseline.pdf"
+        fig.savefig(out, bbox_inches="tight")
+        fig.savefig(out.with_suffix(".png"), bbox_inches="tight")
+        print(f"  -> {out}")
+        if show:
+            plt.show()
+        plt.close(fig)
+
+        if has_pca:
+            fig, ax = plt.subplots(figsize=(6.1, 3.5))
+            x = np.arange(len(methods))
+            ax.bar(x, rates, color=colors, alpha=0.85, width=0.7, zorder=2)
+            ax.errorbar(
+                x,
+                rates,
+                yerr=[lo_errs, hi_errs],
+                fmt="none",
+                ecolor="black",
+                elinewidth=1,
+                capsize=4,
+                zorder=3,
+            )
+            ax.set_xticks(x)
+            ax.set_xticklabels(labels)
+            ax.set_ylim(0, 1.05)
+            ax.set_ylabel("Detection rate (95% Wilson CI)")
+            ax.set_title("Waterbirds exp021: specialized baseline + PCA proxy")
+            pca_text = discordant_delta_pca or {}
+            ax.text(
+                0.02,
+                0.02,
+                f"Δ vs PCA discordant: {pca_text.get('delta_only', 0)} / {pca_text.get('pca_only', 0)}",
+                transform=ax.transAxes,
+                fontsize=8,
+                va="bottom",
+            )
+            fig.tight_layout()
+            out = outdir / "fig_specialized_baseline_pca.pdf"
+            fig.savefig(out, bbox_inches="tight")
+            fig.savefig(out.with_suffix(".png"), bbox_inches="tight")
+            print(f"  -> {out}")
+            if show:
+                plt.show()
+            plt.close(fig)
+
+
+# ---------------------------------------------------------------------------
 # Dispatcher
 # ---------------------------------------------------------------------------
 
@@ -348,7 +464,10 @@ def process_csv(path: Path, show: bool) -> None:
     print(f"\n{'='*50}\n  {path.parent.name}/{path.name}\n{'='*50}")
 
     if "spurious_p" not in df.columns:
-        # Waterbirds
+        # Waterbirds / exp021 specialized baseline
+        if "spec_ok" in df.columns:
+            fig_waterbirds_specialized_compare(df, outdir, show)
+            return
         fig_waterbirds_scatter(df, outdir, show)
         fig_waterbirds_delta_dist(df, outdir, show)
         return
