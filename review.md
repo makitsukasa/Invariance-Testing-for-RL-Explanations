@@ -1,68 +1,70 @@
 # Peer Review: Detecting Spurious Features via Intervention-Based Performance Sensitivity
 
-## Overall Verdict: Weak Reject / Borderline Major Revision
+## Overall Verdict: Borderline Major Revision
 
-This version is materially stronger than the first round. The paper now has a clearer main claim, the Delta operator is better motivated, the GridWorld and ColoredMNIST results are numerically sharper, Waterbirds now has a real worst-group analysis, and the discussion is more careful about the difference between causal intervention and attribution.
+This draft is now substantially stronger than the earlier versions. The core idea is clear, the intervention-based perspective is consistent, the figures are embedded in the manuscript body, and the Waterbirds section now includes both a worst-group analysis and a specialized baseline comparison. The paper no longer feels like a collection of experiments; it has an identifiable argument.
 
-That said, the paper is still not ready for a NeurIPS-style submission. The biggest remaining problems are: there are no figures embedded in the manuscript body, the Waterbirds comparison against a specialized spurious-detection baseline is still missing from the paper, and the main claims are still not fully supported with enough visual/statistical evidence in the text.
+The remaining issues are no longer about whether the paper has evidence at all. They are about how precisely the paper distinguishes candidate spuriousness from intervention-based necessity, how uniformly the statistics are presented, and how cleanly the specialized-baseline comparison is framed.
 
 ## Reviewer A: Methodology Expert
 
 ### Strengths
-1. The paper now has a much clearer method than in the first round. The Delta definition is explicit, the intervention idea is operationalized, and the paper no longer relies on vague "we just measure spuriousness" language.
-2. The topic focus is better. The manuscript is centered on intervention-based performance sensitivity rather than drifting into a general explanation of environment quirks.
-3. The ablation and negative-result narrative is valuable. LunarLander is now framed more as a boundary case than as a core contribution, which is the right instinct.
+1. The method is now conceptually coherent. Delta is defined as an intervention-based performance drop, and the paper clearly separates this from post-hoc attribution.
+2. The intervention story is much better motivated than before. The manuscript now repeatedly emphasizes that the operator should destroy the target feature while preserving the rest of the input as much as possible.
+3. The paper has a stronger empirical spine. GridWorld, ColoredMNIST, Waterbirds, and the LunarLander boundary case together make the scope of the method easier to understand.
 
 ### Weaknesses
-1. The intervention operator is still underspecified for a methods paper. The paper says interventions can be random resampling, constant replacement, or masking, but it does not yet give a precise operational contract for when each operator is valid, what invariances it preserves, and when the operator itself becomes the bottleneck.
-2. The manuscript still mixes top-5 ranking language and binary detection language. The paper needs one clean decision rule and one clean exposition path.
-3. The main claim "Delta is an intervention-based proxy for operational necessity" is now defensible, but the paper still needs one more layer of methodological caution. It should be explicit that this is not a causal-identification result; it is a diagnostic score under a chosen intervention family.
+1. The admissibility conditions for interventions are still only partly formalized. The paper states the intuition well, but it would benefit from a sharper operational contract for when an intervention is considered valid and when its quality becomes a limiting factor.
+2. The manuscript still mixes several related but not identical notions: candidate spuriousness, intervention-based necessity, and rank-based detection. These are all related, but the distinction should be stated more explicitly in one place.
+3. The specialized baseline section is useful, but the paper should be careful not to overstate what the proxy scores mean. The baseline is a candidate-confirmation signal, not a direct measure of functional dependence.
 
 ### Actionable Revisions
-1. Add a short formal subsection that states the admissibility conditions for each intervention family.
-2. Make the evaluation rule completely uniform. If top-5 is the standard display, state whether the claim is "rank of the target feature among all features" or "binary success if target is in top-5," and use the same language everywhere.
-3. Tighten the limitation sentence around causality. "Do-inspired intervention" is good; "causal dependence" should remain out of the main claim.
+1. Add a short formal subsection that states the admissibility conditions for the intervention family in one place.
+2. Use one consistent phrasing for the detection rule: either rank-based success or top-k inclusion, but not both as if they were interchangeable.
+3. In the Waterbirds specialized-baseline discussion, explicitly separate "candidate spuriousness" from "functional necessity" so the roles of Spec/PCA and Delta are unmistakable.
 
 ## Reviewer B: Domain Expert
 
 ### Strengths
-1. The benchmark choice is now much more convincing. GridWorld, ColoredMNIST, and Waterbirds together make the paper feel like a cross-domain study rather than a single toy example.
-2. Waterbirds now carries real weight. The worst-group result and the SHAP comparison are exactly the kind of real-data evidence the first round was missing.
-3. The manuscript does a better job distinguishing post-hoc diagnosis from training-time robustness methods such as IRM and GroupDRO.
+1. The benchmark choice is now compelling. The paper no longer relies on a single toy setting; it spans synthetic, semi-synthetic, and real-image benchmarks.
+2. Waterbirds is now doing real work in the paper. The worst-group analysis, the specialized baseline, and the intervention sensitivity result all reinforce the same story from different angles.
+3. The negative-result framing around LunarLander is sensible. It is now clearly a boundary case rather than a distraction.
 
 ### Weaknesses
-1. The largest remaining domain-level hole is the missing specialized baseline in the main paper. If the paper wants to argue that Delta is useful for spurious-feature detection, it should be compared against at least one method designed for that task, not only against a general-purpose attribution method like SHAP.
-2. LunarLander still feels too much like a side story. The appendix discussion is acceptable, but in the current draft the negative result is still a potential distraction from the core vision.
-3. The manuscript is still a little too broad in how it phrases the scope. The results support the method on the tested benchmarks; they do not yet justify broad claims about all spurious-feature detection settings.
+1. The specialized-baseline comparison is still slightly under-explained in domain terms. A reader who knows spurious-feature detection will understand that Spec/PCA are proxy scores, but the paper should state more clearly what kind of "spuriousness" they estimate and why that is the right comparator for Delta.
+2. The Waterbirds discussion is strong, but the key disagreement cases deserve one more sentence of interpretation in the main text. Right now the reader can infer the meaning, but the paper would benefit from stating it directly.
+3. The scope of the contribution is still a little broad in the conclusion. The paper should keep the claim focused on the tested benchmarks and on intervention-based diagnosis, rather than implying a general solution to spurious-feature detection.
 
 ### Actionable Revisions
-1. Add one specialized baseline in the Waterbirds section, even if it is only one method, and make the comparison table explicit.
-2. Compress LunarLander further and keep it in the appendix or a short limitations paragraph.
-3. Rewrite the conclusion so it states where Delta works well, where SHAP fails, and what scope of spurious-feature detection the paper actually covers.
+1. Add one short paragraph in the Waterbirds results section explaining why the specialized baseline is a proxy for candidate spuriousness rather than a competing measure of the same quantity.
+2. Add a sentence that interprets the discordant pairs in exp021 as evidence of a difference in measurement target, not just a mismatch in accuracy.
+3. Keep the conclusion grounded in the tested benchmarks and avoid broad generalization beyond the evidence.
 
 ## Reviewer C: Statistics / Rigor Expert
 
 ### Strengths
-1. The statistical reporting is much improved. Multiple seeds are used in the main experiments, Wilson confidence intervals and McNemar tests are already part of the workflow, and the paper no longer looks like a single-run pilot.
-2. The results are more reproducible than before. The appendix now includes hyperparameters, compute resources, and dataset details, which is exactly the right direction.
-3. The paper has better quantitative discipline now. The concrete counts in GridWorld, ColoredMNIST, and Waterbirds make the argument much easier to assess.
+1. The statistical reporting is much better than in the first draft. Multiple seeds are used, the manuscript now includes confidence intervals, and the Waterbirds comparison has a paired significance test.
+2. The paper now has figures in the main body, which makes the results far easier to audit.
+3. The manuscript is more reproducible. Hyperparameters, compute resources, and dataset details are all documented.
 
 ### Weaknesses
-1. There are still no figures in the manuscript body. For a NeurIPS-style paper, that is a serious problem. The text alone is not enough to communicate the per-seed distributions, ranking behavior, or the Waterbirds separation.
-2. The paper still needs to make sure that every headline claim in the abstract and conclusion points to an explicit result table or figure.
-3. The statistical presentation is better, but not yet fully polished. The reader should not have to infer from prose that the method used 30 seeds, Wilson intervals, and paired tests.
+1. The statistical style is not yet fully uniform. Some parts of the paper emphasize counts, some emphasize percentages, and some explicitly show Wilson confidence intervals. That is better than before, but the presentation could be more consistent.
+2. The exp021 specialized-baseline comparison is currently strong, but the figure caption and the discussion should match the same statistical language as the rest of the paper. The reader should not have to infer whether a proxy score is a detection rate, a ranking criterion, or an auxiliary statistic.
+3. The paper still relies on prose in a few places where a compact table would improve clarity, especially for the representative disagreement cases in Waterbirds.
 
 ### Actionable Revisions
-1. Add at least two figures to the body. At minimum, one figure should show the Delta vs SHAP comparison with confidence intervals, and one should show the Waterbirds seed-level scatter or group-wise breakdown.
-2. Put confidence intervals or error bars directly in the main results tables, not only in auxiliary files or discussion text.
-3. Make the abstract and conclusion cite the exact table or figure where each quantitative claim is supported.
+1. Keep the confidence-interval style consistent in the main results tables and captions.
+2. Add one compact disagreement table for exp021 with a few representative seeds, and define the columns clearly.
+3. Make the caption language match the body language: Delta is an intervention-based necessity diagnostic, while Spec/PCA are proxy scores for candidate spuriousness.
 
 ## Summary
 
-The paper is now substantially closer to a real submission than in the first round. The conceptual line is clearer, the experimental coverage is broader, and the manuscript has much better evidence behind the Delta-vs-SHAP claim.
+The paper is now much closer to a convincing submission than it was in the first round. The method is clearer, the evidence is broader, and the Waterbirds section finally connects specialized baseline detection, intervention-based diagnosis, and worst-group performance in one coherent narrative.
 
-However, I would still not accept it in the current form. The two biggest blockers are:
-1. no figures embedded in the main paper body,
-2. no specialized spurious-detection baseline in the main Waterbirds comparison.
+What still prevents this from feeling fully polished is not a missing experiment, but a small amount of conceptual and statistical cleanup:
 
-If those are fixed, along with a slightly tighter methods presentation, the paper would move from "interesting but incomplete" to something much more convincing.
+1. Make the intervention admissibility conditions explicit.
+2. Standardize the detection language and statistical presentation.
+3. State the role of the specialized baseline more crisply, especially in the disagreement cases.
+
+If those are tightened, the paper would read as a well-motivated intervention-based diagnosis paper rather than as a collection of benchmark-specific observations.

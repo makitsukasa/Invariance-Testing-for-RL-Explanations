@@ -10,6 +10,7 @@
 
 1. `tmp_peer_review_prompt.txt` を実行する
 2. 出力結果で `review.md` を上書きする（追記しない）
+3. `review_log.md`へ追記する
 
 `review.md` は常に「最新1回分のみ」を保持します。
 
