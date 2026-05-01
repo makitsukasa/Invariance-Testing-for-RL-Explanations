@@ -1,0 +1,22 @@
+=== exp021 Waterbirds specialized baseline comparison ===
+specialized method: Spurious Score (Waterbirds proxy)
+checkpoint_dir: experiments/results/exp018_waterbirds_30seeds/checkpoints
+n(seed overlap): 30
+
+Delta detect: 18/30 (60.0%)
+SHAP  detect: 30/30 (100.0%)
+Spec  detect: 30/30 (100.0%)
+PCA   detect: 30/30 (100.0%)
+
+Delta vs PCA cross-tab:
+  Delta=OK & PCA=OK : 18
+  Delta=OK & PCA=NG : 0
+  Delta=NG & PCA=OK : 12
+  Delta=NG & PCA=NG : 0
+
+Delta vs Spec cross-tab:
+  Delta=OK & Spec=OK : 18
+  Delta=OK & Spec=NG : 0
+  Delta=NG & Spec=OK : 12
+  Delta=NG & Spec=NG : 0
+  McNemar exact p    : 0.000977
