@@ -4,6 +4,7 @@ Handles three dataset types:
   GridWorld  : has spurious_p + delta_c (spurious) + per-feature delta/shap cols
   ColoredMNIST: has spurious_p + delta_hue + delta_struct cols
   Waterbirds : no spurious_p; has delta_bg/delta_fg/shap_bg/shap_fg
+  exp022 Waterbirds GrabCut sensitivity -> fig_grabcut_sensitivity.pdf, fig_grabcut_sensitivity.png
 
 Figures produced per CSV
   GridWorld    -> fig_psweep.pdf, fig_crosstab.pdf
@@ -340,6 +341,82 @@ def fig_waterbirds_delta_dist(df: pd.DataFrame, outdir: Path, show: bool) -> Non
 
 
 # ---------------------------------------------------------------------------
+# Figure 3b: Waterbirds GrabCut sensitivity (exp022)
+# ---------------------------------------------------------------------------
+
+def _mean_ci(values: np.ndarray, alpha: float = 0.05) -> tuple[float, float, float]:
+    values = np.asarray(values, dtype=float)
+    if values.size == 0:
+        return 0.0, 0.0, 0.0
+    mean = float(values.mean())
+    if values.size == 1:
+        return mean, 0.0, 0.0
+    z = norm.ppf(1 - alpha / 2)
+    se = float(values.std(ddof=1) / np.sqrt(values.size))
+    lo = mean - z * se
+    hi = mean + z * se
+    return mean, max(0.0, mean - lo), max(0.0, hi - mean)
+
+
+def fig_waterbirds_grabcut_sensitivity(df: pd.DataFrame, outdir: Path, show: bool) -> None:
+    if "mask_radius" not in df.columns or "delta_bg" not in df.columns or "delta_fg" not in df.columns:
+        print("  [SKIP] exp022 grabcut sensitivity requires mask_radius, delta_bg, delta_fg")
+        return
+
+    radii = sorted(int(r) for r in df["mask_radius"].unique())
+    mean_bg, lo_bg, hi_bg = [], [], []
+    mean_fg, lo_fg, hi_fg = [], [], []
+    mean_gap, lo_gap, hi_gap = [], [], []
+    ok_rates, ok_lo, ok_hi = [], [], []
+    n_per_radius = []
+
+    for r in radii:
+        sub = df[df["mask_radius"] == r]
+        n = len(sub)
+        n_per_radius.append(n)
+        m, lo, hi = _mean_ci(sub["delta_bg"].to_numpy())
+        mean_bg.append(m); lo_bg.append(lo); hi_bg.append(hi)
+        m, lo, hi = _mean_ci(sub["delta_fg"].to_numpy())
+        mean_fg.append(m); lo_fg.append(lo); hi_fg.append(hi)
+        m, lo, hi = _mean_ci(sub["delta_gap"].to_numpy())
+        mean_gap.append(m); lo_gap.append(lo); hi_gap.append(hi)
+        rate, lo, hi = rate_with_ci(int(sub["delta_correct"].sum()), n)
+        ok_rates.append(rate); ok_lo.append(lo); ok_hi.append(hi)
+
+    x = np.array(radii)
+    with plt.rc_context(STYLE):
+        fig, ax = plt.subplots(1, 2, figsize=(10, 3.8))
+
+        ax[0].errorbar(x, mean_bg, yerr=[lo_bg, hi_bg], fmt="o-", capsize=3, label="Δ_bg")
+        ax[0].errorbar(x, mean_fg, yerr=[lo_fg, hi_fg], fmt="s--", capsize=3, label="Δ_fg")
+        ax[0].errorbar(x, mean_gap, yerr=[lo_gap, hi_gap], fmt="d-", capsize=3, label="Δ_gap")
+        ax[0].axhline(0.0, color="black", linewidth=1, alpha=0.6)
+        ax[0].set_xlabel("mask radius (px)")
+        ax[0].set_ylabel("mean Δ (95% CI)")
+        ax[0].set_title("GrabCut perturbation effect")
+        ax[0].legend(loc="best")
+        ax[0].grid(alpha=0.3)
+
+        ax[1].errorbar(x, ok_rates, yerr=[ok_lo, ok_hi], fmt="o-", color=DELTA_COLOR, capsize=3)
+        ax[1].axhline(0.5, color="gray", linewidth=1, linestyle=":", alpha=0.7)
+        ax[1].set_xlabel("mask radius (px)")
+        ax[1].set_ylabel("P(Δ_bg > Δ_fg) (95% Wilson CI)")
+        ax[1].set_ylim(-0.05, 1.05)
+        ax[1].set_title("Decision stability")
+        ax[1].grid(alpha=0.3)
+
+        fig.suptitle("Waterbirds exp022: GrabCut mask sensitivity over seeds", fontsize=11)
+        fig.tight_layout()
+        out = outdir / "fig_grabcut_sensitivity.pdf"
+        fig.savefig(out, bbox_inches="tight")
+        fig.savefig(out.with_suffix(".png"), bbox_inches="tight")
+        print(f"  -> {out}")
+        if show:
+            plt.show()
+        plt.close(fig)
+
+
+# ---------------------------------------------------------------------------
 # Figure 4: Waterbirds specialized baseline comparison (exp021)
 # ---------------------------------------------------------------------------
 
@@ -462,6 +539,10 @@ def process_csv(path: Path, show: bool) -> None:
     df = pd.read_csv(path)
     outdir = path.parent
     print(f"\n{'='*50}\n  {path.parent.name}/{path.name}\n{'='*50}")
+
+    if "mask_radius" in df.columns and {"delta_bg", "delta_fg", "delta_gap", "delta_correct"}.issubset(df.columns):
+        fig_waterbirds_grabcut_sensitivity(df, outdir, show)
+        return
 
     if "spurious_p" not in df.columns:
         # Waterbirds / exp021 specialized baseline
