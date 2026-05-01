@@ -9,3 +9,5 @@ __pycache__/
 .codex/*
 link/*
 tmp_*
+*.pt
+*.pth
