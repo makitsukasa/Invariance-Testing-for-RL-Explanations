@@ -18,6 +18,10 @@ Compare Delta / SHAP against a specialized spurious-feature baseline on Waterbir
 - Output: `results.csv`, `summary.txt`
 - The comparison summary reports both the background/foreground specialized baseline and the PCA spuriousness proxy when available.
 
+## Figures
+- `fig_specialized_baseline.pdf/png`
+- `fig_specialized_baseline_pca.pdf/png`
+
 ## Notes
 - The baseline score file is generated first, then merged with exp018 and the checkpoint metadata.
 - This keeps the specialized baseline path reusable for future follow-up metrics.

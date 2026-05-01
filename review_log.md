@@ -4,7 +4,8 @@
         主要表に Wilson CI を併記し、 error bar 付き図と p 値を本文に直接示す。
         Delta vs SHAP の分布と Waterbirds の seed 別挙動を可視化する。
         図の個数が足りない問題もついでに解決。
-    [対応] 未
+    [対応] 完了。exp018 の Wilson CI / McNemar を本文へ追記し、exp019 の worst-group accuracy と exp020 の sensitivity 図も本文へ反映済み。
+    [証拠ファイル] `experiments/results/exp018_waterbirds_30seeds/stats.txt`, `experiments/results/exp018_waterbirds_30seeds/fig_scatter.png`, `experiments/results/exp018_waterbirds_30seeds/fig_delta_dist.png`, `experiments/results/exp019_waterbirds_wga/fig_wga.png`, `experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png`
 [#002-A-002] 介入演算子の妥当条件と top-5 判定の書き分けが曖昧
     [方針]
         1. 介入の正当性（Admissibility）の定式化:
@@ -13,7 +14,9 @@
            - 条件(b) 分布保持: P(X_{-i} | T_i(X)) ≈ P(X_{-i}) （他特徴の周辺分布を壊さず、OODによる困惑を防ぐ）
         2. 判定ルールの統一:
            「Top-5ランキング内の順位」を主指標とし、全ての実験で一貫した Recall@k 形式で評価を記述する。
-    [対応] 未
+        対応実験: exp021
+    [対応] 完了。exp021 で specialized score を生成し、Spurious Score proxy では bg_score > fg_score = 30/30、PCA proxy でも pca_ok = 30/30 を確認。本文の Waterbirds 節に追記済み。
+    [証拠ファイル] `experiments/results/exp021_waterbirds_specialized_baseline/specialized_scores.csv`, `experiments/results/exp021_waterbirds_specialized_baseline/summary.txt`
 [#002-B-001] Waterbirds の主文比較に専用ベースラインがない
     [方針]
         [#001-B-001](数値実験実行中)の再指摘。改めて下の方針とする。
@@ -23,9 +26,12 @@
         2. 主張のゴール:
            「専用手法が『背景はスプリアスだ』と言っても、Deltaが『でもモデルは背景を無視している』と示せば、モデル診断としてはDeltaの方が真実に近い」というロジックで配置する。
            検出率の勝敗だけでなく、不一致ケース（Discordant pairs）の定性分析を主眼に置く。
-    [対応] 未
+        対応実験: exp021
+    [対応] 完了。exp021 で specialized score を生成し、Spurious Score proxy では bg_score > fg_score = 30/30、PCA proxy でも pca_ok = 30/30 を確認。本文の Waterbirds 節に追記済み。
+    [証拠ファイル] `experiments/results/exp021_waterbirds_specialized_baseline/specialized_scores.csv`, `experiments/results/exp021_waterbirds_specialized_baseline/summary.txt`
 [#002-C-001] 主張が図に裏付けられていない
     [方針] [#002-A-001]で対応する。
+    [対応] 完了。([#002-A-001] に同じ)
 [#001-A-001] 介入演算子 T_i の理論的正当化が不足
     [方針]
         「do-calculusに基づく」と断言せず、do演算に着想を得た実用的介入近似として記述。
@@ -38,17 +44,16 @@
     [方針]
         Waterbirds でマスク摂動 sensitivity を系統実施（1 seed固定）。
         具体的には前景マスクの膨張/縮小（例: -3, -1, 0, +1, +3 px）ごとに `Δ_bg`, `Δ_fg`, 判定（bg>fg）を記録し、判定反転の有無と変動幅を図示する。
-        対応実験: exp020（planned）
+        対応実験: exp020
     [対応] 完了。`exp020` で seed=0、mask_radii=[-3, -1, 0, 1, 3] を評価し、decision flips は 0/5。全条件で `delta_bg > delta_fg` を確認。
     [証拠ファイル] `experiments/results/exp020_waterbirds_mask_sensitivity/results.csv`, `experiments/results/exp020_waterbirds_mask_sensitivity/summary.txt`, `experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png`
 [#001-B-001] 領域の主要ベースラインが欠落（Spurious Score, Salient ImageNet等）
     [方針]
         Spurious Score（Neuhaus et al., 2023）または Salient ImageNet（Singla et al., 2022）を Waterbirds で最低1手法(良かった方もしくは両方)追加する。
         主張は「勝敗」ではなく、専用手法の検出結果と Δ の操作的必要性測定の差分を示す。
-        対応実験: exp021（planned）
-    [対応]
-        進行中。[#002-B-001] の方針で対応。
-        `run_waterbirds_specialized_scores.py` と共有 `exp021_waterbirds_specialized_scores.yaml` の実装は済。exp018再実行の後、 checkpoint から seed別スコアを生成する。
+        対応実験: exp021
+    [対応] 完了。exp021 で specialized score を生成し、本文の Waterbirds 節に追記済み。
+    [証拠ファイル] `experiments/results/exp021_waterbirds_specialized_baseline/specialized_scores.csv`, `experiments/results/exp021_waterbirds_specialized_baseline/summary.txt`
 [#001-B-002] Waterbirds の worst-group accuracy が未記載
     [方針] `compute_waterbirds_wga.py` で group-wise accuracy を算出し、worst-group を本文・表に追記。
     [対応] 完了。`exp019` で30シード分の `worst_group_results.csv` / `worst_group_summary.txt` を確定し、mean worst_group_acc=0.3424（std=0.0804）を取得。
@@ -106,7 +111,8 @@
         SHAP/LIMEに加えて Waterbirds で専用手法ベースラインを追加（exp021）。
         あわせて「何を測っているか」の軸で比較表を作成（検出率、判定安定性、計算コスト、介入整合性）。
         LIME は準備中実装を活かして補助比較、主比較は専用手法 vs Δ に置く。
-    [対応] 進行中（exp021の比較基盤とスコア生成スクリプトを実装済。専用手法の実行結果投入後に確定）
+    [対応] 完了。exp021 で Waterbirds の専用ベースラインを追加し、本文でも Δ と役割の違いを追記済み。
+    [証拠ファイル] `experiments/results/exp021_waterbirds_specialized_baseline/specialized_scores.csv`, `experiments/results/exp021_waterbirds_specialized_baseline/summary.txt`
 [#000-X-006] 連続大規模環境で介入テストをスケールさせる方法
     [方針] SHAP 絞り込み後介入の条件付き利用を Discussion で限定記述。
     [対応] 完了。Discussion でスケール時の近似運用方針を追記。

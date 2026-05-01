@@ -26,7 +26,7 @@
 | exp018 | Waterbirds（実世界スプリアス相関、30シード版） | 完了 Δ=18/30（60%）, SHAP=30/30（100%）, McNemar p=0.0005 | **13時間32分** | [→](experiments/results/exp018_waterbirds_30seeds/) |
 | exp019 | Waterbirds後処理（WGA再算出; exp018結果を入力に再集計） | 完了（mean worst_group_acc=0.3424, std=0.0804） | 5時間20分（30 seeds、3並列） | [→](experiments/results/exp019_waterbirds_wga/) |
 | exp020 | Waterbirds マスク摂動 sensitivity（膨張/縮小で Δ の頑健性評価） | 完了（seed=0、decision flips 0/5） | **14時間04分** | [→](experiments/results/exp020_waterbirds_mask_sensitivity/) |
-| exp021 | Waterbirds 追加ベースライン（Spurious Score または Salient ImageNet） | 実装済・スコア生成待ち | 未実行 | （作成予定） |
+| exp021 | Waterbirds 追加ベースライン（Spurious Score proxy + PCA spuriousness proxy） | 完了（bg_score > fg_score = 30/30, pca_ok = 30/30） | **54.8分** | [→](experiments/results/exp021_waterbirds_specialized_baseline/) |
 
 ---
 

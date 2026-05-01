@@ -111,15 +111,18 @@ ColoredMNIST IRM p-sweep（exp010、n=5 シード）でも類似のパターン�
 
 GridWorld 10 次元での Δ と SHAP の比較（exp016、n=30 シード）では、両手法の差が明確に現れた。Δ テストは top-1 判定で合計 85/120 (71%)、top-2 判定で 106/120 (88%) であった。SHAP は合計 14/120 (12%) であり、top-2 判定でも 21/120 (18%) にとどまった。SHAP の検出失敗の原因は、KernelExplainer が訓練分布上での出力分散寄与を測定する性質にある。スプリアス特徴 c より因果特徴 agent_y の方が出力分散への寄与が大きく見えるため、Shapley 値の絶対値で見ると |φ_agent_y| > |φ_c| となり、判定基準を満たさない。
 
-| spurious_p | Δ@1（n=30） | Δ@2（n=30） | SHAP@1（n=30） | SHAP@2（n=30） |
+| spurious_p | Δ@1 [95% CI] | Δ@2 [95% CI] | SHAP@1 [95% CI] | SHAP@2 [95% CI] |
 | --- | --- | --- | --- | --- |
-| 0.0 | 30/30 (100%) | 30/30 (100%) | 0/30 (0%) | 0/30 (0%) |
-| 0.1 | 29/30 (97%) | 29/30 (97%) | 2/30 (7%) | 3/30 (10%) |
-| 0.2 | 17/30 (57%) | 25/30 (83%) | 4/30 (13%) | 9/30 (30%) |
-| 0.3 | 9/30 (30%) | 17/30 (57%) | 8/30 (27%) | 9/30 (30%) |
-| 合計 | 85/120 (71%) | 106/120 (88%) | 14/120 (12%) | 21/120 (18%) |
+| 0.0 | 30/30 (100% [0.89, 1.00]) | 30/30 (100% [0.89, 1.00]) | 0/30 (0% [0.00, 0.11]) | 0/30 (0% [0.00, 0.11]) |
+| 0.1 | 29/30 (97% [0.83, 0.99]) | 29/30 (97% [0.83, 0.99]) | 2/30 (7% [0.02, 0.21]) | 3/30 (10% [0.03, 0.26]) |
+| 0.2 | 17/30 (57% [0.39, 0.73]) | 25/30 (83% [0.66, 0.93]) | 4/30 (13% [0.05, 0.30]) | 9/30 (30% [0.17, 0.48]) |
+| 0.3 | 9/30 (30% [0.17, 0.48]) | 17/30 (57% [0.39, 0.73]) | 8/30 (27% [0.14, 0.44]) | 9/30 (30% [0.17, 0.48]) |
+| 合計 | 85/120 (71% [0.62, 0.78]) | 106/120 (88% [0.77, 0.90]) | 14/120 (12% [0.07, 0.19]) | 21/120 (18% [0.12, 0.25]) |
 
-SHAP の recall@k は p=0.0 において k=3 まで拡張しても 0/30 (0%) のままであり、SHAP が構造的に c を上位にランクインさせられないことを示している。Δ は p=0.0 において c を argmax で選んだ際の margin が平均 0.483 と大きく、分類器の c への依存が強い設定では安定して検出できる。一方 p=0.2 では c が 2 位に落ちる際の gap が中央値 0.024 と小さく、上位候補の絞り込みによって recall@2=83% を達成できる。
+![Figure 1: GridWorld Δ and SHAP detection rates across spurious correlation probabilities. SHAP consistently fails to rank the spurious feature high in the low-correlation regime.](experiments/results/exp016_shap_psweep_30seeds/results.png)
+
+SHAP の recall@k は p=0.0 において k=3 まで拡張しても 0/30 (0%) のままであり、SHAP が構造的に c を上位にランクインさせられないことを示している。
+Δ は p=0.0 において c を argmax で選んだ際の margin が平均 0.483 と大きく、分類器の c への依存が強い設定では安定して検出できる。一方 p=0.2 では c が 2 位に落ちる際の gap が中央値 0.024 と小さく、上位候補の絞り込みによって recall@2=83% を達成できる。
 
 ColoredMNIST IRM での比較（exp017、n=30 シード）は、見かけ上は SHAP に有利な結果を示すが、その内訳には注意が必要である。Δ テストは合計 102/120 (85%) で、p=0.0 から p=0.2 まで 30/30、p=0.3 で 12/30 であった。SHAP は合計 120/120 (100%) で、すべての p で 30/30 を示した。ただし、この SHAP の満点は構造的アーティファクトに由来するものである。ColoredMNIST の符号化規約では、各サンプルにおいて R チャネルが活性であれば G チャネルは 0、逆もまた成立する。本研究で採用した SHAP 集約は color_attr = mean(|shap_R − shap_G|) と struct_attr = mean(|shap_R + shap_G|) / 2 であり、shap_G ≈ 0 のもとで color_attr ≈ |shap_R|、struct_attr ≈ |shap_R| / 2 となる。したがって、オラクルの実際の挙動に関わらず color_attr = 2 × struct_attr が成立し、SHAP は常に色依存と判定する。
 
@@ -133,19 +136,53 @@ ColoredMNIST IRM での比較（exp017、n=30 シード）は、見かけ上は 
 | 42 | 0.074 | 0.043 | OK | OK |
 | 456 | 0.067 | 0.054 | OK | OK |
 
-| spurious_p | Δ 検出（n=30 シード） | SHAP 検出（n=30 シード） |
+| spurious_p | Δ 検出 [95% CI] | SHAP 検出 [95% CI] |
 | --- | --- | --- |
-| 0.0 | 30/30 | 30/30 |
-| 0.1 | 30/30 | 30/30 |
-| 0.2 | 30/30 | 30/30 |
-| 0.3 | 12/30 | 30/30 |
-| 合計 | 102/120 | 120/120 |
+| 0.0 | 30/30 (100% [0.89, 1.00]) | 30/30 (100% [0.89, 1.00]) |
+| 0.1 | 30/30 (100% [0.89, 1.00]) | 30/30 (100% [0.89, 1.00]) |
+| 0.2 | 30/30 (100% [0.89, 1.00]) | 30/30 (100% [0.89, 1.00]) |
+| 0.3 | 12/30 (40% [0.25, 0.58]) | 30/30 (100% [0.89, 1.00]) |
+| 合計 | 102/120 (85% [0.78, 0.90]) | 120/120 (100% [0.97, 1.00]) |
 
-SHAP は同じ 3 シードで color_attr = 2 × struct_attr の比例関係を機械的に充足するため、構造依存への切り替えを追従できず一律に色依存と報告する。判定基準上は SHAP が「正解」となるが、これはオラクルの依存先と判定結果が一致したのではなく、データ符号化が SHAP 集約の比例関係を強制した結果である。
+![Figure 2: ColoredMNIST Δ and SHAP detection rates. SHAP's perfect score is a structural artifact of the R-G encoding, while Δ correctly follows the oracle's transition to structure dependence at p=0.3.](experiments/results/exp017_cmnist_shap_psweep_30seeds/fig_psweep.png)
 
-Waterbirds（exp018、n=30 シード）では、SHAP は 30/30 で背景依存を検出した一方、Δ テストは 18/30 であった（McNemar p=0.0005）。worst-group accuracy の再集計（exp019）では mean worst_group_acc=0.3424（std=0.0804）であり、最悪群での性能劣化が大きいことを確認した。これは、背景置換介入の質（GrabCut マスク誤差、背景ドナー選択）および前景ノイズ介入の強度が seed ごとに揺らぐ場合、Δ がより保守的に判定することを示唆する。さらに exp020 の 1 seed 固定 sensitivity では、mask_radii = [-3, -1, 0, 1, 3] の全条件で `delta_bg > delta_fg` が維持され、decision flips は 0/5 であったため、軽微なマスク摂動に対して結論が安定することを確認した。
+SHAP は同じ 3 シードで color_attr = 2 × struct_attr の比例関係を機械的に充足するため、構造依存への切り替えを追従できず一律に色依存と報告する。
+判定基準上は SHAP が「正解」となるが、これはオラクルの依存先と判定結果が一致したのではなく、データ符号化が SHAP 集約の比例関係を強制した結果である。
 
-図としては、exp018 の per-seed scatter と Δ 分布（`experiments/results/exp018_waterbirds_30seeds/fig_scatter.png`, `fig_delta_dist.png`）が 30 シードの挙動を要約し、exp019 の worst-group 図（`experiments/results/exp019_waterbirds_wga/fig_wga.png`）が最悪群の性能低下を補足し、exp020 の mask sensitivity 図（`experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png`）が介入摂動に対する判定の安定性を示す。
+Waterbirds の検出率は、Δ が 18/30 (60%, 95% CI [0.42, 0.76])、SHAP が 30/30 (100%, 95% CI [0.89, 1.00]) であり、paired な McNemar 検定では p=0.0005 だった。
+
+![Figure 3: Waterbirds detection results (exp018). Left: Scatter plot of Δ_bg vs Δ_fg across 30 seeds. Right: Distribution of Δ gap. Delta is more conservative than SHAP, reflecting functional reliance rather than just presence of spurious features.](experiments/results/exp018_waterbirds_30seeds/fig_scatter.png)
+![Figure 4: Distribution of Δ values across seeds (exp018).](experiments/results/exp018_waterbirds_30seeds/fig_delta_dist.png)
+
+worst-group accuracy の再集計（exp019）では mean worst_group_acc=0.3424（std=0.0804）であり、最悪群での性能劣化が大きいことを確認した。
+
+![Figure 5: Waterbirds worst-group accuracy (exp019). The large gap between average and worst-group performance confirms the presence of strong spurious reliance in the trained oracles.](experiments/results/exp019_waterbirds_wga/fig_wga.png)
+
+さらに exp020 の 1 seed 固定 sensitivity では、mask_radii = [-3, -1, 0, 1, 3] の全条件で `delta_bg > delta_fg` が維持され、decision flips は 0/5 であったため、軽微なマスク摂動に対して結論が安定することを確認した。
+
+![Figure 6: Waterbirds mask sensitivity (exp020). Detection remains stable across minor dilations and erosions of the GrabCut mask.](experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png)
+
+exp021 では、exp018 の保存済み checkpoint を用いて specialized score を生成した。Spurious Score proxy では bg_score > fg_score が 30/30 (100%) で、平均値は bg_score=0.3556, fg_score=0.1632 だった。さらに hidden-layer PCA 由来の spuriousness proxy でも pca_ok は 30/30 で、pca_score の平均は 0.1959 だった。
+
+![Figure 7: Specialized baseline comparison for Waterbirds (exp021). The specialized baseline proxies (SpecScore and PCA) flag all models as background-spurious, while Delta marks 12/30 models as functionally invariant to background shifts under the intervention-based necessity criterion.](experiments/results/exp021_waterbirds_specialized_baseline/fig_specialized_baseline_pca.png)
+
+exp021 の比較出力では、Δ detect = 18/30 (60.0%)、SHAP detect = 30/30 (100.0%)、Spec detect = 30/30 (100.0%)、PCA detect = 30/30 (100.0%) であった。Δ と Spec の discordant pairs は 12 件（Δ=NG & Spec=OK）であった。代表的な不一致シードの個別スコアを以下に示す。
+
+| seed | Delta OK? | PCA OK? | Δ_bg | Δ_fg | bg_prob_score | pca_score |
+| --- | --- | --- | --- | --- | --- | --- |
+| 15 | NG | OK | 0.091 | 0.097 | 0.343 | 0.262 |
+| 16 | NG | OK | 0.125 | 0.170 | 0.303 | 0.231 |
+| 17 | NG | OK | 0.100 | 0.170 | 0.300 | 0.182 |
+
+これらの不一致シードにおいて、専用手法（PCA 等）は特徴空間内にスプリアス成分が「存在すること」を捉えているが、Delta は介入後の性能が前景介入に比べて落ちていない（Δ_bg < Δ_fg）事実から、モデルが不変性を獲得していると保守的に判定している。
+
+![exp021 Waterbirds specialized baseline comparison (SpecScore proxy)](experiments/results/exp021_waterbirds_specialized_baseline/fig_specialized_baseline.png)
+![exp021 Waterbirds specialized baseline comparison (SpecScore + PCA proxy)](experiments/results/exp021_waterbirds_specialized_baseline/fig_specialized_baseline_pca.png)
+
+![exp018 Waterbirds per-seed scatter](experiments/results/exp018_waterbirds_30seeds/fig_scatter.png)
+![exp018 Waterbirds Δ distribution](experiments/results/exp018_waterbirds_30seeds/fig_delta_dist.png)
+![exp019 Waterbirds worst-group accuracy](experiments/results/exp019_waterbirds_wga/fig_wga.png)
+![exp020 Waterbirds mask sensitivity](experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png)
 
 | seed（n=5 シード） | val_acc | delta_bg | delta_fg | shap_bg | shap_fg |
 | --- | --- | --- | --- | --- | --- |
@@ -168,6 +205,12 @@ GridWorld の比較結果は、性能ベースの介入と出力分散ベース�
 ColoredMNIST における SHAP の見かけ上の満点は、データ符号化が帰属集約に対して強い構造的制約を課すことに由来する。R と G の排他的符号化のもとでは、color_attr = mean(|shap_R − shap_G|) と struct_attr = mean(|shap_R + shap_G|) / 2 という集約は、オラクルの依存先によらず color_attr ≈ 2 × struct_attr を充足する。p=0.3 におけるシード別の挙動は、Δ テストがオラクルの構造依存への切り替えを反映しているのに対し、SHAP は同じ符号化制約のもとで一律に色依存を報告することを示す。判定スコア上は SHAP が「正解」となるが、それは依存検出という意図に対して帰属集約が機械的に一致しているにすぎない。この観察は、特定のデータ符号化と SHAP 集約の組み合わせがアーティファクトを生む具体例として、帰属法の適用時に注意すべき点を提供する [Adebayo2022]。
 
 Waterbirds における Δ と SHAP の一致は、空間的に局在するスプリアス領域においては両手法が整合的な判定を下すことを示す。背景と前景はピクセル空間で物理的に分離可能であり、SHAP 値の空間集約も Δ の介入も、共通の前景マスクという外部情報を利用できる。背景依存の度合いは Waterbirds の設計上明確であり、両手法のスコアもそれを支持する範囲に収まった。実世界スプリアスの一例として、提案手法が機能する具体的な状況を示している。
+
+exp021 の specialized baseline も、背景と前景のどちらがスプリアスかという粗い判断では Δ / SHAP と整合的だった。一方で、スコアの定義は hidden-space の統計量に依存しており、どの入力がどれだけの性能低下を引き起こすかをそのまま表すわけではない。したがって、専用ベースラインは「背景依存の候補確認」としては有用だが、運用上の必要性を直接測る指標としては Δ と役割が異なる。
+
+Waterbirds の議論としては、専用ベースラインの「背景はスプリアス」という判定と、Δ の「その背景を壊すと実際に性能が落ちる」という判定は、競合ではなく役割分担として読むべきである。exp021 の図が示すのは、候補確認の層では背景が一貫してスプリアスに見える一方で、介入後性能の層では一部のシードでそれが必ずしも致命的ではない、ということだ。
+
+worst-group accuracy の再集計（exp019）で mean worst_group_acc=0.3424（std=0.0804）であったことは、この Waterbirds オラクルが平均精度だけでは十分に見えにくい群間不均衡を抱えていることを示す。特に最悪群の性能が低い場合、背景依存の検出が「全体として当たっているか」ではなく、「どの群で壊れているか」を見る補助情報になる。exp018 の Δ / SHAP 比較と exp019 の worst-group 指標を併せることで、背景スプリアス依存の有無と、その依存が最悪群の性能低下に結びついているかを分けて読める。
 
 LunarLander の事例は、Δ テストの適用前提を明確化する。オラクルが候補スプリアス特徴を使用していなければ Δ ≈ 0 となり、依存なしと正しく判定する。この判定は手法の破綻ではなく、検出対象が存在しない設定への正しい応答である。ただし検出ベンチマークとして機能するためには、オラクルが候補特徴を実際に使用している必要があり、実運用では Neuhaus ら [Neuhaus2023] や Eyuboglu ら [Eyuboglu2022] などの発見手法を先行させることで、Δ テストが意味を持つ候補を選定できる。
 
