@@ -145,6 +145,8 @@ SHAP は同じ 3 シードで color_attr = 2 × struct_attr の比例関係を�
 
 Waterbirds（exp018、n=30 シード）では、SHAP は 30/30 で背景依存を検出した一方、Δ テストは 18/30 であった（McNemar p=0.0005）。worst-group accuracy の再集計（exp019）では mean worst_group_acc=0.3424（std=0.0804）であり、最悪群での性能劣化が大きいことを確認した。これは、背景置換介入の質（GrabCut マスク誤差、背景ドナー選択）および前景ノイズ介入の強度が seed ごとに揺らぐ場合、Δ がより保守的に判定することを示唆する。さらに exp020 の 1 seed 固定 sensitivity では、mask_radii = [-3, -1, 0, 1, 3] の全条件で `delta_bg > delta_fg` が維持され、decision flips は 0/5 であったため、軽微なマスク摂動に対して結論が安定することを確認した。
 
+図としては、exp018 の per-seed scatter と Δ 分布（`experiments/results/exp018_waterbirds_30seeds/fig_scatter.png`, `fig_delta_dist.png`）が 30 シードの挙動を要約し、exp019 の worst-group 図（`experiments/results/exp019_waterbirds_wga/fig_wga.png`）が最悪群の性能低下を補足し、exp020 の mask sensitivity 図（`experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png`）が介入摂動に対する判定の安定性を示す。
+
 | seed（n=5 シード） | val_acc | delta_bg | delta_fg | shap_bg | shap_fg |
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0.822 | 0.100 | 0.078 | 0.8942 | 0.1058 |
