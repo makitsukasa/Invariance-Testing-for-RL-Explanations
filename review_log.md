@@ -137,13 +137,13 @@
     [対応] 完了。Experiments 節に「同一オラクル・同一シード」の注記を追記。
 [#001-X-001] LunarLander が contributions 風に言及されすぎ
     [方針] [#001-B-003] に同じ。Appendix へ移動。
-    [対応] [#001-B-003] に同じ（完了）。
+    [対応] 完了。([#001-B-003] に同じ)
 [#001-X-002] 数値対応はとれているが「相補的」の一般化が過大主張
     [方針] 「常に相補的」を避け、特徴相関が強い条件・符号化制約が強い条件などの条件付き主張へ弱める。
     [対応] 完了。Abstract/Introduction/Discussion/Conclusion の主張を条件付き表現へ修正。
 [#001-X-003] CI・誤差棒・有意性検定が完全欠落
     [方針] [#001-C-001] に同じ。
-    [対応] [#001-C-001] に同じ（完了）。
+    [対応] 完了。([#001-C-001] に同じ)
 [#001-X-004] ハイパーパラメータ（MLP 構造、IRM ペナルティ係数、学習率等）が未記載
     [方針] Appendixに追記。
     [対応] 完了。Appendix B に実験別ハイパーパラメータ表を追記。
@@ -158,7 +158,7 @@
     [対応] 完了。`plot_results.py` で fig_psweep / fig_crosstab / fig_scatter / fig_delta_dist を生成。
 [#001-X-008] Method/Experiments/Discussion での引用が不十分（Janzing, Adebayo等）
     [方針] [#001-A-001] に同じ。Method/Experiments/Discussion で Janzing と Adebayo を増強。
-    [対応] [#001-A-001] に同じ（完了）。
+    [対応] 完了。([#001-A-001] に同じ)
 [#000-X-001] ColoredMNIST で SHAP 比較（「Δ > SHAP」を非 RL 環境でも示す）
     [方針] exp017（30シード）で Δ と SHAP を同一オラクル・同一シードで比較。
     [対応] 完了。exp017 結果と `stats.txt` 反映済み。
