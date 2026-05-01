@@ -27,7 +27,7 @@
 | exp019 | Waterbirds後処理（WGA再算出; exp018結果を入力に再集計） | 完了（mean worst_group_acc=0.3424, std=0.0804） | 5時間20分（30 seeds、3並列） | [→](experiments/results/exp019_waterbirds_wga/) |
 | exp020 | Waterbirds マスク摂動 sensitivity（膨張/縮小で Δ の頑健性評価） | 完了（seed=0、decision flips 0/5） | **14時間04分** | [→](experiments/results/exp020_waterbirds_mask_sensitivity/) |
 | exp021 | Waterbirds 追加ベースライン（Spurious Score proxy + PCA spuriousness proxy） | 完了（bg_score > fg_score = 30/30, pca_ok = 30/30） | **54.8分** | [→](experiments/results/exp021_waterbirds_specialized_baseline/) |
-| exp022 | Waterbirds GrabCut sensitivity（mask 摂動による Δ の頑健性評価） | 実行中 | 見積もり中 | [→](experiments/results/exp022_waterbirds_grabcut_sensitivity/) |
+| exp022 | Waterbirds GrabCut sensitivity（mask 摂動による Δ の頑健性評価） | 完了（mask 安定性を 30 シードで評価） | **1時間08分10秒** | [→](experiments/results/exp022_waterbirds_grabcut_sensitivity/) |
 
 ---
 
