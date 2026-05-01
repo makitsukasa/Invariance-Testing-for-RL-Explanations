@@ -2,7 +2,7 @@
 
 # Abstract
 
-機械学習モデルが訓練分布上で高い精度を示しながら、実際には因果的でない特徴（スプリアス特徴）に依存している事例は広く報告されている。候補特徴の発見は先行研究が扱っており、本研究はその後段の確認ステップを定式化する。本研究は、訓練済みモデル（オラクル）が個別の特徴にどれだけ依存しているかを、入力に対する局所的な介入と性能変化の観測のみから定量化する手続きを提案する。提案手法は、候補特徴を破壊的に置換する介入を適用し、性能低下量 Δ をスプリアス度合いの指標とする。実験では合成データセットの GridWorld と ColoredMNIST、および実世界スプリアス相関を含む Waterbirds を用い、30 シードで評価した。GridWorld 10 次元では top-1 検出率 85/120 (71%)、top-2 では 101/120 (84%)、ColoredMNIST IRM では 102/120 (85%)、Waterbirds では 18/30 (60%) を達成した。同一オラクルで比較した SHAP は、GridWorld では top-1 14/120 (12%) にとどまり、ColoredMNIST では 120/120、Waterbirds では 30/30 を示した。LunarLander では適用前提が成立しない負例も確認した。これらの結果は、特徴相関や符号化制約が強い条件では、性能ベースの介入テストが帰属法とは異なる有用な診断情報を与えることを示唆する。
+機械学習モデルが訓練分布上で高い精度を示しながら、実際には因果的でない特徴（スプリアス特徴）に依存している事例は広く報告されている。候補特徴の発見は先行研究が扱っており、本研究はその後段の確認ステップを定式化する。本研究の PerformanceCheck は、訓練済みモデル（オラクル）が個別の特徴にどれだけ依存しているかを、入力に対する局所的な介入と性能変化の観測のみから定量化する手続きである。PerformanceCheck は、候補特徴を破壊的に置換する介入を適用し、性能低下量 Δ をスプリアス度合いの指標とする。実験では合成データセットの GridWorld と ColoredMNIST、および実世界スプリアス相関を含む Waterbirds を用い、30 シードで評価した。GridWorld 10 次元では top-1 検出率 85/120 (71%)、top-2 では 101/120 (84%)、ColoredMNIST IRM では 102/120 (85%)、Waterbirds では 18/30 (60%) を達成した。同一オラクルで比較した SHAP は、GridWorld では top-1 14/120 (12%) にとどまり、ColoredMNIST では 120/120、Waterbirds では 30/30 を示した。LunarLander では適用前提が成立しない負例も確認した。これらの結果は、特徴相関や符号化制約が強い条件では、性能ベースの介入テストが帰属法とは異なる有用な診断情報を与えることを示唆する。
 
 # Introduction
 
@@ -10,16 +10,16 @@
 
 訓練後のモデルに対するスプリアス依存の診断は、これとは異なる課題である。診断側では、訓練手続きを再構成することなく、すでに学習済みのオラクルがどの特徴に依存しているかを検査する必要がある。事後説明法のうち SHAP [Lundberg2017]、LIME [Ribeiro2016]、統合勾配 [Sundararajan2017] は局所的な特徴帰属を提供するが、これらの帰属値は出力分散への寄与や勾配の積分として定義され、「特徴を破壊したときに性能がどれだけ落ちるか」という運用上の関心と必ずしも一致しない。Adebayo らは、未知のスプリアス相関の検出という具体的な課題において、事後説明法が体系的に失敗しうることを示している [Adebayo2022]。Janzing らは、帰属の背後にある因果的問題設定を整理し、観測同時分布のみに基づく寄与定義の限界を指摘している [Janzing2020]。
 
-本研究で扱う問いは、特徴の重要度を出力分散や勾配の観点から定義するのではなく、性能の観点から直接定義した場合、スプリアス特徴の検出にどの程度有効かというものである。提案手法は、候補特徴に対して破壊的な置換介入を施し、その前後でオラクルの性能がどれだけ変化するかを測定する。この差分量を Δ と呼び、Δ が大きいほどオラクルがその特徴に強く依存していると解釈する。介入は入力空間で行われるため、モデル内部の勾配や Shapley 値の近似を必要とせず、オラクルをブラックボックスとして扱える。なお、候補特徴の自動列挙自体はNeuhaus ら [Neuhaus2023]、Eyuboglu ら [Eyuboglu2022]、Lapuschkin ら [Lapuschkin2019] などが別途扱っており、本研究はそれらが出力した候補を受け取り依存を確認する後半のステップを担う。
+本研究で扱う問いは、特徴の重要度を出力分散や勾配の観点から定義するのではなく、性能の観点から直接定義した場合、スプリアス特徴の検出にどの程度有効かというものである。PerformanceCheck は、候補特徴に対して破壊的な置換介入を施し、その前後でオラクルの性能がどれだけ変化するかを測定する。この差分量を Δ と呼び、Δ が大きいほどオラクルがその特徴に強く依存していると解釈する。介入は入力空間で行われるため、モデル内部の勾配や Shapley 値の近似を必要とせず、オラクルをブラックボックスとして扱える。なお、候補特徴の自動列挙自体はNeuhaus ら [Neuhaus2023]、Eyuboglu ら [Eyuboglu2022]、Lapuschkin ら [Lapuschkin2019] などが別途扱っており、本研究はそれらが出力した候補を受け取り依存を確認する後半のステップを担う。
 
-提案手法の動作を、合成データセットと実世界データセットの双方で検証した。GridWorld は 10 次元の特徴ベクトルを持ち、そのうち 1 次元がスプリアス特徴 c、2 次元が因果特徴である agent_x と agent_y、残る 7 次元がノイズである。スプリアス特徴と教師信号の相関確率 spurious_p を 0.0 から 0.3 まで変化させ、各設定で 30 シードを評価した。ColoredMNIST はデジット形状と色に対して相関構造を導入したベンチマークで、不変リスク最小化を訓練手続きとして適用したオラクルを用いる。Waterbirds は陸鳥と水鳥の分類において背景がスプリアス特徴として作用する実世界寄りのベンチマークである [Wah2011, Sagawa2020]。提案手法の適用境界は Appendix の LunarLander 負例で確認した。
+PerformanceCheck の動作を、合成データセットと実世界データセットの双方で検証した。GridWorld は 10 次元の特徴ベクトルを持ち、そのうち 1 次元がスプリアス特徴 c、2 次元が因果特徴である agent_x と agent_y、残る 7 次元がノイズである。スプリアス特徴と教師信号の相関確率 spurious_p を 0.0 から 0.3 まで変化させ、各設定で 30 シードを評価した。ColoredMNIST はデジット形状と色に対して相関構造を導入したベンチマークで、不変リスク最小化を訓練手続きとして適用したオラクルを用いる。Waterbirds は陸鳥と水鳥の分類において背景がスプリアス特徴として作用する実世界寄りのベンチマークである [Wah2011, Sagawa2020]。PerformanceCheck の適用境界は Appendix の LunarLander 負例で確認した。
 
-得られた結果は、Δ が GridWorld では SHAP を大幅に上回ること、ColoredMNIST では SHAP が満点を出すものの、その満点はデータ符号化に起因する構造的アーティファクトであり、オラクルの実際の依存関係を反映していないことを示している。Waterbirds では Δ と SHAP の双方が一致して背景スプリアス依存を検出した。これらの観察から、Δ テストは少なくとも本研究で扱った条件において、性能観点での依存検出に対して有用な補完情報を与えると考えられる。
+得られた結果は、PerformanceCheck が GridWorld では SHAP を大幅に上回ること、ColoredMNIST では SHAP が満点を出すものの、その満点はデータ符号化に起因する構造的アーティファクトであり、オラクルの実際の依存関係を反映していないことを示している。Waterbirds では PerformanceCheck と SHAP の双方が一致して背景スプリアス依存を検出した。これらの観察から、PerformanceCheck は少なくとも本研究で扱った条件において、性能観点での依存検出に対して有用な補完情報を与えると考えられる。
 
 本論文の貢献は次の通りである。
 
 - スプリアス候補の発見と依存確認という二段階パイプラインにおいて、後者の確認ステップを定式化した。先行研究の発見手法と組み合わせることで、発見から診断までの一貫したフローが構成できることを示す。
-- 訓練済みオラクルに対し、入力空間での破壊的介入と性能差分のみで特徴依存を測定する Δ テストを定式化した。
+- 訓練済みオラクルに対し、入力空間での破壊的介入と性能差分のみで特徴依存を測定する PerformanceCheck を定式化した。
 - GridWorld、ColoredMNIST IRM、Waterbirds の三つの設定で同一プロトコルでの評価を行い、SHAP との比較を提示した。
 - ColoredMNIST における SHAP の見かけ上の高検出率が、R チャネルと G チャネルの符号化非対称性から生じる構造的アーティファクトであることを、各シードの帰属値と比例関係の観点から示した。
 
@@ -33,15 +33,16 @@
 
 事前学習済み画像表現を用いた分類器の構築には、ImageNet で事前学習した ResNet-18 を凍結したうえで線形分類器を fine-tune する方式 [He2016] を採用した。これは、Waterbirds データセットにおいてスプリアス相関を増幅しすぎず、かつ十分な分類精度を得られる標準的構成である。
 
-強化学習の文脈では、エージェントが状態空間内のスプリアス特徴に依存する事例も論じられているが、エージェントの方策が当該特徴を実際に利用しているかどうかは事後的に判定が困難である。本研究の LunarLander 実験は、訓練済みオラクル方策が候補スプリアス特徴を使用していなければ、入力空間での破壊的介入は性能を変化させないため、Δ テストは「依存なし」と正しく判定するが、この設定はそもそも検出対象が存在しないため、ベンチマークとしての検出率を構成できない。この観察は、後述する適用境界の議論で扱う。
+強化学習の文脈では、エージェントが状態空間内のスプリアス特徴に依存する事例も論じられているが、エージェントの方策が当該特徴を実際に利用しているかどうかは事後的に判定が困難である。本研究の LunarLander 実験は、訓練済みオラクル方策が候補スプリアス特徴を使用していなければ、入力空間での破壊的介入は性能を変化させないため、PerformanceCheck は「依存なし」と正しく判定するが、この設定はそもそも検出対象が存在しないため、ベンチマークとしての検出率を構成できない。この観察は、後述する適用境界の議論で扱う。
 
-スプリアス特徴の**自動発見**を目的とした研究も進んでいる。Neuhaus ら [Neuhaus2023] は、事前学習済み分類器の最終隠れ層の活性化に Neural PCA を適用し、クラス内の主成分を可視化することでスプリアス成分を同定する。Eyuboglu ら [Eyuboglu2022] は CLIP の埋め込みと混合モデルを組み合わせ、モデルが系統的に失敗するデータスライスを自動発見する（Domino）。Lapuschkin ら [Lapuschkin2019] は LRP 帰属マップのスペクトルクラスタリング（SpRAy）によって一貫した帰属パターンを抽出し、スプリアス特徴の候補を得る。Sohoni ら [Sohoni2020] は、モデルの誤り分布からスプリアス相関を持つサブグループを群ラベルなしで発見する（George）。これらの発見手法は「どの特徴がスプリアス候補か」を出力するが、「モデルが実際にその特徴に依存しているか」を直接測定するものではない。本研究の Δ テストは、こうした発見手法が出力した候補を受け取り、依存の有無を性能差分として定量化する確認ステップとして機能する。
+スプリアス特徴の**自動発見**を目的とした研究も進んでいる。Neuhaus ら [Neuhaus2023] は、事前学習済み分類器の最終隠れ層の活性化に Neural PCA を適用し、クラス内の主成分を可視化することでスプリアス成分を同定する。Eyuboglu ら [Eyuboglu2022] は CLIP の埋め込みと混合モデルを組み合わせ、モデルが系統的に失敗するデータスライスを自動発見する（Domino）。Lapuschkin ら [Lapuschkin2019] は LRP 帰属マップのスペクトルクラスタリング（SpRAy）によって一貫した帰属パターンを抽出し、スプリアス特徴の候補を得る。Sohoni ら [Sohoni2020] は、モデルの誤り分布からスプリアス相関を持つサブグループを群ラベルなしで発見する（George）。これらの発見手法は「どの特徴がスプリアス候補か」を出力するが、「モデルが実際にその特徴に依存しているか」を直接測定するものではない。本研究の PerformanceCheck は、こうした発見手法が出力した候補を受け取り、依存の有無を性能差分として定量化する確認ステップとして機能する。
 
-提案手法は、入力空間における破壊的介入と性能差分という二要素のみを使用する点で、特徴空間に閉じた帰属法とは異なる。SHAP と比較した既存研究のうち、未知のスプリアス相関に対する事後説明法の限界を体系的に検証したものとして Adebayo ら [Adebayo2022] が近接するが、本研究は破壊的介入による性能差分を直接の指標として定式化し、合成と実世界の両ベンチマークで定量的比較を行う点に違いがある。提案手法は、確認ステップを定式化する点で、発見手法（Neuhaus ら [Neuhaus2023]、Eyuboglu ら [Eyuboglu2022] 等）と相補的な関係に立つ。
+PerformanceCheck は、入力空間における破壊的介入と性能差分という二要素のみを使用する点で、特徴空間に閉じた帰属法とは異なる。SHAP と比較した既存研究のうち、未知のスプリアス相関に対する事後説明法の限界を体系的に検証したものとして Adebayo ら [Adebayo2022] が近接するが、本研究は破壊的介入による性能差分を直接の指標として定式化し、合成と実世界の両ベンチマークで定量的比較を行う点に違いがある。PerformanceCheck は、確認ステップを定式化する点で、発見手法（Neuhaus ら [Neuhaus2023]、Eyuboglu ら [Eyuboglu2022] 等）と相補的な関係に立つ。
 
 # Method
 
-提案手法は、訓練済みオラクル f と評価データ D、候補特徴集合 F を入力として受け取り、各特徴 i ∈ F に対する性能感度 Δ_i を出力する。手法はオラクルを再訓練しないため、診断としての適用負荷が低い。本節ではまず Δ テストの定式化を述べ、次に介入演算子の設計、判定基準、ベースライン手法 SHAP との対応関係を順に示す。
+PerformanceCheck は、訓練済みオラクル f と評価データ D、候補特徴集合 F を入力として受け取り、各特徴 i ∈ F に対する性能感度 Δ_i を出力する。手法はオラクルを再訓練しないため、診断としての適用負荷が低い。本節ではまず PerformanceCheck の定式化を述べ、次に介入演算子の設計、判定基準、ベースライン手法 SHAP との対応関係を順に示す。
+本稿では、このPerformanceCheck を PerformanceCheck と呼ぶ。
 
 ## 性能感度 Δ の定式化
 
@@ -73,7 +74,7 @@ ColoredMNIST における SHAP 集約は、データ符号化を考慮した結�
 
 ## オラクルの構成
 
-GridWorld では、5 シードそれぞれで spurious_p に応じた相関を持つデータセットを生成し、多層パーセプトロンを訓練して訓練精度が十分に高い時点で停止した。ColoredMNIST では、IRM のオリジナル定式化に倣った損失関数で訓練し、label_noise_p=0.25 の設定で固定した。Waterbirds では、ImageNet 事前学習済み ResNet-18 [He2016] の特徴抽出層を凍結し、最終層を Linear(512, 2) に置換して 10 エポック fine-tune した。すべての実験で、Δ テストと SHAP 比較は同一オラクル・同一シードで実施した。
+GridWorld では、5 シードそれぞれで spurious_p に応じた相関を持つデータセットを生成し、多層パーセプトロンを訓練して訓練精度が十分に高い時点で停止した。ColoredMNIST では、IRM のオリジナル定式化に倣った損失関数で訓練し、label_noise_p=0.25 の設定で固定した。Waterbirds では、ImageNet 事前学習済み ResNet-18 [He2016] の特徴抽出層を凍結し、最終層を Linear(512, 2) に置換して 10 エポック fine-tune した。すべての実験で、PerformanceCheck と SHAP 比較は同一オラクル・同一シードで実施した。
 
 ## 実装と乱数管理
 
@@ -81,7 +82,7 @@ GridWorld では、5 シードそれぞれで spurious_p に応じた相関を�
 
 # Experiments
 
-評価設定は四つに分かれる。第一に、GridWorld 10 次元 p-sweep（exp016）では、スプリアス特徴 c との相関確率 spurious_p ∈ {0.0, 0.1, 0.2, 0.3} を 30 シードずつ評価し、提案手法の検出率を p の関数として測定した。第二に、ColoredMNIST IRM p-sweep（exp017）では、label_noise_p を 0.25 に固定したうえで spurious_p を同範囲で変化させ、30 シードずつ評価した。第三に、Δ テストと SHAP の比較を、GridWorld 10 次元（exp016）と ColoredMNIST IRM（exp017）で実施した。同一オラクル・同一シードのもとで両手法を計算し、検出率を直接比較した。第四に、Waterbirds（exp018）では、waterbird_complete95_forest2water2 サブセットで凍結 ResNet-18 を fine-tune したオラクルに対し、background_replace と foreground_noise の二種類の介入を行い、Δ テストと SHAP の検出率を 30 シードで測定した。なお exp016（GridWorld p-sweep）と Δ vs SHAP 比較は同一オラクル・同一シードで実施しており、両表記は同一の実行結果に基づく。
+評価設定は四つに分かれる。第一に、GridWorld 10 次元 p-sweep（exp016）では、スプリアス特徴 c との相関確率 spurious_p ∈ {0.0, 0.1, 0.2, 0.3} を 30 シードずつ評価し、PerformanceCheck の検出率を p の関数として測定した。第二に、ColoredMNIST IRM p-sweep（exp017）では、label_noise_p を 0.25 に固定したうえで spurious_p を同範囲で変化させ、30 シードずつ評価した。第三に、PerformanceCheck と SHAP の比較を、GridWorld 10 次元（exp016）と ColoredMNIST IRM（exp017）で実施した。同一オラクル・同一シードのもとで両手法を計算し、検出率を直接比較した。第四に、Waterbirds（exp018）では、waterbird_complete95_forest2water2 サブセットで凍結 ResNet-18 を fine-tune したオラクルに対し、background_replace と foreground_noise の二種類の介入を行い、PerformanceCheck と SHAP の検出率を 30 シードで測定した。なお exp016（GridWorld p-sweep）と Δ vs SHAP 比較は同一オラクル・同一シードで実施しており、両表記は同一の実行結果に基づく。
 
 GridWorld の特徴ベクトルは 10 次元で、スプリアス特徴 c × 1、因果特徴 agent_x と agent_y × 2、ノイズ × 7 から構成される。検出は、Δ_c > Δ_agent_y を満たすか否かで判定する。ColoredMNIST IRM の評価では、color_attr と struct_attr の比較で判定する。Waterbirds の評価では、背景と前景それぞれの介入による Δ を比較し、Δ_bg > Δ_fg を背景依存の検出と定義する。
 
@@ -89,7 +90,7 @@ LunarLander 環境（exp006–007）では、訓練済みオラクル方策に�
 
 # Results
 
-GridWorld p-sweep（exp016、n=30 シード）では、Δ テストはスプリアス相関確率が低い領域でほぼ完全な検出を達成した。p=0.0 で 30/30 (100%)、p=0.1 で 29/30 (97%)、p=0.2 で 17/30 (57%)、p=0.3 で 9/30 (30%) と推移し、p の上昇とともに top-1 判定の検出率は段階的に低下した。p の上昇に伴って性能が落ちるのは、オラクルがスプリアスと因果の両方を併用する状態へと遷移し、介入による相対差が縮まるためと考えられる。
+GridWorld p-sweep（exp016、n=30 シード）では、PerformanceCheck はスプリアス相関が弱い領域で高い検出率を維持し、相関が強くなるにつれて段階的に性能が低下した。詳細な検出率は表に示した通りであり、p の上昇に伴ってオラクルがスプリアスと因果の両方を併用する状態へと遷移し、介入による相対差が縮まるためと考えられる。
 
 | spurious_p | Δ@1（n=30 シード） | Δ@2 | Δ@3 |
 | --- | --- | --- | --- |
@@ -98,9 +99,9 @@ GridWorld p-sweep（exp016、n=30 シード）では、Δ テストはスプリ�
 | 0.2 | 17/30 (57%) | 25/30 (83%) | 26/30 (87%) |
 | 0.3 | 9/30 (30%) | 17/30 (57%) | 18/30 (60%) |
 
-ただし上記は候補特徴の中から argmax で一つを選ぶ top-1 判定の結果である。提案手法はすべての特徴に対して Δ_i を計算するため、上位 k 件を候補として提示する使い方も自然に定義できる（recall@k）。p=0.2 では recall@2 が 25/30 (83%) と top-1 より 26 ポイント改善する。c が 2 位だった 8 件の margin（1 位との差）は中央値 0.024 であり、ほぼ同着で首位を譲ったケースであることがわかる。recall@k の観点では、Δ は候補特徴を上位 2〜3 件に絞り込む情報を与え、最終判断をドメイン知識に委ねる使い方が実用的と考えられる。
+ただし上記は候補特徴の中から argmax で一つを選ぶ top-1 判定の結果である。PerformanceCheck はすべての特徴に対して Δ_i を計算するため、上位 k 件を候補として提示する使い方も自然に定義できる。recall@k の観点では、Δ は候補特徴を少数の上位候補に絞り込む情報を与え、最終判断をドメイン知識に委ねる使い方が実用的と考えられる。
 
-ColoredMNIST IRM p-sweep（exp010、n=5 シード）でも類似のパターンが観察された。p=0.0 と p=0.1 で 5/5、p=0.2 で 4/5、p=0.3 で 3/5 であった。GridWorld と比較して p=0.3 における検出率がやや高いのは、ColoredMNIST のオラクルが IRM 損失により色依存を抑制する方向の正則化を受けるため、構造特徴への依存が一定程度残存しやすいことに関連すると考えられる。
+ColoredMNIST IRM p-sweep（exp010、n=5 シード）でも類似のパターンが観察された。相関が強くなるにつれて検出率は下がるが、GridWorld よりはやや粘る傾向があり、これは IRM による正則化の影響と整合的である。
 
 | spurious_p | 検出数（n=5 シード） |
 | --- | --- |
@@ -109,7 +110,7 @@ ColoredMNIST IRM p-sweep（exp010、n=5 シード）でも類似のパターン�
 | 0.2 | 4/5 |
 | 0.3 | 3/5 |
 
-GridWorld 10 次元での Δ と SHAP の比較（exp016、n=30 シード）では、両手法の差が明確に現れた。Δ テストは top-1 判定で合計 85/120 (71%)、top-2 判定で 106/120 (88%) であった。SHAP は合計 14/120 (12%) であり、top-2 判定でも 21/120 (18%) にとどまった。SHAP の検出失敗の原因は、KernelExplainer が訓練分布上での出力分散寄与を測定する性質にある。スプリアス特徴 c より因果特徴 agent_y の方が出力分散への寄与が大きく見えるため、Shapley 値の絶対値で見ると |φ_agent_y| > |φ_c| となり、判定基準を満たさない。
+GridWorld 10 次元での Δ と SHAP の比較（exp016、n=30 シード）では、両手法の差が明確に現れた。Δ はスプリアス特徴を上位候補に押し上げられる一方、SHAP は出力分散寄与に引っ張られるため検出が伸びなかった。
 
 | spurious_p | Δ@1 [95% CI] | Δ@2 [95% CI] | SHAP@1 [95% CI] | SHAP@2 [95% CI] |
 | --- | --- | --- | --- | --- |
@@ -124,9 +125,9 @@ GridWorld 10 次元での Δ と SHAP の比較（exp016、n=30 シード）で�
 SHAP の recall@k は p=0.0 において k=3 まで拡張しても 0/30 (0%) のままであり、SHAP が構造的に c を上位にランクインさせられないことを示している。
 Δ は p=0.0 において c を argmax で選んだ際の margin が平均 0.483 と大きく、分類器の c への依存が強い設定では安定して検出できる。一方 p=0.2 では c が 2 位に落ちる際の gap が中央値 0.024 と小さく、上位候補の絞り込みによって recall@2=83% を達成できる。
 
-ColoredMNIST IRM での比較（exp017、n=30 シード）は、見かけ上は SHAP に有利な結果を示すが、その内訳には注意が必要である。Δ テストは合計 102/120 (85%) で、p=0.0 から p=0.2 まで 30/30、p=0.3 で 12/30 であった。SHAP は合計 120/120 (100%) で、すべての p で 30/30 を示した。ただし、この SHAP の満点は構造的アーティファクトに由来するものである。ColoredMNIST の符号化規約では、各サンプルにおいて R チャネルが活性であれば G チャネルは 0、逆もまた成立する。本研究で採用した SHAP 集約は color_attr = mean(|shap_R − shap_G|) と struct_attr = mean(|shap_R + shap_G|) / 2 であり、shap_G ≈ 0 のもとで color_attr ≈ |shap_R|、struct_attr ≈ |shap_R| / 2 となる。したがって、オラクルの実際の挙動に関わらず color_attr = 2 × struct_attr が成立し、SHAP は常に色依存と判定する。
+ColoredMNIST IRM での比較（exp017、n=30 シード）は、見かけ上は SHAP に有利な結果を示すが、その内訳には注意が必要である。SHAP の満点は構造的アーティファクトに由来し、データ符号化と集約規則の組み合わせが判定を機械的に固定している。
 
-この性質は p=0.3 における各シードの数値に明確に表れる。p=0.3 では、5 シード中 3 シード（seed=123, 789, 0）でオラクルが構造依存に切り替わっており、Δ テストはこれを正しく検出する。具体的には、seed=123 で delta_hue=0.065、delta_struct=0.087、seed=789 で delta_hue=0.075、delta_struct=0.137、seed=0 で delta_hue=0.061、delta_struct=0.072 である。これら 3 シードでは delta_struct > delta_hue であり、Δ テストはオラクルが色ではなく構造に依存していると判定するため、判定基準上は「色依存検出失敗」として記録される。残る 2 シード（seed=42, 456）では delta_hue > delta_struct（seed=42: 0.074 > 0.043、seed=456: 0.067 > 0.054）が成立し、色依存として検出される。
+この性質は p=0.3 における各シードの挙動に表れる。構造依存へ切り替わったシードでは Δ がそれを追跡し、残るシードでは色依存として検出される。
 
 | シード（p=0.3、n=5 シード） | delta_hue | delta_struct | Δ 判定 | SHAP 判定 |
 | --- | --- | --- | --- | --- |
@@ -149,24 +150,24 @@ ColoredMNIST IRM での比較（exp017、n=30 シード）は、見かけ上は 
 SHAP は同じ 3 シードで color_attr = 2 × struct_attr の比例関係を機械的に充足するため、構造依存への切り替えを追従できず一律に色依存と報告する。
 判定基準上は SHAP が「正解」となるが、これはオラクルの依存先と判定結果が一致したのではなく、データ符号化が SHAP 集約の比例関係を強制した結果である。
 
-Waterbirds の検出率は、Δ が 18/30 (60%, 95% CI [0.42, 0.76])、SHAP が 30/30 (100%, 95% CI [0.89, 1.00]) であり、paired な McNemar 検定では p=0.0005 だった。
+Waterbirds では Δ と SHAP の間に有意な差があり、paired な McNemar 検定でも不一致が確認された。
 
-![Figure 3: Waterbirds detection results (exp018). Left: Scatter plot of Δ_bg vs Δ_fg across 30 seeds. Right: Distribution of Δ gap. Delta is more conservative than SHAP, reflecting functional reliance rather than just presence of spurious features.](experiments/results/exp018_waterbirds_30seeds/fig_scatter.png)
-![Figure 4: Distribution of Δ values across seeds (exp018).](experiments/results/exp018_waterbirds_30seeds/fig_delta_dist.png)
+![Figure 3: Waterbirds detection results (exp018). The left panel plots Δ_bg against Δ_fg for all 30 seeds, and the right panel shows the distribution of Δ_bg − Δ_fg. A positive gap means that background intervention harms performance more strongly than foreground noise, which is the signature of functional background reliance.](experiments/results/exp018_waterbirds_30seeds/fig_scatter.png)
+![Figure 4: Distribution of Δ gaps across seeds (exp018). Positive values indicate that background interventions are more damaging than foreground perturbations, while values near zero indicate weak or no background dependence.](experiments/results/exp018_waterbirds_30seeds/fig_delta_dist.png)
 
-worst-group accuracy の再集計（exp019）では mean worst_group_acc=0.3424（std=0.0804）であり、最悪群での性能劣化が大きいことを確認した。
+worst-group accuracy の再集計（exp019）では、平均精度だけでは見えにくい群間不均衡が確認された。
 
-![Figure 5: Waterbirds worst-group accuracy (exp019). The large gap between average and worst-group performance confirms the presence of strong spurious reliance in the trained oracles.](experiments/results/exp019_waterbirds_wga/fig_wga.png)
+![Figure 5: Waterbirds worst-group accuracy (exp019). The gap between average and worst-group performance exposes subgroup fragility that is hidden by aggregate accuracy alone.](experiments/results/exp019_waterbirds_wga/fig_wga.png)
 
-さらに exp020 の 1 seed 固定 sensitivity では、mask_radii = [-3, -1, 0, 1, 3] の全条件で `delta_bg > delta_fg` が維持され、decision flips は 0/5 であったため、軽微なマスク摂動に対して結論が安定することを確認した。
+さらに exp020 の 1 seed 固定 sensitivity では、軽微なマスク摂動に対して結論が安定することを確認した。
 
-![Figure 6: Waterbirds mask sensitivity (exp020). Detection remains stable across minor dilations and erosions of the GrabCut mask.](experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png)
+![Figure 6: Waterbirds mask sensitivity (exp020). Minor erosions and dilations of the GrabCut mask leave the background-versus-foreground ordering unchanged, indicating that the conclusion is robust to small segmentation perturbations.](experiments/results/exp020_waterbirds_mask_sensitivity/fig_mask_sensitivity.png)
 
-exp021 では、exp018 の保存済み checkpoint を用いて specialized score を生成した。Spurious Score proxy では bg_score > fg_score が 30/30 (100%) で、平均値は bg_score=0.3556, fg_score=0.1632 だった。さらに hidden-layer PCA 由来の spuriousness proxy でも pca_ok は 30/30 で、pca_score の平均は 0.1959 だった。
+exp021 では、exp018 の保存済み checkpoint を用いて specialized score を生成した。Spurious Score proxy でも hidden-layer PCA proxy でも、背景スプリアスを示す傾向が一貫して観察された。
 
-![Figure 7: Specialized baseline comparison for Waterbirds (exp021). The specialized baseline proxies (SpecScore and PCA) flag all models as background-spurious, while Delta marks 12/30 models as functionally invariant to background shifts under the intervention-based necessity criterion.](experiments/results/exp021_waterbirds_specialized_baseline/fig_specialized_baseline_pca.png)
+![Figure 7: Specialized baseline comparison for Waterbirds (exp021). The specialized baseline proxies (SpecScore and PCA) identify background-spurious structure in representation space, whereas Delta evaluates intervention-based necessity and can disagree when a background signal is present but not functionally decisive.](experiments/results/exp021_waterbirds_specialized_baseline/fig_specialized_baseline_pca.png)
 
-exp021 の比較出力では、Δ detect = 18/30 (60.0%)、SHAP detect = 30/30 (100.0%)、Spec detect = 30/30 (100.0%)、PCA detect = 30/30 (100.0%) であった。Δ と Spec の discordant pairs は 12 件（Δ=NG & Spec=OK）であった。代表的な不一致シードの個別スコアを以下に示す。
+exp021 の比較出力では、Δ は背景依存を検出するシードとしないシードに分かれ、SHAP / Spec / PCA は一貫して背景スプリアスを指摘した。Δ と Spec の discordant pairs は 12 件であり、代表的な不一致シードの個別スコアを以下に示す。
 
 | seed | Delta OK? | PCA OK? | Δ_bg | Δ_fg | bg_prob_score | pca_score |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -174,7 +175,7 @@ exp021 の比較出力では、Δ detect = 18/30 (60.0%)、SHAP detect = 30/30 (
 | 16 | NG | OK | 0.125 | 0.170 | 0.303 | 0.231 |
 | 17 | NG | OK | 0.100 | 0.170 | 0.300 | 0.182 |
 
-これらの不一致シードにおいて、専用手法（PCA 等）は特徴空間内にスプリアス成分が「存在すること」を捉えているが、Delta は介入後の性能が前景介入に比べて落ちていない（Δ_bg < Δ_fg）事実から、モデルが不変性を獲得していると保守的に判定している。
+これらの不一致シードにおいて、専用手法（PCA 等）は特徴空間内にスプリアス成分が「存在すること」を捉えているが、Delta は介入後の性能が前景介入に比べて落ちていない事実から、モデルが不変性を獲得していると保守的に判定している。したがって、Spec/PCA は representation-space の proxy、Delta は input intervention に対する functional necessity の測定として読むのが適切である。
 
 ![exp021 Waterbirds specialized baseline comparison (SpecScore proxy)](experiments/results/exp021_waterbirds_specialized_baseline/fig_specialized_baseline.png)
 ![exp021 Waterbirds specialized baseline comparison (SpecScore + PCA proxy)](experiments/results/exp021_waterbirds_specialized_baseline/fig_specialized_baseline_pca.png)
@@ -194,55 +195,65 @@ exp021 の比較出力では、Δ detect = 18/30 (60.0%)、SHAP detect = 30/30 (
 
 Waterbirds で両手法の判定が一致するのは、背景と前景という空間的に局在する二領域に対して、SHAP の空間集約が ColoredMNIST のような排他的符号化の影響を受けにくく、入力空間の構造を比較的素直に反映するためと考えられる。
 
-LunarLander 負例（exp006–007）では、訓練済みオラクル方策が候補スプリアス特徴をいずれの設定でも使用しなかった。状態ベクトルの候補次元に介入を加えても性能が変化せず、検出対象としてのテストケースを構成できなかった。本事例は手法の失敗ではなく、Δ テストの適用前提（「使っているはずの特徴を壊す」）が成立しない設定に対応する。
+LunarLander 負例（exp006–007）では、訓練済みオラクル方策が候補スプリアス特徴をいずれの設定でも使用しなかった。状態ベクトルの候補次元に介入を加えても性能が変化せず、検出対象としてのテストケースを構成できなかった。本事例は手法の失敗ではなく、PerformanceCheck の適用前提（「使っているはずの特徴を壊す」）が成立しない設定に対応する。
 
 # Discussion
 
-GridWorld の比較結果は、性能ベースの介入と出力分散ベースの帰属とで、スプリアス特徴の検出能力に大きな差が生じうることを示している。SHAP の Shapley 値は、特徴の「無効化」を訓練分布上の周辺化として定義するため、スプリアス特徴 c より因果特徴 agent_y の方が出力分散への寄与が大きく見える状況では、依存量を反映しなくなる [Janzing2020, Adebayo2022]。Δ テストは、特徴を破壊した後の性能を直接観測するため、出力分散寄与と独立に依存度を測定できる。GridWorld の二値的なスプリアス信号は、まさにこの差が顕在化しやすい設定であった。
+GridWorld の比較結果は、性能ベースの介入と出力分散ベースの帰属とで、スプリアス特徴の検出能力に大きな差が生じうることを示している。SHAP の Shapley 値は、特徴の「無効化」を訓練分布上の周辺化として定義するため、スプリアス特徴 c より因果特徴 agent_y の方が出力分散への寄与が大きく見える状況では、依存量を反映しなくなる [Janzing2020, Adebayo2022]。PerformanceCheck は、特徴を破壊した後の性能を直接観測するため、出力分散寄与と独立に依存度を測定できる。GridWorld の二値的なスプリアス信号は、まさにこの差が顕在化しやすい設定であった。
 
 実運用の観点では、argmax による一意の特定よりも、上位 k 件の候補を提示する使い方が適切な場合がある。p=0.2 において c が 2 位になる 8 件の gap 中央値は 0.024 であり、これらは「わずかに他特徴が上回った」ケースである。特徴数が多い設定では、Δ 値の高い上位 2〜3 特徴をドメイン専門家に提示し、スプリアス候補かどうかの判断を委ねるフローが現実的である。SHAP との比較においても recall@2 の差は top-1 以上に明確であり（p=0.0: Δ@2=100% vs SHAP@2=0%）、上位候補の絞り込みという観点でも Δ の優位は維持される。
 
-ColoredMNIST における SHAP の見かけ上の満点は、データ符号化が帰属集約に対して強い構造的制約を課すことに由来する。R と G の排他的符号化のもとでは、color_attr = mean(|shap_R − shap_G|) と struct_attr = mean(|shap_R + shap_G|) / 2 という集約は、オラクルの依存先によらず color_attr ≈ 2 × struct_attr を充足する。p=0.3 におけるシード別の挙動は、Δ テストがオラクルの構造依存への切り替えを反映しているのに対し、SHAP は同じ符号化制約のもとで一律に色依存を報告することを示す。判定スコア上は SHAP が「正解」となるが、それは依存検出という意図に対して帰属集約が機械的に一致しているにすぎない。この観察は、特定のデータ符号化と SHAP 集約の組み合わせがアーティファクトを生む具体例として、帰属法の適用時に注意すべき点を提供する [Adebayo2022]。
+ColoredMNIST における SHAP の見かけ上の満点は、データ符号化が帰属集約に対して強い構造的制約を課すことに由来する。R と G の排他的符号化のもとでは、color_attr = mean(|shap_R − shap_G|) と struct_attr = mean(|shap_R + shap_G|) / 2 という集約は、オラクルの依存先によらず color_attr ≈ 2 × struct_attr を充足する。p=0.3 におけるシード別の挙動は、PerformanceCheck がオラクルの構造依存への切り替えを反映しているのに対し、SHAP は同じ符号化制約のもとで一律に色依存を報告することを示す。判定スコア上は SHAP が「正解」となるが、それは依存検出という意図に対して帰属集約が機械的に一致しているにすぎない。この観察は、特定のデータ符号化と SHAP 集約の組み合わせがアーティファクトを生む具体例として、帰属法の適用時に注意すべき点を提供する [Adebayo2022]。
 
-Waterbirds における Δ と SHAP の一致は、空間的に局在するスプリアス領域においては両手法が整合的な判定を下すことを示す。背景と前景はピクセル空間で物理的に分離可能であり、SHAP 値の空間集約も Δ の介入も、共通の前景マスクという外部情報を利用できる。背景依存の度合いは Waterbirds の設計上明確であり、両手法のスコアもそれを支持する範囲に収まった。実世界スプリアスの一例として、提案手法が機能する具体的な状況を示している。
+Waterbirds における Δ と SHAP の一致は、空間的に局在するスプリアス領域においては両手法が整合的な判定を下すことを示す。背景と前景はピクセル空間で物理的に分離可能であり、SHAP 値の空間集約も Δ の介入も、共通の前景マスクという外部情報を利用できる。背景依存の度合いは Waterbirds の設計上明確であり、両手法のスコアもそれを支持する範囲に収まった。実世界スプリアスの一例として、PerformanceCheck が機能する具体的な状況を示している。
 
 exp021 の specialized baseline も、背景と前景のどちらがスプリアスかという粗い判断では Δ / SHAP と整合的だった。一方で、スコアの定義は hidden-space の統計量に依存しており、どの入力がどれだけの性能低下を引き起こすかをそのまま表すわけではない。したがって、専用ベースラインは「背景依存の候補確認」としては有用だが、運用上の必要性を直接測る指標としては Δ と役割が異なる。
 
 Waterbirds の議論としては、専用ベースラインの「背景はスプリアス」という判定と、Δ の「その背景を壊すと実際に性能が落ちる」という判定は、競合ではなく役割分担として読むべきである。exp021 の図が示すのは、候補確認の層では背景が一貫してスプリアスに見える一方で、介入後性能の層では一部のシードでそれが必ずしも致命的ではない、ということだ。
 
-worst-group accuracy の再集計（exp019）で mean worst_group_acc=0.3424（std=0.0804）であったことは、この Waterbirds オラクルが平均精度だけでは十分に見えにくい群間不均衡を抱えていることを示す。特に最悪群の性能が低い場合、背景依存の検出が「全体として当たっているか」ではなく、「どの群で壊れているか」を見る補助情報になる。exp018 の Δ / SHAP 比較と exp019 の worst-group 指標を併せることで、背景スプリアス依存の有無と、その依存が最悪群の性能低下に結びついているかを分けて読める。
+PerformanceCheck はここで結論を自動修正するための最終判定器ではなく、専門家が augmentation、背景置換、追加データ収集の優先順位を決めるための定量的エビデンスを与える部品として位置づけるのが自然である。したがって、Discussion では「どの特徴を直すべきか」を一意に決めるのではなく、「どの特徴が介入後性能に最も効いているか」を示し、後段の修正作業に渡す人間を介したワークフローとして読めるようにする。
 
-LunarLander の事例は、Δ テストの適用前提を明確化する。オラクルが候補スプリアス特徴を使用していなければ Δ ≈ 0 となり、依存なしと正しく判定する。この判定は手法の破綻ではなく、検出対象が存在しない設定への正しい応答である。ただし検出ベンチマークとして機能するためには、オラクルが候補特徴を実際に使用している必要があり、実運用では Neuhaus ら [Neuhaus2023] や Eyuboglu ら [Eyuboglu2022] などの発見手法を先行させることで、Δ テストが意味を持つ候補を選定できる。
+その意味で、exp021 の不一致は「既存法が誤っていた」ことを単純に示すのではなく、既存法が広く拾った背景スプリアス候補のうち、PerformanceCheck が介入後性能に本当に効くものだけを残して絞り込んでいると読むのが適切である。専門家はこの差分を見て、どの候補に augmentation を優先するか、どの候補は誤報として下げるかを判断できる。
+
+この workflow を実務的に書くなら、次の 3 段に分けるのが自然である。
+
+1. 候補発見: Neuhaus や Eyuboglu のような発見手法、あるいは SHAP / PCA の proxy で疑わしい特徴を挙げる。
+2. PerformanceCheck 確認: その候補を破壊的介入で評価し、実際に性能を壊す特徴かどうかを確認する。
+3. 修正優先順位づけ: Δ が大きい候補から順に、augmentation、再学習、データ収集の対象として優先度を付ける。
+
+worst-group accuracy の再集計（exp019）は、この Waterbirds オラクルが平均精度だけでは十分に見えにくい群間不均衡を抱えていることを示す。特に最悪群の性能が低い場合、背景依存の検出が「全体として当たっているか」ではなく、「どの群で壊れているか」を見る補助情報になる。exp018 の Δ / SHAP 比較と exp019 の worst-group 指標を併せることで、背景スプリアス依存の有無と、その依存が最悪群の性能低下に結びついているかを分けて読める。
+
+LunarLander の事例は、PerformanceCheck の適用前提を明確化する。オラクルが候補スプリアス特徴を使用していなければ Δ ≈ 0 となり、依存なしと正しく判定する。この判定は手法の破綻ではなく、検出対象が存在しない設定への正しい応答である。ただし検出ベンチマークとして機能するためには、オラクルが候補特徴を実際に使用している必要があり、実運用では Neuhaus ら [Neuhaus2023] や Eyuboglu ら [Eyuboglu2022] などの発見手法を先行させることで、PerformanceCheck が意味を持つ候補を選定できる。
 
 特徴数が大きい設定への拡張については、全特徴への介入（full Δ scan）を基本線としつつ、計算制約が厳しい場合に限って「候補絞り込み後介入」を補助的に使う。具体的には、発見手法（Neuhaus ら [Neuhaus2023]、Eyuboglu ら [Eyuboglu2022]）または帰属法で上位 k 特徴を抽出し、その集合内で Δ を評価する。ただし本研究の結果が示す通り、帰属法単体の順位は依存検出と乖離しうるため、絞り込みは計算上の近似であり、主張の根拠は最終的に介入後性能差分で与える。
 
-提案手法と既存帰属法は、目的の違いから条件付きで補完的に使い分けられる。SHAP や統合勾配は、モデル予測の説明という枠組みでは整合的な定義を持ち、可視化や局所説明として有用である。Δ テストは、性能感度という運用指標に直接結びつくため、デプロイ前の依存性監査やシフト下での性能予測に向く。特に特徴相関が強い設定や、帰属集約に符号化アーティファクトが入りうる設定では、Δ のほうが依存先の切り替わりを捉えやすい可能性がある。一方で、空間的に局在した特徴で介入品質を担保しやすい設定では、両者が整合する場合もある。
+PerformanceCheck と既存帰属法は、目的の違いから条件付きで補完的に使い分けられる。SHAP や統合勾配は、モデル予測の説明という枠組みでは整合的な定義を持ち、可視化や局所説明として有用である。PerformanceCheck は、性能感度という運用指標に直接結びつくため、デプロイ前の依存性監査やシフト下での性能予測に向く。特に特徴相関が強い設定や、帰属集約に符号化アーティファクトが入りうる設定では、Δ のほうが依存先の切り替わりを捉えやすい可能性がある。一方で、空間的に局在した特徴で介入品質を担保しやすい設定では、両者が整合する場合もある。
 
 # Limitations
 
-本研究にはいくつかの限界がある。これらは、提案手法の適用可能性を判断する際に併せて考慮されるべきである。
+本研究にはいくつかの限界がある。これらは、PerformanceCheck の適用可能性を判断する際に併せて考慮されるべきである。
 
 - GridWorld / ColoredMNIST / Waterbirds は 30 シードで評価したが、より大規模な seed 数や別学習器で同様の傾向が維持されるかは今後の課題である。
 - 介入演算子の設計は問題ごとに人手で行っており、自動化されていない。GridWorld のような特徴次元が分離可能な設定では周辺リサンプリングが自然だが、Waterbirds の前景マスクは GrabCut という外部アルゴリズムに依存する。介入の質は判定結果に直接影響するため、介入設計の標準化は実用上の課題となる。
 - ColoredMNIST における SHAP のアーティファクト分析は、本研究で採用した R-G 非対称集約に固有のものである。別の集約方式や別の帰属法では、異なる挙動が観察されうる。本研究の指摘は、特定の集約方式を採用したとき構造的に何が起きるかを示すものであり、SHAP 一般の不能を主張するものではない。
-- LunarLander の負例は、Δ テストの適用前提が成立しない設定の例にすぎず、強化学習一般における提案手法の有効性を否定するものでも肯定するものでもない。オラクル方策が候補スプリアス特徴を実際に利用する設定での評価は、別途行われる必要がある。発見手法と組み合わせることでこの依存を緩和できると考えられるが、発見→確認のエンドツーエンドの評価は本研究の範囲外である。
+- LunarLander の負例は、PerformanceCheck の適用前提が成立しない設定の例にすぎず、強化学習一般におけるPerformanceCheck の有効性を否定するものでも肯定するものでもない。オラクル方策が候補スプリアス特徴を実際に利用する設定での評価は、別途行われる必要がある。発見手法と組み合わせることでこの依存を緩和できると考えられるが、発見→確認のエンドツーエンドの評価は本研究の範囲外である。
 - Waterbirds の凍結 ResNet-18 fine-tune オラクルは、検証精度が 0.759 から 0.822 の範囲にあり、より高精度な設定で同じ検出率が維持されるかは確認していない。
 - 検出判定は候補特徴が事前に列挙されている設定を前提とする。候補の自動列挙は Neuhaus ら [Neuhaus2023]、Eyuboglu ら [Eyuboglu2022]、Sohoni ら [Sohoni2020] が別途扱っており、本研究はそれらと組み合わせて使用することを想定した確認ステップである。
 - Δ の絶対値そのものに対する閾値設計（依存ありとなしの境界）は本研究では行わず、相対比較に集約した。
 
 # Broader Impact
 
-提案手法は、訓練後のモデルに対するスプリアス依存の診断を、入力空間での介入と性能観測のみで実施できるため、デプロイ前の安全性検査や信頼性評価のツールとして用いうる。一方で、検出能力には適用前提と介入設計の質が直接影響するため、診断結果を過度に一般化して「依存なし」と判定するリスクがある。ColoredMNIST における SHAP のアーティファクト事例は、ベンチマーク設計とデータ符号化の組み合わせが帰属法の判定を機械的に決めうることを示しており、診断結果のみに基づく意思決定には慎重な検証が必要である。本研究の知見は、複数の診断手法を併用し、各手法の前提条件を明示することの重要性を支持する。
+PerformanceCheck は、訓練後のモデルに対するスプリアス依存の診断を、入力空間での介入と性能観測のみで実施できるため、デプロイ前の安全性検査や信頼性評価のツールとして用いうる。一方で、検出能力には適用前提と介入設計の質が直接影響するため、診断結果を過度に一般化して「依存なし」と判定するリスクがある。ColoredMNIST における SHAP のアーティファクト事例は、ベンチマーク設計とデータ符号化の組み合わせが帰属法の判定を機械的に決めうることを示しており、診断結果のみに基づく意思決定には慎重な検証が必要である。本研究の知見は、複数の診断手法を併用し、各手法の前提条件を明示することの重要性を支持する。
 
 # Conclusion
 
-訓練済みオラクルに対する破壊的介入と性能差分のみで特徴依存を測定する Δ テストを提案し、GridWorld、ColoredMNIST IRM、Waterbirds の三つの設定で評価した。提案手法は GridWorld で top-1 85/120 (71%)、top-2 101/120 (84%)、ColoredMNIST IRM で 102/120 (85%)、Waterbirds で 18/30 (60%) の検出率を示した。同一オラクルでの SHAP 比較では、GridWorld で top-1 14/120 (12%)、top-2 21/120 (18%) と提案手法を大幅に下回り、ColoredMNIST IRM では SHAP が 120/120 を示したが、これはデータ符号化に由来する構造的アーティファクトであった。Waterbirds では SHAP が 30/30、Δ が 18/30 で有意差が確認された（McNemar p=0.0005）。LunarLander では適用前提が成立せず、有効なテストケースを得られなかった。これらの結果は、tested benchmarks における intervention-based diagnosis では、特徴相関や符号化制約が強い条件ほど性能観点での依存検出において Δ が有利に働きうることを示す。
+訓練済みオラクルに対する破壊的介入と性能差分のみで特徴依存を測定する PerformanceCheck を提案し、GridWorld、ColoredMNIST IRM、Waterbirds の三つの設定で評価した。PerformanceCheck は GridWorld で top-1 85/120 (71%)、top-2 101/120 (84%)、ColoredMNIST IRM で 102/120 (85%)、Waterbirds で 18/30 (60%) の検出率を示した。同一オラクルでの SHAP 比較では、GridWorld で top-1 14/120 (12%)、top-2 21/120 (18%) とPerformanceCheck を大幅に下回り、ColoredMNIST IRM では SHAP が 120/120 を示したが、これはデータ符号化に由来する構造的アーティファクトであった。Waterbirds では SHAP が 30/30、Δ が 18/30 で有意差が確認された（McNemar p=0.0005）。LunarLander では適用前提が成立せず、有効なテストケースを得られなかった。これらの結果は、tested benchmarks における intervention-based diagnosis では、特徴相関や符号化制約が強い条件ほど性能観点での依存検出において Δ が有利に働きうることを示す。
 
 # Appendix
 
 ## A. LunarLander 実験の詳細
 
-exp006 および exp007 では、OpenAI Gym の LunarLander-v2 環境において PPO で訓練したオラクル方策に対し、候補スプリアス特徴（着地脚接触フラグ等）を置換する介入を試みた。複数の spurious_p 設定および候補特徴設定で評価したが、いずれの設定でもオラクル方策が候補特徴を利用せず、Δ ≈ 0 であった。exp007 のアブレーション実験では、報酬の割引率に関連する信号減衰がオラクルの学習を困難にしていることが示唆された。本稿 Limitations 節で述べた通り、これらの結果は Δ テストの失敗ではなく、検出対象（スプリアス依存）が成立しない設定に該当する。
+exp006 および exp007 では、OpenAI Gym の LunarLander-v2 環境において PPO で訓練したオラクル方策に対し、候補スプリアス特徴（着地脚接触フラグ等）を置換する介入を試みた。複数の spurious_p 設定および候補特徴設定で評価したが、いずれの設定でもオラクル方策が候補特徴を利用せず、Δ ≈ 0 であった。exp007 のアブレーション実験では、報酬の割引率に関連する信号減衰がオラクルの学習を困難にしていることが示唆された。本稿 Limitations 節で述べた通り、これらの結果は PerformanceCheck の失敗ではなく、検出対象（スプリアス依存）が成立しない設定に該当する。
 
 ## B. ハイパーパラメータ詳細
 
