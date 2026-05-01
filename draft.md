@@ -236,7 +236,7 @@ LunarLander の事例は、Δ テストの適用前提を明確化する。オ�
 
 # Conclusion
 
-訓練済みオラクルに対する破壊的介入と性能差分のみで特徴依存を測定する Δ テストを提案し、GridWorld、ColoredMNIST IRM、Waterbirds の三つの設定で評価した。提案手法は GridWorld で top-1 85/120 (71%)、top-2 101/120 (84%)、ColoredMNIST IRM で 102/120 (85%)、Waterbirds で 18/30 (60%) の検出率を示した。同一オラクルでの SHAP 比較では、GridWorld で top-1 14/120 (12%)、top-2 21/120 (18%) と提案手法を大幅に下回り、ColoredMNIST IRM では SHAP が 120/120 を示したが、これはデータ符号化に由来する構造的アーティファクトであった。Waterbirds では SHAP が 30/30、Δ が 18/30 で有意差が確認された（McNemar p=0.0005）。LunarLander では適用前提が成立せず、有効なテストケースを得られなかった。これらの結果は、特徴相関や符号化制約が強い条件では、性能観点での依存検出において Δ が有利に働きうることを示す。
+訓練済みオラクルに対する破壊的介入と性能差分のみで特徴依存を測定する Δ テストを提案し、GridWorld、ColoredMNIST IRM、Waterbirds の三つの設定で評価した。提案手法は GridWorld で top-1 85/120 (71%)、top-2 101/120 (84%)、ColoredMNIST IRM で 102/120 (85%)、Waterbirds で 18/30 (60%) の検出率を示した。同一オラクルでの SHAP 比較では、GridWorld で top-1 14/120 (12%)、top-2 21/120 (18%) と提案手法を大幅に下回り、ColoredMNIST IRM では SHAP が 120/120 を示したが、これはデータ符号化に由来する構造的アーティファクトであった。Waterbirds では SHAP が 30/30、Δ が 18/30 で有意差が確認された（McNemar p=0.0005）。LunarLander では適用前提が成立せず、有効なテストケースを得られなかった。これらの結果は、tested benchmarks における intervention-based diagnosis では、特徴相関や符号化制約が強い条件ほど性能観点での依存検出において Δ が有利に働きうることを示す。
 
 # Appendix
 

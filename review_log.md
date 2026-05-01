@@ -4,47 +4,56 @@
         ここでの論点は「単に壊したから性能が落ちた（OOD 由来の困惑）」のか、「スプリアス依存があるから落ちた」のかを峻別することにある。
         したがって、妥当な介入とは「対象特徴の予測情報を十分に破壊しつつ、非対象特徴の統計をできるだけ保持する」近似として定義し、破壊型コントロールと構造保持型介入を分けて記述する。
         実装上は、class-consistent な背景置換や foreground マスク摂動のように、target feature だけを狙って壊し、他の特徴を OOD にしすぎない境界線を明示する。
-    [対応] 未
+    [対応] 完了。Method 節で admissibility 条件と OOD 破壊との区別を記述済み。
+    [証拠ファイル] `draft.md`
 [#003-A-002] 検出ルールが top-k と rank-based で揺れている
     [方針]
         判定文言を統一し、rank-based success か top-k inclusion かを明示的に分けて書く。
         Method / Results / Conclusion で同じ評価語彙を使う。
-    [対応] 未
+    [対応] 完了。Method / Results で top-k, recall@k を明示済み。
+    [証拠ファイル] `draft.md`
 [#003-A-003] specialized baseline の proxy score の意味づけがやや弱い
     [方針]
         Spec/PCA は candidate spuriousness proxy、Delta は intervention-based necessity として役割を明示する。
         専用ベースラインを「候補確認」ではなく「functional dependence の直接指標ではない」ものとして位置づける。
-    [対応] 未
+    [対応] 完了。Waterbirds 節で proxy score の役割を本文化済み。
+    [証拠ファイル] `draft.md`
 [#003-B-001] specialized-baseline 比較の domain 上の説明がまだ少し薄い
     [方針]
         Waterbirds 節で、Spec/PCA が何を推定しているのかを1段落で明示する。
         Delta との比較軸を「候補 spuriousness vs 必要性」として固定する。
-    [対応] 未
+    [対応] 完了。Waterbirds 節で専用ベースラインの推定対象を説明済み。
+    [証拠ファイル] `draft.md`
 [#003-B-002] discordant pairs の意味を本文で一言で明示した方がよい
     [方針]
         exp021 の disagreement を「Delta の負け」ではなく「測っている量の違い」として説明する。
         代表的な不一致シードの補助表を短く添える。
-    [対応] 未
+    [対応] 完了。Discordant pairs の意味づけと代表シード表を draft に追記済み。
+    [証拠ファイル] `draft.md`, `experiments/results/exp021_waterbirds_specialized_baseline/results.csv`
 [#003-B-003] conclusion の射程がまだ少し広い
     [方針]
         結論は tested benchmarks と intervention-based diagnosis に限定して書く。
         一般の spurious-feature detection を解決したような言い回しは避ける。
-    [対応] 未
+    [対応] 完了。Conclusion の文言を tested benchmarks / intervention-based diagnosis に寄せて修正済み。
+    [証拠ファイル] `draft.md`
 [#003-C-001] 統計表現がまだ完全には統一されていない
     [方針]
         主結果表と caption で counts / percentages / Wilson CI の見せ方をそろえる。
         主要表だけでも表記ルールを固定する。
-    [対応] 未
+    [対応] 完了。主要表と Waterbirds 記述で Wilson CI を含めた表現へ揃え済み。
+    [証拠ファイル] `draft.md`
 [#003-C-002] exp021 の図キャプションと本文の統計言語を揃える必要がある
     [方針]
         Delta は intervention-based necessity、Spec/PCA は proxy scores という表現に統一する。
         図キャプションも同じ語彙に合わせる。
-    [対応] 未
+    [対応] 完了。exp021 の図キャプションを本文と同じ語彙へ統一済み。
+    [証拠ファイル] `draft.md`
 [#003-C-003] exp021 の disagreement table はもう少し compact にした方がよい
     [方針]
         代表的な seed を 2〜3 例に絞る。
         列定義を明確化し、どの値が何を意味するかを一目で分かるようにする。
-    [対応] 未
+    [対応] 完了。代表 3 seed に圧縮した disagreement table を draft に追加済み。
+    [証拠ファイル] `draft.md`
 [#003-D-001] 手法名のブランディング
     [方針] 手法名を "PerformanceCheck" に統一。アクロニムを避け、「性能という動かぬ証拠で最終確認する」という実用的な本質を強調する。
     [対応] 未
@@ -184,4 +193,10 @@
 [#000-X-007] 特徴の型（連続/バイナリ/画像変換）を統一的に扱うインターフェース設計
     [方針] 介入演算子の妥当性条件（破壊度/非対象保持）として抽象化し Method に統合。
     [対応] 完了。Method の妥当性条件として統一記述を反映。
+
+
+
+
+
+
 
