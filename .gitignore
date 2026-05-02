@@ -12,5 +12,5 @@ tmp_*
 *.pt
 *.pth
 experiments/results/exp*_smoke/
-experiments/results/*/*.zip
-experiments/results/*/*.pkl
+experiments/results/**/*.zip
+experiments/results/**/*.pkl
