@@ -1,2 +1,0 @@
-session_id,started_at,ended_at,elapsed_sec,elapsed_hms,state,completed_seeds,planned_seeds,note
-exp001_gridworld_candidate_discovery_smoke-20260502-210907,2026-05-02 21:09:07,2026-05-02 21:09:09,1.394,00:00:01,completed,1,1,Main experiment session.
