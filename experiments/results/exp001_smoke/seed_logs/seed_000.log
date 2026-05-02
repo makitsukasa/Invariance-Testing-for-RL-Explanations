@@ -1,0 +1,18 @@
+
+============================================================
+Seed 0
+============================================================
+  [1/5] Oracle training...
+    Saved oracle: C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp001_smoke\checkpoints\oracle\seed_000.zip
+  [2/5] Data collection...
+  [3/5] Surrogate distillation...
+    Saved surrogate: C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp001_smoke\checkpoints\surrogate\seed_000.pkl
+    Stage 1 agreement: AA=0.906
+  [4/5] PerformanceCheck profile...
+    PerformanceCheck top deltas: noise_0=0.000, agent_y=-0.234, noise_1=-0.236
+  [5/5] Candidate discovery ranking...
+    mutual_info: top=noise_1, spurious_rank=5, top1_hit=False, pc_rank=3
+    linear_probe_drop: top=agent_x, spurious_rank=3, top1_hit=False, pc_rank=4
+    tree_probe_drop: top=agent_x, spurious_rank=3, top1_hit=False, pc_rank=4
+    random: top=noise_1, spurious_rank=4, top1_hit=False, pc_rank=3
+    Seed elapsed: 1.2 sec

@@ -1,0 +1,15 @@
+=== exp001_gridworld_candidate_discovery_smoke ===
+Smoke test for the GridWorld candidate discovery pipeline. The numbers are not intended for scientific interpretation.
+
+
+Seeds   : [0]
+Methods : ['mutual_info', 'linear_probe_drop', 'tree_probe_drop', 'random']
+Env     : p=0.05, n_noise=2, grid=5
+Elapsed : 0.0 min
+
+method             |   top1 |   topk | mean rank | pc top1
+--------------------------------------------------------------
+mutual_info        |     0% |     0% |      5.00 |      0%
+linear_probe_drop  |     0% |     0% |      3.00 |      0%
+tree_probe_drop    |     0% |     0% |      3.00 |      0%
+random             |     0% |     0% |      4.00 |      0%

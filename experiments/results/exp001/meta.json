@@ -1,0 +1,27 @@
+{
+  "experiment": "exp001_gridworld_candidate_discovery",
+  "state": "completed",
+  "session_id": "exp001_gridworld_candidate_discovery-20260502-211112",
+  "started_at": "2026-05-02 21:11:12",
+  "completed_at": "2026-05-02 21:13:01",
+  "output_dir": "C:/Users/tsukasa/Documents/auto-spurious-discovery/experiments/results/exp001",
+  "config_hash": "7b2263616e6469646174655f64697363",
+  "resume_enabled": true,
+  "planned_seeds": [
+    0,
+    42,
+    123,
+    456,
+    789
+  ],
+  "completed_seeds": [
+    0,
+    42,
+    123,
+    456,
+    789
+  ],
+  "n_workers": 4,
+  "estimated_minutes_total": 10.0,
+  "estimated_minutes_per_seed": 8.0
+}

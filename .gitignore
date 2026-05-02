@@ -1,0 +1,13 @@
+data/
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+.omc/
+*.lnk
+.claude/*
+.codex/*
+link/*
+tmp_*
+*.pt
+*.pth
