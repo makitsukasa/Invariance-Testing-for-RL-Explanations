@@ -1,0 +1,39 @@
+name: exp023_gridworld_candidate_discovery
+description: >
+  正解付き Spurious GridWorld 上で、自動候補発見法が真のスプリアス特徴 c を
+  上位に回収できるか、さらに PerformanceCheck に接続したときに
+  実際に性能崩壊候補として確認されるかを測る最小 end-to-end 実験。
+
+env:
+  spurious_p: 0.05
+  n_noise: 7
+  grid_size: 5
+  max_steps: 50
+
+oracle:
+  n_steps: 50000
+
+surrogate:
+  n_experts: 4
+  max_depth: 5
+  distill_epochs: 100
+  n_distill_samples: 10000
+
+candidate_discovery:
+  methods:
+    - mutual_info
+    - linear_probe_drop
+    - tree_probe_drop
+    - random
+  top_k: 3
+
+evaluation:
+  seeds: [0, 42, 123, 456, 789]
+  n_eval_samples: 2000
+  n_eval_episodes: 200
+
+n_workers: 4
+runtime:
+  estimated_minutes_per_seed: 8.0
+
+output_dir: experiments/results/exp023_gridworld_candidate_discovery

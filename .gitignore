@@ -11,3 +11,5 @@ link/*
 tmp_*
 *.pt
 *.pth
+*.pkl
+*.zip

@@ -28,6 +28,9 @@
 | exp020 | Waterbirds マスク摂動 sensitivity（膨張/縮小で Δ の頑健性評価） | 完了（seed=0、decision flips 0/5） | **14時間04分** | [→](experiments/results/exp020_waterbirds_mask_sensitivity/) |
 | exp021 | Waterbirds 追加ベースライン（Spurious Score proxy + PCA spuriousness proxy） | 完了（bg_score > fg_score = 30/30, pca_ok = 30/30） | **54.8分** | [→](experiments/results/exp021_waterbirds_specialized_baseline/) |
 | exp022 | Waterbirds GrabCut sensitivity（mask 摂動による Δ の頑健性評価） | 完了（mask 安定性を 30 シードで評価） | **1時間08分10秒** | [→](experiments/results/exp022_waterbirds_grabcut_sensitivity/) |
+| exp023 | 自動候補発見（GridWorld, 5 seeds） | 完了（linear_probe_drop 80%, tree_probe_drop 60%, mutual_info 40%, random 20% の top-1） | **1分55秒** | [→](experiments/results/exp023_gridworld_candidate_discovery/) |
+| exp024 | 自動候補発見の `spurious_p` / noise sweep（GridWorld, 45 tasks） | 完了（低 `spurious_p` では probe 系が強く、`spurious_p` 上昇で top-1 回収率が低下） | **13分36秒** | [→](experiments/results/exp024_gridworld_candidate_discovery_noise_p_sweep/) |
+| exp025 | Waterbirds 候補発見 sweep（`n_eval` × mask radius, exp018/022 再利用） | 実行中 | 実行中 | [→](experiments/results/exp025_waterbirds_candidate_discovery_sweep/) |
 
 ---
 
@@ -57,6 +60,9 @@
 | `run_waterbirds_specialized_scores.py` | `exp021_waterbirds_specialized_scores` |
 | `run_waterbirds_specialized_baseline.py` | `exp021_waterbirds_specialized_scores` |
 | `run_waterbirds_grabcut_sensitivity.py` | `exp022_waterbirds_grabcut_sensitivity` |
+| `run_gridworld_candidate_discovery.py` | `exp023_gridworld_candidate_discovery` |
+| `run_gridworld_candidate_discovery_noise_p_sweep.py` | `exp024_gridworld_candidate_discovery_noise_p_sweep` |
+| `run_waterbirds_candidate_discovery_sweep.py` | `exp025_waterbirds_candidate_discovery_sweep` |
 
 ---
 
@@ -71,7 +77,7 @@
 | 5. Results: GridWorld | Δ vs SHAP の主要比較（p-sweep, top-k） | exp016（+比較参照 exp011） |
 | 5. Results: ColoredMNIST | IRM設定での比較、構造的アーティファクト分析 | exp017（+既存参照 exp012） |
 | 5. Results: Waterbirds | 実世界スプリアス相関での比較（scatter / group） | exp018（+既存参照 exp013） |
-| 6. Discussion | 相補性・適用条件・一般化可能性 | exp016, exp017, exp018, exp021 |
+| 6. Discussion | 相補性・適用条件・一般化可能性 | exp016, exp017, exp018, exp021, exp023, exp024, exp025 |
 | 7. Limitations | 介入質依存、候補特徴前提、LunarLander負例 | exp006, exp007, exp020, exp022 |
 | Appendix: Negative Results | LunarLanderの失敗例詳細 | exp003, exp006, exp007 |
 | Appendix: Statistical Tests | Wilson CI, McNemar,補助表 | exp016, exp017, exp018, exp019 |
