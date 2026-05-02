@@ -1,4 +1,83 @@
-﻿[#005-A-001] GridWorld の headline metric が要約部と結果表で不整合
+﻿[#006-A-001] title / abstract / conclusion の claim-evidence alignment がまだ弱い
+    [方針]
+        [#005-A-002], [#005-G-003], [#005-I-001] の再指摘。
+        「spurious feature detection」一般を解いたようには書かず、「候補に対する confirmation / functional necessity の確認」へ主張を少しだけ寄せる。
+        とくに title は維持しつつ、abstract と conclusion の表現を現在の証拠強度に合わせて 0.2 歩だけ保守的にそろえる。
+    [修正案] 検出より確認を前面に出す表現へ title / abstract / conclusion を再調整し、discovery 接続は「初期的証拠」または「接続可能性」に留める。
+    [対応] 完了。title は維持しつつ、Abstract / Introduction / Conclusion の主張を「発見済み候補に対する確認」「接続可能性」へ少しだけ寄せた。
+[#006-A-002] Waterbirds の書き方がなお成功談に寄りすぎる
+    [方針]
+        [#005-A-002] の再指摘。
+        SHAP 30/30 に対して PerformanceCheck 18/30 という差は、SHAP の誤検出可能性を無視せず、その数値が「背景候補の指摘」と「機能的必要性の確認」で別物だと読めるよう書き分ける。
+    [修正案] Abstract / Conclusion / Waterbirds discussion を、「tradeoff」「補完関係」「候補指摘と機能的必要性の差」の三点で明示する。
+    [対応] 完了。Waterbirds の要約を、SHAP は背景候補の指摘に敏感であり、PerformanceCheck はその中で大きな性能差分を伴う背景依存を選別する、という役割差が見える書き方へ調整した。
+[#006-A-003] discovery と confirmation の接続は separate proxy experiment 止まり
+    [方針]
+        [#005-I-001] の再指摘。
+        いまの証拠は接続可能性を支持する separate-stage evaluation であり、一貫自動 pipeline 実証ではないことを本文でさらに明確化する。
+        workflow / semi-automatic flow の言い方は証拠強度に合わせて弱める。
+    [修正案] Discussion / Limitations に、接続評価は top-1 候補と confirmation reference の照合に基づく separate-stage evaluation であることを明記し、system-building 的な言い方を整理する。
+    [対応] 完了。Discussion / Limitations で、接続評価は top-1 候補と参照判定との照合に基づく separate-stage evaluation であることを明記した。
+[#006-B-001] データセットごとに「成功」の定義が揺れて見える
+    [方針]
+        新規指摘。
+        GridWorld / ColoredMNIST は small candidate-set ranking、Waterbirds は background-vs-foreground 比較であり、読者が同じ metric family だと誤解しないよう整理する。
+        candidate proposal / candidate confirmation / final decision criterion を明示的に切り分ける。
+    [修正案] Experiments か Results の冒頭に、各ベンチマークでの候補集合・正解定義・評価指標をまとめた短い説明または表を追加する。
+    [対応] 完了。Experiments に、各ベンチマークで何を正解と見なすかを説明する段落と summary table を追加した。
+[#006-B-002] benchmark summary table があると読みやすい
+    [方針]
+        新規指摘。
+        各データセットで ground truth, candidate set, metric, correct detection の意味を一覧化し、cross-domain comparison の読み方を固定する。
+    [修正案] ベンチマークごとの ground truth / candidate set / metric / correct detection をまとめた concise table を追加する。
+    [対応] 完了。ベンチマークごとの候補集合・正解の意味・主指標を整理した concise table を追加した。
+[#006-C-001] abstract / conclusion の headline 数値に uncertainty がない
+    [方針]
+        [#001-C-001], [#005-F-002] の再指摘。
+        headline result は point estimate だけでなく CI も添え、Results table との統計表現をそろえる。
+    [修正案] Abstract / Conclusion の主数値を `k/n (%, 95% CI [...])` または簡潔な uncertainty 付き表現へ更新する。
+    [対応] 完了。Abstract / Conclusion の主要結果に 95% CI を追記した。
+[#006-C-002] 統計報告の標準化と multiplicity の扱いが弱い
+    [方針]
+        新規指摘。
+        main estimates, uncertainty intervals, n, hypothesis test を一か所で見渡せる形にし、どの検定が confirmatory / exploratory かを短くラベル付けする。
+        多重比較補正をしないなら exploratory であることを明示する。
+    [修正案] 主結果の統計サマリ表を追加し、McNemar / sign test / sensitivity などを confirmatory / exploratory に区別して注記する。
+    [対応] 完了。Experiments に、McNemar を確認的、sign test と discovery 接続評価を探索的とする注記を追記し、多重比較補正を行っていないことも明記した。
+[#006-C-003] GrabCut sensitivity 周辺の CI / 要約表現が分かりにくい
+    [方針]
+        [#004-D-002], [#005-F-002] の再指摘。
+        感度分析の interval / summary 記述を Results table と同じ書式にそろえ、曖昧な非対称表現を避ける。
+    [修正案] sensitivity summary の数値表現を固定書式へ統一し、必要なら簡潔な補助表を追加する。
+    [対応] 完了。Waterbirds のマスク感度説明を `k/n (%, 95% CI [...])` に合わせて書き直し、半径ごとの差を読みやすくした。
+[#006-D-001] intervention validity / off-target damage の定量検証がまだ弱い
+    [方針]
+        [#004-A-001], [#004-A-002], [#004-A-003] の再指摘。
+        subsection を増やすほどではないが、既存の admissibility 段落と Limitations に、介入 fidelity と off-target damage の観点をもう一歩だけ足す。
+    [修正案] Method と Limitations の既存段落に、介入 fidelity と off-target damage の観点を短く追記する。
+    [対応] 完了。既存の admissibility 段落と Limitations に、背景置換が背景手掛かりをどれだけ壊し、鳥本体側をどれだけ保てているかを今後定量化すべきだという補足を追加した。
+[#006-D-002] 論文長がフルカンファレンス論文としてはなお不足
+    [方針]
+        [#005-B-001] の再指摘。
+        現状は extended workshop paper に近く見えるため、本文の厚みを足すか、short / workshop framing をより明示的に選ぶかを判断する。
+    [修正案] full submission を狙うなら intervention validity, benchmark protocol, statistical caveat, practical workflow を中心に本文を大幅増補する。
+    [対応] 却下。日本語でどうやって語数を確かめたのか。なんなら長過ぎるくらい。
+[#006-D-003] 再現性は改善したが code release / exact commands までは届いていない
+    [方針]
+        [#001-X-005], [#005-C-002] の再指摘。
+        「to be released」に留めず、少なくとも headline experiments の exact commands / config hashes を本文か appendix に出せる形へ寄せる。
+    [修正案] 主要実験の実行コマンド、config パス、commit hash、必要 compute を Appendix に追記する。
+    [対応] 完了。Appendix に主要実験の実行コマンド、config パス、参照 commit hash を追記した。
+[#006-E-001] Discovery 接続結果の数値的裏付けの欠如
+    [方針] exp024/exp025/exp026 の具体的な成功率や整合率を Results / Discussion に統合し、接続性の強さが条件依存であることを数値で示す。
+    [対応] 完了。Waterbirds の候補発見接続結果に、半径依存の整合率と CLIP / 自己教師あり表現の top-1 / alignment 数値を追記した。
+[#006-F-001] CLIP vs SSL のセマンティクス解釈の深化
+    [方針] CLIP が背景依存（scene semantics）に強く、SSL が局所特徴に強い理由を、表現学習の性質から一段深く Discussion で論じる。
+    [対応] 完了。言語監督つきの高水準意味表現と、自己教師あり表現の対象中心性の差として Discussion を補強した。
+[#006-G-001] 接続性主張とエビデンスの統計的一貫性
+    [方針] 候補発見と PerformanceCheck の整合率（Alignment %）に対しても、主結果と同様に CI または標準偏差を付記する。
+    [対応] 完了。exp025 / exp026 の整合率を本文で `k/n (%, 95% CI [...])` 形式にそろえて追記した。
+[#005-A-001] GridWorld の headline metric が要約部と結果表で不整合
     [方針]
         [#004-H-001] の再指摘。
         GridWorld top-2 の正しい値を主結果表から再確定し、Abstract / Introduction / Conclusion の重複記述をすべて同じ値にそろえる。
