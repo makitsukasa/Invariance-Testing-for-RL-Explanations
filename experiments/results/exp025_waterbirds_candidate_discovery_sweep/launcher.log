@@ -1,0 +1,8 @@
+﻿started_at=2026-05-03 01:37:33
+pid=29024
+config=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\configs\exp025_waterbirds_candidate_discovery_sweep.yaml
+entry=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\run_waterbirds_candidate_discovery_sweep.py
+outdir=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp025_waterbirds_candidate_discovery_sweep
+stdout=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp025_waterbirds_candidate_discovery_sweep\run.log
+stderr=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp025_waterbirds_candidate_discovery_sweep\run.err
+runner_script=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp025_waterbirds_candidate_discovery_sweep\background_runner.ps1

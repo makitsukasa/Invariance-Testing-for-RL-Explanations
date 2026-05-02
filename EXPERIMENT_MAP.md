@@ -30,7 +30,7 @@
 | exp022 | Waterbirds GrabCut sensitivity（mask 摂動による Δ の頑健性評価） | 完了（mask 安定性を 30 シードで評価） | **1時間08分10秒** | [→](experiments/results/exp022_waterbirds_grabcut_sensitivity/) |
 | exp023 | 自動候補発見（GridWorld, 5 seeds） | 完了（linear_probe_drop 80%, tree_probe_drop 60%, mutual_info 40%, random 20% の top-1） | **1分55秒** | [→](experiments/results/exp023_gridworld_candidate_discovery/) |
 | exp024 | 自動候補発見の `spurious_p` / noise sweep（GridWorld, 45 tasks） | 完了（低 `spurious_p` では probe 系が強く、`spurious_p` 上昇で top-1 回収率が低下） | **13分36秒** | [→](experiments/results/exp024_gridworld_candidate_discovery_noise_p_sweep/) |
-| exp025 | Waterbirds 候補発見 sweep（`n_eval` × mask radius, exp018/022 再利用） | 実行中 | 実行中 | [→](experiments/results/exp025_waterbirds_candidate_discovery_sweep/) |
+| exp025 | Waterbirds 候補発見 sweep（`n_eval` × mask radius, exp018/022 再利用） | 完了（候補発見は background をほぼ常に top-1 に置くが、Delta 確認との整合は radius 依存） | **30分25秒** | [→](experiments/results/exp025_waterbirds_candidate_discovery_sweep/) |
 
 ---
 

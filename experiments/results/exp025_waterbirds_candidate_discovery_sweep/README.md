@@ -21,5 +21,13 @@ Waterbirds 上で、候補発見法が `background` をどれだけ安定して�
 - `runtime_sessions.csv`
 - `seed_logs/`
 
+## 結果要約
+- 実行時間は `30分25秒`。
+- `score_fraction` と `mean_prob_delta` は、全条件で `background` を `100%` top-1 に選択した。
+- `pca_proxy` も `n_eval=100` で `97%`、`n_eval=300` で `100%` と高い top-1 回収率を示した。
+- 一方で `exp022` の Delta 判定との整合率は、`mask_radius=-3` で `80%`、`0` で `57%`、`3` で `30%` まで下がった。
+- したがって、Waterbirds では候補発見自体はかなり安定だが、「候補の存在」と「実際に性能へ効くか」はやはり別の情報であることが確認された。
+
 ## メモ
-開始時は `EXPERIMENT_MAP.md` を `実行中` に更新し、完了後に実行時間と結果要約を反映する。
+- `exp018` の checkpoint を再利用しており、この実験では新しい oracle checkpoint は保存しない。
+- `base_mask_cache.pt` は `exp022` の前景マスク cache を再利用している。
