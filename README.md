@@ -1,4 +1,4 @@
-# rl-shift-auto-detection(for 🤖 LLMs / AI Agents)
+# README.md(for 🤖 LLMs / AI Agents)
 
 このリポジトリは、実験運用・査読対応・原稿更新を分離して管理します。
 特に `review.md`（最新レビュー本文）と `review_log.md`（履歴本体）を分ける運用を前提とします。
