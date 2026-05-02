@@ -1,0 +1,18 @@
+
+============================================================
+Seed 0 / p=0.05 / noise=15
+============================================================
+  [1/5] Oracle training...
+    Saved oracle: C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp002\checkpoints\p_0p05__noise_15\oracle\seed_000.zip
+  [2/5] Data collection...
+  [3/5] Surrogate distillation...
+    Saved surrogate: C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp002\checkpoints\p_0p05__noise_15\surrogate\seed_000.pkl
+    Stage 1 agreement: AA=0.831
+  [4/5] PerformanceCheck profile...
+    PerformanceCheck top deltas: c_spurious=0.482, noise_2=0.011, noise_7=0.010
+  [5/5] Candidate discovery ranking...
+    mutual_info: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    linear_probe_drop: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    tree_probe_drop: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    random: top=noise_10, spurious_rank=14, top1_hit=False, pc_rank=5
+    Task elapsed: 59.9 sec

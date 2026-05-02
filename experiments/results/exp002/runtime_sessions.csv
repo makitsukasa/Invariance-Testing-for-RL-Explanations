@@ -1,0 +1,2 @@
+session_id,started_at,ended_at,elapsed_sec,elapsed_hms,state,completed_tasks,planned_tasks,note
+exp002_gridworld_noise_p_sweep-20260502-222624,2026-05-02 22:26:24,2026-05-02 22:38:56,751.812,00:12:31,completed,45,45,Main sweep session.

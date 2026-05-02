@@ -1,0 +1,18 @@
+
+============================================================
+Seed 456 / p=0.25 / noise=3
+============================================================
+  [1/5] Oracle training...
+    Saved oracle: C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp002\checkpoints\p_0p25__noise_03\oracle\seed_456.zip
+  [2/5] Data collection...
+  [3/5] Surrogate distillation...
+    Saved surrogate: C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp002\checkpoints\p_0p25__noise_03\surrogate\seed_456.pkl
+    Stage 1 agreement: AA=0.934
+  [4/5] PerformanceCheck profile...
+    PerformanceCheck top deltas: c_spurious=0.333, noise_1=0.166, noise_2=0.120
+  [5/5] Candidate discovery ranking...
+    mutual_info: top=agent_y, spurious_rank=3, top1_hit=False, pc_rank=6
+    linear_probe_drop: top=agent_y, spurious_rank=2, top1_hit=False, pc_rank=6
+    tree_probe_drop: top=agent_x, spurious_rank=3, top1_hit=False, pc_rank=4
+    random: top=noise_2, spurious_rank=3, top1_hit=False, pc_rank=3
+    Task elapsed: 68.1 sec
