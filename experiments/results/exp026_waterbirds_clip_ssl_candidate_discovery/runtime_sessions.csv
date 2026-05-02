@@ -1,0 +1,2 @@
+session_id,started_at,ended_at,elapsed_sec,elapsed_hms,state,completed_tasks,planned_tasks,note
+exp026_waterbirds_clip_ssl_candidate_discovery-20260503-035838,2026-05-03 03:58:38,2026-05-03 04:56:11,3452.81,00:57:32,completed,20,20,Main sweep session.
