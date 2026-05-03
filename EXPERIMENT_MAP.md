@@ -1,11 +1,7 @@
-# EXPERIMENT_MAP.md
-
+﻿# EXPERIMENT_MAP.md
 実験インデックス。詳細は各 `experiments/results/expNNN_*/README.md` を参照。
-
 ---
-
 ## 実験一覧
-
 | ID | 概要 | ステータス | 実行時間 | results |
 |----|------|-----------|---------|---------|
 | exp001 | SHAP 自動選択（GridWorld 3特徴） | 完了 60% | 不明 | [→](experiments/results/exp001_shap_gridworld/) |
@@ -32,17 +28,14 @@
 | exp024 | 自動候補発見の `spurious_p` / noise sweep（GridWorld, 45 tasks） | 完了（低 `spurious_p` では probe 系が強く、`spurious_p` 上昇で top-1 回収率が低下） | **13分36秒** | [→](experiments/results/exp024_gridworld_candidate_discovery_noise_p_sweep/) |
 | exp025 | Waterbirds 候補発見 sweep（`n_eval` × mask radius, exp018/022 再利用） | 完了（候補発見は background をほぼ常に top-1 に置くが、Delta 確認との整合は radius 依存） | **30分25秒** | [→](experiments/results/exp025_waterbirds_candidate_discovery_sweep/) |
 | exp026 | Waterbirds 候補発見（CLIP / SSL 表現ベース） | 完了（CLIP は background を 100% top-1、SSL は foreground を 100% top-1 に選択） | **57分32秒** | [→](experiments/results/exp026_waterbirds_clip_ssl_candidate_discovery/) |
-
+| exp027 | 自動候補発見の `spurious_p` / noise sweep（GridWorld, 30 seeds） | 完了（`linear_probe_drop` が最も安定して強く、top-k は多くの条件で高水準） | **74分30秒** | [→](experiments/results/exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds/) |
+| exp028 | Waterbirds 候補発見（CLIP / 自己教師あり表現, 30 seeds） | 完了（CLIP は background を 100% top-1、自己教師あり表現は foreground を 100% top-1 に選択） | **170分54秒** | [→](experiments/results/exp028_waterbirds_clip_ssl_candidate_discovery_30seeds/) |
 ---
-
 ## 命名規則
-
 - `expNNN_<説明>` の連番で管理する
 - 設定変更・再実験は新番号を振る（上書きしない）
 - 廃棄した実験も番号は欠番にせずここに残す
-
 ## スクリプトと config の対応
-
 | script | 対応 config prefix |
 |--------|-------------------|
 | `run_shap_pilot.py`         | `exp001_shap_gridworld`         |
@@ -65,11 +58,10 @@
 | `run_gridworld_candidate_discovery_noise_p_sweep.py` | `exp024_gridworld_candidate_discovery_noise_p_sweep` |
 | `run_waterbirds_candidate_discovery_sweep.py` | `exp025_waterbirds_candidate_discovery_sweep` |
 | `run_waterbirds_representation_candidate_discovery.py` | `exp026_waterbirds_clip_ssl_candidate_discovery` |
-
+| `run_gridworld_candidate_discovery_noise_p_sweep.py` | `exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds` |
+| `run_waterbirds_representation_candidate_discovery.py` | `exp028_waterbirds_clip_ssl_candidate_discovery_30seeds` |
 ---
-
 ## 実験と論文章の対応
-
 | 論文章 | 目的 | 対応実験 |
 |-------|------|---------|
 | Abstract / 1. Introduction | 主結果の要約（Δ と SHAP の比較、適用範囲） | exp016, exp017, exp018（完了後） |
@@ -79,7 +71,7 @@
 | 5. Results: GridWorld | Δ vs SHAP の主要比較（p-sweep, top-k） | exp016（+比較参照 exp011） |
 | 5. Results: ColoredMNIST | IRM設定での比較、構造的アーティファクト分析 | exp017（+既存参照 exp012） |
 | 5. Results: Waterbirds | 実世界スプリアス相関での比較（scatter / group） | exp018（+既存参照 exp013） |
-| 6. Discussion | 相補性・適用条件・一般化可能性 | exp016, exp017, exp018, exp021, exp023, exp024, exp025, exp026 |
+| 6. Discussion | 相補性・適用条件・一般化可能性 | exp016, exp017, exp018, exp021, exp023, exp024, exp025, exp026, exp027, exp028 |
 | 7. Limitations | 介入質依存、候補特徴前提、LunarLander負例 | exp006, exp007, exp020, exp022 |
 | Appendix: Negative Results | LunarLanderの失敗例詳細 | exp003, exp006, exp007 |
 | Appendix: Statistical Tests | Wilson CI, McNemar,補助表 | exp016, exp017, exp018, exp019 |

@@ -189,17 +189,17 @@ Waterbirds で両手法の判定が一致するのは、背景と前景という
 
 ## 候補発見と確認の接続評価
 
-以下の接続評価は補助的な探索分析であり、GridWorld の sweep は 5 シード、CLIP / 自己教師あり表現の比較は 10 シードに基づく。まず GridWorld の候補発見 sweep では、低相関条件 `spurious_p=0.05` で `linear_probe_drop` が noise=7 の設定において top-1 4/5 (80%, 95% CI [0.38, 0.96])、noise=15 では 5/5 (100%, 95% CI [0.57, 1.00]) を示した一方、`spurious_p=0.25` では同順に 1/5 (20%, 95% CI [0.04, 0.62]) と 2/5 (40%, 95% CI [0.12, 0.77]) まで低下した。`mutual_info` と `tree_probe_drop` も同様に、top-k では真の候補を維持しつつ、top-1 回収は相関条件に応じて不安定になった。
+以下の接続評価は補助的な追加分析であるが、GridWorld の候補発見 sweep と CLIP / 自己教師あり表現の比較は、それぞれ 30 シードで再確認した。まず GridWorld の候補発見 sweep では、低相関条件 `spurious_p=0.05` において `linear_probe_drop` が noise=3, 7, 15 でそれぞれ top-1 19/30 (63%, 95% CI [0.46, 0.78])、21/30 (70%, 95% CI [0.52, 0.83])、29/30 (97%, 95% CI [0.83, 1.00]) を示し、`tree_probe_drop` も noise=7, 15 で 22/30 (73%, 95% CI [0.56, 0.86]) と 30/30 (100%, 95% CI [0.89, 1.00]) を示した。一方で `spurious_p=0.15` では `linear_probe_drop` の top-1 回収が同順に 5/30 (17%, 95% CI [0.07, 0.34])、7/30 (23%, 95% CI [0.12, 0.41])、16/30 (53%, 95% CI [0.36, 0.70]) まで低下し、`spurious_p=0.25` では 7/30 (23%, 95% CI [0.12, 0.41])、3/30 (10%, 95% CI [0.03, 0.26])、10/30 (33%, 95% CI [0.19, 0.51]) にとどまった。`mutual_info` は `spurious_p=0.05, noise=15` で 30/30 (100%, 95% CI [0.89, 1.00]) を示す一方、それ以外では top-1 回収が不安定であり、各手法とも top-k では真の候補を維持しつつ、top-1 回収は相関条件に応じて崩れうることが確認された。
 
-![Figure 8: GridWorld の候補発見 sweep。spurious_p の上昇とともに top-1 回収率は低下する。](experiments/results/exp024_gridworld_candidate_discovery_noise_p_sweep/results.png)
+![Figure 8: GridWorld の候補発見 sweep。低相関条件では probe 系の候補発見が有効だが、相関が強くなると top-1 回収率は低下する。](experiments/results/exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds/results.png)
 
 Waterbirds の候補発見 sweep では、単純なスコア比と平均確率差が 30 シード設定で背景を top-1 に 100% 置いた一方、PerformanceCheck 参照判定との整合率は半径 -3 で 24/30 (80%, 95% CI [0.63, 0.90])、半径 0 で 17/30 (57%, 95% CI [0.39, 0.73])、半径 3 で 9/30 (30%, 95% CI [0.17, 0.48]) であった。隠れ層主成分に基づく候補発見も 30 シード設定で top-1 97-100% を示したが、整合率は同様に半径依存であった。
 
 ![Figure 9: Waterbirds の候補発見 sweep。候補の存在と機能的必要性は同じ量ではない。](experiments/results/exp025_waterbirds_candidate_discovery_sweep/results.png)
 
-さらに CLIP と自己教師あり表現を用いた候補発見では、CLIP ベースの候補発見が 10 シード全条件で背景を top-1 に置き、背景 top-1 は 10/10 (95% CI [0.72, 1.00])、参照判定との整合率は半径 -3, -1, 0, 1, 3 でそれぞれ 9/10 (90%, 95% CI [0.60, 0.98])、8/10 (80%, 95% CI [0.49, 0.94])、6/10 (60%, 95% CI [0.31, 0.83])、7/10 (70%, 95% CI [0.40, 0.89])、4/10 (40%, 95% CI [0.17, 0.69]) であった。これに対し自己教師あり表現は全条件で前景を top-1 に置き、背景 top-1 は 0/10 (95% CI [0.00, 0.28])、同じ順に 1/10 (10%, 95% CI [0.02, 0.40])、2/10 (20%, 95% CI [0.06, 0.51])、4/10 (40%, 95% CI [0.17, 0.69])、3/10 (30%, 95% CI [0.11, 0.60])、6/10 (60%, 95% CI [0.31, 0.83]) の整合率を示した。
+さらに CLIP と自己教師あり表現を用いた候補発見では、CLIP ベースの候補発見が 30 シード全条件で背景を top-1 に置き、背景 top-1 は 30/30 (95% CI [0.89, 1.00]) であった。PerformanceCheck 参照判定との整合率は半径 -3, -1, 0, 1, 3 でそれぞれ 24/30 (80%, 95% CI [0.63, 0.90])、19/30 (63%, 95% CI [0.46, 0.78])、17/30 (57%, 95% CI [0.39, 0.73])、15/30 (50%, 95% CI [0.33, 0.67])、9/30 (30%, 95% CI [0.17, 0.48]) であり、`n_eval=100` と `300` で傾向はほぼ同一であった。これに対し自己教師あり表現は全条件で前景を top-1 に置き、背景 top-1 は 0/30 (95% CI [0.00, 0.11]) であった。整合率は同じ順に 6/30 (20%, 95% CI [0.10, 0.37])、11/30 (37%, 95% CI [0.22, 0.54])、13/30 (43%, 95% CI [0.27, 0.61])、15/30 (50%, 95% CI [0.33, 0.67])、21/30 (70%, 95% CI [0.52, 0.83]) であり、候補順位は表現空間に強く依存した。
 
-![Figure 10: CLIP と自己教師あり表現による Waterbirds 候補発見。表現空間により候補順位は変わる。](experiments/results/exp026_waterbirds_clip_ssl_candidate_discovery/results.png)
+![Figure 10: CLIP と自己教師あり表現による Waterbirds 候補発見。表現空間が変わると候補順位も変わるため、後段の確認が必要になる。](experiments/results/exp028_waterbirds_clip_ssl_candidate_discovery_30seeds/results.png)
 
 # 考察
 
@@ -328,9 +328,9 @@ LunarLander-v2 環境において PPO で訓練した訓練済み方策に対し
 | Waterbirds Δ vs SHAP | `python experiments/run_waterbirds.py --config experiments/configs/exp018_waterbirds_30seeds.yaml --outdir experiments/results/exp018_waterbirds_30seeds` |
 | Waterbirds worst-group accuracy | `python experiments/compute_waterbirds_wga.py --input experiments/results/exp018_waterbirds_30seeds/results.csv --outdir experiments/results/exp019_waterbirds_wga` |
 | Waterbirds マスク感度 | `python experiments/run_waterbirds_grabcut_sensitivity.py --config experiments/configs/exp022_waterbirds_grabcut_sensitivity.yaml --outdir experiments/results/exp022_waterbirds_grabcut_sensitivity` |
-| GridWorld 候補発見 sweep | `python experiments/run_gridworld_candidate_discovery_noise_p_sweep.py --config experiments/configs/exp024_gridworld_candidate_discovery_noise_p_sweep.yaml --outdir experiments/results/exp024_gridworld_candidate_discovery_noise_p_sweep` |
+| GridWorld 候補発見 sweep | `python experiments/run_gridworld_candidate_discovery_noise_p_sweep.py --config experiments/configs/exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds.yaml --outdir experiments/results/exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds` |
 | Waterbirds 候補発見 sweep | `python experiments/run_waterbirds_candidate_discovery_sweep.py --config experiments/configs/exp025_waterbirds_candidate_discovery_sweep.yaml --outdir experiments/results/exp025_waterbirds_candidate_discovery_sweep` |
-| Waterbirds CLIP / 自己教師あり表現 | `python experiments/run_waterbirds_representation_candidate_discovery.py --config experiments/configs/exp026_waterbirds_clip_ssl_candidate_discovery.yaml --outdir experiments/results/exp026_waterbirds_clip_ssl_candidate_discovery` |
+| Waterbirds CLIP / 自己教師あり表現 | `python experiments/run_waterbirds_representation_candidate_discovery.py --config experiments/configs/exp028_waterbirds_clip_ssl_candidate_discovery_30seeds.yaml --outdir experiments/results/exp028_waterbirds_clip_ssl_candidate_discovery_30seeds` |
 
 # References
 
