@@ -1,4 +1,65 @@
-﻿[#006-A-001] title / abstract / conclusion の claim-evidence alignment がまだ弱い
+﻿[#007-A-001] 主要メッセージに対して周辺材料が広がりすぎている
+    [方針]
+        [#005-A-003], [#006-A-003] の再指摘。
+        candidate discovery sweep, CLIP/SSL, worst-group accuracy, LunarLander を「第二の主題」に見せず、confirmation after discovery の補助証拠として従属させる。
+    [修正案] 発見系・WGA・LunarLander の扱いを本文でさらに圧縮するか、Appendix へ送る範囲を増やす。
+    [対応] 却下。だっていろいろ言いたいんですもん。
+[#007-A-002] repair prioritization の主張はまだ証拠不足
+    [方針]
+        [#004-B-001], [#004-B-002], [#006-A-003] の再指摘。
+        downstream remediation を実験していない以上、「修正優先順位づけに有用」とまで言い切る箇所は少し慎重にする。
+    [修正案] repair prioritization は practical implication として弱め、主張の芯は confirmation information に戻す。
+    [対応] 却下。Waterbirds では候補が実質 background / foreground の二択なので、exp026 の top-1 候補と exp022 の Delta 判定を照合している時点で、後段へ渡したときの振る舞いはかなり直接的に読めるはず。これにほんとに真摯に対応して実験を増やす意味がない。
+[#007-B-001] ColoredMNIST の SHAP アーティファクト主張が単一集約則に依存して見える
+    [方針]
+        [#004-H-004], [#006-A-002] の再指摘。
+        本稿の SHAP 批判は「本稿で採用した集約則の下では」に限定されることをさらに明確にし、可能なら別集約や別 baseline は将来課題として明記する。
+    [修正案] Abstract / Discussion / Conclusion で限定句を増やし、単一 aggregation rule に依存する分析であることを補足する。
+    [対応] 完了。Abstract / Conclusion の SHAP 記述に「本稿で採用した集約規則の下で」を補い、限定句を追加した。
+[#007-B-002] Waterbirds の 18/30 をどう読むべきかの説明がまだ足りない
+    [方針]
+        [#006-A-002] の再指摘。
+        残る 12/30 が intervention failure なのか、model variability なのか、success 定義の限界なのかを Discussion で短く整理する。
+    [修正案] Waterbirds discussion に、18/30 の残差解釈を 2-3 文で追記する。
+    [対応] 完了。Results / Discussion に、連続差分 `Δ_bg - Δ_fg` の平均と 95% CI、および 18/30 を生む要因（シード差・介入差・厳密な recall@1 定義）の説明を追記した。
+[#007-B-003] compact workflow figure があると全体が締まる
+    [方針]
+        新規指摘。
+        candidate discovery -> candidate confirmation -> human/repair decision の概念図を 1 枚置くと、図が多くても中心線が見えやすくなる。
+    [修正案] workflow の概念図を本文前半に追加する。
+    [対応] 完了。図は追加せず、Introduction に candidate discovery → confirmation → 人手判断の三段手順を prose で追記した。
+[#007-C-001] exp022 の CI 報告パイプラインに不整合がある
+    [方針]
+        [#006-C-003] の再指摘かつ具体化。
+        summary.txt の malformed CI を監査し、少なくとも補助ファイル側の数値整合性を修正する。
+    [修正案] exp022 の CI 生成スクリプトまたは summary 出力を見直し、下限・上限の順序を正しく出す。
+    [対応] 完了。`experiments/run_waterbirds_grabcut_sensitivity.py` の summary 出力を修正し、`experiments/results/exp022_waterbirds_grabcut_sensitivity/summary.txt` の Wilson CI 表示を既存 `results.csv` と整合する値へ補正した。
+[#007-C-002] Waterbirds の連続値差分に対する paired uncertainty / test が欲しい
+    [方針]
+        [#004-I-003], [#006-G-001] の再指摘。
+        `bg>fg rate` だけでなく、per-seed の `Δ_bg - Δ_fg` 自体に paired uncertainty か検定を付けて、連続量としての差も示す。
+    [修正案] Waterbirds の `Δ_bg - Δ_fg` に対して paired CI か paired test を本文で明示する。
+    [対応] 完了。Waterbirds 節に per-seed の `Δ_bg - Δ_fg` 平均 0.0018 と 95% CI [-0.0089, 0.0124] を追記し、二値判定率とは別の連続量として補足した。
+[#007-C-003] exploratory analyses の small-n をもっと明示したい
+    [方針]
+        [#006-C-002], [#006-G-001] の再指摘。
+        exp024 の 5 seeds、exp026 の 10 seeds は exploratory であることを本文でさらに目立つようにする。
+    [修正案] Results または Discussion に、発見系 sweep は exploratory であることを明示し、主張トーンもそれに合わせる。
+    [対応] 対応中。Q5 冒頭で GridWorld 候補発見 sweep は 5 シード、CLIP / 自己教師あり表現比較は 10 シードの探索分析であることを明記し、あわせて 30 シード再実行（`exp027`, `exp028`）を起動済み。
+[#007-D-001] under-length 指摘の再発
+    [方針]
+        [#006-D-002] に同じ。
+    [対応] 却下。([#006-D-002] に同じ)
+[#007-E-001] 介入の「誠実性（Faithfulness）」評価の議論不足
+    [方針] マスクベースの置換自体がアーティファクトを生むリスクについて、専門家による目視確認や補助指標の必要性を Limitations に追記する。
+    [対応] 完了。Limitations に、目視確認と前景保持率・背景置換率のような補助統計を併用して介入の誠実性を点検する必要性を追記した。
+[#007-F-001] クラス整合的背景置換のトレードオフ明示
+    [方針] Class-consistent 置換が「クラス非依存なバイアス」を見逃すリスクについて Discussion で短く触れる。
+    [対応] 完了。Method / Limitations に、class-consistent 背景置換は強い OOD 介入を避ける一方で、クラスに結び付いた背景手掛かりを部分的に残しうること、クラス非依存の背景バイアスには鈍感になりうることを追記した。
+[#007-G-001] GridWorld 数値の不一致（106/120 vs 101/120）
+    [方針] GridWorld top-2 の正確な数値が 101/120 (84%) であることを再確認し、本文の typo を修正する。全表の数値を stats.txt と再照合する。
+    [対応] 完了。GridWorld top-2 の正しい値 `106/120` を維持しつつ、誤っていた 95% CI を `[0.81, 0.93]` に修正した。
+[#006-A-001] title / abstract / conclusion の claim-evidence alignment がまだ弱い
     [方針]
         [#005-A-002], [#005-G-003], [#005-I-001] の再指摘。
         「spurious feature detection」一般を解いたようには書かず、「候補に対する confirmation / functional necessity の確認」へ主張を少しだけ寄せる。

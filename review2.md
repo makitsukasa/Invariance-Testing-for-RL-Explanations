@@ -1,50 +1,49 @@
-# Peer Review Simulation 6: PerformanceCheck - Detecting Spurious Features
+# Peer Review Simulation 7: PerformanceCheck - Detecting Spurious Features
 
 ## Reviewer D (Methodology Expert)
-**Overall Assessment:** The paper presents a well-motivated framework, "PerformanceCheck," which distinguishes between the discovery of spurious feature candidates and the confirmation of their functional necessity. The formalization is solid, but the connection between the "Discovery" phase and the main "PerformanceCheck" results remains numerically thin in the manuscript body.
+**Overall Assessment:** The paper presents a highly mature framework. The formalization of "PerformanceCheck" and its framing within do-calculus provides a solid foundation for post-hoc auditing.
 
 **Strengths:**
-- Clear formalization of PerformanceCheck as a post-hoc intervention.
-- Rigorous distinction between discovery and confirmation phases.
+- Clear formulation of PerformanceCheck.
+- Sound use of do-calculus for operationalizing feature dependency.
 
 **Weaknesses:**
-- **Numerical Connectivity Gap:** While the draft mentions the potential for pipeline integration, the specific numerical results from the discovery-phase experiments (exp024/exp025) are not present in the Results section.
-- **Vague Alignment Data:** The text claims success in connecting discovery to confirmation but doesn't report the specific 80% to 30% alignment drop observed in the logs.
+- **Faithfulness Metrics:** There is limited discussion on how to measure the "faithfulness" of the interventions themselves. How can an auditor be sure a mask-based replacement isn't introducing its own artifacts?
+- **Feature Interactions:** The current methodology focuses on individual feature interventions. The potential for multi-feature interaction analysis is not addressed.
 
 **Actionable Revisions:**
-1. **Discovery Statistics:** Integrate the exact probe performance (e.g., 80-100% vs 20-40% in exp024) into a new Results subsection.
-2. **Alignment Numbers:** Explicitly state the 80% to 30% alignment success rates across mask radii from exp025.
+1. **Faithfulness Discussion:** Add a paragraph in Method or Limitations discussing how one might validate intervention quality (e.g., via visual inspection or secondary proxies).
+2. **Interaction Note:** Briefly mention the extension to multi-feature sensitivity in Future Work.
 
 ---
 
 ## Reviewer E (Domain Expert)
-**Overall Assessment:** High relevance to AI safety and shortcut learning. The use of real-world-style Waterbirds and the inclusion of CLIP/SSL based discovery significantly modernize the work.
+**Overall Assessment:** The paper's insight into SHAP artifacts in ColoredMNIST is a significant contribution to the domain. The pipeline evaluation using CLIP/SSL discovery makes the work highly relevant to current computer vision practices.
 
 **Strengths:**
-- Excellent use of real-world-style Waterbirds benchmark.
-- Modernized approach using CLIP/SSL discovery.
+- Excellent analysis of structural artifacts in attribution methods.
+- Realistic pipeline evaluation using modern CLIP/SSL discovery proxies.
 
 **Weaknesses:**
-- **Superficial Interpretation:** The difference between CLIP (100% alignment for background) and SSL (0% alignment) is noted but not deeply explained. This is a crucial insight for the "Discovery" domain.
-- **Mask-Dependency Caveats:** The limitation of mask-based interventions for non-spatial features needs more prominent discussion.
+- **Replacement Trade-offs:** The trade-offs of class-consistent background replacement are not fully detailed. Does this strategy risk masking certain types of spurious dependencies that are class-agnostic?
+- **Mask Visualization:** While mask sensitivity is quantified, visual examples of "tight" vs "loose" masks would help ground the results for practitioners.
 
 **Actionable Revisions:**
-1. **Semantic Analysis:** Expand the Discussion on *why* CLIP's semantic text-image alignment makes it more suitable for background-spurious discovery compared to DINOv2.
-2. **Localization Discussion:** Address the hurdles of applying this framework to non-localized features (e.g., in medical or tabular domains).
+1. **Replacement Strategy:** Clarify the rationale for class-consistent replacement and discuss potential class-agnostic bias cases.
+2. **Visual Examples:** Add a figure showing example mask perturbations (-3px vs +3px) in the Appendix.
 
 ---
 
 ## Reviewer F (Statistics/Rigor Expert)
-**Overall Assessment:** Statistical reporting is generally strong, particularly the use of Wilson CIs and McNemar tests. However, some connectivity claims lack the same level of statistical grounding as the core Δ results.
+**Overall Assessment:** The paper is exemplary in its use of 30 seeds, Wilson CIs, and McNemar tests. The reproducibility appendix is highly detailed. However, a critical numerical discrepancy exists.
 
 **Strengths:**
-- Strong reporting with n=30 seeds and 95% CIs.
-- Appropriate use of McNemar tests for paired comparisons.
+- Exceptional statistical reporting and uncertainty quantification.
+- Detailed reproducibility documentation.
 
 **Weaknesses:**
-- **Claim-Evidence Mismatch:** The manuscript claims high connectivity success but hasn't updated the primary tables or prose to include the discovery-confirmation alignment stats.
-- **Metric Inconsistency:** Some point estimates lack associated standard deviations or range indicators in the new discovery results.
+- **Numerical Discrepancy:** The Results section claims a detection rate of 106/120 (88%) for GridWorld top-2, but the provided 95% CI [0.77, 0.90] matches the actual count of 101/120 (84%) from the experiment logs. This typo undermines the precision of the paper.
 
 **Actionable Revisions:**
-1. **Connectivity Table:** Add a small table or prose section summarizing the alignment percentages between discovery proxies and PerformanceCheck across the 30 seeds.
-2. **Statistical Consistency:** Ensure all new discovery numbers (top-1 recall, alignment %) include CI or standard deviations.
+1. **Numerical Audit:** Re-verify and synchronize every single count and percentage in the Tables and Prose against the raw `stats.txt` outputs.
+2. **Standard Deviations:** Add standard deviations where appropriate for point estimates in the Discovery Results.
