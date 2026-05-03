@@ -454,7 +454,7 @@ def main() -> None:
                 f"  delta_bg = {mean_bg:.4f} (+{hi_bg:.4f}/-{lo_bg:.4f})",
                 f"  delta_fg = {mean_fg:.4f} (+{hi_fg:.4f}/-{lo_fg:.4f})",
                 f"  delta_gap = {mean_gap:.4f} (+{hi_gap:.4f}/-{lo_gap:.4f})",
-                f"  bg>fg rate = {correct}/{n} ({100.0 * rate:.1f}%, 95% CI [{lo:.3f}, {hi:.3f}])",
+                f"  bg>fg rate = {correct}/{n} ({100.0 * rate:.1f}%, 95% CI [{max(0.0, rate - lo):.3f}, {min(1.0, rate + hi):.3f}])",
             ]
         )
 
