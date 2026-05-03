@@ -1,0 +1,18 @@
+
+============================================================
+Seed 18 / p=0.05 / noise=3
+============================================================
+  [1/5] Oracle training...
+    Saved oracle: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds\checkpoints\p_0p05__noise_03\oracle\seed_018.zip
+  [2/5] Data collection...
+  [3/5] Surrogate distillation...
+    Saved surrogate: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds\checkpoints\p_0p05__noise_03\surrogate\seed_018.pkl
+    Stage 1 agreement: AA=0.949
+  [4/5] PerformanceCheck profile...
+    PerformanceCheck top deltas: c_spurious=0.644, agent_y=0.079, noise_1=0.060
+  [5/5] Candidate discovery ranking...
+    mutual_info: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    linear_probe_drop: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    tree_probe_drop: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    random: top=agent_x, spurious_rank=2, top1_hit=False, pc_rank=5
+    Task elapsed: 50.0 sec

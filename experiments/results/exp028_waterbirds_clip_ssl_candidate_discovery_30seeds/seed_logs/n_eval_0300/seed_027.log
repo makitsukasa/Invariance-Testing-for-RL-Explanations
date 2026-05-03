@@ -1,0 +1,10 @@
+
+============================================================
+Seed 27 / n_eval=300
+============================================================
+  radius=-3: processed 2 backends
+  radius=-1: processed 2 backends
+  radius=0: processed 2 backends
+  radius=1: processed 2 backends
+  radius=3: processed 2 backends
+    Task elapsed: 511.0 sec
