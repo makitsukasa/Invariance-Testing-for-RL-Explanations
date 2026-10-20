@@ -72,7 +72,7 @@ Table 1: Summary of the three evaluation settings.
 
 In GridWorld, `PerformanceCheck` maintains high detection in low-correlation regimes and degrades gradually as `p` increases. Across all 120 trials, it achieves `85/120` top-1 detections and `106/120` top-2 detections. SHAP achieves `14/120` top-1 and `21/120` top-2. Paired McNemar tests confirm that the gap is significant for both top-1 (`p = 8.38 x 10^-16`) and top-2 (`p = 2.04 x 10^-4`).
 
-This result supports the idea that direct intervention on candidate features can recover operational dependence even when attribution to output variance favors correlated non-spurious dimensions.
+This result supports the idea that direct intervention on candidate features can recover operational dependence even when attribution of the model output (mean absolute Shapley values of the Q-values) favors correlated non-spurious dimensions.
 
 ![Figure 1: GridWorld comparison. `PerformanceCheck` maintains high detection in low-correlation regimes, while SHAP struggles to rank the spurious feature highly in the same setting.](experiments/results/exp016_shap_psweep_30seeds/results.png)
 
