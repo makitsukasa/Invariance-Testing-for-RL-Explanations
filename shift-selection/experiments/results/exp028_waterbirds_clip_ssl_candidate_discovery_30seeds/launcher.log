@@ -1,0 +1,8 @@
+﻿started_at=2026-05-03 15:16:17
+pid=1404
+config=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\configs\exp028_waterbirds_clip_ssl_candidate_discovery_30seeds.yaml
+entry=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\run_waterbirds_representation_candidate_discovery.py
+outdir=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp028_waterbirds_clip_ssl_candidate_discovery_30seeds
+stdout=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp028_waterbirds_clip_ssl_candidate_discovery_30seeds\run.log
+stderr=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp028_waterbirds_clip_ssl_candidate_discovery_30seeds\run.err
+runner_script=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp028_waterbirds_clip_ssl_candidate_discovery_30seeds\background_runner.ps1

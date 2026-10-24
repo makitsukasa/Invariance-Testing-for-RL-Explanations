@@ -1,0 +1,17 @@
+
+============================================================
+Seed 20 / n_eval=100
+============================================================
+  [1/5] Loaded checkpoint: experiments\results\exp018_waterbirds_30seeds\checkpoints\seed_20.pt
+    val_acc=0.814
+  [2/5] Loading evaluation subset and donor pools...
+  [3/5] PCA proxy on original batch...
+    PCA bg=0.945, fg=0.855, ok=True
+  [4/5] Radius sweep...
+    radius=-3: fraction(bg=0.280, fg=0.120), mean_delta(bg=0.089, fg=0.002), pc_ref=bg
+    radius=-1: fraction(bg=0.270, fg=0.140), mean_delta(bg=0.086, fg=0.007), pc_ref=bg
+    radius=0: fraction(bg=0.280, fg=0.150), mean_delta(bg=0.085, fg=0.002), pc_ref=bg
+    radius=1: fraction(bg=0.270, fg=0.150), mean_delta(bg=0.083, fg=0.007), pc_ref=bg
+    radius=3: fraction(bg=0.270, fg=0.150), mean_delta(bg=0.089, fg=0.010), pc_ref=bg
+  [5/5] Done
+    Task elapsed: 43.7 sec

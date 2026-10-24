@@ -1,0 +1,28 @@
+name: exp011_shap_psweep
+description: "SHAP vs 介入テスト Δ の比較。exp005 と同条件（GridWorld 10次元、p sweep）で両手法を同一 oracle・seed で評価し、spurious 特徴 c の検出率を比較する。"
+
+env:
+  p_values: [0.0, 0.1, 0.2, 0.3]
+  n_noise: 7
+
+oracle:
+  n_steps: 50000
+
+surrogate:
+  n_experts: 4
+  max_depth: 5
+  distill_epochs: 100
+  n_distill_samples: 10000
+
+shap:
+  n_background: 100
+  n_eval: 300
+  n_samples: 100
+
+evaluation:
+  seeds: [42, 123, 456, 789, 0]
+  n_eval_samples: 2000
+  n_eval_episodes: 200
+
+n_workers: 4
+output_dir: experiments/results/exp011_shap_psweep

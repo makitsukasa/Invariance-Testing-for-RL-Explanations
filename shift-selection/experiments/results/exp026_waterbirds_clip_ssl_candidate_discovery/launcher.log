@@ -1,0 +1,9 @@
+﻿started_at=2026-05-03 03:58:29
+pid=29836
+config=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\configs\exp026_waterbirds_clip_ssl_candidate_discovery.yaml
+entry=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\run_waterbirds_representation_candidate_discovery.py
+outdir=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp026_waterbirds_clip_ssl_candidate_discovery
+stdout=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp026_waterbirds_clip_ssl_candidate_discovery\run.log
+stderr=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp026_waterbirds_clip_ssl_candidate_discovery\run.err
+runner_script=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp026_waterbirds_clip_ssl_candidate_discovery\background_runner.ps1
+offline=1

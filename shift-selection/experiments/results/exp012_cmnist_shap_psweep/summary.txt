@@ -1,0 +1,30 @@
+=== exp012_cmnist_shap_psweep ===
+
+   p  delta detect  SHAP detect
+-----------------------------------
+ 0.0  5/5 (100%)  5/5 (100%)
+ 0.1  5/5 (100%)  5/5 (100%)
+ 0.2  5/5 (100%)  5/5 (100%)
+ 0.3  2/5 (40%)  5/5 (100%)
+
+Per-seed:
+  p=0.0 seed=0: delta=OK (hue=0.498, struct=0.000)  shap=OK (color_attr=0.0250, struct_attr=0.0133)
+  p=0.0 seed=42: delta=OK (hue=0.499, struct=0.067)  shap=OK (color_attr=0.0272, struct_attr=0.0149)
+  p=0.0 seed=123: delta=OK (hue=0.502, struct=0.000)  shap=OK (color_attr=0.0238, struct_attr=0.0122)
+  p=0.0 seed=456: delta=OK (hue=0.505, struct=0.005)  shap=OK (color_attr=0.0235, struct_attr=0.0130)
+  p=0.0 seed=789: delta=OK (hue=0.504, struct=0.013)  shap=OK (color_attr=0.0277, struct_attr=0.0148)
+  p=0.1 seed=0: delta=OK (hue=0.337, struct=0.044)  shap=OK (color_attr=0.0124, struct_attr=0.0064)
+  p=0.1 seed=42: delta=OK (hue=0.350, struct=0.045)  shap=OK (color_attr=0.0141, struct_attr=0.0071)
+  p=0.1 seed=123: delta=OK (hue=0.354, struct=0.099)  shap=OK (color_attr=0.0152, struct_attr=0.0077)
+  p=0.1 seed=456: delta=OK (hue=0.378, struct=0.039)  shap=OK (color_attr=0.0132, struct_attr=0.0067)
+  p=0.1 seed=789: delta=OK (hue=0.343, struct=0.043)  shap=OK (color_attr=0.0144, struct_attr=0.0074)
+  p=0.2 seed=0: delta=OK (hue=0.168, struct=0.076)  shap=OK (color_attr=0.0118, struct_attr=0.0062)
+  p=0.2 seed=42: delta=OK (hue=0.192, struct=0.119)  shap=OK (color_attr=0.0136, struct_attr=0.0069)
+  p=0.2 seed=123: delta=OK (hue=0.162, struct=0.033)  shap=OK (color_attr=0.0132, struct_attr=0.0065)
+  p=0.2 seed=456: delta=OK (hue=0.194, struct=0.036)  shap=OK (color_attr=0.0082, struct_attr=0.0042)
+  p=0.2 seed=789: delta=OK (hue=0.206, struct=0.050)  shap=OK (color_attr=0.0122, struct_attr=0.0062)
+  p=0.3 seed=0: delta=NG (hue=0.061, struct=0.072)  shap=OK (color_attr=0.0123, struct_attr=0.0063)
+  p=0.3 seed=42: delta=OK (hue=0.074, struct=0.043)  shap=OK (color_attr=0.0123, struct_attr=0.0063)
+  p=0.3 seed=123: delta=NG (hue=0.065, struct=0.087)  shap=OK (color_attr=0.0149, struct_attr=0.0073)
+  p=0.3 seed=456: delta=OK (hue=0.067, struct=0.054)  shap=OK (color_attr=0.0071, struct_attr=0.0036)
+  p=0.3 seed=789: delta=NG (hue=0.075, struct=0.137)  shap=OK (color_attr=0.0116, struct_attr=0.0058)

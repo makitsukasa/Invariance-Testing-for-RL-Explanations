@@ -1,0 +1,18 @@
+
+============================================================
+Seed 456
+============================================================
+  [1/5] Oracle training...
+    Saved oracle: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp023_gridworld_candidate_discovery_directtest_escalated\checkpoints\oracle\seed_456.zip
+  [2/5] Data collection...
+  [3/5] Surrogate distillation...
+    Saved surrogate: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp023_gridworld_candidate_discovery_directtest_escalated\checkpoints\surrogate\seed_456.pkl
+    Stage 1 agreement: AA=0.918
+  [4/5] PerformanceCheck profile...
+    PerformanceCheck top deltas: c_spurious=0.516, agent_y=0.019, noise_0=0.013
+  [5/5] Candidate discovery ranking...
+    mutual_info: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    linear_probe_drop: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    tree_probe_drop: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    random: top=noise_2, spurious_rank=6, top1_hit=False, pc_rank=5
+    Seed elapsed: 63.8 sec

@@ -1,0 +1,8 @@
+﻿started_at=2026-05-03 14:00:35
+pid=30456
+config=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\configs\exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds.yaml
+entry=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\run_gridworld_candidate_discovery_noise_p_sweep.py
+outdir=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds
+stdout=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds\run.log
+stderr=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds\run.err
+runner_script=C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds\background_runner.ps1

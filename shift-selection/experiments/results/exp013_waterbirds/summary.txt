@@ -1,0 +1,11 @@
+=== exp013_waterbirds ===
+
+delta detect: 5/5 (100%)
+SHAP  detect: 5/5  (100%)
+
+Per-seed:
+  seed=0: val_acc=0.822  delta=OK (bg=0.100, fg=0.078)  shap=OK (bg=0.8942, fg=0.1058)
+  seed=42: val_acc=0.786  delta=OK (bg=0.094, fg=0.084)  shap=OK (bg=0.8604, fg=0.1396)
+  seed=123: val_acc=0.759  delta=OK (bg=0.122, fg=0.094)  shap=OK (bg=0.8562, fg=0.1438)
+  seed=456: val_acc=0.796  delta=OK (bg=0.116, fg=0.091)  shap=OK (bg=0.8620, fg=0.1380)
+  seed=789: val_acc=0.776  delta=OK (bg=0.122, fg=0.075)  shap=OK (bg=0.8709, fg=0.1291)

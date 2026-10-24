@@ -1,0 +1,97 @@
+Experiment : exp001_shap_gridworld
+Seeds      : [42, 123, 456, 789, 0]
+Workers    : 4
+[DONE] seed=456: SHAP_1st=c (spurious), AA_train=0.988, Stage1=PASS, collapse=True
+[DONE] seed=123: SHAP_1st=c (spurious), AA_train=0.975, Stage1=PASS, collapse=True
+[DONE] seed=42: SHAP_1st=c (spurious), AA_train=0.957, Stage1=PASS, collapse=True
+[DONE] seed=789: SHAP_1st=agent_y, AA_train=0.996, Stage1=PASS, collapse=True
+[DONE] seed=0: SHAP_1st=agent_y, AA_train=0.992, Stage1=PASS, collapse=True
+
+============================================================
+Seed 0
+============================================================
+  [1/5] Oracle training...
+  [2/5] Data collection...
+  [3/5] SHAP analysis...
+    Ranking : ['agent_y', 'c (spurious)', 'agent_x']
+    Mean |SHAP|: agent_x=0.0166, agent_y=0.0448, c (spurious)=0.0351
+    Auto-selected: agent_y -> WRONG
+  [4/5] Surrogate training (MoET)...
+  [5/5] Stage 1: AA=0.992 (PASS), J_oracle=0.550, J_S=0.550
+    Stage 2 (c reversed): AA=0.990, J_oracle=-1.000, J_S=-1.000 -> COLLAPSE DETECTED
+    Control (x random): AA=0.917
+    Control (y random): AA=0.920
+
+============================================================
+Seed 42
+============================================================
+  [1/5] Oracle training...
+  [2/5] Data collection...
+  [3/5] SHAP analysis...
+    Ranking : ['c (spurious)', 'agent_y', 'agent_x']
+    Mean |SHAP|: agent_x=0.0799, agent_y=0.0812, c (spurious)=0.1781
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4/5] Surrogate training (MoET)...
+  [5/5] Stage 1: AA=0.957 (PASS), J_oracle=0.930, J_S=0.930
+    Stage 2 (c reversed): AA=0.897, J_oracle=-1.000, J_S=-1.000 -> COLLAPSE DETECTED
+    Control (x random): AA=0.816
+    Control (y random): AA=0.893
+
+============================================================
+Seed 123
+============================================================
+  [1/5] Oracle training...
+  [2/5] Data collection...
+  [3/5] SHAP analysis...
+    Ranking : ['c (spurious)', 'agent_y', 'agent_x']
+    Mean |SHAP|: agent_x=0.0548, agent_y=0.0694, c (spurious)=0.1932
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4/5] Surrogate training (MoET)...
+  [5/5] Stage 1: AA=0.975 (PASS), J_oracle=0.932, J_S=0.932
+    Stage 2 (c reversed): AA=0.442, J_oracle=-1.000, J_S=-1.000 -> COLLAPSE DETECTED
+    Control (x random): AA=0.916
+    Control (y random): AA=0.818
+
+============================================================
+Seed 456
+============================================================
+  [1/5] Oracle training...
+  [2/5] Data collection...
+  [3/5] SHAP analysis...
+    Ranking : ['c (spurious)', 'agent_x', 'agent_y']
+    Mean |SHAP|: agent_x=0.0689, agent_y=0.0583, c (spurious)=0.1246
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4/5] Surrogate training (MoET)...
+  [5/5] Stage 1: AA=0.988 (PASS), J_oracle=0.967, J_S=0.967
+    Stage 2 (c reversed): AA=0.958, J_oracle=-1.000, J_S=-1.000 -> COLLAPSE DETECTED
+    Control (x random): AA=0.939
+    Control (y random): AA=0.914
+
+============================================================
+Seed 789
+============================================================
+  [1/5] Oracle training...
+  [2/5] Data collection...
+  [3/5] SHAP analysis...
+    Ranking : ['agent_y', 'agent_x', 'c (spurious)']
+    Mean |SHAP|: agent_x=0.0102, agent_y=0.0129, c (spurious)=0.0034
+    Auto-selected: agent_y -> WRONG
+  [4/5] Surrogate training (MoET)...
+  [5/5] Stage 1: AA=0.996 (PASS), J_oracle=0.220, J_S=0.220
+    Stage 2 (c reversed): AA=0.999, J_oracle=-1.000, J_S=-1.000 -> COLLAPSE DETECTED
+    Control (x random): AA=0.889
+    Control (y random): AA=0.998
+
+============================================================
+SUMMARY
+============================================================
+Stage 1 pass (AA >= 0.9): 100%  (5/5 seeds)
+Q1. SHAP correctly ranked c as top: 60%  (3/5 seeds)
+    Mean |SHAP|: x=0.0461, y=0.0533, c=0.1069
+Q2. Stage 2 collapse (c reversed):  100%  (5/5 seeds)
+    J_S train=0.720, reversed=-1.000
+Q3. Control AA: AA_x=0.895, AA_y=0.909
+summary.txt -> C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp001_shap_gridworld\summary.txt
+
+Results: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp001_shap_gridworld
+EXIT:0

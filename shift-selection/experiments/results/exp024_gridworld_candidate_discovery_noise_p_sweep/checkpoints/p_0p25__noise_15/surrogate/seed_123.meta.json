@@ -1,0 +1,8 @@
+{
+  "seed": 123,
+  "spurious_p": 0.25,
+  "n_noise": 15,
+  "saved_at": "2026-05-03 01:10:55",
+  "config_hash": "7b2263616e6469646174655f64697363",
+  "path": "C:/Users/tsukasa/Documents/rl-shift-auto-detection/experiments/results/exp024_gridworld_candidate_discovery_noise_p_sweep/checkpoints/p_0p25__noise_15/surrogate/seed_123.pkl"
+}

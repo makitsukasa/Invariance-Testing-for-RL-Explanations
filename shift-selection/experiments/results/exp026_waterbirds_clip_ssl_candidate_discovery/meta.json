@@ -1,0 +1,184 @@
+{
+  "experiment": "exp026_waterbirds_clip_ssl_candidate_discovery",
+  "state": "completed",
+  "session_id": "exp026_waterbirds_clip_ssl_candidate_discovery-20260503-035838",
+  "started_at": "2026-05-03 03:58:38",
+  "completed_at": "2026-05-03 04:56:11",
+  "output_dir": "C:/Users/tsukasa/Documents/rl-shift-auto-detection/experiments/results/exp026_waterbirds_clip_ssl_candidate_discovery",
+  "config_hash": "7b2263616e6469646174655f64697363",
+  "resume_enabled": false,
+  "planned_tasks": [
+    {
+      "seed": 0,
+      "n_eval": 100
+    },
+    {
+      "seed": 1,
+      "n_eval": 100
+    },
+    {
+      "seed": 2,
+      "n_eval": 100
+    },
+    {
+      "seed": 3,
+      "n_eval": 100
+    },
+    {
+      "seed": 4,
+      "n_eval": 100
+    },
+    {
+      "seed": 5,
+      "n_eval": 100
+    },
+    {
+      "seed": 6,
+      "n_eval": 100
+    },
+    {
+      "seed": 7,
+      "n_eval": 100
+    },
+    {
+      "seed": 8,
+      "n_eval": 100
+    },
+    {
+      "seed": 9,
+      "n_eval": 100
+    },
+    {
+      "seed": 0,
+      "n_eval": 300
+    },
+    {
+      "seed": 1,
+      "n_eval": 300
+    },
+    {
+      "seed": 2,
+      "n_eval": 300
+    },
+    {
+      "seed": 3,
+      "n_eval": 300
+    },
+    {
+      "seed": 4,
+      "n_eval": 300
+    },
+    {
+      "seed": 5,
+      "n_eval": 300
+    },
+    {
+      "seed": 6,
+      "n_eval": 300
+    },
+    {
+      "seed": 7,
+      "n_eval": 300
+    },
+    {
+      "seed": 8,
+      "n_eval": 300
+    },
+    {
+      "seed": 9,
+      "n_eval": 300
+    }
+  ],
+  "completed_tasks": [
+    {
+      "seed": 0,
+      "n_eval": 100
+    },
+    {
+      "seed": 0,
+      "n_eval": 300
+    },
+    {
+      "seed": 1,
+      "n_eval": 100
+    },
+    {
+      "seed": 1,
+      "n_eval": 300
+    },
+    {
+      "seed": 2,
+      "n_eval": 100
+    },
+    {
+      "seed": 2,
+      "n_eval": 300
+    },
+    {
+      "seed": 3,
+      "n_eval": 100
+    },
+    {
+      "seed": 3,
+      "n_eval": 300
+    },
+    {
+      "seed": 4,
+      "n_eval": 100
+    },
+    {
+      "seed": 4,
+      "n_eval": 300
+    },
+    {
+      "seed": 5,
+      "n_eval": 100
+    },
+    {
+      "seed": 5,
+      "n_eval": 300
+    },
+    {
+      "seed": 6,
+      "n_eval": 100
+    },
+    {
+      "seed": 6,
+      "n_eval": 300
+    },
+    {
+      "seed": 7,
+      "n_eval": 100
+    },
+    {
+      "seed": 7,
+      "n_eval": 300
+    },
+    {
+      "seed": 8,
+      "n_eval": 100
+    },
+    {
+      "seed": 8,
+      "n_eval": 300
+    },
+    {
+      "seed": 9,
+      "n_eval": 100
+    },
+    {
+      "seed": 9,
+      "n_eval": 300
+    }
+  ],
+  "n_workers": 2,
+  "estimated_minutes_total": 120.0,
+  "estimated_minutes_per_task": 12.0,
+  "mask_radii": [
+    -3,
+    -1,
+    0,
+    1,
+    3
+  ]
+}

@@ -1,0 +1,12 @@
+=== exp020 Waterbirds mask sensitivity ===
+seed: 0
+val_acc: 0.8215
+mask_radii: [-3, -1, 0, 1, 3]
+decision flips (delta_bg <= delta_fg): 0/5
+
+ mask_radius   j_base  j_bg_replace  j_fg_noise  delta_bg  delta_fg  delta_gap  delta_correct
+          -3 0.728125      0.600000    0.640625  0.128125  0.087500   0.040625           True
+          -1 0.728125      0.621875    0.650000  0.106250  0.078125   0.028125           True
+           0 0.728125      0.621875    0.640625  0.106250  0.087500   0.018750           True
+           1 0.728125      0.628125    0.653125  0.100000  0.075000   0.025000           True
+           3 0.728125      0.618750    0.628125  0.109375  0.100000   0.009375           True

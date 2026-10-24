@@ -1,0 +1,27 @@
+﻿{
+    "experiment":  "exp023_gridworld_candidate_discovery",
+    "state":  "completed",
+    "session_id":  "exp023_gridworld_candidate_discovery-20260503-005355",
+    "started_at":  "2026-05-03 00:53:55",
+    "completed_at":  "2026-05-03 00:55:50",
+    "output_dir":  "C:/Users/tsukasa/Documents/rl-shift-auto-detection/experiments/results/exp023_gridworld_candidate_discovery",
+    "config_hash":  "7b2263616e6469646174655f64697363",
+    "resume_enabled":  false,
+    "planned_seeds":  [
+                          0,
+                          42,
+                          123,
+                          456,
+                          789
+                      ],
+    "completed_seeds":  [
+                            0,
+                            42,
+                            123,
+                            456,
+                            789
+                        ],
+    "n_workers":  4,
+    "estimated_minutes_total":  10.0,
+    "estimated_minutes_per_seed":  8.0
+}

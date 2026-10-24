@@ -1,0 +1,26 @@
+=== exp001_shap_gridworld ===
+SpuriousGridWorld (p=0.0) で SHAP による自動シフト候補選択 + 前論文 Stage 2 評価のパイロット実験。MoET d=5 で Stage 1 を確実に達成し、SHAP が c を正しく上位に出すかを確認する。
+
+Seeds  : [0, 42, 123, 456, 789]
+Oracle : DQN 50000 steps
+Surrogate: MoET K=4, d=5, epochs=100, n=10000
+
+Stage 1 pass (AA>=0.9): 100% (5/5)
+
+Q1. SHAP correctly identified c as top: 60% (3/5)
+    Mean |SHAP|: x=0.0461+-0.0312
+               y=0.0533+-0.0263
+               c=0.1069+-0.0847
+
+Q2. Collapse (c reversed): 100% (5/5)
+    J_S train   = 0.720+-0.327
+    J_S reversed= -1.000+-0.000
+
+Q3. Control AA: AA_x=0.895+-0.048, AA_y=0.909+-0.064
+
+Per-seed:
+  seed=0: SHAP_1st=agent_y, Stage1=PASS, AA=0.992, J_S_train=0.550, J_S_rev=-1.000, collapse=True
+  seed=42: SHAP_1st=c (spurious), Stage1=PASS, AA=0.957, J_S_train=0.930, J_S_rev=-1.000, collapse=True
+  seed=123: SHAP_1st=c (spurious), Stage1=PASS, AA=0.975, J_S_train=0.932, J_S_rev=-1.000, collapse=True
+  seed=456: SHAP_1st=c (spurious), Stage1=PASS, AA=0.988, J_S_train=0.967, J_S_rev=-1.000, collapse=True
+  seed=789: SHAP_1st=agent_y, Stage1=PASS, AA=0.996, J_S_train=0.220, J_S_rev=-1.000, collapse=True

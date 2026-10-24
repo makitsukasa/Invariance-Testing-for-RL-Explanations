@@ -1,0 +1,45 @@
+name: exp028_waterbirds_clip_ssl_candidate_discovery_30seeds
+description: >
+  Waterbirds における CLIP / 自己教師あり表現ベースの候補発見を 30 シードへ拡張し、
+  candidate discovery -> confirmation の接続性を exploratory ではなく補強的に確認する。
+data:
+  root: data/waterbirds/waterbird_complete95_forest2water2
+
+input:
+  exp022_results_csv: experiments/results/exp022_waterbirds_grabcut_sensitivity/results.csv
+  mask_cache_path: experiments/results/exp022_waterbirds_grabcut_sensitivity/base_mask_cache.pt
+
+candidate_discovery:
+  donor_pool_n: 200
+  batch_size: 16
+
+intervention:
+  mask_radii: [-3, -1, 0, 1, 3]
+
+evaluation:
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+  n_eval_values: [100, 300]
+
+representations:
+  methods:
+    - name: clip_vit_b32
+      backend:
+        backend_type: transformers_clip
+        model_name_or_path: openai/clip-vit-base-patch32
+        local_files_only: false
+        name: clip_vit_b32
+        cache_dir: data/model_cache/huggingface
+    - name: ssl_dinov2_small
+      backend:
+        backend_type: transformers_auto_image
+        model_name_or_path: facebook/dinov2-small
+        local_files_only: false
+        pooling: cls
+        name: ssl_dinov2_small
+        cache_dir: data/model_cache/huggingface
+
+runtime:
+  estimated_minutes_per_task: 12.0
+
+n_workers: 2
+output_dir: experiments/results/exp028_waterbirds_clip_ssl_candidate_discovery_30seeds

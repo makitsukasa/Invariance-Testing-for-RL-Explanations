@@ -1,0 +1,73 @@
+Experiment : exp008_colored_mnist
+Seeds      : [42, 123, 456, 789, 0]
+spurious_p : 0.0 (train)  /  1.0 (Stage 2)
+
+============================================================
+Seed 42
+============================================================
+  [2/4] Oracle training...
+  [3/4] Surrogate distillation...
+  [4/4] Intervention test...
+    Stage 1: AA=1.000 (PASS), J_oracle=1.000, J_S_train=1.000
+    Stage 2 (anti-corr): J_S=0.000 -> collapse
+    ƒ¢: hue=0.504, structure=0.000
+    Auto-selected: hue -> CORRECT
+[DONE] seed=42: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.504, ƒ¢_struct=0.000, selected=hue, correct=True, collapse=True
+
+============================================================
+Seed 123
+============================================================
+  [2/4] Oracle training...
+  [3/4] Surrogate distillation...
+  [4/4] Intervention test...
+    Stage 1: AA=1.000 (PASS), J_oracle=1.000, J_S_train=1.000
+    Stage 2 (anti-corr): J_S=0.000 -> collapse
+    ƒ¢: hue=0.502, structure=0.000
+    Auto-selected: hue -> CORRECT
+[DONE] seed=123: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.502, ƒ¢_struct=0.000, selected=hue, correct=True, collapse=True
+
+============================================================
+Seed 456
+============================================================
+  [2/4] Oracle training...
+  [3/4] Surrogate distillation...
+  [4/4] Intervention test...
+    Stage 1: AA=1.000 (PASS), J_oracle=1.000, J_S_train=1.000
+    Stage 2 (anti-corr): J_S=0.000 -> collapse
+    ƒ¢: hue=0.498, structure=0.001
+    Auto-selected: hue -> CORRECT
+[DONE] seed=456: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.498, ƒ¢_struct=0.001, selected=hue, correct=True, collapse=True
+
+============================================================
+Seed 789
+============================================================
+  [2/4] Oracle training...
+  [3/4] Surrogate distillation...
+  [4/4] Intervention test...
+    Stage 1: AA=1.000 (PASS), J_oracle=1.000, J_S_train=1.000
+    Stage 2 (anti-corr): J_S=0.000 -> collapse
+    ƒ¢: hue=0.499, structure=0.000
+    Auto-selected: hue -> CORRECT
+[DONE] seed=789: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.499, ƒ¢_struct=0.000, selected=hue, correct=True, collapse=True
+
+============================================================
+Seed 0
+============================================================
+  [2/4] Oracle training...
+  [3/4] Surrogate distillation...
+  [4/4] Intervention test...
+    Stage 1: AA=1.000 (PASS), J_oracle=1.000, J_S_train=1.000
+    Stage 2 (anti-corr): J_S=0.000 -> collapse
+    ƒ¢: hue=0.495, structure=0.000
+    Auto-selected: hue -> CORRECT
+[DONE] seed=0: AA=1.000, J_oracle=1.000, ƒ¢_hue=0.495, ƒ¢_struct=0.000, selected=hue, correct=True, collapse=True
+
+============================================================
+SUMMARY (5 seeds)
+  Stage 1 pass (AA>=0.9) : 5/5
+  Intervention correct   : 5/5
+  Stage 2 collapse       : 5/5
+  mean AA       : 1.000
+  mean J_oracle : 1.000
+  mean ƒ¢_hue    : 0.500
+  mean ƒ¢_struct : 0.000

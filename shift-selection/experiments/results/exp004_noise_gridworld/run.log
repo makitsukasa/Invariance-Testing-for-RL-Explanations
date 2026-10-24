@@ -1,0 +1,125 @@
+Experiment : exp004_noise_gridworld
+Seeds      : [42, 123, 456, 789, 0]
+Workers    : 4
+Features   : ['agent_x', 'agent_y', 'c (spurious)', 'noise_0', 'noise_1', 'noise_2', 'noise_3', 'noise_4', 'noise_5', 'noise_6']
+[DONE] seed=123: selected=c (spurious), correct=True, AA=0.916
+[DONE] seed=789: selected=c (spurious), correct=True, AA=0.915
+[DONE] seed=42: selected=c (spurious), correct=True, AA=0.909
+[DONE] seed=456: selected=c (spurious), correct=True, AA=0.906
+[DONE] seed=0: selected=c (spurious), correct=True, AA=0.912
+
+============================================================
+Seed 0
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.912 (PASS), J_S_train=0.969
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.946
+    agent_y: J_S_perturbed=0.933
+    c (spurious): J_S_perturbed=0.446
+    noise_0: J_S_perturbed=0.967
+    noise_1: J_S_perturbed=0.966
+    noise_2: J_S_perturbed=0.968
+    noise_3: J_S_perturbed=0.971
+    noise_4: J_S_perturbed=0.967
+    noise_5: J_S_perturbed=0.971
+    noise_6: J_S_perturbed=0.968
+    ƒ¢: agent_x=0.023, agent_y=0.036, c (spurious)=0.522, noise_0=0.001, noise_1=0.002, noise_2=0.000, noise_3=-0.003, noise_4=0.001, noise_5=-0.002, noise_6=0.001
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+Seed 42
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.909 (PASS), J_S_train=0.968
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.959
+    agent_y: J_S_perturbed=0.901
+    c (spurious): J_S_perturbed=0.448
+    noise_0: J_S_perturbed=0.966
+    noise_1: J_S_perturbed=0.967
+    noise_2: J_S_perturbed=0.967
+    noise_3: J_S_perturbed=0.970
+    noise_4: J_S_perturbed=0.966
+    noise_5: J_S_perturbed=0.968
+    noise_6: J_S_perturbed=0.968
+    ƒ¢: agent_x=0.009, agent_y=0.067, c (spurious)=0.520, noise_0=0.002, noise_1=0.001, noise_2=0.002, noise_3=-0.002, noise_4=0.002, noise_5=-0.000, noise_6=0.001
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+Seed 123
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.916 (PASS), J_S_train=0.968
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.962
+    agent_y: J_S_perturbed=0.883
+    c (spurious): J_S_perturbed=0.485
+    noise_0: J_S_perturbed=0.968
+    noise_1: J_S_perturbed=0.968
+    noise_2: J_S_perturbed=0.965
+    noise_3: J_S_perturbed=0.967
+    noise_4: J_S_perturbed=0.968
+    noise_5: J_S_perturbed=0.969
+    noise_6: J_S_perturbed=0.970
+    ƒ¢: agent_x=0.006, agent_y=0.085, c (spurious)=0.483, noise_0=-0.000, noise_1=-0.000, noise_2=0.003, noise_3=0.000, noise_4=-0.000, noise_5=-0.002, noise_6=-0.002
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+Seed 456
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.906 (PASS), J_S_train=0.967
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.888
+    agent_y: J_S_perturbed=0.966
+    c (spurious): J_S_perturbed=0.422
+    noise_0: J_S_perturbed=0.970
+    noise_1: J_S_perturbed=0.969
+    noise_2: J_S_perturbed=0.969
+    noise_3: J_S_perturbed=0.969
+    noise_4: J_S_perturbed=0.970
+    noise_5: J_S_perturbed=0.969
+    noise_6: J_S_perturbed=0.968
+    ƒ¢: agent_x=0.079, agent_y=0.001, c (spurious)=0.545, noise_0=-0.003, noise_1=-0.002, noise_2=-0.002, noise_3=-0.002, noise_4=-0.003, noise_5=-0.002, noise_6=-0.001
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+Seed 789
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.915 (PASS), J_S_train=0.969
+  [4/4] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.927
+    agent_y: J_S_perturbed=0.955
+    c (spurious): J_S_perturbed=0.396
+    noise_0: J_S_perturbed=0.966
+    noise_1: J_S_perturbed=0.967
+    noise_2: J_S_perturbed=0.967
+    noise_3: J_S_perturbed=0.970
+    noise_4: J_S_perturbed=0.969
+    noise_5: J_S_perturbed=0.968
+    noise_6: J_S_perturbed=0.968
+    ƒ¢: agent_x=0.042, agent_y=0.014, c (spurious)=0.573, noise_0=0.003, noise_1=0.002, noise_2=0.002, noise_3=-0.001, noise_4=0.000, noise_5=0.001, noise_6=0.001
+    Auto-selected: c (spurious) -> CORRECT (c)
+
+============================================================
+SUMMARY
+============================================================
+Stage 1 pass (AA >= 0.9): 100%  (5/5 seeds)
+Q1. Intervention correctly selected c: 100%  (5/5 seeds)
+    ƒ¢ means: agent_x=0.032, agent_y=0.041, c (spurious)=0.529, noise_0=0.000, noise_1=0.001, noise_2=0.001, noise_3=-0.002, noise_4=0.000, noise_5=-0.001, noise_6=-0.000
+    Largest mean ƒ¢: c (spurious)
+summary.txt -> C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp004_noise_gridworld\summary.txt
+
+Results: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp004_noise_gridworld

@@ -1,0 +1,134 @@
+C:\Users\tsukasa\Documents\rl-shift-auto-detection\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+C:\Users\tsukasa\Documents\rl-shift-auto-detection\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+C:\Users\tsukasa\Documents\rl-shift-auto-detection\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+C:\Users\tsukasa\Documents\rl-shift-auto-detection\.venv\Lib\site-packages\pygame\pkgdata.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_stream, resource_exists
+Experiment : exp006_ppo_lunar
+Seeds      : [42, 123, 456, 789, 0]
+Workers    : 4
+[DONE] seed=456: selected=leg_R, correct=False, AA=0.744, J_oracle=317.2
+[DONE] seed=789: selected=ang_vel, correct=False, AA=0.779, J_oracle=280.6
+[DONE] seed=123: selected=ang_vel, correct=False, AA=0.710, J_oracle=302.0
+[DONE] seed=42: selected=vy, correct=False, AA=0.594, J_oracle=183.0
+[DONE] seed=0: selected=ang_vel, correct=False, AA=0.671, J_oracle=262.1
+
+============================================================
+Seed 0
+============================================================
+  [1/4] Oracle training (PPO)...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.671 (FAIL), J_oracle=262.1, J_S_train=-417.4
+    Stage 2 (c reversed): J_S=-414.2 -> no collapse
+  [4/4] Per-feature intervention test...
+    x: J_S_perturbed=-305.2
+    y: J_S_perturbed=-377.3
+    vx: J_S_perturbed=-373.8
+    vy: J_S_perturbed=-130.2
+    angle: J_S_perturbed=-427.0
+    ang_vel: J_S_perturbed=-517.4
+    leg_L: J_S_perturbed=-386.2
+    leg_R: J_S_perturbed=-366.5
+    c (spurious): J_S_perturbed=-378.9
+    ƒ¢: x=-112.16, y=-40.08, vx=-43.55, vy=-287.20, angle=9.68, ang_vel=100.05, leg_L=-31.15, leg_R=-50.85, c (spurious)=-38.45
+    Auto-selected: ang_vel -> WRONG
+
+============================================================
+Seed 42
+============================================================
+  [1/4] Oracle training (PPO)...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.594 (FAIL), J_oracle=183.0, J_S_train=-569.1
+    Stage 2 (c reversed): J_S=-495.9 -> no collapse
+  [4/4] Per-feature intervention test...
+    x: J_S_perturbed=-325.6
+    y: J_S_perturbed=-304.5
+    vx: J_S_perturbed=-312.7
+    vy: J_S_perturbed=-775.8
+    angle: J_S_perturbed=-393.9
+    ang_vel: J_S_perturbed=-408.9
+    leg_L: J_S_perturbed=-327.1
+    leg_R: J_S_perturbed=-87.4
+    c (spurious): J_S_perturbed=-380.5
+    ƒ¢: x=-243.53, y=-264.67, vx=-256.42, vy=206.64, angle=-175.29, ang_vel=-160.23, leg_L=-242.03, leg_R=-481.71, c (spurious)=-188.69
+    Auto-selected: vy -> WRONG
+
+============================================================
+Seed 123
+============================================================
+  [1/4] Oracle training (PPO)...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.710 (FAIL), J_oracle=302.0, J_S_train=-190.3
+    Stage 2 (c reversed): J_S=-215.7 -> no collapse
+  [4/4] Per-feature intervention test...
+    x: J_S_perturbed=-170.4
+    y: J_S_perturbed=-188.2
+    vx: J_S_perturbed=-195.0
+    vy: J_S_perturbed=-105.0
+    angle: J_S_perturbed=-191.5
+    ang_vel: J_S_perturbed=-434.0
+    leg_L: J_S_perturbed=-181.2
+    leg_R: J_S_perturbed=-191.2
+    c (spurious): J_S_perturbed=-161.8
+    ƒ¢: x=-19.92, y=-2.07, vx=4.72, vy=-85.30, angle=1.18, ang_vel=243.72, leg_L=-9.07, leg_R=0.90, c (spurious)=-28.53
+    Auto-selected: ang_vel -> WRONG
+
+============================================================
+Seed 456
+============================================================
+  [1/4] Oracle training (PPO)...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.744 (FAIL), J_oracle=317.2, J_S_train=-444.9
+    Stage 2 (c reversed): J_S=-474.4 -> no collapse
+  [4/4] Per-feature intervention test...
+    x: J_S_perturbed=-474.9
+    y: J_S_perturbed=-454.7
+    vx: J_S_perturbed=-418.7
+    vy: J_S_perturbed=-163.9
+    angle: J_S_perturbed=-490.0
+    ang_vel: J_S_perturbed=-454.8
+    leg_L: J_S_perturbed=-486.7
+    leg_R: J_S_perturbed=-510.9
+    c (spurious): J_S_perturbed=-483.5
+    ƒ¢: x=30.01, y=9.78, vx=-26.18, vy=-280.99, angle=45.06, ang_vel=9.87, leg_L=41.79, leg_R=65.96, c (spurious)=38.57
+    Auto-selected: leg_R -> WRONG
+
+============================================================
+Seed 789
+============================================================
+  [1/4] Oracle training (PPO)...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.779 (FAIL), J_oracle=280.6, J_S_train=-316.9
+    Stage 2 (c reversed): J_S=-353.3 -> no collapse
+  [4/4] Per-feature intervention test...
+    x: J_S_perturbed=-334.9
+    y: J_S_perturbed=-348.8
+    vx: J_S_perturbed=-302.1
+    vy: J_S_perturbed=-164.3
+    angle: J_S_perturbed=-354.7
+    ang_vel: J_S_perturbed=-399.7
+    leg_L: J_S_perturbed=-328.4
+    leg_R: J_S_perturbed=-351.1
+    c (spurious): J_S_perturbed=-382.5
+    ƒ¢: x=18.00, y=31.84, vx=-14.87, vy=-152.64, angle=37.78, ang_vel=82.78, leg_L=11.49, leg_R=34.13, c (spurious)=65.54
+    Auto-selected: ang_vel -> WRONG
+
+============================================================
+SUMMARY
+============================================================
+Stage 1 pass (AA >= 0.9): 0%  (0/5 seeds)
+Stage 2 collapse (c rev): 0%  (0/5 seeds)
+    J_oracle=269.0, J_S_train=-387.7, J_S_rev=-390.7
+Q1. Intervention correctly selected c: 0%  (0/5 seeds)
+    ƒ¢ means: x=-65.52, y=-53.04, vx=-67.26, vy=-119.90, angle=-16.32, ang_vel=55.24, leg_L=-45.79, leg_R=-86.32, c (spurious)=-30.31
+    Largest mean ƒ¢: ang_vel
+summary.txt -> C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp006_ppo_lunar\summary.txt
+
+Results: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp006_ppo_lunar

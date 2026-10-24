@@ -1,0 +1,130 @@
+=== exp016_shap_psweep_30seeds ===
+
+   p  Δ detect  SHAP detect
+------------------------------
+ 0.0  30/30 (100%)  0/30 (0%)
+ 0.1  29/30 (97%)  2/30 (7%)
+ 0.2  17/30 (57%)  4/30 (13%)
+ 0.3  9/30 (30%)  8/30 (27%)
+
+Per-seed:
+  p=0.0 seed=0: Δ=c (spurious)(OK)  Δ_c=0.522  SHAP=agent_y(NG)  SHAP_c=0.0207
+  p=0.0 seed=1: Δ=c (spurious)(OK)  Δ_c=0.483  SHAP=agent_y(NG)  SHAP_c=0.0190
+  p=0.0 seed=2: Δ=c (spurious)(OK)  Δ_c=0.580  SHAP=agent_x(NG)  SHAP_c=0.0187
+  p=0.0 seed=3: Δ=c (spurious)(OK)  Δ_c=0.500  SHAP=agent_y(NG)  SHAP_c=0.0227
+  p=0.0 seed=4: Δ=c (spurious)(OK)  Δ_c=0.608  SHAP=agent_y(NG)  SHAP_c=0.0189
+  p=0.0 seed=5: Δ=c (spurious)(OK)  Δ_c=0.546  SHAP=agent_y(NG)  SHAP_c=0.0200
+  p=0.0 seed=6: Δ=c (spurious)(OK)  Δ_c=0.502  SHAP=agent_x(NG)  SHAP_c=0.0204
+  p=0.0 seed=7: Δ=c (spurious)(OK)  Δ_c=0.467  SHAP=agent_x(NG)  SHAP_c=0.0180
+  p=0.0 seed=8: Δ=c (spurious)(OK)  Δ_c=0.514  SHAP=agent_y(NG)  SHAP_c=0.0164
+  p=0.0 seed=9: Δ=c (spurious)(OK)  Δ_c=0.589  SHAP=agent_y(NG)  SHAP_c=0.0163
+  p=0.0 seed=10: Δ=c (spurious)(OK)  Δ_c=0.630  SHAP=agent_y(NG)  SHAP_c=0.0171
+  p=0.0 seed=11: Δ=c (spurious)(OK)  Δ_c=0.521  SHAP=agent_y(NG)  SHAP_c=0.0213
+  p=0.0 seed=12: Δ=c (spurious)(OK)  Δ_c=0.495  SHAP=agent_y(NG)  SHAP_c=0.0198
+  p=0.0 seed=13: Δ=c (spurious)(OK)  Δ_c=0.497  SHAP=agent_y(NG)  SHAP_c=0.0190
+  p=0.0 seed=14: Δ=c (spurious)(OK)  Δ_c=0.530  SHAP=agent_x(NG)  SHAP_c=0.0214
+  p=0.0 seed=15: Δ=c (spurious)(OK)  Δ_c=0.535  SHAP=agent_x(NG)  SHAP_c=0.0215
+  p=0.0 seed=16: Δ=c (spurious)(OK)  Δ_c=0.555  SHAP=agent_x(NG)  SHAP_c=0.0156
+  p=0.0 seed=17: Δ=c (spurious)(OK)  Δ_c=0.532  SHAP=agent_x(NG)  SHAP_c=0.0213
+  p=0.0 seed=18: Δ=c (spurious)(OK)  Δ_c=0.552  SHAP=agent_y(NG)  SHAP_c=0.0181
+  p=0.0 seed=19: Δ=c (spurious)(OK)  Δ_c=0.428  SHAP=agent_x(NG)  SHAP_c=0.0177
+  p=0.0 seed=20: Δ=c (spurious)(OK)  Δ_c=0.549  SHAP=agent_y(NG)  SHAP_c=0.0225
+  p=0.0 seed=21: Δ=c (spurious)(OK)  Δ_c=0.532  SHAP=agent_x(NG)  SHAP_c=0.0182
+  p=0.0 seed=22: Δ=c (spurious)(OK)  Δ_c=0.509  SHAP=agent_x(NG)  SHAP_c=0.0188
+  p=0.0 seed=23: Δ=c (spurious)(OK)  Δ_c=0.577  SHAP=agent_x(NG)  SHAP_c=0.0224
+  p=0.0 seed=24: Δ=c (spurious)(OK)  Δ_c=0.544  SHAP=agent_y(NG)  SHAP_c=0.0190
+  p=0.0 seed=25: Δ=c (spurious)(OK)  Δ_c=0.651  SHAP=agent_y(NG)  SHAP_c=0.0158
+  p=0.0 seed=26: Δ=c (spurious)(OK)  Δ_c=0.594  SHAP=agent_x(NG)  SHAP_c=0.0166
+  p=0.0 seed=27: Δ=c (spurious)(OK)  Δ_c=0.596  SHAP=agent_y(NG)  SHAP_c=0.0223
+  p=0.0 seed=28: Δ=c (spurious)(OK)  Δ_c=0.522  SHAP=agent_y(NG)  SHAP_c=0.0159
+  p=0.0 seed=29: Δ=c (spurious)(OK)  Δ_c=0.528  SHAP=agent_x(NG)  SHAP_c=0.0199
+  p=0.1 seed=0: Δ=c (spurious)(OK)  Δ_c=0.295  SHAP=agent_y(NG)  SHAP_c=0.0083
+  p=0.1 seed=1: Δ=c (spurious)(OK)  Δ_c=0.396  SHAP=agent_y(NG)  SHAP_c=0.0080
+  p=0.1 seed=2: Δ=noise_2(NG)  Δ_c=-0.171  SHAP=agent_x(NG)  SHAP_c=0.0139
+  p=0.1 seed=3: Δ=c (spurious)(OK)  Δ_c=0.363  SHAP=noise_0(NG)  SHAP_c=0.0083
+  p=0.1 seed=4: Δ=c (spurious)(OK)  Δ_c=0.450  SHAP=agent_y(NG)  SHAP_c=0.0051
+  p=0.1 seed=5: Δ=c (spurious)(OK)  Δ_c=0.308  SHAP=noise_2(NG)  SHAP_c=0.0078
+  p=0.1 seed=6: Δ=c (spurious)(OK)  Δ_c=0.318  SHAP=noise_2(NG)  SHAP_c=0.0079
+  p=0.1 seed=7: Δ=c (spurious)(OK)  Δ_c=0.362  SHAP=agent_x(NG)  SHAP_c=0.0101
+  p=0.1 seed=8: Δ=c (spurious)(OK)  Δ_c=0.345  SHAP=agent_y(NG)  SHAP_c=0.0125
+  p=0.1 seed=9: Δ=c (spurious)(OK)  Δ_c=0.278  SHAP=noise_2(NG)  SHAP_c=0.0048
+  p=0.1 seed=10: Δ=c (spurious)(OK)  Δ_c=0.325  SHAP=agent_y(NG)  SHAP_c=0.0128
+  p=0.1 seed=11: Δ=c (spurious)(OK)  Δ_c=0.257  SHAP=agent_y(NG)  SHAP_c=0.0087
+  p=0.1 seed=12: Δ=c (spurious)(OK)  Δ_c=0.479  SHAP=noise_0(NG)  SHAP_c=0.0148
+  p=0.1 seed=13: Δ=c (spurious)(OK)  Δ_c=0.287  SHAP=agent_x(NG)  SHAP_c=0.0134
+  p=0.1 seed=14: Δ=c (spurious)(OK)  Δ_c=0.614  SHAP=noise_2(NG)  SHAP_c=0.0068
+  p=0.1 seed=15: Δ=c (spurious)(OK)  Δ_c=0.355  SHAP=agent_y(NG)  SHAP_c=0.0099
+  p=0.1 seed=16: Δ=c (spurious)(OK)  Δ_c=0.150  SHAP=noise_4(NG)  SHAP_c=0.0086
+  p=0.1 seed=17: Δ=c (spurious)(OK)  Δ_c=0.306  SHAP=noise_0(NG)  SHAP_c=0.0161
+  p=0.1 seed=18: Δ=c (spurious)(OK)  Δ_c=0.409  SHAP=agent_y(NG)  SHAP_c=0.0149
+  p=0.1 seed=19: Δ=c (spurious)(OK)  Δ_c=0.281  SHAP=agent_x(NG)  SHAP_c=0.0087
+  p=0.1 seed=20: Δ=c (spurious)(OK)  Δ_c=0.344  SHAP=c (spurious)(OK)  SHAP_c=0.0230
+  p=0.1 seed=21: Δ=c (spurious)(OK)  Δ_c=0.267  SHAP=agent_x(NG)  SHAP_c=0.0137
+  p=0.1 seed=22: Δ=c (spurious)(OK)  Δ_c=0.257  SHAP=noise_0(NG)  SHAP_c=0.0080
+  p=0.1 seed=23: Δ=c (spurious)(OK)  Δ_c=0.246  SHAP=c (spurious)(OK)  SHAP_c=0.0195
+  p=0.1 seed=24: Δ=c (spurious)(OK)  Δ_c=0.203  SHAP=agent_y(NG)  SHAP_c=0.0130
+  p=0.1 seed=25: Δ=c (spurious)(OK)  Δ_c=0.295  SHAP=agent_y(NG)  SHAP_c=0.0111
+  p=0.1 seed=26: Δ=c (spurious)(OK)  Δ_c=0.321  SHAP=agent_y(NG)  SHAP_c=0.0127
+  p=0.1 seed=27: Δ=c (spurious)(OK)  Δ_c=0.291  SHAP=agent_y(NG)  SHAP_c=0.0072
+  p=0.1 seed=28: Δ=c (spurious)(OK)  Δ_c=0.291  SHAP=agent_y(NG)  SHAP_c=0.0138
+  p=0.1 seed=29: Δ=c (spurious)(OK)  Δ_c=0.209  SHAP=noise_1(NG)  SHAP_c=0.0093
+  p=0.2 seed=0: Δ=c (spurious)(OK)  Δ_c=0.314  SHAP=noise_1(NG)  SHAP_c=0.0054
+  p=0.2 seed=1: Δ=c (spurious)(OK)  Δ_c=0.179  SHAP=agent_y(NG)  SHAP_c=0.0136
+  p=0.2 seed=2: Δ=c (spurious)(OK)  Δ_c=0.149  SHAP=noise_0(NG)  SHAP_c=0.0091
+  p=0.2 seed=3: Δ=c (spurious)(OK)  Δ_c=0.125  SHAP=c (spurious)(OK)  SHAP_c=0.0100
+  p=0.2 seed=4: Δ=c (spurious)(OK)  Δ_c=0.310  SHAP=noise_6(NG)  SHAP_c=0.0061
+  p=0.2 seed=5: Δ=c (spurious)(OK)  Δ_c=0.141  SHAP=noise_1(NG)  SHAP_c=0.0083
+  p=0.2 seed=6: Δ=noise_0(NG)  Δ_c=0.126  SHAP=noise_2(NG)  SHAP_c=0.0056
+  p=0.2 seed=7: Δ=noise_2(NG)  Δ_c=-0.243  SHAP=c (spurious)(OK)  SHAP_c=0.0087
+  p=0.2 seed=8: Δ=agent_x(NG)  Δ_c=0.246  SHAP=noise_2(NG)  SHAP_c=0.0036
+  p=0.2 seed=9: Δ=c (spurious)(OK)  Δ_c=0.110  SHAP=agent_y(NG)  SHAP_c=0.0086
+  p=0.2 seed=10: Δ=c (spurious)(OK)  Δ_c=0.230  SHAP=noise_4(NG)  SHAP_c=0.0092
+  p=0.2 seed=11: Δ=agent_y(NG)  Δ_c=0.030  SHAP=agent_y(NG)  SHAP_c=0.0069
+  p=0.2 seed=12: Δ=c (spurious)(OK)  Δ_c=0.358  SHAP=noise_2(NG)  SHAP_c=0.0073
+  p=0.2 seed=13: Δ=c (spurious)(OK)  Δ_c=0.276  SHAP=agent_y(NG)  SHAP_c=0.0084
+  p=0.2 seed=14: Δ=c (spurious)(OK)  Δ_c=0.289  SHAP=noise_2(NG)  SHAP_c=0.0077
+  p=0.2 seed=15: Δ=noise_2(NG)  Δ_c=0.019  SHAP=agent_y(NG)  SHAP_c=0.0084
+  p=0.2 seed=16: Δ=c (spurious)(OK)  Δ_c=0.228  SHAP=noise_4(NG)  SHAP_c=0.0096
+  p=0.2 seed=17: Δ=noise_2(NG)  Δ_c=0.086  SHAP=c (spurious)(OK)  SHAP_c=0.0145
+  p=0.2 seed=18: Δ=c (spurious)(OK)  Δ_c=0.365  SHAP=agent_x(NG)  SHAP_c=0.0035
+  p=0.2 seed=19: Δ=noise_2(NG)  Δ_c=0.109  SHAP=agent_x(NG)  SHAP_c=0.0056
+  p=0.2 seed=20: Δ=noise_0(NG)  Δ_c=0.097  SHAP=noise_1(NG)  SHAP_c=0.0064
+  p=0.2 seed=21: Δ=noise_2(NG)  Δ_c=0.016  SHAP=noise_2(NG)  SHAP_c=0.0045
+  p=0.2 seed=22: Δ=noise_2(NG)  Δ_c=0.051  SHAP=noise_0(NG)  SHAP_c=0.0102
+  p=0.2 seed=23: Δ=c (spurious)(OK)  Δ_c=0.060  SHAP=noise_2(NG)  SHAP_c=0.0129
+  p=0.2 seed=24: Δ=noise_2(NG)  Δ_c=0.140  SHAP=agent_x(NG)  SHAP_c=0.0095
+  p=0.2 seed=25: Δ=c (spurious)(OK)  Δ_c=0.194  SHAP=agent_y(NG)  SHAP_c=0.0115
+  p=0.2 seed=26: Δ=noise_2(NG)  Δ_c=0.083  SHAP=agent_y(NG)  SHAP_c=0.0084
+  p=0.2 seed=27: Δ=noise_2(NG)  Δ_c=0.066  SHAP=noise_0(NG)  SHAP_c=0.0036
+  p=0.2 seed=28: Δ=c (spurious)(OK)  Δ_c=0.401  SHAP=c (spurious)(OK)  SHAP_c=0.0151
+  p=0.2 seed=29: Δ=c (spurious)(OK)  Δ_c=0.247  SHAP=agent_x(NG)  SHAP_c=0.0100
+  p=0.3 seed=0: Δ=noise_2(NG)  Δ_c=0.142  SHAP=noise_1(NG)  SHAP_c=0.0045
+  p=0.3 seed=1: Δ=noise_0(NG)  Δ_c=0.090  SHAP=agent_y(NG)  SHAP_c=0.0063
+  p=0.3 seed=2: Δ=c (spurious)(OK)  Δ_c=0.256  SHAP=c (spurious)(OK)  SHAP_c=0.0076
+  p=0.3 seed=3: Δ=noise_0(NG)  Δ_c=0.084  SHAP=noise_0(NG)  SHAP_c=0.0031
+  p=0.3 seed=4: Δ=noise_0(NG)  Δ_c=0.021  SHAP=agent_y(NG)  SHAP_c=0.0023
+  p=0.3 seed=5: Δ=noise_1(NG)  Δ_c=-0.120  SHAP=agent_x(NG)  SHAP_c=0.0075
+  p=0.3 seed=6: Δ=agent_x(NG)  Δ_c=0.139  SHAP=agent_y(NG)  SHAP_c=0.0047
+  p=0.3 seed=7: Δ=c (spurious)(OK)  Δ_c=0.317  SHAP=noise_0(NG)  SHAP_c=0.0052
+  p=0.3 seed=8: Δ=agent_x(NG)  Δ_c=0.125  SHAP=agent_y(NG)  SHAP_c=0.0078
+  p=0.3 seed=9: Δ=c (spurious)(OK)  Δ_c=0.102  SHAP=agent_y(NG)  SHAP_c=0.0046
+  p=0.3 seed=10: Δ=agent_y(NG)  Δ_c=0.160  SHAP=c (spurious)(OK)  SHAP_c=0.0077
+  p=0.3 seed=11: Δ=noise_2(NG)  Δ_c=-0.077  SHAP=noise_0(NG)  SHAP_c=0.0045
+  p=0.3 seed=12: Δ=c (spurious)(OK)  Δ_c=0.358  SHAP=c (spurious)(OK)  SHAP_c=0.0106
+  p=0.3 seed=13: Δ=c (spurious)(OK)  Δ_c=0.213  SHAP=noise_5(NG)  SHAP_c=0.0061
+  p=0.3 seed=14: Δ=noise_4(NG)  Δ_c=0.026  SHAP=agent_y(NG)  SHAP_c=0.0044
+  p=0.3 seed=15: Δ=agent_x(NG)  Δ_c=0.208  SHAP=c (spurious)(OK)  SHAP_c=0.0104
+  p=0.3 seed=16: Δ=noise_2(NG)  Δ_c=-0.170  SHAP=noise_0(NG)  SHAP_c=0.0074
+  p=0.3 seed=17: Δ=noise_2(NG)  Δ_c=-0.055  SHAP=c (spurious)(OK)  SHAP_c=0.0132
+  p=0.3 seed=18: Δ=noise_1(NG)  Δ_c=-0.111  SHAP=agent_y(NG)  SHAP_c=0.0013
+  p=0.3 seed=19: Δ=noise_0(NG)  Δ_c=0.045  SHAP=noise_6(NG)  SHAP_c=0.0026
+  p=0.3 seed=20: Δ=agent_x(NG)  Δ_c=0.022  SHAP=c (spurious)(OK)  SHAP_c=0.0070
+  p=0.3 seed=21: Δ=agent_y(NG)  Δ_c=0.295  SHAP=c (spurious)(OK)  SHAP_c=0.0062
+  p=0.3 seed=22: Δ=agent_y(NG)  Δ_c=0.053  SHAP=noise_0(NG)  SHAP_c=0.0067
+  p=0.3 seed=23: Δ=c (spurious)(OK)  Δ_c=0.174  SHAP=agent_y(NG)  SHAP_c=0.0089
+  p=0.3 seed=24: Δ=c (spurious)(OK)  Δ_c=0.229  SHAP=noise_2(NG)  SHAP_c=0.0015
+  p=0.3 seed=25: Δ=agent_x(NG)  Δ_c=0.241  SHAP=noise_1(NG)  SHAP_c=0.0045
+  p=0.3 seed=26: Δ=noise_2(NG)  Δ_c=-0.013  SHAP=agent_y(NG)  SHAP_c=0.0047
+  p=0.3 seed=27: Δ=c (spurious)(OK)  Δ_c=0.420  SHAP=noise_2(NG)  SHAP_c=0.0050
+  p=0.3 seed=28: Δ=noise_0(NG)  Δ_c=-0.047  SHAP=c (spurious)(OK)  SHAP_c=0.0086
+  p=0.3 seed=29: Δ=c (spurious)(OK)  Δ_c=0.178  SHAP=agent_x(NG)  SHAP_c=0.0091

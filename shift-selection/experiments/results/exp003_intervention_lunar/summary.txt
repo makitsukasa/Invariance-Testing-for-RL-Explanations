@@ -1,0 +1,30 @@
+=== exp003_intervention_lunar ===
+SpuriousLunarLander (2ゾーン着地) で per-feature 介入テスト自動選択。特徴数9（LunarLander 8次元 + c）。exp002 と同アルゴリズムで、より多くの特徴数でも c が自動選択できるかを確認する。
+
+Seeds  : [0, 42, 123, 456, 789]
+Oracle : DQN 2000000 steps
+Surrogate: MoET K=4, d=5, epochs=100, n=10000
+Shaping: differential zone correction (X_TARGET_OFFSET=0.3, LANDING_ZONE_BONUS=100)
+
+Stage 1 pass (AA>=0.9): 0% (0/5)
+Stage 2 collapse (c rev): 0% (0/5)
+  J_S_train=-365.5+-96.4
+  J_S_rev  =-354.6+-90.0
+
+Q1. Intervention correctly selected c: 0% (0/5)
+  Δ_x=-27.60+-35.73
+  Δ_y=-35.82+-33.85
+  Δ_vx=-52.41+-58.47
+  Δ_vy=-196.81+-56.41
+  Δ_angle=44.55+-82.05
+  Δ_ang_vel=36.68+-113.96
+  Δ_leg_L=-23.81+-16.90
+  Δ_leg_R=16.97+-19.94
+  Δ_c (spurious)=-30.40+-29.12
+
+Per-seed:
+  seed=0: selected=angle, correct=False, AA=0.656, J_S_train=-382.7, J_S_rev=-365.5, collapse=False
+  seed=42: selected=ang_vel, correct=False, AA=0.590, J_S_train=-313.1, J_S_rev=-295.0, collapse=False
+  seed=123: selected=ang_vel, correct=False, AA=0.653, J_S_train=-527.1, J_S_rev=-507.2, collapse=False
+  seed=456: selected=angle, correct=False, AA=0.714, J_S_train=-302.6, J_S_rev=-306.6, collapse=False
+  seed=789: selected=ang_vel, correct=False, AA=0.694, J_S_train=-301.9, J_S_rev=-298.7, collapse=False

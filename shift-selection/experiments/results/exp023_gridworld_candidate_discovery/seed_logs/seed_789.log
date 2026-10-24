@@ -1,0 +1,18 @@
+
+============================================================
+Seed 789
+============================================================
+  [1/5] Oracle training...
+    Saved oracle: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp023_gridworld_candidate_discovery_directtest_escalated\checkpoints\oracle\seed_789.zip
+  [2/5] Data collection...
+  [3/5] Surrogate distillation...
+    Saved surrogate: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp023_gridworld_candidate_discovery_directtest_escalated\checkpoints\surrogate\seed_789.pkl
+    Stage 1 agreement: AA=0.888
+  [4/5] PerformanceCheck profile...
+    PerformanceCheck top deltas: c_spurious=0.533, agent_y=0.045, agent_x=0.034
+  [5/5] Candidate discovery ranking...
+    mutual_info: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    linear_probe_drop: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    tree_probe_drop: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    random: top=noise_5, spurious_rank=4, top1_hit=False, pc_rank=8
+    Seed elapsed: 48.4 sec

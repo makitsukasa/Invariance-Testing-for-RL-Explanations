@@ -1,0 +1,18 @@
+
+============================================================
+Seed 42
+============================================================
+  [1/5] Oracle training...
+    Saved oracle: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp023_gridworld_candidate_discovery_directtest_escalated\checkpoints\oracle\seed_042.zip
+  [2/5] Data collection...
+  [3/5] Surrogate distillation...
+    Saved surrogate: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp023_gridworld_candidate_discovery_directtest_escalated\checkpoints\surrogate\seed_042.pkl
+    Stage 1 agreement: AA=0.932
+  [4/5] PerformanceCheck profile...
+    PerformanceCheck top deltas: c_spurious=0.608, agent_y=0.090, noise_3=0.090
+  [5/5] Candidate discovery ranking...
+    mutual_info: top=agent_y, spurious_rank=2, top1_hit=False, pc_rank=2
+    linear_probe_drop: top=c_spurious, spurious_rank=1, top1_hit=True, pc_rank=1
+    tree_probe_drop: top=agent_y, spurious_rank=2, top1_hit=False, pc_rank=2
+    random: top=noise_2, spurious_rank=8, top1_hit=False, pc_rank=5
+    Seed elapsed: 63.2 sec
