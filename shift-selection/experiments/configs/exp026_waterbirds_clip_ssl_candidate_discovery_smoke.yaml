@@ -1,0 +1,46 @@
+name: exp026_waterbirds_clip_ssl_candidate_discovery_smoke
+description: >
+  exp026 の最小 smoke 実行。CLIP / SSL の依存と重み、runner の全経路が通るかだけを
+  確認するため、1 seed・1 radius・少数サンプルで回す。
+
+data:
+  root: data/waterbirds/waterbird_complete95_forest2water2
+
+input:
+  exp022_results_csv: experiments/results/exp022_waterbirds_grabcut_sensitivity/results.csv
+  mask_cache_path: experiments/results/exp022_waterbirds_grabcut_sensitivity/base_mask_cache.pt
+
+candidate_discovery:
+  donor_pool_n: 50
+  batch_size: 8
+
+intervention:
+  mask_radii: [0]
+
+evaluation:
+  seeds: [0]
+  n_eval_values: [20]
+
+representations:
+  methods:
+    - name: clip_vit_b32
+      backend:
+        backend_type: transformers_clip
+        model_name_or_path: openai/clip-vit-base-patch32
+        local_files_only: false
+        name: clip_vit_b32
+        cache_dir: data/model_cache/huggingface
+    - name: ssl_dinov2_small
+      backend:
+        backend_type: transformers_auto_image
+        model_name_or_path: facebook/dinov2-small
+        local_files_only: false
+        pooling: cls
+        name: ssl_dinov2_small
+        cache_dir: data/model_cache/huggingface
+
+runtime:
+  estimated_minutes_per_task: 4.0
+
+n_workers: 1
+output_dir: experiments/results/exp026_waterbirds_clip_ssl_candidate_discovery_smoke

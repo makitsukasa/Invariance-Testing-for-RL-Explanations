@@ -1,0 +1,19 @@
+data:
+  root: data/waterbirds/waterbird_complete95_forest2water2
+  n_bg_pool: 200
+
+oracle:
+  epochs: 10
+  batch_size: 32
+  lr: 1.0e-3
+
+intervention:
+  n_eval: 300
+  fg_noise_std: 0.3
+  # negative=erosion, positive=dilation, 0=original mask
+  mask_radii: [-3, -1, 0, 1, 3]
+
+evaluation:
+  seed: 0
+
+threads_per_worker: 4

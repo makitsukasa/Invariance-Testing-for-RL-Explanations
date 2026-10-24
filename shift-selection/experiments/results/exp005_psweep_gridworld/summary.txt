@@ -1,0 +1,21 @@
+=== exp005_psweep_gridworld ===
+spurious_p を 0.0〜0.3 で sweep し、介入テスト（候補選択）と Stage 2（崩壊確認）を両方測定する end-to-end パイプライン実証。obs=(x, y, c, noise×7) の10次元。
+
+Seeds    : [np.int64(0), np.int64(42), np.int64(123), np.int64(456), np.int64(789)]
+p_values : [0.0, 0.1, 0.2, 0.3]
+n_noise  : 7 (total obs dim: 10)
+Oracle   : DQN 50000 steps
+Surrogate: MoET K=4, d=5, epochs=100, n=10000
+
+    p | AA>=0.9 | detect c | collapse |   e2e
+---------------------------------------------
+  0.0 |    100% |     100% |     100% |  100%
+  0.1 |     80% |     100% |     100% |  100%
+  0.2 |     20% |     100% |     100% |  100%
+  0.3 |      0% |      20% |      80% |   20%
+
+Mean delta_c per p:
+  p=0.0: delta_c=0.529+-0.033
+  p=0.1: delta_c=0.216+-0.054
+  p=0.2: delta_c=0.271+-0.042
+  p=0.3: delta_c=0.109+-0.148

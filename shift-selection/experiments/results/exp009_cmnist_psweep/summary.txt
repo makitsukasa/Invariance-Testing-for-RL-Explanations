@@ -1,0 +1,30 @@
+=== exp009_cmnist_psweep ===
+stage2_p=1.0
+
+   p   AA>=0.9   detect   Stage2    e2e  mean_AA  mean_J_oracle
+ 0.0  5/5       5/5      5/5      5/5   1.000    1.000
+ 0.1  5/5       0/5      0/5      0/5   0.993    0.992
+ 0.2  5/5       0/5      0/5      0/5   0.991    0.990
+ 0.3  5/5       0/5      0/5      0/5   0.992    0.990
+
+Per-seed:
+  p=0.0 seed=42: AA=1.000, J_oracle=1.000, delta_hue=0.504, delta_struct=0.000, correct=True, collapse=True
+  p=0.0 seed=123: AA=1.000, J_oracle=1.000, delta_hue=0.502, delta_struct=0.000, correct=True, collapse=True
+  p=0.0 seed=456: AA=1.000, J_oracle=1.000, delta_hue=0.498, delta_struct=0.001, correct=True, collapse=True
+  p=0.0 seed=789: AA=1.000, J_oracle=1.000, delta_hue=0.499, delta_struct=0.000, correct=True, collapse=True
+  p=0.0 seed=0: AA=1.000, J_oracle=1.000, delta_hue=0.495, delta_struct=0.000, correct=True, collapse=True
+  p=0.1 seed=42: AA=0.989, J_oracle=0.993, delta_hue=0.024, delta_struct=0.048, correct=False, collapse=False
+  p=0.1 seed=123: AA=0.993, J_oracle=0.991, delta_hue=0.025, delta_struct=0.057, correct=False, collapse=False
+  p=0.1 seed=456: AA=0.995, J_oracle=0.993, delta_hue=0.018, delta_struct=0.031, correct=False, collapse=False
+  p=0.1 seed=789: AA=0.994, J_oracle=0.994, delta_hue=0.015, delta_struct=0.030, correct=False, collapse=False
+  p=0.1 seed=0: AA=0.993, J_oracle=0.992, delta_hue=0.019, delta_struct=0.036, correct=False, collapse=False
+  p=0.2 seed=42: AA=0.992, J_oracle=0.990, delta_hue=0.008, delta_struct=0.192, correct=False, collapse=False
+  p=0.2 seed=123: AA=0.988, J_oracle=0.989, delta_hue=0.008, delta_struct=0.091, correct=False, collapse=False
+  p=0.2 seed=456: AA=0.993, J_oracle=0.990, delta_hue=0.007, delta_struct=0.211, correct=False, collapse=False
+  p=0.2 seed=789: AA=0.990, J_oracle=0.992, delta_hue=0.005, delta_struct=0.289, correct=False, collapse=False
+  p=0.2 seed=0: AA=0.994, J_oracle=0.990, delta_hue=0.007, delta_struct=0.046, correct=False, collapse=False
+  p=0.3 seed=42: AA=0.993, J_oracle=0.990, delta_hue=0.004, delta_struct=0.317, correct=False, collapse=False
+  p=0.3 seed=123: AA=0.992, J_oracle=0.992, delta_hue=0.002, delta_struct=0.051, correct=False, collapse=False
+  p=0.3 seed=456: AA=0.992, J_oracle=0.988, delta_hue=0.001, delta_struct=0.075, correct=False, collapse=False
+  p=0.3 seed=789: AA=0.993, J_oracle=0.990, delta_hue=0.003, delta_struct=0.176, correct=False, collapse=False
+  p=0.3 seed=0: AA=0.989, J_oracle=0.989, delta_hue=0.004, delta_struct=0.150, correct=False, collapse=False

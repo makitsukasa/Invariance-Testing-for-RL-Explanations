@@ -1,0 +1,8 @@
+=== exp_lime_test ===
+
+   p  delta detect  SHAP detect  LIME detect
+-------------------------------------------------
+ 0.2  1/1 (100%)  1/1 (100%)  1/1 (100%)
+
+Per-seed:
+  p=0.2 seed=0: delta=OK (hue=0.267, struct=0.037)  shap=OK (color_attr=0.0023, struct_attr=0.0012)  lime=OK (color=0.2681, struct=0.1342)

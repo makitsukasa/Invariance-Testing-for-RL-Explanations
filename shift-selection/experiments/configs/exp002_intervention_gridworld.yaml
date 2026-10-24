@@ -1,0 +1,22 @@
+name: exp002_intervention_gridworld
+description: "SpuriousGridWorld (p=0.0) でper-feature介入テストによる自動シフト候補選択。全特徴を同一方法（uniform random）で摂動し、J_S降下量が最大の特徴をスプリアス候補として選択する。特徴型の事前知識なし。SHAPの60%と比較する。"
+
+env:
+  spurious_p: 0.0
+
+oracle:
+  n_steps: 50000
+
+surrogate:
+  n_experts: 4
+  max_depth: 5
+  distill_epochs: 100
+  n_distill_samples: 10000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 0]
+  n_eval_samples: 2000
+  n_eval_episodes: 100
+
+n_workers: 4
+output_dir: experiments/results/exp002_intervention_gridworld

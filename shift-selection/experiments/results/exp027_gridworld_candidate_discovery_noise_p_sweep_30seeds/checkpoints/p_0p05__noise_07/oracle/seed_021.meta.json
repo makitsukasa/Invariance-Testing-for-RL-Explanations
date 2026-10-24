@@ -1,0 +1,8 @@
+{
+  "seed": 21,
+  "spurious_p": 0.05,
+  "n_noise": 7,
+  "saved_at": "2026-05-03 14:26:23",
+  "config_hash": "7b2263616e6469646174655f64697363",
+  "path": "C:/Users/tsukasa/Documents/rl-shift-auto-detection/experiments/results/exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds/checkpoints/p_0p05__noise_07/oracle/seed_021.zip"
+}

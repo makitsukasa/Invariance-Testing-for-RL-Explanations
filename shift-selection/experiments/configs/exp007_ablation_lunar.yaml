@@ -1,0 +1,57 @@
+name: exp007_ablation_lunar
+description: >
+  LunarLander アブレーション (v2 env)。
+  差分 shaping 除去 + 終端 zone_bonus のみ。vx_nudge で zone をベース obs から弱く推定可能にする。
+  事前固定採用基準:
+    Stage1: AA >= 0.9 AND J_oracle > 200
+    Ablation: J_oracle(correlated) > J_oracle(no_c) > 50
+    Stage2: c_collapse のみ c_correlated で起きる (no_c/c_random は collapse しない)
+    Intervention: c_correlated のみ "c (spurious)" を自動選択
+
+env:
+  weak_signal: "vx_nudge"
+  vx_nudge_scale: 0.25
+  zone_bonus_sweep: [100, 200, 300]
+
+ablation_conditions:
+  - name: "no_c"
+    c_mode: "dummy"
+    spurious_p: 0.0
+  - name: "c_random"
+    c_mode: "random"
+    spurious_p: 0.5
+  - name: "c_correlated_p00"
+    c_mode: "correlated"
+    spurious_p: 0.0
+  - name: "c_correlated_p01"
+    c_mode: "correlated"
+    spurious_p: 0.1
+
+oracle:
+  n_steps: 1000000
+  gamma: 0.999
+  gae_lambda: 0.98
+  ent_coef: 0.01
+  n_steps_per_rollout: 1024
+  batch_size: 64
+  n_epochs: 4
+
+surrogate:
+  n_experts: 8
+  max_depth: 6
+  distill_epochs: 200
+  n_distill_samples: 20000
+
+evaluation:
+  seeds: [42, 123, 456, 789]
+  n_eval_samples: 2000
+  n_eval_episodes: 100
+
+adoption_criteria:
+  j_oracle_min: 200
+  j_oracle_no_c_min: 50
+  aa_min: 0.9
+  j_s_rev_ratio_max: 0.5
+
+n_workers: 4
+output_dir: experiments/results/exp007_ablation_lunar

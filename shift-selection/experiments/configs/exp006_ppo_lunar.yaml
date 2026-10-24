@@ -1,0 +1,28 @@
+name: exp006_ppo_lunar
+description: "SpuriousLunarLander で PPO oracle + gamma=0.999。exp003（DQN gamma=0.99）の失敗原因（終端報酬の減衰: 0.99^400≈0.018）を PPO + 高 gamma で解消する試み。"
+
+env:
+  spurious_p: 0.0
+
+oracle:
+  n_steps: 1000000
+  gamma: 0.999
+  gae_lambda: 0.98
+  ent_coef: 0.01
+  n_steps_per_rollout: 1024
+  batch_size: 64
+  n_epochs: 4
+
+surrogate:
+  n_experts: 4
+  max_depth: 5
+  distill_epochs: 100
+  n_distill_samples: 10000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 0]
+  n_eval_samples: 2000
+  n_eval_episodes: 100
+
+n_workers: 4
+output_dir: experiments/results/exp006_ppo_lunar

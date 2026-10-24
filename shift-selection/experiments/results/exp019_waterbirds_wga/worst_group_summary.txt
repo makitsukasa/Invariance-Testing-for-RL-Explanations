@@ -1,0 +1,36 @@
+=== Waterbirds worst-group accuracy ===
+seeds: 30
+mean worst_group_acc: 0.3424
+std  worst_group_acc: 0.0804
+
+per-seed:
+seed=0: worst=0.2399, avg_group=0.6195, y0p0=0.9960, y0p1=0.7761, y1p0=0.2399, y1p1=0.8458
+seed=1: worst=0.4081, avg_group=0.6607, y0p0=0.9863, y0p1=0.5756, y1p0=0.4081, y1p1=0.9252
+seed=2: worst=0.2196, avg_group=0.6072, y0p0=0.9965, y0p1=0.7636, y1p0=0.2196, y1p1=0.8364
+seed=3: worst=0.4424, avg_group=0.6656, y0p0=0.9845, y0p1=0.5304, y1p0=0.4424, y1p1=0.9283
+seed=4: worst=0.3380, avg_group=0.6381, y0p0=0.9920, y0p1=0.6173, y1p0=0.3380, y1p1=0.9050
+seed=5: worst=0.4081, avg_group=0.6605, y0p0=0.9894, y0p1=0.5778, y1p0=0.4081, y1p1=0.9190
+seed=6: worst=0.4237, avg_group=0.6675, y0p0=0.9871, y0p1=0.5840, y1p0=0.4237, y1p1=0.9190
+seed=7: worst=0.2274, avg_group=0.6108, y0p0=0.9960, y0p1=0.7636, y1p0=0.2274, y1p1=0.8396
+seed=8: worst=0.4128, avg_group=0.6660, y0p0=0.9871, y0p1=0.6000, y1p0=0.4128, y1p1=0.9174
+seed=9: worst=0.3115, avg_group=0.6321, y0p0=0.9933, y0p1=0.6576, y1p0=0.3115, y1p1=0.8863
+seed=10: worst=0.3956, avg_group=0.6569, y0p0=0.9885, y0p1=0.5902, y1p0=0.3956, y1p1=0.9143
+seed=11: worst=0.3474, avg_group=0.6419, y0p0=0.9916, y0p1=0.6151, y1p0=0.3474, y1p1=0.9081
+seed=12: worst=0.2897, avg_group=0.6289, y0p0=0.9956, y0p1=0.6989, y1p0=0.2897, y1p1=0.8707
+seed=13: worst=0.2134, avg_group=0.6083, y0p0=0.9965, y0p1=0.7849, y1p0=0.2134, y1p1=0.8333
+seed=14: worst=0.4299, avg_group=0.6694, y0p0=0.9858, y0p1=0.5809, y1p0=0.4299, y1p1=0.9206
+seed=15: worst=0.2991, avg_group=0.6288, y0p0=0.9933, y0p1=0.6630, y1p0=0.2991, y1p1=0.8894
+seed=16: worst=0.2928, avg_group=0.6304, y0p0=0.9951, y0p1=0.7038, y1p0=0.2928, y1p1=0.8676
+seed=17: worst=0.3302, avg_group=0.6400, y0p0=0.9929, y0p1=0.6559, y1p0=0.3302, y1p1=0.8910
+seed=18: worst=0.3956, avg_group=0.6586, y0p0=0.9894, y0p1=0.5965, y1p0=0.3956, y1p1=0.9159
+seed=19: worst=0.2586, avg_group=0.6223, y0p0=0.9956, y0p1=0.7450, y1p0=0.2586, y1p1=0.8536
+seed=20: worst=0.1604, avg_group=0.5850, y0p0=0.9973, y0p1=0.7951, y1p0=0.1604, y1p1=0.8115
+seed=21: worst=0.2991, avg_group=0.6354, y0p0=0.9951, y0p1=0.7020, y1p0=0.2991, y1p1=0.8816
+seed=22: worst=0.3193, avg_group=0.6396, y0p0=0.9938, y0p1=0.6794, y1p0=0.3193, y1p1=0.8863
+seed=23: worst=0.3910, avg_group=0.6569, y0p0=0.9898, y0p1=0.5987, y1p0=0.3910, y1p1=0.9143
+seed=24: worst=0.3614, avg_group=0.6537, y0p0=0.9925, y0p1=0.6514, y1p0=0.3614, y1p1=0.9019
+seed=25: worst=0.3769, avg_group=0.6528, y0p0=0.9925, y0p1=0.6080, y1p0=0.3769, y1p1=0.9097
+seed=26: worst=0.3489, avg_group=0.6472, y0p0=0.9938, y0p1=0.6457, y1p0=0.3489, y1p1=0.8988
+seed=27: worst=0.4829, avg_group=0.6776, y0p0=0.9805, y0p1=0.5055, y1p0=0.4829, y1p1=0.9361
+seed=28: worst=0.4097, avg_group=0.6609, y0p0=0.9894, y0p1=0.5752, y1p0=0.4097, y1p1=0.9206
+seed=29: worst=0.4393, avg_group=0.6672, y0p0=0.9836, y0p1=0.5441, y1p0=0.4393, y1p1=0.9299

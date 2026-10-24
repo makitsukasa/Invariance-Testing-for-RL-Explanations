@@ -1,0 +1,477 @@
+Experiment : exp005_psweep_gridworld
+Seeds      : [42, 123, 456, 789, 0]
+p_values   : [0.0, 0.1, 0.2, 0.3]
+Workers    : 4
+[DONE] p=0.0, seed=123: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.0, seed=42: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.0, seed=789: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.0, seed=456: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.0, seed=0: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.1, seed=123: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.1, seed=456: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.1, seed=42: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.1, seed=789: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.1, seed=0: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.2, seed=42: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.2, seed=123: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.2, seed=789: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.2, seed=456: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.2, seed=0: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.3, seed=42: selected=agent_x, correct=False, collapse=False, e2e=False
+[DONE] p=0.3, seed=456: selected=agent_y, correct=False, collapse=True, e2e=False
+[DONE] p=0.3, seed=123: selected=c (spurious), correct=True, collapse=True, e2e=True
+[DONE] p=0.3, seed=789: selected=noise_6, correct=False, collapse=True, e2e=False
+[DONE] p=0.3, seed=0: selected=noise_2, correct=False, collapse=True, e2e=False
+
+============================================================
+Seed 42  (spurious_p=0.0)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.909 (PASS), J_S_train=0.968
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.959
+    agent_y: J_S_perturbed=0.901
+    c (spurious): J_S_perturbed=0.448
+    noise_0: J_S_perturbed=0.966
+    noise_1: J_S_perturbed=0.967
+    noise_2: J_S_perturbed=0.967
+    noise_3: J_S_perturbed=0.970
+    noise_4: J_S_perturbed=0.966
+    noise_5: J_S_perturbed=0.968
+    noise_6: J_S_perturbed=0.968
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.968, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 123  (spurious_p=0.0)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.916 (PASS), J_S_train=0.968
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.962
+    agent_y: J_S_perturbed=0.883
+    c (spurious): J_S_perturbed=0.485
+    noise_0: J_S_perturbed=0.968
+    noise_1: J_S_perturbed=0.968
+    noise_2: J_S_perturbed=0.965
+    noise_3: J_S_perturbed=0.967
+    noise_4: J_S_perturbed=0.968
+    noise_5: J_S_perturbed=0.969
+    noise_6: J_S_perturbed=0.970
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.968, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 456  (spurious_p=0.0)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.906 (PASS), J_S_train=0.967
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.888
+    agent_y: J_S_perturbed=0.966
+    c (spurious): J_S_perturbed=0.422
+    noise_0: J_S_perturbed=0.970
+    noise_1: J_S_perturbed=0.969
+    noise_2: J_S_perturbed=0.969
+    noise_3: J_S_perturbed=0.969
+    noise_4: J_S_perturbed=0.970
+    noise_5: J_S_perturbed=0.969
+    noise_6: J_S_perturbed=0.968
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.967, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 789  (spurious_p=0.0)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.915 (PASS), J_S_train=0.969
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.927
+    agent_y: J_S_perturbed=0.955
+    c (spurious): J_S_perturbed=0.396
+    noise_0: J_S_perturbed=0.966
+    noise_1: J_S_perturbed=0.967
+    noise_2: J_S_perturbed=0.967
+    noise_3: J_S_perturbed=0.970
+    noise_4: J_S_perturbed=0.969
+    noise_5: J_S_perturbed=0.968
+    noise_6: J_S_perturbed=0.968
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.969, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 0  (spurious_p=0.0)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.912 (PASS), J_S_train=0.969
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.946
+    agent_y: J_S_perturbed=0.933
+    c (spurious): J_S_perturbed=0.446
+    noise_0: J_S_perturbed=0.967
+    noise_1: J_S_perturbed=0.966
+    noise_2: J_S_perturbed=0.968
+    noise_3: J_S_perturbed=0.971
+    noise_4: J_S_perturbed=0.967
+    noise_5: J_S_perturbed=0.971
+    noise_6: J_S_perturbed=0.968
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.969, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 42  (spurious_p=0.1)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.923 (PASS), J_S_train=0.547
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.667
+    agent_y: J_S_perturbed=0.586
+    c (spurious): J_S_perturbed=0.329
+    noise_0: J_S_perturbed=0.527
+    noise_1: J_S_perturbed=0.624
+    noise_2: J_S_perturbed=0.624
+    noise_3: J_S_perturbed=0.657
+    noise_4: J_S_perturbed=0.526
+    noise_5: J_S_perturbed=0.547
+    noise_6: J_S_perturbed=0.615
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.547, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 123  (spurious_p=0.1)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.952 (PASS), J_S_train=0.749
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.657
+    agent_y: J_S_perturbed=0.685
+    c (spurious): J_S_perturbed=0.548
+    noise_0: J_S_perturbed=0.771
+    noise_1: J_S_perturbed=0.747
+    noise_2: J_S_perturbed=0.835
+    noise_3: J_S_perturbed=0.797
+    noise_4: J_S_perturbed=0.769
+    noise_5: J_S_perturbed=0.751
+    noise_6: J_S_perturbed=0.830
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.749, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 456  (spurious_p=0.1)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.919 (PASS), J_S_train=0.712
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.707
+    agent_y: J_S_perturbed=0.763
+    c (spurious): J_S_perturbed=0.566
+    noise_0: J_S_perturbed=0.704
+    noise_1: J_S_perturbed=0.683
+    noise_2: J_S_perturbed=0.801
+    noise_3: J_S_perturbed=0.743
+    noise_4: J_S_perturbed=0.723
+    noise_5: J_S_perturbed=0.762
+    noise_6: J_S_perturbed=0.771
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.712, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 789  (spurious_p=0.1)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.852 (FAIL), J_S_train=0.701
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.751
+    agent_y: J_S_perturbed=0.703
+    c (spurious): J_S_perturbed=0.482
+    noise_0: J_S_perturbed=0.737
+    noise_1: J_S_perturbed=0.779
+    noise_2: J_S_perturbed=0.837
+    noise_3: J_S_perturbed=0.801
+    noise_4: J_S_perturbed=0.798
+    noise_5: J_S_perturbed=0.719
+    noise_6: J_S_perturbed=0.779
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.701, J_S_rev=-0.990 -> COLLAPSE
+
+============================================================
+Seed 0  (spurious_p=0.1)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.929 (PASS), J_S_train=0.781
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.657
+    agent_y: J_S_perturbed=0.730
+    c (spurious): J_S_perturbed=0.486
+    noise_0: J_S_perturbed=0.780
+    noise_1: J_S_perturbed=0.789
+    noise_2: J_S_perturbed=0.732
+    noise_3: J_S_perturbed=0.793
+    noise_4: J_S_perturbed=0.790
+    noise_5: J_S_perturbed=0.793
+    noise_6: J_S_perturbed=0.790
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.781, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 42  (spurious_p=0.2)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.815 (FAIL), J_S_train=0.563
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.487
+    agent_y: J_S_perturbed=0.484
+    c (spurious): J_S_perturbed=0.327
+    noise_0: J_S_perturbed=0.579
+    noise_1: J_S_perturbed=0.587
+    noise_2: J_S_perturbed=0.474
+    noise_3: J_S_perturbed=0.642
+    noise_4: J_S_perturbed=0.584
+    noise_5: J_S_perturbed=0.545
+    noise_6: J_S_perturbed=0.647
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.563, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 123  (spurious_p=0.2)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.839 (FAIL), J_S_train=0.597
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.456
+    agent_y: J_S_perturbed=0.468
+    c (spurious): J_S_perturbed=0.323
+    noise_0: J_S_perturbed=0.546
+    noise_1: J_S_perturbed=0.567
+    noise_2: J_S_perturbed=0.582
+    noise_3: J_S_perturbed=0.624
+    noise_4: J_S_perturbed=0.634
+    noise_5: J_S_perturbed=0.539
+    noise_6: J_S_perturbed=0.667
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.597, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 456  (spurious_p=0.2)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.836 (FAIL), J_S_train=0.385
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.500
+    agent_y: J_S_perturbed=0.412
+    c (spurious): J_S_perturbed=0.072
+    noise_0: J_S_perturbed=0.344
+    noise_1: J_S_perturbed=0.342
+    noise_2: J_S_perturbed=0.330
+    noise_3: J_S_perturbed=0.538
+    noise_4: J_S_perturbed=0.382
+    noise_5: J_S_perturbed=0.415
+    noise_6: J_S_perturbed=0.415
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.385, J_S_rev=-0.990 -> COLLAPSE
+
+============================================================
+Seed 789  (spurious_p=0.2)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.910 (PASS), J_S_train=0.534
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.596
+    agent_y: J_S_perturbed=0.604
+    c (spurious): J_S_perturbed=0.313
+    noise_0: J_S_perturbed=0.579
+    noise_1: J_S_perturbed=0.600
+    noise_2: J_S_perturbed=0.647
+    noise_3: J_S_perturbed=0.630
+    noise_4: J_S_perturbed=0.621
+    noise_5: J_S_perturbed=0.562
+    noise_6: J_S_perturbed=0.542
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.534, J_S_rev=-1.000 -> COLLAPSE
+
+============================================================
+Seed 0  (spurious_p=0.2)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.892 (FAIL), J_S_train=0.606
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.370
+    agent_y: J_S_perturbed=0.597
+    c (spurious): J_S_perturbed=0.292
+    noise_0: J_S_perturbed=0.583
+    noise_1: J_S_perturbed=0.663
+    noise_2: J_S_perturbed=0.531
+    noise_3: J_S_perturbed=0.628
+    noise_4: J_S_perturbed=0.691
+    noise_5: J_S_perturbed=0.709
+    noise_6: J_S_perturbed=0.653
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.606, J_S_rev=-0.861 -> COLLAPSE
+
+============================================================
+Seed 42  (spurious_p=0.3)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.761 (FAIL), J_S_train=-0.050
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=-0.273
+    agent_y: J_S_perturbed=0.341
+    c (spurious): J_S_perturbed=-0.017
+    noise_0: J_S_perturbed=-0.051
+    noise_1: J_S_perturbed=-0.029
+    noise_2: J_S_perturbed=-0.142
+    noise_3: J_S_perturbed=-0.002
+    noise_4: J_S_perturbed=-0.133
+    noise_5: J_S_perturbed=-0.066
+    noise_6: J_S_perturbed=-0.077
+    Auto-selected: agent_x -> WRONG
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=-0.050, J_S_rev=-0.851 -> no collapse
+
+============================================================
+Seed 123  (spurious_p=0.3)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.861 (FAIL), J_S_train=0.370
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.208
+    agent_y: J_S_perturbed=0.268
+    c (spurious): J_S_perturbed=0.022
+    noise_0: J_S_perturbed=0.323
+    noise_1: J_S_perturbed=0.288
+    noise_2: J_S_perturbed=0.365
+    noise_3: J_S_perturbed=0.355
+    noise_4: J_S_perturbed=0.328
+    noise_5: J_S_perturbed=0.381
+    noise_6: J_S_perturbed=0.529
+    Auto-selected: c (spurious) -> CORRECT (c)
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.370, J_S_rev=-0.792 -> COLLAPSE
+
+============================================================
+Seed 456  (spurious_p=0.3)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.841 (FAIL), J_S_train=0.345
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.305
+    agent_y: J_S_perturbed=0.290
+    c (spurious): J_S_perturbed=0.311
+    noise_0: J_S_perturbed=0.305
+    noise_1: J_S_perturbed=0.403
+    noise_2: J_S_perturbed=0.333
+    noise_3: J_S_perturbed=0.465
+    noise_4: J_S_perturbed=0.364
+    noise_5: J_S_perturbed=0.393
+    noise_6: J_S_perturbed=0.355
+    Auto-selected: agent_y -> WRONG
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.345, J_S_rev=-0.980 -> COLLAPSE
+
+============================================================
+Seed 789  (spurious_p=0.3)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.797 (FAIL), J_S_train=0.062
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.332
+    agent_y: J_S_perturbed=0.405
+    c (spurious): J_S_perturbed=0.010
+    noise_0: J_S_perturbed=-0.019
+    noise_1: J_S_perturbed=0.048
+    noise_2: J_S_perturbed=0.061
+    noise_3: J_S_perturbed=0.033
+    noise_4: J_S_perturbed=-0.023
+    noise_5: J_S_perturbed=0.026
+    noise_6: J_S_perturbed=-0.116
+    Auto-selected: noise_6 -> WRONG
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.062, J_S_rev=-0.768 -> COLLAPSE
+
+============================================================
+Seed 0  (spurious_p=0.3)
+============================================================
+  [1/4] Oracle training...
+  [2/4] Data collection...
+  [3/4] Surrogate training (MoET)...
+    Stage 1: AA=0.874 (FAIL), J_S_train=0.395
+  [4a/5] Per-feature intervention test...
+    agent_x: J_S_perturbed=0.325
+    agent_y: J_S_perturbed=0.439
+    c (spurious): J_S_perturbed=0.253
+    noise_0: J_S_perturbed=0.307
+    noise_1: J_S_perturbed=0.279
+    noise_2: J_S_perturbed=0.239
+    noise_3: J_S_perturbed=0.369
+    noise_4: J_S_perturbed=0.367
+    noise_5: J_S_perturbed=0.417
+    noise_6: J_S_perturbed=0.316
+    Auto-selected: noise_2 -> WRONG
+  [4b/5] Stage 2: c ‚ð”½“]‚µ‚Ä J_S •ö‰ó‚ðŠm”F...
+    J_S_train=0.395, J_S_rev=-0.784 -> COLLAPSE
+
+============================================================
+SUMMARY
+============================================================
+    p | AA>=0.9 | detect c | collapse |   e2e
+---------------------------------------------
+  0.0 |    100% |     100% |     100% |  100%
+  0.1 |     80% |     100% |     100% |  100%
+  0.2 |     20% |     100% |     100% |  100%
+  0.3 |      0% |      20% |      80% |   20%
+summary.txt -> C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp005_psweep_gridworld\summary.txt
+
+Results: C:\Users\tsukasa\Documents\rl-shift-auto-detection\experiments\results\exp005_psweep_gridworld

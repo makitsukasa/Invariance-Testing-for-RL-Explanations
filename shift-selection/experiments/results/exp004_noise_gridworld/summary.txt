@@ -1,0 +1,28 @@
+=== exp004_noise_gridworld ===
+SpuriousGridWorld + 7 ノイズ特徴（計10次元）で per-feature 介入テスト自動選択。exp002（3次元）と同一アルゴリズムで、特徴数を増やしても c が正しく選択できるかを確認する。ノイズ特徴は毎ステップ i.i.d. uniform [0,1]。
+
+Seeds  : [0, 42, 123, 456, 789]
+n_noise: 7 (total obs dim: 10)
+Oracle : DQN 50000 steps
+Surrogate: MoET K=4, d=5, epochs=100, n=10000
+
+Stage 1 pass (AA>=0.9): 100% (5/5)
+
+Q1. Intervention correctly selected c: 100% (5/5)
+  Δ_agent_x=0.032+-0.030
+  Δ_agent_y=0.041+-0.035
+  Δ_c (spurious)=0.529+-0.033
+  Δ_noise_0=0.000+-0.002
+  Δ_noise_1=0.001+-0.002
+  Δ_noise_2=0.001+-0.002
+  Δ_noise_3=-0.002+-0.001
+  Δ_noise_4=0.000+-0.002
+  Δ_noise_5=-0.001+-0.001
+  Δ_noise_6=-0.000+-0.001
+
+Per-seed:
+  seed=0: selected=c (spurious), correct=True, AA=0.912, J_S_train=0.969
+  seed=42: selected=c (spurious), correct=True, AA=0.909, J_S_train=0.968
+  seed=123: selected=c (spurious), correct=True, AA=0.916, J_S_train=0.968
+  seed=456: selected=c (spurious), correct=True, AA=0.906, J_S_train=0.967
+  seed=789: selected=c (spurious), correct=True, AA=0.915, J_S_train=0.969

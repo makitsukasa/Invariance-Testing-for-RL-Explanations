@@ -1,0 +1,504 @@
+{
+  "experiment": "exp028_waterbirds_clip_ssl_candidate_discovery_30seeds",
+  "state": "completed",
+  "session_id": "exp028_waterbirds_clip_ssl_candidate_discovery_30seeds-20260503-151642",
+  "started_at": "2026-05-03 15:16:42",
+  "completed_at": "2026-05-03 18:07:37",
+  "output_dir": "C:/Users/tsukasa/Documents/rl-shift-auto-detection/experiments/results/exp028_waterbirds_clip_ssl_candidate_discovery_30seeds",
+  "config_hash": "7b2263616e6469646174655f64697363",
+  "resume_enabled": true,
+  "planned_tasks": [
+    {
+      "seed": 0,
+      "n_eval": 100
+    },
+    {
+      "seed": 1,
+      "n_eval": 100
+    },
+    {
+      "seed": 2,
+      "n_eval": 100
+    },
+    {
+      "seed": 3,
+      "n_eval": 100
+    },
+    {
+      "seed": 4,
+      "n_eval": 100
+    },
+    {
+      "seed": 5,
+      "n_eval": 100
+    },
+    {
+      "seed": 6,
+      "n_eval": 100
+    },
+    {
+      "seed": 7,
+      "n_eval": 100
+    },
+    {
+      "seed": 8,
+      "n_eval": 100
+    },
+    {
+      "seed": 9,
+      "n_eval": 100
+    },
+    {
+      "seed": 10,
+      "n_eval": 100
+    },
+    {
+      "seed": 11,
+      "n_eval": 100
+    },
+    {
+      "seed": 12,
+      "n_eval": 100
+    },
+    {
+      "seed": 13,
+      "n_eval": 100
+    },
+    {
+      "seed": 14,
+      "n_eval": 100
+    },
+    {
+      "seed": 15,
+      "n_eval": 100
+    },
+    {
+      "seed": 16,
+      "n_eval": 100
+    },
+    {
+      "seed": 17,
+      "n_eval": 100
+    },
+    {
+      "seed": 18,
+      "n_eval": 100
+    },
+    {
+      "seed": 19,
+      "n_eval": 100
+    },
+    {
+      "seed": 20,
+      "n_eval": 100
+    },
+    {
+      "seed": 21,
+      "n_eval": 100
+    },
+    {
+      "seed": 22,
+      "n_eval": 100
+    },
+    {
+      "seed": 23,
+      "n_eval": 100
+    },
+    {
+      "seed": 24,
+      "n_eval": 100
+    },
+    {
+      "seed": 25,
+      "n_eval": 100
+    },
+    {
+      "seed": 26,
+      "n_eval": 100
+    },
+    {
+      "seed": 27,
+      "n_eval": 100
+    },
+    {
+      "seed": 28,
+      "n_eval": 100
+    },
+    {
+      "seed": 29,
+      "n_eval": 100
+    },
+    {
+      "seed": 0,
+      "n_eval": 300
+    },
+    {
+      "seed": 1,
+      "n_eval": 300
+    },
+    {
+      "seed": 2,
+      "n_eval": 300
+    },
+    {
+      "seed": 3,
+      "n_eval": 300
+    },
+    {
+      "seed": 4,
+      "n_eval": 300
+    },
+    {
+      "seed": 5,
+      "n_eval": 300
+    },
+    {
+      "seed": 6,
+      "n_eval": 300
+    },
+    {
+      "seed": 7,
+      "n_eval": 300
+    },
+    {
+      "seed": 8,
+      "n_eval": 300
+    },
+    {
+      "seed": 9,
+      "n_eval": 300
+    },
+    {
+      "seed": 10,
+      "n_eval": 300
+    },
+    {
+      "seed": 11,
+      "n_eval": 300
+    },
+    {
+      "seed": 12,
+      "n_eval": 300
+    },
+    {
+      "seed": 13,
+      "n_eval": 300
+    },
+    {
+      "seed": 14,
+      "n_eval": 300
+    },
+    {
+      "seed": 15,
+      "n_eval": 300
+    },
+    {
+      "seed": 16,
+      "n_eval": 300
+    },
+    {
+      "seed": 17,
+      "n_eval": 300
+    },
+    {
+      "seed": 18,
+      "n_eval": 300
+    },
+    {
+      "seed": 19,
+      "n_eval": 300
+    },
+    {
+      "seed": 20,
+      "n_eval": 300
+    },
+    {
+      "seed": 21,
+      "n_eval": 300
+    },
+    {
+      "seed": 22,
+      "n_eval": 300
+    },
+    {
+      "seed": 23,
+      "n_eval": 300
+    },
+    {
+      "seed": 24,
+      "n_eval": 300
+    },
+    {
+      "seed": 25,
+      "n_eval": 300
+    },
+    {
+      "seed": 26,
+      "n_eval": 300
+    },
+    {
+      "seed": 27,
+      "n_eval": 300
+    },
+    {
+      "seed": 28,
+      "n_eval": 300
+    },
+    {
+      "seed": 29,
+      "n_eval": 300
+    }
+  ],
+  "completed_tasks": [
+    {
+      "seed": 0,
+      "n_eval": 100
+    },
+    {
+      "seed": 0,
+      "n_eval": 300
+    },
+    {
+      "seed": 1,
+      "n_eval": 100
+    },
+    {
+      "seed": 1,
+      "n_eval": 300
+    },
+    {
+      "seed": 2,
+      "n_eval": 100
+    },
+    {
+      "seed": 2,
+      "n_eval": 300
+    },
+    {
+      "seed": 3,
+      "n_eval": 100
+    },
+    {
+      "seed": 3,
+      "n_eval": 300
+    },
+    {
+      "seed": 4,
+      "n_eval": 100
+    },
+    {
+      "seed": 4,
+      "n_eval": 300
+    },
+    {
+      "seed": 5,
+      "n_eval": 100
+    },
+    {
+      "seed": 5,
+      "n_eval": 300
+    },
+    {
+      "seed": 6,
+      "n_eval": 100
+    },
+    {
+      "seed": 6,
+      "n_eval": 300
+    },
+    {
+      "seed": 7,
+      "n_eval": 100
+    },
+    {
+      "seed": 7,
+      "n_eval": 300
+    },
+    {
+      "seed": 8,
+      "n_eval": 100
+    },
+    {
+      "seed": 8,
+      "n_eval": 300
+    },
+    {
+      "seed": 9,
+      "n_eval": 100
+    },
+    {
+      "seed": 9,
+      "n_eval": 300
+    },
+    {
+      "seed": 10,
+      "n_eval": 100
+    },
+    {
+      "seed": 10,
+      "n_eval": 300
+    },
+    {
+      "seed": 11,
+      "n_eval": 100
+    },
+    {
+      "seed": 11,
+      "n_eval": 300
+    },
+    {
+      "seed": 12,
+      "n_eval": 100
+    },
+    {
+      "seed": 12,
+      "n_eval": 300
+    },
+    {
+      "seed": 13,
+      "n_eval": 100
+    },
+    {
+      "seed": 13,
+      "n_eval": 300
+    },
+    {
+      "seed": 14,
+      "n_eval": 100
+    },
+    {
+      "seed": 14,
+      "n_eval": 300
+    },
+    {
+      "seed": 15,
+      "n_eval": 100
+    },
+    {
+      "seed": 15,
+      "n_eval": 300
+    },
+    {
+      "seed": 16,
+      "n_eval": 100
+    },
+    {
+      "seed": 16,
+      "n_eval": 300
+    },
+    {
+      "seed": 17,
+      "n_eval": 100
+    },
+    {
+      "seed": 17,
+      "n_eval": 300
+    },
+    {
+      "seed": 18,
+      "n_eval": 100
+    },
+    {
+      "seed": 18,
+      "n_eval": 300
+    },
+    {
+      "seed": 19,
+      "n_eval": 100
+    },
+    {
+      "seed": 19,
+      "n_eval": 300
+    },
+    {
+      "seed": 20,
+      "n_eval": 100
+    },
+    {
+      "seed": 20,
+      "n_eval": 300
+    },
+    {
+      "seed": 21,
+      "n_eval": 100
+    },
+    {
+      "seed": 21,
+      "n_eval": 300
+    },
+    {
+      "seed": 22,
+      "n_eval": 100
+    },
+    {
+      "seed": 22,
+      "n_eval": 300
+    },
+    {
+      "seed": 23,
+      "n_eval": 100
+    },
+    {
+      "seed": 23,
+      "n_eval": 300
+    },
+    {
+      "seed": 24,
+      "n_eval": 100
+    },
+    {
+      "seed": 24,
+      "n_eval": 300
+    },
+    {
+      "seed": 25,
+      "n_eval": 100
+    },
+    {
+      "seed": 25,
+      "n_eval": 300
+    },
+    {
+      "seed": 26,
+      "n_eval": 100
+    },
+    {
+      "seed": 26,
+      "n_eval": 300
+    },
+    {
+      "seed": 27,
+      "n_eval": 100
+    },
+    {
+      "seed": 27,
+      "n_eval": 300
+    },
+    {
+      "seed": 28,
+      "n_eval": 100
+    },
+    {
+      "seed": 28,
+      "n_eval": 300
+    },
+    {
+      "seed": 29,
+      "n_eval": 100
+    },
+    {
+      "seed": 29,
+      "n_eval": 300
+    }
+  ],
+  "n_workers": 2,
+  "estimated_minutes_total": 360.0,
+  "estimated_minutes_per_task": 12.0,
+  "mask_radii": [
+    -3,
+    -1,
+    0,
+    1,
+    3
+  ]
+}

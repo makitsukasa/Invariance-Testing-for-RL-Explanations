@@ -1,0 +1,15 @@
+=== exp023_gridworld_candidate_discovery ===
+正解付き Spurious GridWorld 上で、自動候補発見法が真のスプリアス特徴 c を 上位に回収できるか、さらに PerformanceCheck に接続したときに 実際に性能崩壊候補として確認されるかを測る最小 end-to-end 実験。
+
+
+Seeds   : [0, 42, 123, 456, 789]
+Methods : ['mutual_info', 'linear_probe_drop', 'tree_probe_drop', 'random']
+Env     : p=0.05, n_noise=7, grid=5
+Elapsed : 1.9 min
+
+method             |   top1 |   topk | mean rank | pc top1
+--------------------------------------------------------------
+mutual_info        |    40% |   100% |      2.00 |     40%
+linear_probe_drop  |    80% |   100% |      1.20 |     80%
+tree_probe_drop    |    60% |   100% |      1.40 |     60%
+random             |    20% |    20% |      5.60 |     20%

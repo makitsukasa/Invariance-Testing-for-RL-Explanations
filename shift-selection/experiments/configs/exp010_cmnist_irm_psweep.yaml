@@ -1,0 +1,24 @@
+name: exp010_cmnist_irm_psweep
+description: "IRM 設定 ColoredMNIST の p sweep。label_noise_p=0.25 でラベルを 25% フリップし structure の精度上限を 75% に制限。color (spurious_p=0.1) は 90% → oracle が color shortcut を取る。"
+
+data:
+  root: data/mnist
+  p_values: [0.0, 0.1, 0.2, 0.3]
+  stage2_p: 1.0        # Stage 2 test: color perfectly anti-correlates
+  label_noise_p: 0.25  # structure accuracy ceiling: ~75%
+
+oracle:
+  epochs: 10
+  lr: 0.001
+  batch_size: 256
+
+surrogate:
+  epochs: 10
+  lr: 0.001
+  batch_size: 256
+
+evaluation:
+  seeds: [42, 123, 456, 789, 0]
+  collapse_threshold: 0.6
+
+output_dir: experiments/results/exp010_cmnist_irm_psweep

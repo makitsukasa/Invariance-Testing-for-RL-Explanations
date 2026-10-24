@@ -1,0 +1,23 @@
+name: exp004_noise_gridworld
+description: "SpuriousGridWorld + 7 ノイズ特徴（計10次元）で per-feature 介入テスト自動選択。exp002（3次元）と同一アルゴリズムで、特徴数を増やしても c が正しく選択できるかを確認する。ノイズ特徴は毎ステップ i.i.d. uniform [0,1]。"
+
+env:
+  spurious_p: 0.0
+  n_noise: 7          # obs = (x, y, c, noise×7) = 10次元
+
+oracle:
+  n_steps: 50000
+
+surrogate:
+  n_experts: 4
+  max_depth: 5
+  distill_epochs: 100
+  n_distill_samples: 10000
+
+evaluation:
+  seeds: [42, 123, 456, 789, 0]
+  n_eval_samples: 2000
+  n_eval_episodes: 200
+
+n_workers: 4
+output_dir: experiments/results/exp004_noise_gridworld
