@@ -1,0 +1,8 @@
+{
+  "seed": 456,
+  "spurious_p": 0.15,
+  "n_noise": 3,
+  "saved_at": "2026-05-02 22:28:59",
+  "config_hash": "7b2263616e6469646174655f64697363",
+  "path": "C:/Users/tsukasa/Documents/auto-spurious-discovery/experiments/results/exp002/checkpoints/p_0p15__noise_03/oracle/seed_456.zip"
+}
