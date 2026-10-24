@@ -172,4 +172,4 @@ GBT+DAgger（10 イテレーション × 10,000 サンプル）による蒸留�
 
 ## candidate-discovery/（旧 auto-spurious-discovery）
 
-「検査する候補の特徴」を人が与えずに見つけようとした試み（2026-05-02）の実験一式です。旧リポジトリ `auto-spurious-discovery` を、コミット履歴ごと `candidate-discovery/` に取り込みました。GridWorld で、候補の順位付けの手法（相互情報量、線形・決定木プローブの permutation importance、ランダム）を比べています。結果は「自動発見」ではなく重要度の指標の比較として読むべきもので、Δ による特徴の選択（主張2）の比較対象を増やす材料として使えます。詳細と注意は `candidate-discovery/README.md` にあります。
+「検査する候補の特徴」を人が与えずに見つけようとした試み（2026-05-02）の実験一式です。旧リポジトリ `auto-spurious-discovery` を、コミット履歴ごと `candidate-discovery/` に取り込みました。GridWorld で、候補の順位付けの手法（相互情報量、線形・決定木プローブの permutation importance、ランダム）を比べています。同じ実験は `shift-selection/` の exp023・exp024 として行われ、30 シード版や CLIP・自己教師あり表現による候補発見（exp025〜028）まで進んでいます。このディレクトリは、その前身の記録です。詳細と注意は `candidate-discovery/README.md` にあります。

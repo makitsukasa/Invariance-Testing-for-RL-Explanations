@@ -23,7 +23,7 @@ Spurious GridWorld 上で `spurious_p` とノイズ次元数を同時に sweep �
 - `checkpoints/`
 
 ## 結果要約
-- 低相関 (`spurious_p=0.05`) では `linear_probe_drop` と `tree_probe_drop` が強く、`n_noise=15` ではともに top-1 回収率 `100%`。
+- 強相関 (`spurious_p=0.05`。c = goal_id XOR Bernoulli(p) なので p が小さいほど相関が強い。2026-10-24 に「低相関」から訂正) では `linear_probe_drop` と `tree_probe_drop` が強く、`n_noise=15` ではともに top-1 回収率 `100%`。
 - `spurious_p` が `0.15`, `0.25` に上がると、probe 系も top-1 回収率が低下する。
 - `mutual_info` は strict な top-1 では弱い条件がある一方、全条件で top-k 回収率 `100%` を維持する。
 - `random` は全体として弱く、基準法として妥当な挙動を示す。
