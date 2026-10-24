@@ -1,0 +1,8 @@
+{
+  "seed": 42,
+  "spurious_p": 0.25,
+  "n_noise": 15,
+  "saved_at": "2026-05-02 22:37:16",
+  "config_hash": "7b2263616e6469646174655f64697363",
+  "path": "C:/Users/tsukasa/Documents/auto-spurious-discovery/experiments/results/exp002/checkpoints/p_0p25__noise_15/surrogate/seed_042.pkl"
+}

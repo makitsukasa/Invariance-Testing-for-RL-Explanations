@@ -1,0 +1,8 @@
+﻿started_at=2026-05-02 21:11:09
+pid=5392
+config=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\configs\exp001_gridworld_candidate_discovery.yaml
+entry=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\entrypoints\run_gridworld_candidate_discovery.py
+outdir=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp001
+stdout=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp001\run.log
+stderr=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp001\run.err
+runner_script=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp001\background_runner.ps1

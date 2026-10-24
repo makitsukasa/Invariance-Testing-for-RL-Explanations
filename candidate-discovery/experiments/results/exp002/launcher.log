@@ -1,0 +1,8 @@
+﻿started_at=2026-05-02 22:26:21
+pid=15612
+config=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\configs\exp002_gridworld_noise_p_sweep.yaml
+entry=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\entrypoints\run_gridworld_candidate_discovery_noise_p_sweep.py
+outdir=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp002
+stdout=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp002\run.log
+stderr=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp002\run.err
+runner_script=C:\Users\tsukasa\Documents\auto-spurious-discovery\experiments\results\exp002\background_runner.ps1

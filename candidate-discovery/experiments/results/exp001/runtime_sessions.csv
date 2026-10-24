@@ -1,0 +1,2 @@
+session_id,started_at,ended_at,elapsed_sec,elapsed_hms,state,completed_seeds,planned_seeds,note
+exp001_gridworld_candidate_discovery-20260502-211112,2026-05-02 21:11:12,2026-05-02 21:13:01,108.528,00:01:48,completed,5,5,Main experiment session.

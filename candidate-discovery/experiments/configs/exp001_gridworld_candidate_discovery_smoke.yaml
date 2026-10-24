@@ -1,0 +1,38 @@
+name: exp001_gridworld_candidate_discovery_smoke
+description: >
+  Smoke test for the GridWorld candidate discovery pipeline.
+  The numbers are not intended for scientific interpretation.
+
+env:
+  spurious_p: 0.05
+  n_noise: 2
+  grid_size: 5
+  max_steps: 20
+
+oracle:
+  n_steps: 200
+
+surrogate:
+  n_experts: 2
+  max_depth: 3
+  distill_epochs: 5
+  n_distill_samples: 64
+
+candidate_discovery:
+  methods:
+    - mutual_info
+    - linear_probe_drop
+    - tree_probe_drop
+    - random
+  top_k: 2
+
+evaluation:
+  seeds: [0]
+  n_eval_samples: 32
+  n_eval_episodes: 5
+
+n_workers: 1
+runtime:
+  estimated_minutes_per_seed: 0.2
+
+output_dir: experiments/results/exp001_smoke
