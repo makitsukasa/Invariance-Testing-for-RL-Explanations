@@ -30,6 +30,7 @@
 | exp026 | Waterbirds 候補発見（CLIP / SSL 表現ベース） | 完了（CLIP は background を 100% top-1、SSL は foreground を 100% top-1 に選択） | **57分32秒** | [→](experiments/results/exp026_waterbirds_clip_ssl_candidate_discovery/) |
 | exp027 | 自動候補発見の `spurious_p` / noise sweep（GridWorld, 30 seeds） | 完了（`linear_probe_drop` が最も安定して強く、top-k は多くの条件で高水準） | **74分30秒** | [→](experiments/results/exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds/) |
 | exp028 | Waterbirds 候補発見（CLIP / 自己教師あり表現, 30 seeds） | 完了（CLIP は background を 100% top-1、自己教師あり表現は foreground を 100% top-1 に選択） | **170分54秒** | [→](experiments/results/exp028_waterbirds_clip_ssl_candidate_discovery_30seeds/) |
+| exp029 | SHAP と Δ を同じモデルで計算する 2×2（GridWorld 10次元、オラクル・サロゲート、30シード） | 完了 同じサロゲート上 Δ=85/120・SHAP=43/120、同じオラクル上 Δ=108/120・SHAP=54/120（McNemar とも p<0.0001）。exp011・exp016 の SHAP 集約の誤りを確認 | **54分05秒**（120 runs、4並列） | [→](experiments/results/exp029_shap_delta_same_model/) |
 ---
 ## 命名規則
 - `expNNN_<説明>` の連番で管理する
@@ -60,6 +61,7 @@
 | `run_waterbirds_representation_candidate_discovery.py` | `exp026_waterbirds_clip_ssl_candidate_discovery` |
 | `run_gridworld_candidate_discovery_noise_p_sweep.py` | `exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds` |
 | `run_waterbirds_representation_candidate_discovery.py` | `exp028_waterbirds_clip_ssl_candidate_discovery_30seeds` |
+| `run_shap_delta_2x2.py`     | `exp029_shap_delta_same_model` |
 ---
 ## 実験と論文章の対応
 | 論文章 | 目的 | 対応実験 |
