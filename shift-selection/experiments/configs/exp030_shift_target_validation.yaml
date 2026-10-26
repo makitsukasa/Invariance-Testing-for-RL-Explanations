@@ -1,0 +1,29 @@
+name: exp030_shift_target_validation
+description: "選定と評価を独立させた、シフト対象の選定の検証（設計：experiments/plans/exp030_shift_target_validation.md）"
+
+env:
+  p_values: [0.0, 0.1, 0.2, 0.3]
+  n_noise: 7
+
+oracle:
+  n_steps: 50000
+
+surrogate:
+  n_experts: 4
+  max_depth: 5
+  distill_epochs: 100
+  n_distill_samples: 10000
+
+evaluation:
+  seeds: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29]
+  n_eval_samples: 2000
+  n_eval_episodes: 200
+
+validation:
+  n_episodes_gt: 500
+  n_episodes_pl: 200
+  n_aa_samples: 2000
+  exp029_results: experiments/results/exp029_shap_delta_same_model/results.csv
+
+n_workers: 4
+output_dir: experiments/results/exp030_shift_target_validation
