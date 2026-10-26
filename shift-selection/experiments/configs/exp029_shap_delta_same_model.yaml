@@ -1,0 +1,28 @@
+name: exp029_shap_delta_same_model
+description: "SHAP と Δ をオラクル・サロゲートの両方で計算する 2×2（exp016 の設定を踏襲）"
+
+env:
+  p_values: [0.0, 0.1, 0.2, 0.3]
+  n_noise: 7
+
+oracle:
+  n_steps: 50000
+
+surrogate:
+  n_experts: 4
+  max_depth: 5
+  distill_epochs: 100
+  n_distill_samples: 10000
+
+shap:
+  n_background: 100
+  n_eval: 300
+  n_samples: 100
+
+evaluation:
+  seeds: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29]
+  n_eval_samples: 2000
+  n_eval_episodes: 200
+
+n_workers: 4
+output_dir: experiments/results/exp029_shap_delta_same_model

@@ -1,0 +1,1687 @@
+Experiment : exp029_shap_delta_same_model
+Seeds      : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+p_values   : [0.0, 0.1, 0.2, 0.3]
+n_workers  : 4
+[DONE 1/120 87s] p=0.0, seed=1: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (83s)
+[DONE 2/120 88s] p=0.0, seed=3: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (83s)
+[DONE 3/120 88s] p=0.0, seed=2: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (83s)
+[DONE 4/120 88s] p=0.0, seed=0: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (83s)
+[DONE 5/120 167s] p=0.0, seed=4: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (79s)
+[DONE 6/120 167s] p=0.0, seed=6: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (79s)
+[DONE 7/120 168s] p=0.0, seed=5: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (80s)
+[DONE 8/120 168s] p=0.0, seed=7: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (80s)
+[DONE 9/120 244s] p=0.0, seed=8: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (78s)
+[DONE 10/120 244s] p=0.0, seed=9: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (77s)
+[DONE 11/120 246s] p=0.0, seed=10: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (78s)
+[DONE 12/120 246s] p=0.0, seed=11: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (78s)
+[DONE 13/120 325s] p=0.0, seed=13: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 14/120 327s] p=0.0, seed=12: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (83s)
+[DONE 15/120 328s] p=0.0, seed=14: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (82s)
+[DONE 16/120 328s] p=0.0, seed=15: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (82s)
+[DONE 17/120 406s] p=0.0, seed=16: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 18/120 408s] p=0.0, seed=17: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 19/120 408s] p=0.0, seed=18: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 20/120 409s] p=0.0, seed=19: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (80s)
+[DONE 21/120 487s] p=0.0, seed=20: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 22/120 488s] p=0.0, seed=21: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (80s)
+[DONE 23/120 489s] p=0.0, seed=23: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (80s)
+[DONE 24/120 490s] p=0.0, seed=22: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 25/120 568s] p=0.0, seed=24: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 26/120 569s] p=0.0, seed=25: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 27/120 570s] p=0.0, seed=26: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 28/120 571s] p=0.0, seed=27: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 29/120 649s] p=0.0, seed=28: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 30/120 649s] p=0.0, seed=29: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (81s)
+[DONE 31/120 667s] p=0.1, seed=0: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (96s)
+[DONE 32/120 676s] p=0.1, seed=1: shap_ora=NG, shap_sur=OK, delta_ora=OK, delta_sur=OK (106s)
+[DONE 33/120 747s] p=0.1, seed=3: shap_ora=NG, shap_sur=OK, delta_ora=OK, delta_sur=OK (98s)
+[DONE 34/120 766s] p=0.1, seed=2: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (117s)
+[DONE 35/120 771s] p=0.1, seed=4: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (104s)
+[DONE 36/120 772s] p=0.1, seed=5: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (96s)
+[DONE 37/120 844s] p=0.1, seed=6: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (97s)
+[DONE 38/120 865s] p=0.1, seed=7: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=OK (99s)
+[DONE 39/120 867s] p=0.1, seed=9: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (95s)
+[DONE 40/120 869s] p=0.1, seed=8: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (98s)
+[DONE 41/120 940s] p=0.1, seed=10: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (97s)
+[DONE 42/120 960s] p=0.1, seed=11: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (95s)
+[DONE 43/120 964s] p=0.1, seed=13: shap_ora=NG, shap_sur=OK, delta_ora=OK, delta_sur=OK (95s)
+[DONE 44/120 964s] p=0.1, seed=12: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (97s)
+[DONE 45/120 1043s] p=0.1, seed=14: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (102s)
+[DONE 46/120 1053s] p=0.1, seed=15: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (93s)
+[DONE 47/120 1056s] p=0.1, seed=17: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (92s)
+[DONE 48/120 1075s] p=0.1, seed=16: shap_ora=NG, shap_sur=OK, delta_ora=OK, delta_sur=OK (111s)
+[DONE 49/120 1139s] p=0.1, seed=18: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (96s)
+[DONE 50/120 1147s] p=0.1, seed=19: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=OK (94s)
+[DONE 51/120 1154s] p=0.1, seed=20: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (98s)
+[DONE 52/120 1171s] p=0.1, seed=21: shap_ora=NG, shap_sur=OK, delta_ora=OK, delta_sur=OK (97s)
+[DONE 53/120 1234s] p=0.1, seed=22: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (95s)
+[DONE 54/120 1243s] p=0.1, seed=23: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (95s)
+[DONE 55/120 1248s] p=0.1, seed=24: shap_ora=NG, shap_sur=OK, delta_ora=OK, delta_sur=OK (95s)
+[DONE 56/120 1266s] p=0.1, seed=25: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (95s)
+[DONE 57/120 1334s] p=0.1, seed=26: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (100s)
+[DONE 58/120 1343s] p=0.1, seed=27: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (100s)
+[DONE 59/120 1352s] p=0.1, seed=28: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (103s)
+[DONE 60/120 1374s] p=0.1, seed=29: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=OK (108s)
+[DONE 61/120 1461s] p=0.2, seed=0: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (127s)
+[DONE 62/120 1469s] p=0.2, seed=1: shap_ora=NG, shap_sur=OK, delta_ora=OK, delta_sur=OK (126s)
+[DONE 63/120 1474s] p=0.2, seed=2: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (123s)
+[DONE 64/120 1496s] p=0.2, seed=3: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (121s)
+[DONE 65/120 1575s] p=0.2, seed=4: shap_ora=OK, shap_sur=OK, delta_ora=OK, delta_sur=OK (114s)
+[DONE 66/120 1581s] p=0.2, seed=5: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (112s)
+[DONE 67/120 1606s] p=0.2, seed=6: shap_ora=NG, shap_sur=NG, delta_ora=NG, delta_sur=NG (132s)
+[DONE 68/120 1663s] p=0.2, seed=7: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (167s)
+[DONE 69/120 1691s] p=0.2, seed=9: shap_ora=NG, shap_sur=NG, delta_ora=NG, delta_sur=OK (110s)
+[DONE 70/120 1695s] p=0.2, seed=8: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (119s)
+[DONE 71/120 1718s] p=0.2, seed=10: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (112s)
+[DONE 72/120 1777s] p=0.2, seed=11: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=NG (115s)
+[DONE 73/120 1808s] p=0.2, seed=12: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (117s)
+[DONE 74/120 1815s] p=0.2, seed=13: shap_ora=NG, shap_sur=OK, delta_ora=OK, delta_sur=OK (121s)
+[DONE 75/120 1833s] p=0.2, seed=14: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (115s)
+[DONE 76/120 1922s] p=0.2, seed=17: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (107s)
+[DONE 77/120 1924s] p=0.2, seed=16: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (116s)
+[DONE 78/120 1930s] p=0.2, seed=15: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (152s)
+[DONE 79/120 1949s] p=0.2, seed=18: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=OK (116s)
+[DONE 80/120 2031s] p=0.2, seed=19: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=NG (108s)
+[DONE 81/120 2038s] p=0.2, seed=21: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (109s)
+[DONE 82/120 2053s] p=0.2, seed=20: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (129s)
+[DONE 83/120 2054s] p=0.2, seed=22: shap_ora=NG, shap_sur=NG, delta_ora=NG, delta_sur=NG (105s)
+[DONE 84/120 2144s] p=0.2, seed=23: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (113s)
+[DONE 85/120 2156s] p=0.2, seed=24: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=NG (118s)
+[DONE 86/120 2159s] p=0.2, seed=25: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (106s)
+[DONE 87/120 2169s] p=0.2, seed=26: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (115s)
+[DONE 88/120 2250s] p=0.2, seed=27: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (106s)
+[DONE 89/120 2266s] p=0.2, seed=28: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (109s)
+[DONE 90/120 2267s] p=0.2, seed=29: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=OK (108s)
+[DONE 91/120 2295s] p=0.3, seed=0: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (126s)
+[DONE 92/120 2369s] p=0.3, seed=1: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=NG (119s)
+[DONE 93/120 2395s] p=0.3, seed=3: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (128s)
+[DONE 94/120 2395s] p=0.3, seed=2: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (130s)
+[DONE 95/120 2414s] p=0.3, seed=4: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=NG (119s)
+[DONE 96/120 2510s] p=0.3, seed=5: shap_ora=NG, shap_sur=NG, delta_ora=NG, delta_sur=NG (141s)
+[DONE 97/120 2511s] p=0.3, seed=6: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=NG (116s)
+[DONE 98/120 2527s] p=0.3, seed=7: shap_ora=NG, shap_sur=NG, delta_ora=NG, delta_sur=OK (132s)
+[DONE 99/120 2534s] p=0.3, seed=8: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=NG (120s)
+[DONE 100/120 2632s] p=0.3, seed=9: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (122s)
+[DONE 101/120 2642s] p=0.3, seed=11: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (115s)
+[DONE 102/120 2645s] p=0.3, seed=10: shap_ora=NG, shap_sur=NG, delta_ora=NG, delta_sur=NG (134s)
+[DONE 103/120 2660s] p=0.3, seed=12: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (126s)
+[DONE 104/120 2762s] p=0.3, seed=13: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=OK (129s)
+[DONE 105/120 2772s] p=0.3, seed=15: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (127s)
+[DONE 106/120 2776s] p=0.3, seed=14: shap_ora=OK, shap_sur=NG, delta_ora=NG, delta_sur=NG (134s)
+[DONE 107/120 2785s] p=0.3, seed=16: shap_ora=NG, shap_sur=NG, delta_ora=NG, delta_sur=NG (125s)
+[DONE 108/120 2880s] p=0.3, seed=17: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (118s)
+[DONE 109/120 2903s] p=0.3, seed=20: shap_ora=NG, shap_sur=NG, delta_ora=NG, delta_sur=NG (118s)
+[DONE 110/120 2908s] p=0.3, seed=19: shap_ora=OK, shap_sur=NG, delta_ora=NG, delta_sur=NG (132s)
+[DONE 111/120 2933s] p=0.3, seed=18: shap_ora=OK, shap_sur=NG, delta_ora=NG, delta_sur=NG (161s)
+[DONE 112/120 3003s] p=0.3, seed=21: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (124s)
+[DONE 113/120 3026s] p=0.3, seed=22: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (122s)
+[DONE 114/120 3034s] p=0.3, seed=23: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=OK (127s)
+[DONE 115/120 3064s] p=0.3, seed=24: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (131s)
+[DONE 116/120 3147s] p=0.3, seed=25: shap_ora=NG, shap_sur=NG, delta_ora=NG, delta_sur=NG (144s)
+[DONE 117/120 3150s] p=0.3, seed=26: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=NG (125s)
+[DONE 118/120 3154s] p=0.3, seed=27: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=OK (119s)
+[DONE 119/120 3182s] p=0.3, seed=28: shap_ora=NG, shap_sur=NG, delta_ora=OK, delta_sur=NG (118s)
+[DONE 120/120 3244s] p=0.3, seed=29: shap_ora=OK, shap_sur=NG, delta_ora=OK, delta_sur=OK (96s)
+
+============================================================
+Seed 0  (spurious_p=0.0)
+============================================================
+  AA=0.912, J_S_train=0.969, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=55s, surrogate_train=5s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 1  (spurious_p=0.0)
+============================================================
+  AA=0.923, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=55s, surrogate_train=5s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 2  (spurious_p=0.0)
+============================================================
+  AA=0.889, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=55s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 3  (spurious_p=0.0)
+============================================================
+  AA=0.935, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=55s, surrogate_train=5s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 4  (spurious_p=0.0)
+============================================================
+  AA=0.913, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=4s, shap_sur=5s
+
+============================================================
+Seed 5  (spurious_p=0.0)
+============================================================
+  AA=0.957, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=53s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 6  (spurious_p=0.0)
+============================================================
+  AA=0.904, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=8s, shap_ora=5s, delta_ora=4s, shap_sur=5s
+
+============================================================
+Seed 7  (spurious_p=0.0)
+============================================================
+  AA=0.908, J_S_train=0.967, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 8  (spurious_p=0.0)
+============================================================
+  AA=0.912, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 9  (spurious_p=0.0)
+============================================================
+  AA=0.951, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 10  (spurious_p=0.0)
+============================================================
+  AA=0.908, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 11  (spurious_p=0.0)
+============================================================
+  AA=0.927, J_S_train=0.969, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 12  (spurious_p=0.0)
+============================================================
+  AA=0.929, J_S_train=0.968, J_oracle_train=0.967
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=53s, surrogate_train=5s, delta_sur=9s, shap_ora=5s, delta_ora=6s, shap_sur=5s
+
+============================================================
+Seed 13  (spurious_p=0.0)
+============================================================
+  AA=0.917, J_S_train=0.968, J_oracle_train=0.967
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=53s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 14  (spurious_p=0.0)
+============================================================
+  AA=0.902, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=53s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=6s, shap_sur=5s
+
+============================================================
+Seed 15  (spurious_p=0.0)
+============================================================
+  AA=0.902, J_S_train=0.968, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=53s, surrogate_train=5s, delta_sur=10s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 16  (spurious_p=0.0)
+============================================================
+  AA=0.908, J_S_train=0.969, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 17  (spurious_p=0.0)
+============================================================
+  AA=0.926, J_S_train=0.969, J_oracle_train=0.969
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=53s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 18  (spurious_p=0.0)
+============================================================
+  AA=0.927, J_S_train=0.969, J_oracle_train=0.969
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=10s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 19  (spurious_p=0.0)
+============================================================
+  AA=0.908, J_S_train=0.969, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 20  (spurious_p=0.0)
+============================================================
+  AA=0.954, J_S_train=0.969, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=9s, shap_ora=5s, delta_ora=6s, shap_sur=5s
+
+============================================================
+Seed 21  (spurious_p=0.0)
+============================================================
+  AA=0.874, J_S_train=0.969, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 22  (spurious_p=0.0)
+============================================================
+  AA=0.895, J_S_train=0.969, J_oracle_train=0.967
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=6s, shap_sur=5s
+
+============================================================
+Seed 23  (spurious_p=0.0)
+============================================================
+  AA=0.947, J_S_train=0.969, J_oracle_train=0.969
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=10s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 24  (spurious_p=0.0)
+============================================================
+  AA=0.906, J_S_train=0.969, J_oracle_train=0.969
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=9s, shap_ora=5s, delta_ora=6s, shap_sur=5s
+
+============================================================
+Seed 25  (spurious_p=0.0)
+============================================================
+  AA=0.891, J_S_train=0.969, J_oracle_train=0.968
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 26  (spurious_p=0.0)
+============================================================
+  AA=0.876, J_S_train=0.967, J_oracle_train=0.967
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=10s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 27  (spurious_p=0.0)
+============================================================
+  AA=0.894, J_S_train=0.969, J_oracle_train=0.969
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=10s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 28  (spurious_p=0.0)
+============================================================
+  AA=0.923, J_S_train=0.969, J_oracle_train=0.969
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 29  (spurious_p=0.0)
+============================================================
+  AA=0.867, J_S_train=0.969, J_oracle_train=0.969
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=9s, shap_ora=5s, delta_ora=5s, shap_sur=5s
+
+============================================================
+Seed 0  (spurious_p=0.1)
+============================================================
+  AA=0.929, J_S_train=0.781, J_oracle_train=0.781
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=19s, shap_ora=4s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 1  (spurious_p=0.1)
+============================================================
+  AA=0.889, J_S_train=0.645, J_oracle_train=0.777
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=28s, shap_ora=5s, delta_ora=12s, shap_sur=5s
+
+============================================================
+Seed 2  (spurious_p=0.1)
+============================================================
+  AA=0.943, J_S_train=0.300, J_oracle_train=0.740
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=53s, surrogate_train=5s, delta_sur=38s, shap_ora=4s, delta_ora=12s, shap_sur=5s
+
+============================================================
+Seed 3  (spurious_p=0.1)
+============================================================
+  AA=0.925, J_S_train=0.779, J_oracle_train=0.780
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=54s, surrogate_train=5s, delta_sur=20s, shap_ora=4s, delta_ora=10s, shap_sur=5s
+
+============================================================
+Seed 4  (spurious_p=0.1)
+============================================================
+  AA=0.872, J_S_train=0.739, J_oracle_train=0.751
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=25s, shap_ora=4s, delta_ora=13s, shap_sur=5s
+
+============================================================
+Seed 5  (spurious_p=0.1)
+============================================================
+  AA=0.959, J_S_train=0.781, J_oracle_train=0.780
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=20s, shap_ora=4s, delta_ora=10s, shap_sur=5s
+
+============================================================
+Seed 6  (spurious_p=0.1)
+============================================================
+  AA=0.910, J_S_train=0.781, J_oracle_train=0.779
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=22s, shap_ora=4s, delta_ora=10s, shap_sur=5s
+
+============================================================
+Seed 7  (spurious_p=0.1)
+============================================================
+  AA=0.885, J_S_train=0.743, J_oracle_train=0.763
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=22s, shap_ora=4s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 8  (spurious_p=0.1)
+============================================================
+  AA=0.957, J_S_train=0.769, J_oracle_train=0.768
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=20s, shap_ora=5s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 9  (spurious_p=0.1)
+============================================================
+  AA=0.929, J_S_train=0.771, J_oracle_train=0.780
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=19s, shap_ora=4s, delta_ora=10s, shap_sur=5s
+
+============================================================
+Seed 10  (spurious_p=0.1)
+============================================================
+  AA=0.943, J_S_train=0.771, J_oracle_train=0.770
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=21s, shap_ora=4s, delta_ora=10s, shap_sur=5s
+
+============================================================
+Seed 11  (spurious_p=0.1)
+============================================================
+  AA=0.947, J_S_train=0.771, J_oracle_train=0.771
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=19s, shap_ora=4s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 12  (spurious_p=0.1)
+============================================================
+  AA=0.952, J_S_train=0.759, J_oracle_train=0.762
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=21s, shap_ora=5s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 13  (spurious_p=0.1)
+============================================================
+  AA=0.914, J_S_train=0.771, J_oracle_train=0.771
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=19s, shap_ora=5s, delta_ora=10s, shap_sur=5s
+
+============================================================
+Seed 14  (spurious_p=0.1)
+============================================================
+  AA=0.886, J_S_train=0.701, J_oracle_train=0.741
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=26s, shap_ora=4s, delta_ora=12s, shap_sur=5s
+
+============================================================
+Seed 15  (spurious_p=0.1)
+============================================================
+  AA=0.913, J_S_train=0.759, J_oracle_train=0.753
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=49s, surrogate_train=5s, delta_sur=19s, shap_ora=4s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 16  (spurious_p=0.1)
+============================================================
+  AA=0.879, J_S_train=0.396, J_oracle_train=0.751
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: noise_4        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=37s, shap_ora=4s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 17  (spurious_p=0.1)
+============================================================
+  AA=0.885, J_S_train=0.760, J_oracle_train=0.756
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=19s, shap_ora=4s, delta_ora=10s, shap_sur=5s
+
+============================================================
+Seed 18  (spurious_p=0.1)
+============================================================
+  AA=0.868, J_S_train=0.764, J_oracle_train=0.755
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=21s, shap_ora=4s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 19  (spurious_p=0.1)
+============================================================
+  AA=0.948, J_S_train=0.772, J_oracle_train=0.771
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=19s, shap_ora=4s, delta_ora=10s, shap_sur=5s
+
+============================================================
+Seed 20  (spurious_p=0.1)
+============================================================
+  AA=0.924, J_S_train=0.760, J_oracle_train=0.758
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=20s, shap_ora=5s, delta_ora=12s, shap_sur=5s
+
+============================================================
+Seed 21  (spurious_p=0.1)
+============================================================
+  AA=0.925, J_S_train=0.762, J_oracle_train=0.759
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=51s, surrogate_train=4s, delta_sur=21s, shap_ora=4s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 22  (spurious_p=0.1)
+============================================================
+  AA=0.900, J_S_train=0.762, J_oracle_train=0.760
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=19s, shap_ora=4s, delta_ora=9s, shap_sur=5s
+
+============================================================
+Seed 23  (spurious_p=0.1)
+============================================================
+  AA=0.866, J_S_train=0.753, J_oracle_train=0.756
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=20s, shap_ora=4s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 24  (spurious_p=0.1)
+============================================================
+  AA=0.928, J_S_train=0.757, J_oracle_train=0.755
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=19s, shap_ora=4s, delta_ora=10s, shap_sur=5s
+
+============================================================
+Seed 25  (spurious_p=0.1)
+============================================================
+  AA=0.970, J_S_train=0.762, J_oracle_train=0.761
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=20s, shap_ora=4s, delta_ora=11s, shap_sur=5s
+
+============================================================
+Seed 26  (spurious_p=0.1)
+============================================================
+  AA=0.892, J_S_train=0.759, J_oracle_train=0.754
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=23s, shap_ora=4s, delta_ora=12s, shap_sur=6s
+
+============================================================
+Seed 27  (spurious_p=0.1)
+============================================================
+  AA=0.956, J_S_train=0.762, J_oracle_train=0.762
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=22s, shap_ora=5s, delta_ora=12s, shap_sur=7s
+
+============================================================
+Seed 28  (spurious_p=0.1)
+============================================================
+  AA=0.930, J_S_train=0.772, J_oracle_train=0.772
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=51s, surrogate_train=6s, delta_sur=21s, shap_ora=5s, delta_ora=13s, shap_sur=7s
+
+============================================================
+Seed 29  (spurious_p=0.1)
+============================================================
+  AA=0.930, J_S_train=0.762, J_oracle_train=0.761
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_1        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=27s, shap_ora=5s, delta_ora=13s, shap_sur=6s
+
+============================================================
+Seed 0  (spurious_p=0.2)
+============================================================
+  AA=0.892, J_S_train=0.606, J_oracle_train=0.583
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_1        (NG)
+  time: oracle_train=62s, surrogate_train=5s, delta_sur=35s, shap_ora=4s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 1  (spurious_p=0.2)
+============================================================
+  AA=0.846, J_S_train=0.588, J_oracle_train=0.584
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=60s, surrogate_train=6s, delta_sur=34s, shap_ora=5s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 2  (spurious_p=0.2)
+============================================================
+  AA=0.905, J_S_train=0.591, J_oracle_train=0.593
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=59s, surrogate_train=6s, delta_sur=32s, shap_ora=4s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 3  (spurious_p=0.2)
+============================================================
+  AA=0.841, J_S_train=0.612, J_oracle_train=0.598
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=60s, surrogate_train=5s, delta_sur=30s, shap_ora=4s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 4  (spurious_p=0.2)
+============================================================
+  AA=0.801, J_S_train=0.616, J_oracle_train=0.624
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: noise_6        (NG)
+  time: oracle_train=54s, surrogate_train=5s, delta_sur=32s, shap_ora=5s, delta_ora=15s, shap_sur=5s
+
+============================================================
+Seed 5  (spurious_p=0.2)
+============================================================
+  AA=0.918, J_S_train=0.593, J_oracle_train=0.587
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_1        (NG)
+  time: oracle_train=54s, surrogate_train=5s, delta_sur=30s, shap_ora=4s, delta_ora=14s, shap_sur=5s
+
+============================================================
+Seed 6  (spurious_p=0.2)
+============================================================
+  AA=0.750, J_S_train=0.395, J_oracle_train=0.582
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: agent_x        (NG)
+  delta_sur        selected: noise_0        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=54s, surrogate_train=5s, delta_sur=44s, shap_ora=4s, delta_ora=20s, shap_sur=5s
+
+============================================================
+Seed 7  (spurious_p=0.2)
+============================================================
+  AA=0.790, J_S_train=-0.418, J_oracle_train=0.573
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=53s, surrogate_train=5s, delta_sur=84s, shap_ora=4s, delta_ora=17s, shap_sur=4s
+
+============================================================
+Seed 8  (spurious_p=0.2)
+============================================================
+  AA=0.797, J_S_train=0.560, J_oracle_train=0.553
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: agent_x        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=53s, surrogate_train=5s, delta_sur=33s, shap_ora=4s, delta_ora=20s, shap_sur=5s
+
+============================================================
+Seed 9  (spurious_p=0.2)
+============================================================
+  AA=0.850, J_S_train=0.575, J_oracle_train=0.590
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: agent_x        (NG)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=53s, surrogate_train=5s, delta_sur=29s, shap_ora=4s, delta_ora=15s, shap_sur=5s
+
+============================================================
+Seed 10  (spurious_p=0.2)
+============================================================
+  AA=0.850, J_S_train=0.597, J_oracle_train=0.610
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_4        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=31s, shap_ora=4s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 11  (spurious_p=0.2)
+============================================================
+  AA=0.883, J_S_train=0.598, J_oracle_train=0.587
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: agent_y        (NG)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=32s, shap_ora=4s, delta_ora=17s, shap_sur=5s
+
+============================================================
+Seed 12  (spurious_p=0.2)
+============================================================
+  AA=0.875, J_S_train=0.500, J_oracle_train=0.602
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=36s, shap_ora=4s, delta_ora=15s, shap_sur=5s
+
+============================================================
+Seed 13  (spurious_p=0.2)
+============================================================
+  AA=0.849, J_S_train=0.416, J_oracle_train=0.580
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: c (spurious)   (OK)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: c (spurious)   (OK)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=38s, shap_ora=4s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 14  (spurious_p=0.2)
+============================================================
+  AA=0.895, J_S_train=0.607, J_oracle_train=0.592
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=53s, surrogate_train=5s, delta_sur=31s, shap_ora=5s, delta_ora=17s, shap_sur=5s
+
+============================================================
+Seed 15  (spurious_p=0.2)
+============================================================
+  AA=0.848, J_S_train=-0.150, J_oracle_train=0.481
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=64s, shap_ora=5s, delta_ora=22s, shap_sur=5s
+
+============================================================
+Seed 16  (spurious_p=0.2)
+============================================================
+  AA=0.903, J_S_train=0.487, J_oracle_train=0.578
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_4        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=35s, shap_ora=4s, delta_ora=15s, shap_sur=5s
+
+============================================================
+Seed 17  (spurious_p=0.2)
+============================================================
+  AA=0.900, J_S_train=0.594, J_oracle_train=0.590
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=27s, shap_ora=5s, delta_ora=14s, shap_sur=5s
+
+============================================================
+Seed 18  (spurious_p=0.2)
+============================================================
+  AA=0.830, J_S_train=0.548, J_oracle_train=0.584
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: noise_2        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=34s, shap_ora=4s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 19  (spurious_p=0.2)
+============================================================
+  AA=0.867, J_S_train=0.604, J_oracle_train=0.609
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=28s, shap_ora=4s, delta_ora=15s, shap_sur=5s
+
+============================================================
+Seed 20  (spurious_p=0.2)
+============================================================
+  AA=0.843, J_S_train=0.239, J_oracle_train=0.401
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_0        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_1        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=42s, shap_ora=4s, delta_ora=21s, shap_sur=5s
+
+============================================================
+Seed 21  (spurious_p=0.2)
+============================================================
+  AA=0.830, J_S_train=0.602, J_oracle_train=0.574
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=27s, shap_ora=4s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 22  (spurious_p=0.2)
+============================================================
+  AA=0.860, J_S_train=0.602, J_oracle_train=0.584
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: noise_2        (NG)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=51s, surrogate_train=4s, delta_sur=26s, shap_ora=4s, delta_ora=14s, shap_sur=5s
+
+============================================================
+Seed 23  (spurious_p=0.2)
+============================================================
+  AA=0.859, J_S_train=0.457, J_oracle_train=0.580
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=33s, shap_ora=4s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 24  (spurious_p=0.2)
+============================================================
+  AA=0.838, J_S_train=0.434, J_oracle_train=0.574
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=37s, shap_ora=4s, delta_ora=17s, shap_sur=5s
+
+============================================================
+Seed 25  (spurious_p=0.2)
+============================================================
+  AA=0.910, J_S_train=0.602, J_oracle_train=0.585
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=28s, shap_ora=4s, delta_ora=15s, shap_sur=5s
+
+============================================================
+Seed 26  (spurious_p=0.2)
+============================================================
+  AA=0.790, J_S_train=0.439, J_oracle_train=0.562
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=35s, shap_ora=4s, delta_ora=16s, shap_sur=5s
+
+============================================================
+Seed 27  (spurious_p=0.2)
+============================================================
+  AA=0.918, J_S_train=0.613, J_oracle_train=0.619
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=27s, shap_ora=4s, delta_ora=14s, shap_sur=5s
+
+============================================================
+Seed 28  (spurious_p=0.2)
+============================================================
+  AA=0.913, J_S_train=0.596, J_oracle_train=0.597
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=29s, shap_ora=4s, delta_ora=15s, shap_sur=5s
+
+============================================================
+Seed 29  (spurious_p=0.2)
+============================================================
+  AA=0.873, J_S_train=0.579, J_oracle_train=0.590
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=52s, surrogate_train=4s, delta_sur=28s, shap_ora=5s, delta_ora=14s, shap_sur=5s
+
+============================================================
+Seed 0  (spurious_p=0.3)
+============================================================
+  AA=0.874, J_S_train=0.395, J_oracle_train=0.455
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_1        (NG)
+  time: oracle_train=51s, surrogate_train=4s, delta_sur=41s, shap_ora=4s, delta_ora=20s, shap_sur=5s
+
+============================================================
+Seed 1  (spurious_p=0.3)
+============================================================
+  AA=0.708, J_S_train=0.459, J_oracle_train=0.467
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_0        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=37s, shap_ora=4s, delta_ora=17s, shap_sur=5s
+
+============================================================
+Seed 2  (spurious_p=0.3)
+============================================================
+  AA=0.820, J_S_train=0.224, J_oracle_train=0.434
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=45s, shap_ora=5s, delta_ora=21s, shap_sur=5s
+
+============================================================
+Seed 3  (spurious_p=0.3)
+============================================================
+  AA=0.841, J_S_train=0.301, J_oracle_train=0.377
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_0        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=44s, shap_ora=5s, delta_ora=20s, shap_sur=5s
+
+============================================================
+Seed 4  (spurious_p=0.3)
+============================================================
+  AA=0.776, J_S_train=0.452, J_oracle_train=0.492
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_0        (NG)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=37s, shap_ora=4s, delta_ora=19s, shap_sur=5s
+
+============================================================
+Seed 5  (spurious_p=0.3)
+============================================================
+  AA=0.762, J_S_train=0.090, J_oracle_train=0.428
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: agent_y        (NG)
+  delta_sur        selected: noise_1        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=49s, surrogate_train=5s, delta_sur=57s, shap_ora=4s, delta_ora=21s, shap_sur=5s
+
+============================================================
+Seed 6  (spurious_p=0.3)
+============================================================
+  AA=0.823, J_S_train=0.475, J_oracle_train=0.463
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: agent_x        (NG)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=34s, shap_ora=4s, delta_ora=19s, shap_sur=5s
+
+============================================================
+Seed 7  (spurious_p=0.3)
+============================================================
+  AA=0.791, J_S_train=0.272, J_oracle_train=0.465
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: agent_y        (NG)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=47s, shap_ora=4s, delta_ora=21s, shap_sur=5s
+
+============================================================
+Seed 8  (spurious_p=0.3)
+============================================================
+  AA=0.804, J_S_train=0.461, J_oracle_train=0.429
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: agent_x        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=49s, surrogate_train=4s, delta_sur=36s, shap_ora=4s, delta_ora=21s, shap_sur=5s
+
+============================================================
+Seed 9  (spurious_p=0.3)
+============================================================
+  AA=0.798, J_S_train=0.301, J_oracle_train=0.467
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=40s, shap_ora=4s, delta_ora=18s, shap_sur=5s
+
+============================================================
+Seed 10  (spurious_p=0.3)
+============================================================
+  AA=0.826, J_S_train=0.235, J_oracle_train=0.416
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: agent_y        (NG)
+  delta_sur        selected: agent_y        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=48s, shap_ora=4s, delta_ora=21s, shap_sur=5s
+
+============================================================
+Seed 11  (spurious_p=0.3)
+============================================================
+  AA=0.821, J_S_train=0.451, J_oracle_train=0.461
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=51s, surrogate_train=4s, delta_sur=33s, shap_ora=4s, delta_ora=18s, shap_sur=5s
+
+============================================================
+Seed 12  (spurious_p=0.3)
+============================================================
+  AA=0.811, J_S_train=0.224, J_oracle_train=0.443
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=43s, shap_ora=4s, delta_ora=19s, shap_sur=5s
+
+============================================================
+Seed 13  (spurious_p=0.3)
+============================================================
+  AA=0.832, J_S_train=0.274, J_oracle_train=0.407
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_5        (NG)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=44s, shap_ora=4s, delta_ora=21s, shap_sur=5s
+
+============================================================
+Seed 14  (spurious_p=0.3)
+============================================================
+  AA=0.789, J_S_train=0.318, J_oracle_train=0.305
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: noise_0        (NG)
+  delta_sur        selected: noise_4        (NG)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=46s, shap_ora=5s, delta_ora=23s, shap_sur=5s
+
+============================================================
+Seed 15  (spurious_p=0.3)
+============================================================
+  AA=0.789, J_S_train=0.404, J_oracle_train=0.383
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: agent_x        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=41s, shap_ora=4s, delta_ora=22s, shap_sur=5s
+
+============================================================
+Seed 16  (spurious_p=0.3)
+============================================================
+  AA=0.755, J_S_train=0.332, J_oracle_train=0.589
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: agent_y        (NG)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=41s, shap_ora=4s, delta_ora=18s, shap_sur=5s
+
+============================================================
+Seed 17  (spurious_p=0.3)
+============================================================
+  AA=0.877, J_S_train=0.464, J_oracle_train=0.464
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=36s, shap_ora=4s, delta_ora=18s, shap_sur=5s
+
+============================================================
+Seed 18  (spurious_p=0.3)
+============================================================
+  AA=0.760, J_S_train=-0.018, J_oracle_train=0.048
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: noise_0        (NG)
+  delta_ora        selected: agent_y        (NG)
+  delta_sur        selected: noise_1        (NG)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: noise_0        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=64s, shap_ora=4s, delta_ora=32s, shap_sur=5s
+
+============================================================
+Seed 19  (spurious_p=0.3)
+============================================================
+  AA=0.776, J_S_train=0.219, J_oracle_train=0.374
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: noise_1        (NG)
+  delta_sur        selected: noise_0        (NG)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_6        (NG)
+  time: oracle_train=52s, surrogate_train=5s, delta_sur=45s, shap_ora=5s, delta_ora=22s, shap_sur=5s
+
+============================================================
+Seed 20  (spurious_p=0.3)
+============================================================
+  AA=0.801, J_S_train=0.481, J_oracle_train=0.481
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: agent_x        (NG)
+  delta_sur        selected: agent_x        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=51s, surrogate_train=5s, delta_sur=35s, shap_ora=5s, delta_ora=18s, shap_sur=5s
+
+============================================================
+Seed 21  (spurious_p=0.3)
+============================================================
+  AA=0.824, J_S_train=0.465, J_oracle_train=0.455
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: agent_y        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=42s, shap_ora=4s, delta_ora=19s, shap_sur=5s
+
+============================================================
+Seed 22  (spurious_p=0.3)
+============================================================
+  AA=0.750, J_S_train=0.383, J_oracle_train=0.389
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: agent_y        (NG)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_0        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=38s, shap_ora=4s, delta_ora=20s, shap_sur=5s
+
+============================================================
+Seed 23  (spurious_p=0.3)
+============================================================
+  AA=0.829, J_S_train=0.240, J_oracle_train=0.417
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=44s, shap_ora=4s, delta_ora=19s, shap_sur=5s
+
+============================================================
+Seed 24  (spurious_p=0.3)
+============================================================
+  AA=0.774, J_S_train=0.256, J_oracle_train=0.411
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=50s, surrogate_train=4s, delta_sur=47s, shap_ora=4s, delta_ora=21s, shap_sur=5s
+
+============================================================
+Seed 25  (spurious_p=0.3)
+============================================================
+  AA=0.837, J_S_train=0.138, J_oracle_train=0.386
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: agent_x        (NG)
+  delta_sur        selected: agent_x        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: noise_1        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=58s, shap_ora=4s, delta_ora=22s, shap_sur=5s
+
+============================================================
+Seed 26  (spurious_p=0.3)
+============================================================
+  AA=0.751, J_S_train=0.360, J_oracle_train=0.434
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_2        (NG)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_y        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=41s, shap_ora=4s, delta_ora=20s, shap_sur=5s
+
+============================================================
+Seed 27  (spurious_p=0.3)
+============================================================
+  AA=0.800, J_S_train=0.470, J_oracle_train=0.478
+  shap_ora         selected: agent_y        (NG)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: agent_y        (NG)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: noise_2        (NG)
+  time: oracle_train=50s, surrogate_train=5s, delta_sur=38s, shap_ora=4s, delta_ora=18s, shap_sur=5s
+
+============================================================
+Seed 28  (spurious_p=0.3)
+============================================================
+  AA=0.847, J_S_train=0.407, J_oracle_train=0.427
+  shap_ora         selected: agent_x        (NG)
+  shap_sur         selected: agent_y        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: noise_0        (NG)
+  shap_ora_pred    selected: agent_x        (NG)
+  shap_sur_pred    selected: agent_y        (NG)
+  shap_ora_legacy  selected: c (spurious)   (OK)
+  time: oracle_train=49s, surrogate_train=4s, delta_sur=38s, shap_ora=4s, delta_ora=18s, shap_sur=4s
+
+============================================================
+Seed 29  (spurious_p=0.3)
+============================================================
+  AA=0.847, J_S_train=0.320, J_oracle_train=0.409
+  shap_ora         selected: c (spurious)   (OK)
+  shap_sur         selected: agent_x        (NG)
+  delta_ora        selected: c (spurious)   (OK)
+  delta_sur        selected: c (spurious)   (OK)
+  shap_ora_pred    selected: c (spurious)   (OK)
+  shap_sur_pred    selected: agent_x        (NG)
+  shap_ora_legacy  selected: agent_x        (NG)
+  time: oracle_train=44s, surrogate_train=3s, delta_sur=28s, shap_ora=3s, delta_ora=14s, shap_sur=3s
+
+Total wall time: 3245s
+Results: C:\Users\tsukasa\Documents\Invariance-Testing-for-RL-Explanations\shift-selection\experiments\results\exp029_shap_delta_same_model
