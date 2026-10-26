@@ -31,6 +31,7 @@
 | exp027 | 自動候補発見の `spurious_p` / noise sweep（GridWorld, 30 seeds） | 完了（`linear_probe_drop` が最も安定して強く、top-k は多くの条件で高水準） | **74分30秒** | [→](experiments/results/exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds/) |
 | exp028 | Waterbirds 候補発見（CLIP / 自己教師あり表現, 30 seeds） | 完了（CLIP は background を 100% top-1、自己教師あり表現は foreground を 100% top-1 に選択） | **170分54秒** | [→](experiments/results/exp028_waterbirds_clip_ssl_candidate_discovery_30seeds/) |
 | exp029 | SHAP と Δ を同じモデルで計算する 2×2（GridWorld 10次元、オラクル・サロゲート、30シード） | 完了 同じサロゲート上 Δ=85/120・SHAP=43/120、同じオラクル上 Δ=108/120・SHAP=54/120（McNemar とも p<0.0001）。exp011・exp016 の SHAP 集約の誤りを確認 | **54分05秒**（120 runs、4並列） | [→](experiments/results/exp029_shap_delta_same_model/) |
+| exp030 | シフト対象の選定と診断手順全体の検証（GridWorld 10次元、環境側の分布シフト 20 条件、30シード） | 完了 H1（Δ サロゲートの hit@1=87/117、ランダム期待値 21.6）・H2（手順全体の成功=11/120、期待値 1.4）とも支持。ただし Δ がランダムを上回るのは p≤0.2、手順全体の検出率は 9%（段階1と AA>0.9 の条件による） | **3時間07分54秒**（120 runs、4並列） | [→](experiments/results/exp030_shift_target_validation/) |
 ---
 ## 命名規則
 - `expNNN_<説明>` の連番で管理する
@@ -62,6 +63,7 @@
 | `run_gridworld_candidate_discovery_noise_p_sweep.py` | `exp027_gridworld_candidate_discovery_noise_p_sweep_30seeds` |
 | `run_waterbirds_representation_candidate_discovery.py` | `exp028_waterbirds_clip_ssl_candidate_discovery_30seeds` |
 | `run_shap_delta_2x2.py`     | `exp029_shap_delta_same_model` |
+| `run_shift_target_validation.py` | `exp030_shift_target_validation` |
 ---
 ## 実験と論文章の対応
 | 論文章 | 目的 | 対応実験 |
